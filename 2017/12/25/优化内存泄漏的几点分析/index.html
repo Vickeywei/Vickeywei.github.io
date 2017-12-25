@@ -164,11 +164,11 @@
     </div>
     
     <div class="post-body post-content">
-          <p style="text-indent:50px">过早的优化代码是万恶之源，我们要保证在功能全部开发完成后，测试所有功能测试一遍之后，如果没有什么重大问题就可以开始优化了。建议大家一般都是切新分支去优化，这样可以避免如果有错误可以放弃分支。不影响发包上线!</p>
+          <p style="text-indent:20px;color: ">过早的优化代码是万恶之源，我们要保证在功能全部开发完成后，测试所有功能测试一遍之后，如果没有什么重大问题就可以开始优化了。建议大家一般都是切新分支去优化，这样可以避免如果有错误可以放弃分支。不影响发包上线!</p><br>  <h1 style="margin-bottom: 5px;margin-top: 5px">1.对于CoreFoundation框架</h1><br>  <p style="margin: 0px 0px 0px 0px;padding: 0px text-indent:20 px">在CoreFoundation的使用过程中常常我们会看到一些create，copy，mutablecopy，alloc等关键字。我们要时刻谨记当遇到这些关键字后，我们的头脑必须保持清醒，这些关键字分配的内存是需要我们手动释放的。</p>
 
-<p>  </p><h1>1.对于CoreFoundation框架</h1><br>  在CoreFoundation的使用过程中常常我们会看到一些create，copy，mutablecopy，alloc等关键字。我们要时刻谨记当遇到这些关键字后，我们的头脑必须保持清醒，这些关键字分配的内存是需要我们手动释放的。<p></p>
-  <table><br>      <tr>1.CFUUIDRef uuid = CFUUIDCreate(NULL);</tr><br>      <tr>2.appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</tr><br>    <tr>3.CFRelease(uuid);</tr><br>    <tr>4.CFRelease(appUID);</tr><br><br>  </table>
+  <div class="example" style="width: 98%;color: #000;margin: 0 0 5px 0;padding: 5px;border: 1px color #d4d4d4 solid;background-image: linear-gradient(#fff,#e5eecc 100px)"><br>      <h2 class="example" style="color: #617f10;background-color: transparent;margin-top: 0px">实例</h2><br>      <div class="example_code"><br><br>          <div class="hl-main"><br>              <span style="color: #05a">CFUUIDRef uuid = CFUUIDCreate(NULL);</span><br>              <span style="color: #05a">appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</span><br>              <span style="color: #05a">CFRelease(uuid);</span><br>              <span style="color: #05a">CFRelease(appUID);</span><br>          </div><br>      </div>
 
+<p>  </p></div><p></p>
 
     </div>
 
