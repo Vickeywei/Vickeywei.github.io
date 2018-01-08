@@ -26,7 +26,7 @@
     <!--Title-->
 
 
-<title>Tag: HTTP | Vicky的技术博客</title>
+<title>react第一节 | Vicky的技术博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml">
@@ -37,7 +37,11 @@
     
 
 
+    <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
 
 
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
@@ -126,37 +130,167 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <h3> 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="react第一节">
+            
+            react第一节
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>React</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            React
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/01/08</span>
+    </span>
+</div>
 
-    HTTP 
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="配置React开发环境"><a href="#配置React开发环境" class="headerlink" title="配置React开发环境"></a>配置React开发环境</h2><p>我们选择使用HomeBrew来安装node</p>
+<ul>
+<li>安装homebrew</li>
+</ul>
+<pre><code class="Ruby">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+</code></pre>
+<ul>
+<li>更新brew</li>
+</ul>
+<pre><code class="Ruby">brew update
+</code></pre>
+<ul>
+<li>配置环境变量</li>
+</ul>
+<pre><code class="Ruby">vim ./bash.profile
+export PATH=<span class="string">"/usr/local/bin:$PATH"</span>
+esc,shift+wq退出并保存
+</code></pre>
+<ul>
+<li>为了保证你的环境中没有node的参与文件,可以通过以下命令完全删除node</li>
+</ul>
+<pre><code class="sudo">sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}
+</code></pre>
+<ul>
+<li>安装node</li>
+</ul>
+<pre><code class="node">brew link node
+brew uninstall node
+brew install node
+</code></pre>
+<ul>
+<li>测试安装是否成功</li>
+</ul>
+<pre><code class="node">npm install -g grunt-cli
+</code></pre>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="mkdir">mkdir react-demo
+cd react-demo
+npm install -g create-react-app
+create-react-app my-app
+
+cd my-app
+npm start
+</code></pre>
+<p>这样就可以看到运行起来的react项目</p>
+<h2 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h2><p>删除APP.js,App.css,App.test.js,index.css,logo.svg,registerServiceWorker.js 文件<br>修改index.js文件</p>
+<pre><code class="react">import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
 
 
-</h3>
+ReactDOM.render(
+    &lt;h1&gt;Hello world&lt;/h1&gt;, 
+    document.getElementById(&apos;root&apos;)
+);
+npm start 运行
+</code></pre>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>上面的这段代码会渲染一个id叫做root的dom元素,所以在index.html中我们会看到</p>
+<pre><code class="react">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>因为我是iOS的开发工作者,我的理解是,html文件向我们提供了一个父视图View也就是这里的div,然后我们根据设置这个View的id来让外界访问.然后在index.js文件中我们创建了一个子视图,并添加到div这个父视图上.就显示到了html页面上.</p>
+<h2 id="开始学习"><a href="#开始学习" class="headerlink" title="开始学习"></a>开始学习</h2><p>本人从未开发过react项目一切都是从零开始,选择编辑器开发react的工具有很多,有IDEA,WebStrom,SublimeText等.具体安装什么插件,网上都有教程,这里不做详细说明,可以按照个人喜好安装.</p>
+<p>我选择是idea来编辑项目,因为公司的前端小伙伴都是使用这个编辑器,方便学习和交流,我也推荐大家按照公司小伙伴的喜好来使用编辑器,这样有什么不懂的更方便询问和学习.</p>
+<h2 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h2><p>我对jsx    的理解就是JavaScript + XML组成JSX<br>第一步使用JSX语法修改刚才的项目</p>
+<pre><code class="react">const element = &lt;h1&gt;Hello world!&lt;/h1&gt;;
+ReactDOM.render(
+    element,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>第一行的代码看起来既不是字符串也不是html,而他正式这个react的主角:JSX,也就是js的语法扩展,在OC中也有很多语法扩展.说到这里我就说一下iOS中的语法扩展GCC扩展语法,为什么这样写,这样写有什么好处</p>
+<p>优点:<br>1.如果不是通过XIB来定义控件我们经常会看到大量的定义UI界面的代码,如果开发这的代码规范有很大的纰漏,那样我相信你们会很发燥,因为可能要到处找代码,例如这个控件的颜色到底在哪里设置的.但是通过这样的语法我们就可以将代码放在大括号内部,是代码更加清晰整洁.<br>2.如果你看到这样的代码,是不是也会认为这样的代码逼格会高一点啦.</p>
+<pre><code class="Objective-C">UIButton *secondButton = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(100, 100, 100, 100);
+        button;
+    });
+</code></pre>
+<p>回到JSX的话题.</p>
+<pre><code class="React">let fommat = (user)=&gt; user.firstName + &apos;&apos; + user.lastName;
 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title"> 
-                    <a href="/2018/01/05/HTTP-DNS解析-DNS劫持/">HTTP-DNS解析-DNS劫持</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年01月05日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                HTTP/DNS解析/DNS劫持HTTP请求HTTP全名超文本传输协议，是一种用于分布式，协作式的超媒体信息系统的应用层协议。
-HTTP请求行：请求地址和协议版本
-HTTP请求头：
-请求头中包含：Accept(能够接受的回应内容类型)...
-            </p> 
+
+const  user = {
+
+    firstName:&apos;wei&apos;,
+    lastName:&apos;qi&apos;
+
+};
+
+const  element = (
+    &lt;h1&gt;
+        Hello {fommat(user)}!
+    &lt;/h1&gt;
+);
+
+
+ReactDOM.render(
+    element,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>划重点:第一行代码使用了箭头函数,后面的就是JSX的基础使用</p>
+<p>这次是我学习react的第一课,希望大家多多谅解!如果有志同道合者希望加入我的队列.谢谢!</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处<a href="" target="_blank"></a>
+            
         </div>
-    </article>
- 
+        <div>
+            
+        </div>  
+    </div>
+</article>
 
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/01/05/HTTP-DNS解析-DNS劫持/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
 
