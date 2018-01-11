@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift"/>
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>React第三课 | Vicky的技术博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+    <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+    <div class="hide">
+    	<script src="https://s4.cnzz.com/z_stat.php?id=1271576829&web_id=1271576829" language="JavaScript"></script>
+    </div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner2.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 在风雨中砥砺前行! </h2>
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/Objective-C/"><i class="fa fa-fw "></i>Objective-C</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/Swift/"><i class="fa fa-fw "></i>Swift</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/React/"><i class="fa fa-fw "></i>React</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/工具/"><i class="fa fa-fw "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/about/"><i class="fa fa-fw "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="React第三课">
+            
+            React第三课
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>React</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            React
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/01/11</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="函数组件和类定义组件"><a href="#函数组件和类定义组件" class="headerlink" title="函数组件和类定义组件"></a>函数组件和类定义组件</h1><p>组件:在react和react-native中通常会把可复用的部件封装起来,构建成一个单独的组件.<br>组件从概念上看上去就像一个函数,他可以接收任意输入的值称之为(props)属性.并返回一个需要在页面上显示的React元素</p>
+<ul>
+<li>函数定义组件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Student(props) &#123;</span><br><span class="line">	return &lt;h1&gt;hello, &#123;props.name&#125;&lt;/h1&gt;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;Student name = &quot;vicky&quot;/&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>上面的函数就是一个有效的React组件,它接收一个props的对象参数,并返回一个有效的React元素.我们称之为函数定义组件</p>
+<ul>
+<li>类定义组件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Student extends React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;Student name = &quot;weiqi&quot;/&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>看到Class这个关键字,我们很清楚的知道这个是一个类,不论是在java,oc,还是swift他都指代一个类.所以我们通过创建一个类来完成定义在类的render()函数中返回一个React元素,然后将元素添加到界面上显示.在render函数中我们看到了this.props.name,this代表是这个类本身.而props是这个类的属性,那么是具体属性的名称.</p>
+<p>以一个上边为图片下边为文字的button来用oc的语言特征进行解释解释(强行扯上关系):比如封装一个上图下文的button</p>
+<ul>
+<li>函数形式:</li>
+</ul>
+<p>我们可以通过在需要用到的地方以函数的形式构建,然后通过函数返回值返回需要的结果,添加到页面上显示代码在这里就不写了,没什么技术含量.</p>
+<ul>
+<li>类形式</li>
+</ul>
+<p>创建一个继承自UIbutton的子类,然后在init方法中构建自己需要的页面样式.在需要使用的地方初始化,加载.</p>
+<p>上面我举的是一个很微不足道的例子,只是为了做解释说明,方便大家记忆理解,同时也是为了方便我记忆理解.可能让你单独记忆这个概念,可能记不住,但是你一旦把他和你的生活上经常干的事扯上关系,那就不算记忆,只是做一些扩展而已.就变得简单多了.</p>
+<h1 id="组件渲染"><a href="#组件渲染" class="headerlink" title="组件渲染"></a>组件渲染</h1><p>从上面的函数定义组件分析组件渲染:</p>
+<ul>
+<li>组件<student name="vicky"> 元素调用的ReactDom的render函数</student></li>
+<li>React将{name:”vicky”}作为Student的props传递给了Student组件</li>
+<li>在Student组件将函数结果返回<figure class="highlight plain"><figcaption><span>vicky```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ReactDom将Dom更新为```&lt;h1&gt;hello, vicky&lt;/h1&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>介绍俩个概念:</p>
+<ul>
+<li>Dom标签:我们前面使用过的在ReactDom.render函数中直接使用的<h1>标签,作为React的元素</h1></li>
+<li>自定义组件:通过函数或类来自定义的组件</li>
+</ul>
+<h1 id="组合组件"><a href="#组合组件" class="headerlink" title="组合组件"></a>组合组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Student extends React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class App extends  React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;div&gt;</span><br><span class="line">				&lt;Student name = &quot;vicky&quot;/&gt;</span><br><span class="line">				&lt;Student name = &quot;张三&quot;/&gt;</span><br><span class="line">				&lt;Student name = &quot;李四&quot;/&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;App /&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>理解:就是在一个组件内部可已使用另外的一个组件.工程中中就是在一个自定义的子视图中使用另外的一个自定义子视图控件</p>
+<p>重点:一个新的React程序的顶部一般都是App组件,如果要讲React集成到现有的应用程序中,则可以从下而上使用小组件作为开始,然后逐渐向顶层扩展.</p>
+<p>警告:组件的返回值只能有一个根元素.</p>
+<h1 id="提取组件"><a href="#提取组件" class="headerlink" title="提取组件"></a>提取组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Comment(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;Comment&quot;&gt;</span><br><span class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</span><br><span class="line">        &lt;img className=&quot;Avatar&quot;</span><br><span class="line">          src=&#123;props.author.avatarUrl&#125;</span><br><span class="line">          alt=&#123;props.author.name&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</span><br><span class="line">          &#123;props.author.name&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</span><br><span class="line">        &#123;props.text&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</span><br><span class="line">        &#123;formatDate(props.date)&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看到上面的代码有什么感受,好多div啊,而且嵌套了好多层啊.现在让我们一起讲上面的代码进行提取组件,然后使代码变得清晰.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function Avatar(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;img className=&quot;Avatar&quot; </span><br><span class="line">			 src=&#123;props.author.url&#125;</span><br><span class="line">			 alt=&#123;props.author.name&#125;</span><br><span class="line">		/&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function UserInfo(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;UserInfU&quot;&gt;</span><br><span class="line">			&#123;props.author.name&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function CommentText(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment-text&quot;&gt;</span><br><span class="line">			&#123;props.text&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function CommentDate(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment-date&quot;&gt;</span><br><span class="line">			&#123;formatDate(props.date)&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">		</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Comment(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment&quot;&gt;</span><br><span class="line">			&lt;div className=&quot;UserInfo&quot;&gt;</span><br><span class="line">				&lt;Avatar user = &#123;props.author&#125; /&gt;</span><br><span class="line">				&lt;UserInfo user = &#123;props.author&#125;/&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;CommentText text = &#123;props.text&#125;/&gt;</span><br><span class="line">			&lt;CommentDate date = &#123;props.date&#125;/&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>拆解之后有什么好处:</p>
+<p>1.代码的可读性较高</p>
+<p>2.拆解出来的组件可以进行复用</p>
+<p>3.可以分别拆解到不同的文件,减少单独文件的代码量</p>
+<h1 id="props属性和只读属性"><a href="#props属性和只读属性" class="headerlink" title="props属性和只读属性"></a>props属性和只读属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function sum(a,b) &#123;</span><br><span class="line"> return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数并没有修改输入值得本身,当传入值相同时结果是相同的<br>这种函数较重纯函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function withdraw(account, amount) &#123;</span><br><span class="line">  account.total -= amount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数对它自身输入的值进行了-=操作,输入值本身发生了变化.</p>
+<p>##重点:所有的React组件必须(必须)(必须)像纯函数那样使用它们的props</p>
+<h1 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h1><p>初级类定义:刚开始学就这样了,后面学习到了慢慢改进</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">//首先引入React和PropTypes</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import PropTypes from &apos;prop-types&apos;;</span><br><span class="line"></span><br><span class="line">//开始定义Student类</span><br><span class="line"></span><br><span class="line">class Student extends React.Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123;</span><br><span class="line">            name,</span><br><span class="line">            age,</span><br><span class="line">            star,</span><br><span class="line">            sex,</span><br><span class="line">            phone,</span><br><span class="line">            account,</span><br><span class="line">            headImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; = this.props;</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    name:&#123;name&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                   age: &#123;age&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    star:&#123;star&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    sex:&#123;sex&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                   phone: &#123;phone&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    account:&#123;account&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;img src= &#123;headImage&#125;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//到底我们需要哪些属性啦?按需求来定</span><br><span class="line"></span><br><span class="line">Student.defaultProps = &#123;</span><br><span class="line">    name: &quot;vicky&quot;,</span><br><span class="line">    age: 25,</span><br><span class="line">    star: &quot;摩羯座&quot;,</span><br><span class="line">    sex: 1, //1:男性,2:女性,3:未知</span><br><span class="line">    phone: 119110120,</span><br><span class="line">    account: 513961360,</span><br><span class="line">    headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//检查数据类型,如果数据类型不匹配会进行报错提醒</span><br><span class="line">Student.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string.isRequired,</span><br><span class="line">    age: PropTypes.number.isRequired,</span><br><span class="line">    star: PropTypes.string.isRequired,</span><br><span class="line">    sex: PropTypes.number.isRequired,</span><br><span class="line">    phone: PropTypes.number.isRequired,</span><br><span class="line">    account: PropTypes.number.isRequired,</span><br><span class="line">    headImage: PropTypes.string.isRequired</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//export  default Student;</span><br></pre></td></tr></table></figure>
+<p>然后在index.js引入文件并渲染组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line"></span><br><span class="line">	&lt;Student name=&quot;李四&quot; age=&quot;56&quot; star=&quot;白羊&quot; sex=&quot;2&quot; phone=&quot;122222222&quot; account=&quot;2222222&quot; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>然后运行发现报错了<br>报错大概是这样的 export default was not found ./Stundet到底什么意思啦就是在类定义组件并且分文件之后要将自己暴露出来,在类定义的最后一行引入这行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export  default Student;</span><br></pre></td></tr></table></figure>
+<p>然后在运行发现还有报错:<br>这次就不展示什么报错了,就是类型检查报错,因为我们声明了很多属性的类型为number类型,但是我们用string赋值肯定会报错的.</p>
+<p>修改完后的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line"></span><br><span class="line">	&lt;Student name=&quot;李四&quot; age=&#123;56&#125; star=&quot;白羊&quot; sex=&#123;2&#125; phone=&#123;122222222&#125; account=&#123;2222222&#125; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>报错是消失了,但是图片和名字还是没有显示,原来是属性名写错了,sorry低级失误.</p>
+<ul>
+<li>添加属性的方法</li>
+</ul>
+<p>可以再使用组件时直接添加,例如<student name="张三">,然后在组件内部return是用this.props.name来获取属性值</student></p>
+<ul>
+<li>添加属性默认值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Student.defaultProps = &#123;</span><br><span class="line">    name: &quot;vicky&quot;,</span><br><span class="line">    age: 25,</span><br><span class="line">    star: &quot;摩羯座&quot;,</span><br><span class="line">    sex: 1, //1:男性,2:女性,3:未知</span><br><span class="line">    phone: 119110120,</span><br><span class="line">    account: 513961360,</span><br><span class="line">    headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检查数据类型,如果数据类型不匹配会进行报错提醒</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Student.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string.isRequired,</span><br><span class="line">    age: PropTypes.number.isRequired,</span><br><span class="line">    star: PropTypes.string.isRequired,</span><br><span class="line">    sex: PropTypes.number.isRequired,</span><br><span class="line">    phone: PropTypes.number.isRequired,</span><br><span class="line">    account: PropTypes.number.isRequired,</span><br><span class="line">    headImage: PropTypes.string.isRequired</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>render函数的使用属性的多种方法,常见的就是this.props.name这种,还有在一些人的代码中经常会看到这样的代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const &#123;</span><br><span class="line">            name,</span><br><span class="line">            age,</span><br><span class="line">            star,</span><br><span class="line">            sex,</span><br><span class="line">            phone,</span><br><span class="line">            account,</span><br><span class="line">            headImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; = this.props;</span><br></pre></td></tr></table></figure>
+<p>简化赋值操作.</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处<a href="" target="_blank"></a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/01/10/React第二课/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>鄙人博客网站创建于2017年12月22日,在未来的日子里 <br/>
+网站连接：<a href="http://blog.vicky.org.cn/" title="fo rk me" target="_blank">Vicky的技术博客</a> <br/>
+<hr/>也可直接访问本人github仓库,希望能够在分享的同时得到长足的发展!<br/>github仓库：<a href="https://github.com/Vickeywei">进入Github</a>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="https://github.com/Vickeywei" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:17682309322@163.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="https://weibo.com/u/5777774847/home?leftnav=1" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="http://qm.qq.com/cgi-bin/qm/qr?k=Pgn5Zyt6lymhimVnArIRhim1_wCN4kTo" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/"><i class="fa" aria-hidden="true">Objective-C</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/"><i class="fa" aria-hidden="true">React</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/"><i class="fa" aria-hidden="true">Swift</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/优化/"><i class="fa" aria-hidden="true">优化</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/"><i class="fa" aria-hidden="true">资源</i></a><span class="category-list-count">2</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">存档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/"><i class="fa" aria-hidden="true">January 2018</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/"><i class="fa" aria-hidden="true">December 2017</i></a><span class="archive-list-count">6</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Objective-C/" style="font-size: 15px;">Objective-C</a> <a href="/tags/React/" style="font-size: 20px;">React</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/资源/" style="font-size: 15px;">资源</a>
+    </div>
+  </div>
+
+
+        
+        
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Vicky <a href="https://github.com/Vickeywei" class="copyright-links" target="_blank" rel="nofollow">GitHub</a>
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
