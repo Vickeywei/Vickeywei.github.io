@@ -26,7 +26,7 @@
     <!--Title-->
 
 
-<title>Archives | Vicky的技术博客</title>
+<title>mysql安装 | Vicky的技术博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml">
@@ -37,7 +37,11 @@
     
 
 
+    <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
 
 
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
@@ -129,81 +133,77 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年 月</h1>
-        
-          <li class="post-items" _href="/2018/03/02/mysql安装/">
-            <h3 class="post-item-title">
-            	<a href="/2018/03/02/mysql安装/"> mysql安装 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/03/01/面试总结/">
-            <h3 class="post-item-title">
-            	<a href="/2018/03/01/面试总结/"> 面试总结 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/26/红海行动/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/26/红海行动/"> 红海行动 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/24/HomeBrew与Ruby更新/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/24/HomeBrew与Ruby更新/"> HomeBrew与Ruby更新 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/07/switf/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/07/switf/"> switf </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/01/15/Xcode之Architectures设置/">
-            <h3 class="post-item-title">
-            	<a href="/2018/01/15/Xcode之Architectures设置/"> Xcode之Architectures设置 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/01/11/React第三课/">
-            <h3 class="post-item-title">
-            	<a href="/2018/01/11/React第三课/"> React第三课 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/01/10/React第二课/">
-            <h3 class="post-item-title">
-            	<a href="/2018/01/10/React第二课/"> React第二课 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/01/08/react第一节/">
-            <h3 class="post-item-title">
-            	<a href="/2018/01/08/react第一节/"> react第一课 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/01/05/HTTP-DNS解析-DNS劫持/">
-            <h3 class="post-item-title">
-            	<a href="/2018/01/05/HTTP-DNS解析-DNS劫持/"> HTTP-DNS解析-DNS劫持 </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="mysql安装">
+            
+            mysql安装
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>工具</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            工具
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/02</span>
+    </span>
 </div>
 
-    <nav class="pagination" role="navigation">
-        <div id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class='fa fa-angle-right'></i></a>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>mac 安装mysql</p>
+<p>1.安装<a href="http://blog.vicky.org.cn/2018/02/24/HomeBrew与Ruby更新/" target="_blank" rel="noopener">homebrew</a></p>
+<p>2.brew uninstall mysql</p>
+<p>3.brew install mysql</p>
+<p>4.mysql -u root -p</p>
+<p>5.如果出现报错执行</p>
+<p><code>unset TMPDIR</code></p>
+<p><code>bash mysql_install_db --verbose --user=root
+ --basedir=&quot;$(brew --prefix mysql)&quot;--datadir=/usr/local/var/mysql --tmpdir=/tmp</code></p>
+<p><code>bash mysql.server start</code></p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处<a href="" target="_blank"></a>
+            
         </div>
-    </nav>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/03/01/面试总结/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
 
 
 
