@@ -183,6 +183,11 @@
 <h1 id="请说出你最优的选择"><a href="#请说出你最优的选择" class="headerlink" title="请说出你最优的选择"></a>请说出你最优的选择</h1><p>首先我们应该排除Pthread和NSthread，使用难度和线程生命周期管理的原因。（他们只能作为备胎，而不能作为首选）</p>
 <p>GCD 它的使用更加轻量，API简单，但是功能没有NSOperation完备。程序员只关注向block中提交任务。但是想暂停和取消任务就比较难。而且设置线程依赖也要写非常多的代码。所以对于功能简单和任务明确的小项目适合使用GCD。</p>
 <p>NSOperation 是对GCD的一套抽象封装。增加了不少的功能。而且开发者还可以继承NSOperation完成自己特质的需求。通过NSOperationQueue可以快捷方便的设置线程依赖关系。支持取消，暂停等功能。还可以设置线程的优先级。适合复杂功能和项目的开发。</p>
+<h1 id="同步与异步-串行与并发"><a href="#同步与异步-串行与并发" class="headerlink" title="同步与异步,串行与并发"></a>同步与异步,串行与并发</h1><p>同步和异步:决定是否开辟新的线程</p>
+<p>串行和并发:决定是否同时执行任务</p>
+<p>同步:不会开辟新的线程,异步会开辟新的线程</p>
+<p>并发:会同时执行多个任务</p>
+<p>串行:每次执行一个任务,先进先出</p>
 <h1 id="优秀博文篇"><a href="#优秀博文篇" class="headerlink" title="优秀博文篇"></a>优秀博文篇</h1><p><a href="https://www.jianshu.com/p/4a798bacfff8" target="_blank" rel="noopener">多线程基础</a></p>
 <p><a href="https://objccn.io/issue-2-1/#challenges" target="_blank" rel="noopener">并发编程：API及挑战</a></p>
 <p><a href="https://objccn.io/issues/" target="_blank" rel="noopener">并发编程</a></p>
