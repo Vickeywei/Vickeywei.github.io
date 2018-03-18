@@ -26,7 +26,7 @@
     <!--Title-->
 
 
-<title>Archives: 2018/2 | Vicky的技术博客</title>
+<title>IBoutlet杂谈 | Vicky的技术博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml">
@@ -37,7 +37,11 @@
     
 
 
+    <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css?rev=9.12.0">
 
 
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
@@ -129,33 +133,87 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">2018年 2月</h1>
-        
-          <li class="post-items" _href="/2018/02/26/红海行动/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/26/红海行动/"> 红海行动 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/24/HomeBrew与Ruby更新/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/24/HomeBrew与Ruby更新/"> HomeBrew与Ruby更新 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/07/switf/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/07/switf/"> switf </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="IBoutlet杂谈">
+            
+            IBoutlet杂谈
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>Objective-C</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            Objective-C
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/18</span>
+    </span>
 </div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="细说IBoutlet"><a href="#细说IBoutlet" class="headerlink" title="细说IBoutlet"></a>细说IBoutlet</h1><p>当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生</p>
+<pre><code>@property(nonatomic,weak) IBoutlet UIbutton *button
+</code></pre><p>那么 IBoutlet到底有什么作用啦.<br>首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令</p>
+<pre><code>#ifdef IBoutlet
+#define IBoutlet
+#endif
+</code></pre><p>对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联.</p>
+<p>在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量</p>
+<pre><code>@interface ViewController : UIViewController {
+
+    IBoutlet UIbutton *button;
+
+}
+
+@property(nonatomic,weak) IBoutlet UIbutton *button;
+
+@end
+</code></pre><p>那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处<a href="" target="_blank"></a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/03/18/Xcode调试技巧和常用快捷键/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2018/03/07/iOS应用安全攻防实战/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
 
 
 
