@@ -26,7 +26,7 @@
     <!--Title-->
 
 
-<title>红海行动 | Vicky的技术博客</title>
+<title>三个ImageView实现无限轮播和三个Label实现公告 | Vicky的技术博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml">
@@ -137,9 +137,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="红海行动">
+        <h1 id="三个ImageView实现无限轮播和三个Label实现公告">
             
-            红海行动
+            三个ImageView实现无限轮播和三个Label实现公告
             
         </h1>
         <div class="post-meta">
@@ -147,7 +147,7 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <span>无</span>
+        <span>swift</span>
     </span>
     
     
@@ -155,7 +155,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            null
+            swift
             
         </span>
     </span>
@@ -163,7 +163,7 @@
     
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
-        <span class="date-meta">2018/02/26</span>
+        <span class="date-meta">2018/03/22</span>
     </span>
 </div>
 
@@ -172,8 +172,57 @@
     </div>
     
     <div class="post-body post-content">
-        <p>作为一名开发者，我喜欢红海行动中的一段话。<br>我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。</p>
-<p>作为一名观众，我喜欢红海行动。</p>
+        <h1 id="三个ImageView实现无限轮播"><a href="#三个ImageView实现无限轮播" class="headerlink" title="三个ImageView实现无限轮播"></a>三个ImageView实现无限轮播</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>scrollView上添加三张ImageView,分别为left,center,right</li>
+<li>初始化scrollview时设置contentOffset为中间这张图片的位置</li>
+<li>添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,进行复位操作.left的image = center.image,center.image = right.imgae, 然后设置contentOffset = center.right.image = 获取下一张图片</li>
+</ol>
+<p>代码实现如下</p>
+<p>初始化scrollview</p>
+<pre><code>let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+scrollview.contentSize = CGSize(width: self.frame.size.width * 3, height: 0)
+
+scrollview.isPagingEnabled = true
+scrollview.bounces = false
+scrollview.showsVerticalScrollIndicator = false
+scrollview.showsHorizontalScrollIndicator = false
+scrollview.delegate = self
+</code></pre><p>初始化timer</p>
+<pre><code>timer = Timer(timeInterval: TimeInterval(scrollInterval), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+
+RunLoop.current.add(timer!, forMode: .commonModes)
+</code></pre><p>初始化</p>
+<pre><code>leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+
+centerImageView = UIImageView(frame: CGRect(x: self.frame.size.width * 1, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+
+rightImageView = UIImageView(frame:CGRect(x: self.frame.size.width * 2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+
+leftImageView?.kf.setImage(with: ImageResource(downloadURL: getBeforeImageUrl(index: self.currentPage)))
+
+centerImageView?.kf.setImage(with: ImageResource(downloadURL: getImageUrl(index: self.currentPage)!))
+
+rightImageView?.kf.setImage(with: ImageResource(downloadURL: getAfterImageUrl(index: self.currentPage)))
+</code></pre><p> Timer事件</p>
+<pre><code> currentPage = currentPage + 1
+
+if currentPage == imageArray.count {
+  currentPage = 0
+}
+
+UIView.animate(withDuration: animationInterval, animations: {
+  self.centerImageView?.isUserInteractionEnabled = false
+  self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 2, y: 0)
+}) { (finish) in
+  self.centerImageView?.isUserInteractionEnabled = true
+  self.leftImageView?.image = self.centerImageView?.image
+  self.centerImageView?.image = self.rightImageView?.image
+  self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 1, y: 0)
+  self.rightImageView?.kf.setImage(with: ImageResource(downloadURL: self.getAfterImageUrl(index: self.currentPage)))
+  self.pageController?.currentPage = self.currentPage
+}
+</code></pre><p>主要代码如上,主要是理解思路.</p>
+<h1 id="三个Label实现公告"><a href="#三个Label实现公告" class="headerlink" title="三个Label实现公告"></a>三个Label实现公告</h1><p>这个和上面的思路一致,只不过是横向换成竖向.代码就不贴了.如果对这个感兴趣,可以私聊我.我可以发代码给你.或者把代码放到git上.</p>
 
     </div>
 
@@ -191,10 +240,8 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/03/01/面试总结/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
     
-    
-        <a href="/2018/02/24/HomeBrew与Ruby更新/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+        <a href="/2018/03/18/Xcode调试技巧和常用快捷键/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
     
 </div>
 
