@@ -43,25 +43,27 @@
   </entry>
   
   <entry>
-    <title>iOS开发小记</title>
-    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
+    <title>国际化本地化</title>
+    <link href="http://yoursite.com/2018/10/12/localizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86/"/>
+    <id>http://yoursite.com/2018/10/12/localizable-strings国际化和本地化处理/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:36.847Z</updated>
+    <updated>2018-10-12T03:11:00.124Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
+    <content type="html"><![CDATA[<p>这篇文章我在简书上已经写过直接跳转简书查看<br><a href="https://www.jianshu.com/p/7a5495dbff3f" target="_blank" rel="noopener">利用Localizable.strings做本地化和国际化处理</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
+        &lt;p&gt;这篇文章我在简书上已经写过直接跳转简书查看&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/7a5495dbff3f&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;利用Localizable.strings做本地化和国际化处理&lt;
       
     
     </summary>
     
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
+    
+      <category term="Localizable.strings" scheme="http://yoursite.com/tags/Localizable-strings/"/>
     
   </entry>
   
@@ -222,54 +224,6 @@
   </entry>
   
   <entry>
-    <title>Swift学习资源</title>
-    <link href="http://yoursite.com/2018/10/12/Swift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2018/10/12/Swift学习资源和大神博客/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:17:41.165Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Swift学习资源"><a href="#Swift学习资源" class="headerlink" title="Swift学习资源"></a>Swift学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p><h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul><li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li><li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li></ul><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul><li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li><li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li><li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li><li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li><li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li><li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li><li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li><li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li><li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li></ul><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li><li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li><li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li><li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li><li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li><li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li><li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li><li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li><li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li><li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li><li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li><li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li><li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li><li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li><li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li><li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li><li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li><li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li><li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li><li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li><li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li><li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li><li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li><li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li></ul><h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul><li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li><li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li><li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li><li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li><li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li><li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li></ul><h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul><li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li><li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li><li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li><li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li><li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li><li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li><li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Swift学习资源&quot;&gt;&lt;a href=&quot;#Swift学习资源&quot; class=&quot;headerlink&quot; title=&quot;Swift学习资源&quot;&gt;&lt;/a&gt;Swift学习资源&lt;/h1&gt;&lt;p&gt;因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含
-      
-    
-    </summary>
-    
-      <category term="资源" scheme="http://yoursite.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Architectures</title>
-    <link href="http://yoursite.com/2018/10/12/Xcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/10/12/Xcode之Architectures设置/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:19:09.404Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p><p>介绍上面的两个名词</p><h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p><p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p><h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul><li>指令集都是可以向下兼容的</li></ul><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Xcode设置项之Architectures和Valid-Architectures&quot;&gt;&lt;a href=&quot;#Xcode设置项之Architectures和Valid-Architectures&quot; class=&quot;headerlink&quot; title=&quot;Xcode设置项
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Xcode常用命令</title>
     <link href="http://yoursite.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
@@ -358,6 +312,29 @@
   </entry>
   
   <entry>
+    <title>Architectures</title>
+    <link href="http://yoursite.com/2018/10/12/Xcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/10/12/Xcode之Architectures设置/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:19:09.404Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p><p>介绍上面的两个名词</p><h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p><p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p><h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul><li>指令集都是可以向下兼容的</li></ul><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Xcode设置项之Architectures和Valid-Architectures&quot;&gt;&lt;a href=&quot;#Xcode设置项之Architectures和Valid-Architectures&quot; class=&quot;headerlink&quot; title=&quot;Xcode设置项
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS应用攻防实战(一)</title>
     <link href="http://yoursite.com/2018/10/12/iOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2018/10/12/iOS应用安全攻防实战/</id>
@@ -381,6 +358,29 @@
       <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
     
       <category term="攻防" scheme="http://yoursite.com/tags/%E6%94%BB%E9%98%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发小记</title>
+    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:08:36.847Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
     
   </entry>
   
@@ -430,31 +430,6 @@
       <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
     
       <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>国际化本地化</title>
-    <link href="http://yoursite.com/2018/10/12/localizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86/"/>
-    <id>http://yoursite.com/2018/10/12/localizable-strings国际化和本地化处理/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:11:00.124Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇文章我在简书上已经写过直接跳转简书查看<br><a href="https://www.jianshu.com/p/7a5495dbff3f" target="_blank" rel="noopener">利用Localizable.strings做本地化和国际化处理</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这篇文章我在简书上已经写过直接跳转简书查看&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/7a5495dbff3f&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;利用Localizable.strings做本地化和国际化处理&lt;
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
-    
-      <category term="Localizable.strings" scheme="http://yoursite.com/tags/Localizable-strings/"/>
     
   </entry>
   
@@ -532,6 +507,31 @@
     
       <category term="runtime" scheme="http://yoursite.com/categories/runtime/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Effective Objective-C 2.0 52个方法</title>
+    <link href="http://yoursite.com/2018/10/12/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/10/12/52个方法/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T06:21:03.399Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一条-了解Objective-C的语言的起源"><a href="#第一条-了解Objective-C的语言的起源" class="headerlink" title="第一条:了解Objective-C的语言的起源?"></a>第一条:了解Objective-C的语言的起源?</h1><p>Objective-C和C++、Java 等都是面向对象的语言。但是在面向对象的语言中Objective-C采用的是消息结构语言，而其他的面向语言采用的还是函数调用的方式。消息结构语言来自于SmallTalk。</p><p>消息结构和函数调用的区别</p><p>消息结构决定其运行过程中所需要执行的代码由运行时环境决定，而其他面向对象语言则是由编译器决定。我们都知道 OC 是在运行时才会确定对象类型。而调用方法亦是如此，在运行时才回去查找到底该执行哪个方法。而且在 OC 中接收消息的对象可以为 nil 这是其他面向对象语言所不具有的。其他的语言都会先进行判断。</p><p>OC 作为 C 的超集在很多方面还是沿用</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;第一条-了解Objective-C的语言的起源&quot;&gt;&lt;a href=&quot;#第一条-了解Objective-C的语言的起源&quot; class=&quot;headerlink&quot; title=&quot;第一条:了解Objective-C的语言的起源?&quot;&gt;&lt;/a&gt;第一条:了解Objective-
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="52个方法" scheme="http://yoursite.com/tags/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
