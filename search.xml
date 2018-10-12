@@ -66,6 +66,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[React(二)]]></title>
+    <url>%2F2018%2F10%2F12%2FReact%E7%AC%AC%E4%BA%8C%E8%AF%BE%2F</url>
+    <content type="text"><![CDATA[元素渲染:元素是React中的最小单位,是用来描述你再屏幕上所看到的内容.与浏览器的Dom元素不同,ReactDom可以保证浏览器的数据内容和React的保持一致 浏览器中的Dom元素: 元素和组件:元素是组件的一个组成部分,而组件更加广义,在下一课中我们一起学习组件 元素举例 1const element = &lt;h1&gt;hello world!&lt;/h1&gt; 将元素渲染到Dom中在学习完元素之后,我们应该如何将元素显示并渲染到界面上就是这个问题所要研究的内容.大家是否还记得在创建完项目后,我们打开看过index.html的源码在body中有一行这样的代码 1&lt;div id= &quot;root&quot;&gt;&lt;/div&gt; 如果还没有回忆起来那就打开项目看一下,而且在上一课中我按照我的理解已经解释过为什么屏幕上会出现hello world!的原理.这里在说一次在index.js的代码中又这样几行代码 123456const element = &lt;h1&gt;hello world!&lt;/h1&gt;ReactDom.render( element, document.getElementById(&apos;root&apos;)); 也就是说在这个div中的所有内容将有ReactDom来管理,render只是一个渲染函数,这个div也被称为根Dom节点.做过手机App开发的也可以这样理解他就是父视图,后续所有的元素和子视图都是在他上面添加和渲染的.我们会将我们需要渲染的内容通过id获取到根dom节点,然后将其填充到根dom节点中,渲染到页面上.这一切的操作都是由ReactDom来完成的. 更新Dom元素重点:React元素都是不可变的,做过App的都知道不可变的类型有很多在iOS 中常见的NSString,NSArray,NSDictionary,NSSet等.,所以React也是不可以修改其内容和属性的.那么到目前为止我们应该怎样去更新这个元素啦?就是通过创建一个新的元素然后重新渲染到界面上.(is only,not is only)只是针对目前知识浅薄而已.后面应该会有办法更新的,后面我们一起学到了再说.说到这里就举一个例子吧 1234567891011121314151617let tick = () =&gt; &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125;setInterval(tick,1000); 1234567891011121314151617function tick() &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125; 上面的例子中我们通过定时器不断的调用ReactDom的render函数来更新h2这个标签的内容.效果大家可以自己在自己代码中尝试一下(两端代码都可以,一个是箭头函数,一个是常规的js),并且使用检查来观察h2的变化. 重点:在实际项目中render函数只会被调用一次.这次只是为了在目前学习到的基础上看到更新的效果才不得已而为之,如果在以后的开发中,你们使用了这样的方式调用render函数,那么你就要考虑代码的设计问题了. React只会更新必要的部分在开发中又用过数据库的同学应该了解数据库的update操作,当一条记录需要被更新时,他会拿到这条记录的主见然后查找到这条记录,进行字段比对,当有某一个值更新时,才会更新.所以React的更新也是这样的,只会更新发生变化的部分,其他的东西我不会主动更新. 在上一个例子中,我们使用定时器不断的创建描述整个界面的元素,但是当你使用检查检测时会发现,只有h2在不断变化,其他的都是不会发生变化的.在开发中我们会将界面视为一帧一帧的动画,不是随时变化的.我们在发生更新时只需要更新那一帧动画即可,并不需要将更段动画全部更新. 在很多时候都是这样的.基本上所有的开发中只关注我们需要更新的内容,其余的内容我们不需要理会.]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[SDWebImage源码阅读(一)]]></title>
     <url>%2F2018%2F10%2F12%2FSDWebImage%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%2F</url>
     <content type="text"><![CDATA[SDWebImage的目录层级都说技术的成长要不断的学习和不断的练习.学习可以有很多方法For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框架开始! 我们要阅读一份源码,首先会看到这份源码的层级结构,包含哪些文件根据文件名判断其主要功能和作用.SD目录层级如下:]]></content>
@@ -77,12 +85,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[React(二)]]></title>
-    <url>%2F2018%2F10%2F12%2FReact%E7%AC%AC%E4%BA%8C%E8%AF%BE%2F</url>
-    <content type="text"><![CDATA[元素渲染:元素是React中的最小单位,是用来描述你再屏幕上所看到的内容.与浏览器的Dom元素不同,ReactDom可以保证浏览器的数据内容和React的保持一致 浏览器中的Dom元素: 元素和组件:元素是组件的一个组成部分,而组件更加广义,在下一课中我们一起学习组件 元素举例 1const element = &lt;h1&gt;hello world!&lt;/h1&gt; 将元素渲染到Dom中在学习完元素之后,我们应该如何将元素显示并渲染到界面上就是这个问题所要研究的内容.大家是否还记得在创建完项目后,我们打开看过index.html的源码在body中有一行这样的代码 1&lt;div id= &quot;root&quot;&gt;&lt;/div&gt; 如果还没有回忆起来那就打开项目看一下,而且在上一课中我按照我的理解已经解释过为什么屏幕上会出现hello world!的原理.这里在说一次在index.js的代码中又这样几行代码 123456const element = &lt;h1&gt;hello world!&lt;/h1&gt;ReactDom.render( element, document.getElementById(&apos;root&apos;)); 也就是说在这个div中的所有内容将有ReactDom来管理,render只是一个渲染函数,这个div也被称为根Dom节点.做过手机App开发的也可以这样理解他就是父视图,后续所有的元素和子视图都是在他上面添加和渲染的.我们会将我们需要渲染的内容通过id获取到根dom节点,然后将其填充到根dom节点中,渲染到页面上.这一切的操作都是由ReactDom来完成的. 更新Dom元素重点:React元素都是不可变的,做过App的都知道不可变的类型有很多在iOS 中常见的NSString,NSArray,NSDictionary,NSSet等.,所以React也是不可以修改其内容和属性的.那么到目前为止我们应该怎样去更新这个元素啦?就是通过创建一个新的元素然后重新渲染到界面上.(is only,not is only)只是针对目前知识浅薄而已.后面应该会有办法更新的,后面我们一起学到了再说.说到这里就举一个例子吧 1234567891011121314151617let tick = () =&gt; &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125;setInterval(tick,1000); 1234567891011121314151617function tick() &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125; 上面的例子中我们通过定时器不断的调用ReactDom的render函数来更新h2这个标签的内容.效果大家可以自己在自己代码中尝试一下(两端代码都可以,一个是箭头函数,一个是常规的js),并且使用检查来观察h2的变化. 重点:在实际项目中render函数只会被调用一次.这次只是为了在目前学习到的基础上看到更新的效果才不得已而为之,如果在以后的开发中,你们使用了这样的方式调用render函数,那么你就要考虑代码的设计问题了. React只会更新必要的部分在开发中又用过数据库的同学应该了解数据库的update操作,当一条记录需要被更新时,他会拿到这条记录的主见然后查找到这条记录,进行字段比对,当有某一个值更新时,才会更新.所以React的更新也是这样的,只会更新发生变化的部分,其他的东西我不会主动更新. 在上一个例子中,我们使用定时器不断的创建描述整个界面的元素,但是当你使用检查检测时会发现,只有h2在不断变化,其他的都是不会发生变化的.在开发中我们会将界面视为一帧一帧的动画,不是随时变化的.我们在发生更新时只需要更新那一帧动画即可,并不需要将更段动画全部更新. 在很多时候都是这样的.基本上所有的开发中只关注我们需要更新的内容,其余的内容我们不需要理会.]]></content>
+    <title><![CDATA[Swift学习资源]]></title>
+    <url>%2F2018%2F10%2F12%2FSwift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[Swift学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
       <categories>
-        <category>react</category>
+        <category>资源</category>
       </categories>
+      <tags>
+        <tag>swift</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Architectures]]></title>
@@ -101,17 +112,6 @@
       </categories>
       <tags>
         <tag>常用命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Swift学习资源]]></title>
-    <url>%2F2018%2F10%2F12%2FSwift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[Swift学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
-      <categories>
-        <category>资源</category>
-      </categories>
-      <tags>
-        <tag>swift</tag>
       </tags>
   </entry>
   <entry>
