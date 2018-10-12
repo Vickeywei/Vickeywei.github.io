@@ -32,14 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Objective-C视频学习资源]]></title>
-    <url>%2F2018%2F10%2F12%2FObjective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[Objective-C视频学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
-      <categories>
-        <category>资源</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[细说IBoutlet]]></title>
     <url>%2F2018%2F10%2F12%2FIBoutlet%E6%9D%82%E8%B0%88%2F</url>
     <content type="text"><![CDATA[细说IBoutlet当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生 @property(nonatomic,weak) IBoutlet UIbutton *button 那么 IBoutlet到底有什么作用啦.首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令 #ifdef IBoutlet #define IBoutlet #endif 对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联. 在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量 @interface ViewController : UIViewController { IBoutlet UIbutton *button; } @property(nonatomic,weak) IBoutlet UIbutton *button; @end 那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.]]></content>
@@ -49,6 +41,14 @@
       <tags>
         <tag>IBoutlet</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Objective-C视频学习资源]]></title>
+    <url>%2F2018%2F10%2F12%2FObjective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[Objective-C视频学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
+      <categories>
+        <category>资源</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[Objective-C对象的构造模式]]></title>
@@ -96,14 +96,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Architectures]]></title>
-    <url>%2F2018%2F10%2F12%2FXcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[Xcode常用命令]]></title>
     <url>%2F2018%2F10%2F12%2FXcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[Xcode常用命令p :常用来输出基础数据类型 po :常用来输出oc对象类型 expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。 call :常用来动态调用函数 image: image命令可以列出当前App中的所有模块 po [view recursiveDescription] 查看view的层级关系 Xcode常用快捷键shift+command+o :快速打开文件 Command+1~9:导航面版切换]]></content>
@@ -126,6 +118,14 @@
         <tag>git</tag>
         <tag>svn</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Architectures]]></title>
+    <url>%2F2018%2F10%2F12%2FXcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[iOS内存管理(二)]]></title>
@@ -166,6 +166,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[国际化本地化]]></title>
+    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Localizable.strings</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[instrument使用]]></title>
     <url>%2F2018%2F10%2F12%2Finstrument%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"></content>
@@ -176,17 +187,6 @@
         <tag>内存分析</tag>
         <tag>时间复杂度分析</tag>
         <tag>CPU占用分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[国际化本地化]]></title>
-    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
-    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Localizable.strings</tag>
       </tags>
   </entry>
   <entry>
@@ -274,19 +274,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[红海行动]]></title>
-    <url>%2F2018%2F10%2F12%2F%E7%BA%A2%E6%B5%B7%E8%A1%8C%E5%8A%A8%2F</url>
-    <content type="text"><![CDATA[作为一名开发者，我喜欢红海行动中的一段话。我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。 作为一名观众，我喜欢红海行动。]]></content>
-      <categories>
-        <category>日志</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[面试总结]]></title>
     <url>%2F2018%2F10%2F12%2F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[对于最近面试的总结1.首先面试最近还是蛮多的,而且都还聊的不错. 2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接着就是产品制作和服务企业,因为这个企业的产品用户较多,所以涉及安全方面的问题较多,比如代码方面的安全,个人用户信息的安全等方面.再接着是一家金融产品公司,主要针对方向是基础知识和一些新技术的发展方向和了几情况.对于产品的优化问题是如何提现的.其他的也就是类似的这种.针对企业目前或者是未来的产品做出提问.剩下的就是我们的基本功.如果基本功扎实的话,可以多了解公司. 3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强) 4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高 总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.]]></content>
       <categories>
         <category>面试总结</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[红海行动]]></title>
+    <url>%2F2018%2F10%2F12%2F%E7%BA%A2%E6%B5%B7%E8%A1%8C%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[作为一名开发者，我喜欢红海行动中的一段话。我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。 作为一名观众，我喜欢红海行动。]]></content>
+      <categories>
+        <category>日志</category>
       </categories>
   </entry>
   <entry>
