@@ -115,6 +115,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[版本控制]]></title>
+    <url>%2F2018%2F10%2F12%2Fgit%E4%BB%8E0%E5%88%B01%2F</url>
+    <content type="text"><![CDATA[关于版本控制版本控制是帮助我们记录文件内容发生变化,方便后面查阅每个版本不同的修订情况.还可以通过版本控制回溯到某个版本的状态.还可以比较文件的变化细节. 集中化的版本控制系统]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>版本控制</tag>
+        <tag>git</tag>
+        <tag>svn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOS内存管理(二)]]></title>
     <url>%2F2018%2F10%2F12%2FiOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-1%2F</url>
     <content type="text"><![CDATA[ssssss]]></content>
@@ -126,19 +139,6 @@
         <tag>autorelease</tag>
         <tag>dealloc</tag>
         <tag>内存</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[版本控制]]></title>
-    <url>%2F2018%2F10%2F12%2Fgit%E4%BB%8E0%E5%88%B01%2F</url>
-    <content type="text"><![CDATA[关于版本控制版本控制是帮助我们记录文件内容发生变化,方便后面查阅每个版本不同的修订情况.还可以通过版本控制回溯到某个版本的状态.还可以比较文件的变化细节. 集中化的版本控制系统]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>版本控制</tag>
-        <tag>git</tag>
-        <tag>svn</tag>
       </tags>
   </entry>
   <entry>
