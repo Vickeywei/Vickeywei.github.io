@@ -4,6 +4,12 @@
     <title><![CDATA[rxswift学习-]]></title>
     <url>%2F2018%2F10%2F12%2Frxswift%E5%AD%A6%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[sssssssss]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>swift</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS开发小记]]></title>
@@ -60,14 +66,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[React(二)]]></title>
-    <url>%2F2018%2F10%2F12%2FReact%E7%AC%AC%E4%BA%8C%E8%AF%BE%2F</url>
-    <content type="text"><![CDATA[元素渲染:元素是React中的最小单位,是用来描述你再屏幕上所看到的内容.与浏览器的Dom元素不同,ReactDom可以保证浏览器的数据内容和React的保持一致 浏览器中的Dom元素: 元素和组件:元素是组件的一个组成部分,而组件更加广义,在下一课中我们一起学习组件 元素举例 1const element = &lt;h1&gt;hello world!&lt;/h1&gt; 将元素渲染到Dom中在学习完元素之后,我们应该如何将元素显示并渲染到界面上就是这个问题所要研究的内容.大家是否还记得在创建完项目后,我们打开看过index.html的源码在body中有一行这样的代码 1&lt;div id= &quot;root&quot;&gt;&lt;/div&gt; 如果还没有回忆起来那就打开项目看一下,而且在上一课中我按照我的理解已经解释过为什么屏幕上会出现hello world!的原理.这里在说一次在index.js的代码中又这样几行代码 123456const element = &lt;h1&gt;hello world!&lt;/h1&gt;ReactDom.render( element, document.getElementById(&apos;root&apos;)); 也就是说在这个div中的所有内容将有ReactDom来管理,render只是一个渲染函数,这个div也被称为根Dom节点.做过手机App开发的也可以这样理解他就是父视图,后续所有的元素和子视图都是在他上面添加和渲染的.我们会将我们需要渲染的内容通过id获取到根dom节点,然后将其填充到根dom节点中,渲染到页面上.这一切的操作都是由ReactDom来完成的. 更新Dom元素重点:React元素都是不可变的,做过App的都知道不可变的类型有很多在iOS 中常见的NSString,NSArray,NSDictionary,NSSet等.,所以React也是不可以修改其内容和属性的.那么到目前为止我们应该怎样去更新这个元素啦?就是通过创建一个新的元素然后重新渲染到界面上.(is only,not is only)只是针对目前知识浅薄而已.后面应该会有办法更新的,后面我们一起学到了再说.说到这里就举一个例子吧 1234567891011121314151617let tick = () =&gt; &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125;setInterval(tick,1000); 1234567891011121314151617function tick() &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125; 上面的例子中我们通过定时器不断的调用ReactDom的render函数来更新h2这个标签的内容.效果大家可以自己在自己代码中尝试一下(两端代码都可以,一个是箭头函数,一个是常规的js),并且使用检查来观察h2的变化. 重点:在实际项目中render函数只会被调用一次.这次只是为了在目前学习到的基础上看到更新的效果才不得已而为之,如果在以后的开发中,你们使用了这样的方式调用render函数,那么你就要考虑代码的设计问题了. React只会更新必要的部分在开发中又用过数据库的同学应该了解数据库的update操作,当一条记录需要被更新时,他会拿到这条记录的主见然后查找到这条记录,进行字段比对,当有某一个值更新时,才会更新.所以React的更新也是这样的,只会更新发生变化的部分,其他的东西我不会主动更新. 在上一个例子中,我们使用定时器不断的创建描述整个界面的元素,但是当你使用检查检测时会发现,只有h2在不断变化,其他的都是不会发生变化的.在开发中我们会将界面视为一帧一帧的动画,不是随时变化的.我们在发生更新时只需要更新那一帧动画即可,并不需要将更段动画全部更新. 在很多时候都是这样的.基本上所有的开发中只关注我们需要更新的内容,其余的内容我们不需要理会.]]></content>
-      <categories>
-        <category>react</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[SDWebImage源码阅读(一)]]></title>
     <url>%2F2018%2F10%2F12%2FSDWebImage%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%2F</url>
     <content type="text"><![CDATA[SDWebImage的目录层级都说技术的成长要不断的学习和不断的练习.学习可以有很多方法For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框架开始! 我们要阅读一份源码,首先会看到这份源码的层级结构,包含哪些文件根据文件名判断其主要功能和作用.SD目录层级如下:]]></content>
@@ -95,6 +93,14 @@
     <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
       <categories>
         <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[React(二)]]></title>
+    <url>%2F2018%2F10%2F12%2FReact%E7%AC%AC%E4%BA%8C%E8%AF%BE%2F</url>
+    <content type="text"><![CDATA[元素渲染:元素是React中的最小单位,是用来描述你再屏幕上所看到的内容.与浏览器的Dom元素不同,ReactDom可以保证浏览器的数据内容和React的保持一致 浏览器中的Dom元素: 元素和组件:元素是组件的一个组成部分,而组件更加广义,在下一课中我们一起学习组件 元素举例 1const element = &lt;h1&gt;hello world!&lt;/h1&gt; 将元素渲染到Dom中在学习完元素之后,我们应该如何将元素显示并渲染到界面上就是这个问题所要研究的内容.大家是否还记得在创建完项目后,我们打开看过index.html的源码在body中有一行这样的代码 1&lt;div id= &quot;root&quot;&gt;&lt;/div&gt; 如果还没有回忆起来那就打开项目看一下,而且在上一课中我按照我的理解已经解释过为什么屏幕上会出现hello world!的原理.这里在说一次在index.js的代码中又这样几行代码 123456const element = &lt;h1&gt;hello world!&lt;/h1&gt;ReactDom.render( element, document.getElementById(&apos;root&apos;)); 也就是说在这个div中的所有内容将有ReactDom来管理,render只是一个渲染函数,这个div也被称为根Dom节点.做过手机App开发的也可以这样理解他就是父视图,后续所有的元素和子视图都是在他上面添加和渲染的.我们会将我们需要渲染的内容通过id获取到根dom节点,然后将其填充到根dom节点中,渲染到页面上.这一切的操作都是由ReactDom来完成的. 更新Dom元素重点:React元素都是不可变的,做过App的都知道不可变的类型有很多在iOS 中常见的NSString,NSArray,NSDictionary,NSSet等.,所以React也是不可以修改其内容和属性的.那么到目前为止我们应该怎样去更新这个元素啦?就是通过创建一个新的元素然后重新渲染到界面上.(is only,not is only)只是针对目前知识浅薄而已.后面应该会有办法更新的,后面我们一起学到了再说.说到这里就举一个例子吧 1234567891011121314151617let tick = () =&gt; &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125;setInterval(tick,1000); 1234567891011121314151617function tick() &#123; const element = ( &lt;div&gt; &lt;h1&gt; hello world &lt;/h1&gt; &lt;h2&gt; Is is Time &#123;new Date().toLocaleString()&#125;. &lt;/h2&gt; &lt;/div&gt; ); ReactDOM.render( element, document.getElementById(&apos;root&apos;) );&#125; 上面的例子中我们通过定时器不断的调用ReactDom的render函数来更新h2这个标签的内容.效果大家可以自己在自己代码中尝试一下(两端代码都可以,一个是箭头函数,一个是常规的js),并且使用检查来观察h2的变化. 重点:在实际项目中render函数只会被调用一次.这次只是为了在目前学习到的基础上看到更新的效果才不得已而为之,如果在以后的开发中,你们使用了这样的方式调用render函数,那么你就要考虑代码的设计问题了. React只会更新必要的部分在开发中又用过数据库的同学应该了解数据库的update操作,当一条记录需要被更新时,他会拿到这条记录的主见然后查找到这条记录,进行字段比对,当有某一个值更新时,才会更新.所以React的更新也是这样的,只会更新发生变化的部分,其他的东西我不会主动更新. 在上一个例子中,我们使用定时器不断的创建描述整个界面的元素,但是当你使用检查检测时会发现,只有h2在不断变化,其他的都是不会发生变化的.在开发中我们会将界面视为一帧一帧的动画,不是随时变化的.我们在发生更新时只需要更新那一帧动画即可,并不需要将更段动画全部更新. 在很多时候都是这样的.基本上所有的开发中只关注我们需要更新的内容,其余的内容我们不需要理会.]]></content>
+      <categories>
+        <category>react</category>
       </categories>
   </entry>
   <entry>
