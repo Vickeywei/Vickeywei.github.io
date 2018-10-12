@@ -939,211 +939,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/IBoutlet杂谈/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/IBoutlet杂谈/" itemprop="url">
-                  细说IBoutlet
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:07:18" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数"></span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长"></span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="细说IBoutlet"><a href="#细说IBoutlet" class="headerlink" title="细说IBoutlet"></a>细说IBoutlet</h1><p>当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生</p>
-<pre><code>@property(nonatomic,weak) IBoutlet UIbutton *button
-</code></pre><p>那么 IBoutlet到底有什么作用啦.<br>首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令</p>
-<pre><code>#ifdef IBoutlet
-#define IBoutlet
-#endif
-</code></pre><p>对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联.</p>
-<p>在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量</p>
-<pre><code>@interface ViewController : UIViewController {
-
-    IBoutlet UIbutton *button;
-
-}
-
-@property(nonatomic,weak) IBoutlet UIbutton *button;
-
-@end
-</code></pre><p>那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/Objective-C学习资源和大神博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1336,6 +1131,211 @@
 <li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li>
 <li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li>
 </ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/IBoutlet杂谈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/IBoutlet杂谈/" itemprop="url">
+                  细说IBoutlet
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:07:18" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="细说IBoutlet"><a href="#细说IBoutlet" class="headerlink" title="细说IBoutlet"></a>细说IBoutlet</h1><p>当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生</p>
+<pre><code>@property(nonatomic,weak) IBoutlet UIbutton *button
+</code></pre><p>那么 IBoutlet到底有什么作用啦.<br>首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令</p>
+<pre><code>#ifdef IBoutlet
+#define IBoutlet
+#endif
+</code></pre><p>对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联.</p>
+<p>在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量</p>
+<pre><code>@interface ViewController : UIViewController {
+
+    IBoutlet UIbutton *button;
+
+}
+
+@property(nonatomic,weak) IBoutlet UIbutton *button;
+
+@end
+</code></pre><p>那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.</p>
 
           
         
