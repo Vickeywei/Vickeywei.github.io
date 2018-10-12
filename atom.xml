@@ -93,6 +93,31 @@
   </entry>
   
   <entry>
+    <title>细说IBoutlet</title>
+    <link href="http://yoursite.com/2018/10/12/IBoutlet%E6%9D%82%E8%B0%88/"/>
+    <id>http://yoursite.com/2018/10/12/IBoutlet杂谈/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:07:18.181Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="细说IBoutlet"><a href="#细说IBoutlet" class="headerlink" title="细说IBoutlet"></a>细说IBoutlet</h1><p>当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生</p><pre><code>@property(nonatomic,weak) IBoutlet UIbutton *button</code></pre><p>那么 IBoutlet到底有什么作用啦.<br>首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令</p><pre><code>#ifdef IBoutlet#define IBoutlet#endif</code></pre><p>对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联.</p><p>在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量</p><pre><code>@interface ViewController : UIViewController {    IBoutlet UIbutton *button;}@property(nonatomic,weak) IBoutlet UIbutton *button;@end</code></pre><p>那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;细说IBoutlet&quot;&gt;&lt;a href=&quot;#细说IBoutlet&quot; class=&quot;headerlink&quot; title=&quot;细说IBoutlet&quot;&gt;&lt;/a&gt;细说IBoutlet&lt;/h1&gt;&lt;p&gt;当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生&lt;/
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="IBoutlet" scheme="http://yoursite.com/tags/IBoutlet/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Objective-C视频学习资源</title>
     <link href="http://yoursite.com/2018/10/12/Objective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2018/10/12/Objective-C学习资源和大神博客/</id>
@@ -145,31 +170,6 @@
       <category term="设计原则" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
     
       <category term="new" scheme="http://yoursite.com/tags/new/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>细说IBoutlet</title>
-    <link href="http://yoursite.com/2018/10/12/IBoutlet%E6%9D%82%E8%B0%88/"/>
-    <id>http://yoursite.com/2018/10/12/IBoutlet杂谈/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:07:18.181Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="细说IBoutlet"><a href="#细说IBoutlet" class="headerlink" title="细说IBoutlet"></a>细说IBoutlet</h1><p>当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生</p><pre><code>@property(nonatomic,weak) IBoutlet UIbutton *button</code></pre><p>那么 IBoutlet到底有什么作用啦.<br>首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令</p><pre><code>#ifdef IBoutlet#define IBoutlet#endif</code></pre><p>对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联.</p><p>在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量</p><pre><code>@interface ViewController : UIViewController {    IBoutlet UIbutton *button;}@property(nonatomic,weak) IBoutlet UIbutton *button;@end</code></pre><p>那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;细说IBoutlet&quot;&gt;&lt;a href=&quot;#细说IBoutlet&quot; class=&quot;headerlink&quot; title=&quot;细说IBoutlet&quot;&gt;&lt;/a&gt;细说IBoutlet&lt;/h1&gt;&lt;p&gt;当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生&lt;/
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
-    
-      <category term="IBoutlet" scheme="http://yoursite.com/tags/IBoutlet/"/>
     
   </entry>
   

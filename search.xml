@@ -32,6 +32,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[细说IBoutlet]]></title>
+    <url>%2F2018%2F10%2F12%2FIBoutlet%E6%9D%82%E8%B0%88%2F</url>
+    <content type="text"><![CDATA[细说IBoutlet当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生 @property(nonatomic,weak) IBoutlet UIbutton *button 那么 IBoutlet到底有什么作用啦.首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令 #ifdef IBoutlet #define IBoutlet #endif 对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联. 在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量 @interface ViewController : UIViewController { IBoutlet UIbutton *button; } @property(nonatomic,weak) IBoutlet UIbutton *button; @end 那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>IBoutlet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Objective-C视频学习资源]]></title>
     <url>%2F2018%2F10%2F12%2FObjective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[Objective-C视频学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
@@ -52,17 +63,6 @@
         <tag>init</tag>
         <tag>设计原则</tag>
         <tag>new</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[细说IBoutlet]]></title>
-    <url>%2F2018%2F10%2F12%2FIBoutlet%E6%9D%82%E8%B0%88%2F</url>
-    <content type="text"><![CDATA[细说IBoutlet当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生 @property(nonatomic,weak) IBoutlet UIbutton *button 那么 IBoutlet到底有什么作用啦.首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令 #ifdef IBoutlet #define IBoutlet #endif 对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联. 在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量 @interface ViewController : UIViewController { IBoutlet UIbutton *button; } @property(nonatomic,weak) IBoutlet UIbutton *button; @end 那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>IBoutlet</tag>
       </tags>
   </entry>
   <entry>

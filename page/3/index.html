@@ -183,6 +183,8 @@
 
 </head>
 
+
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
@@ -496,12 +498,17 @@
       
         
           
-            <h1 id="第一条-了解Objective-C的语言的起源"><a href="#第一条-了解Objective-C的语言的起源" class="headerlink" title="第一条:了解Objective-C的语言的起源?"></a>第一条:了解Objective-C的语言的起源?</h1><p>Objective-C和C++、Java 等都是面向对象的语言。但是在面向对象的语言中Objective-C采用的是消息结构语言，而其他的面向语言采用的还是函数调用的方式。消息结构语言来自于SmallTalk。</p>
-<p>消息结构和函数调用的区别</p>
-<p>消息结构决定其运行过程中所需要执行的代码由运行时环境决定，而其他面向对象语言则是由编译器决定。我们都知道 OC 是在运行时才会确定对象类型。而调用方法亦是如此，在运行时才回去查找到底该执行哪个方法。而且在 OC 中接收消息的对象可以为 nil 这是其他面向对象语言所不具有的。其他的语言都会先进行判断。</p>
-<p>OC 作为 C 的超集在很多方面还是沿用</p>
-
-          
+          第一条:了解Objective-C的语言的起源?Objective-C和C++、Java 等都是面向对象的语言。但是在面向对象的语言中Objective-C采用的是消息结构语言，而其他的面向语言采用的还是函数调用的方式。消息结构语言来自于SmallTalk。
+消息结构和函数调用的区别
+消息结构决定其
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/52个方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -520,6 +527,7 @@
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -687,59 +695,18 @@
       
         
           
-            <h1 id="三个ImageView实现无限轮播"><a href="#三个ImageView实现无限轮播" class="headerlink" title="三个ImageView实现无限轮播"></a>三个ImageView实现无限轮播</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>scrollView上添加三张ImageView,分别为left,center,right</li>
-<li>初始化scrollview时设置contentOffset为中间这张图片的位置</li>
-<li>添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,进行复位操作.left的image = center.image,center.image = right.imgae, 然后设置contentOffset = center.right.image = 获取下一张图片</li>
-</ol>
-<p>代码实现如下</p>
-<p>初始化scrollview</p>
-<pre><code>let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-scrollview.contentSize = CGSize(width: self.frame.size.width * 3, height: 0)
-
-scrollview.isPagingEnabled = true
-scrollview.bounces = false
-scrollview.showsVerticalScrollIndicator = false
-scrollview.showsHorizontalScrollIndicator = false
-scrollview.delegate = self
-</code></pre><p>初始化timer</p>
-<pre><code>timer = Timer(timeInterval: TimeInterval(scrollInterval), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-
-RunLoop.current.add(timer!, forMode: .commonModes)
-</code></pre><p>初始化</p>
-<pre><code>leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-
-centerImageView = UIImageView(frame: CGRect(x: self.frame.size.width * 1, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-
-rightImageView = UIImageView(frame:CGRect(x: self.frame.size.width * 2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-
-leftImageView?.kf.setImage(with: ImageResource(downloadURL: getBeforeImageUrl(index: self.currentPage)))
-
-centerImageView?.kf.setImage(with: ImageResource(downloadURL: getImageUrl(index: self.currentPage)!))
-
-rightImageView?.kf.setImage(with: ImageResource(downloadURL: getAfterImageUrl(index: self.currentPage)))
-</code></pre><p> Timer事件</p>
-<pre><code> currentPage = currentPage + 1
-
-if currentPage == imageArray.count {
-  currentPage = 0
-}
-
-UIView.animate(withDuration: animationInterval, animations: {
-  self.centerImageView?.isUserInteractionEnabled = false
-  self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 2, y: 0)
-}) { (finish) in
-  self.centerImageView?.isUserInteractionEnabled = true
-  self.leftImageView?.image = self.centerImageView?.image
-  self.centerImageView?.image = self.rightImageView?.image
-  self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 1, y: 0)
-  self.rightImageView?.kf.setImage(with: ImageResource(downloadURL: self.getAfterImageUrl(index: self.currentPage)))
-  self.pageController?.currentPage = self.currentPage
-}
-</code></pre><p>主要代码如上,主要是理解思路.</p>
-<h1 id="三个Label实现公告"><a href="#三个Label实现公告" class="headerlink" title="三个Label实现公告"></a>三个Label实现公告</h1><p>这个和上面的思路一致,只不过是横向换成竖向.代码就不贴了.如果对这个感兴趣,可以私聊我.我可以发代码给你.或者把代码放到git上.</p>
-
-          
+          三个ImageView实现无限轮播思路
+scrollView上添加三张ImageView,分别为left,center,right
+初始化scrollview时设置contentOffset为中间这张图片的位置
+添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/三个ImageView实现无限轮播和三个Label实现公告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -758,6 +725,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -925,40 +893,22 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <h1 id="内存优化的几点分析"><a href="#内存优化的几点分析" class="headerlink" title="内存优化的几点分析:"></a>内存优化的几点分析:</h1><ul>
-<li>CoreFoundation的内存管理</li>
-<li>block的循环引用</li>
-<li>在for循环大量数据,不断创建局部变量的几点思考</li>
-<li>mrc的基础问题</li>
-<li>第三方框架中的内存问题</li>
-</ul>
-<h2 id="CoreFoundation的内存管理"><a href="#CoreFoundation的内存管理" class="headerlink" title="CoreFoundation的内存管理"></a>CoreFoundation的内存管理</h2><p>在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似，</p>
-<ul>
-<li>需要引用时，引用计数+1，不需要引用时，引用计数-1</li>
-<li>谁创建，谁release</li>
-<li>谁retain，谁release</li>
-<li>只要调用了alloc,必须要有realease(autorelease)<br>example:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CFUUIDRef uuid = CFUUIDCreate(NULL);</span><br><span class="line">appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</span><br><span class="line">CFRelease(uuid);</span><br><span class="line">CFRelease(appUID);</span><br></pre></td></tr></table></figure>
-<h2 id="block的循环引用问题"><a href="#block的循环引用问题" class="headerlink" title="block的循环引用问题"></a>block的循环引用问题</h2><p>循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。<br>解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。<br>for example<br>实例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)case1 &#123;</span><br><span class="line">NSLog(@&quot;case 1 Click&quot;);</span><br><span class="line">  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">      self.name = @&quot;case 1&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block<br>在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。<br>实例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)case2 &#123;</span><br><span class="line">  NSLog(@&quot;case 2 Click&quot;);</span><br><span class="line">  __weaktypeof(self) weakSelf = self;</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">      strongSelf.name = @&quot;case 2&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。<br>实例3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case4 &#123;</span><br><span class="line">  NSLog(@&quot;case 4 Click&quot;);</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 4&quot;;</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a>就是在block执行结束后，将block置nil。<br>实例4：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case5 &#123;</span><br><span class="line">  NSLog(@&quot;case 5 Click&quot;);</span><br><span class="line">  Teacher *t = [[Teacher alloc] init];</span><br><span class="line">  [t requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 5&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。</p>
-<p>实例5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)case6 &#123;</span><br><span class="line">  NSLog(@&quot;case 6 Click&quot;);</span><br><span class="line">  [self.teacher callCase6BlackEvent];</span><br><span class="line">  self.teacher.case6Block = ^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 6&quot;;</span><br><span class="line">  //下面两句代码任选其一</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  //  self.teacher.case6Block = nil;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在block执行结束后置nil操作，解决内存泄漏问题</p>
-<h2 id="for循环大量数据时，不断创建局部变量的思考"><a href="#for循环大量数据时，不断创建局部变量的思考" class="headerlink" title="for循环大量数据时，不断创建局部变量的思考"></a>for循环大量数据时，不断创建局部变量的思考</h2><p>在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。<br>conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。</p>
-<h2 id="mrc的基础"><a href="#mrc的基础" class="headerlink" title="mrc的基础"></a>mrc的基础</h2><p>虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则：</p>
-<ul>
-<li>需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release）</li>
-<li>谁创建，谁release (alloc-&gt;release）</li>
-<li>谁retain，谁release (retain-&gt;release)</li>
-<li>只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease))</li>
-</ul>
-<h2 id="关于第三方出现的循环引用问题"><a href="#关于第三方出现的循环引用问题" class="headerlink" title="关于第三方出现的循环引用问题"></a>关于第三方出现的循环引用问题</h2><p>我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br></pre></td></tr></table></figure></p>
-<p>解决办法：采用单例的方式创建。</p>
+          内存优化的几点分析:
+CoreFoundation的内存管理
+block的循环引用
+在for循环大量数据,不断创建局部变量的几点思考
+mrc的基础问题
+第三方框架中的内存问题
 
-          
+CoreFoundation的内存管理在编程过程中我们会多次使用CoreFoundation的API,例如CFString
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/优化内存泄漏的几点分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -977,6 +927,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -1144,31 +1095,16 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <p>-：内存分区<br>栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址<br>栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。</p>
-<p>堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。<br>堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。</p>
-<p>静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段<br>系统管理内存的释放。</p>
-<p>代码区：存放函数的二进制代码</p>
-<p>文字常量区：存放字符串常量</p>
-<p>栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区<br>高地址&lt;——————————————————————————&gt;低地址</p>
-<p>问题补充：<br>当发起内存申请，系统会如何响应？<br>栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。<br>注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出）</p>
-<p>堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。</p>
-<p>二：内存问题举例<br>例1:<br><code>char *p = &quot;hello world1&quot;;
-  char a[] = &quot;hello world2&quot;;
-  //p[2] = &#39;a&#39;;
-  a[2] = &#39;a&#39;;
-  char *p1 = &quot;hello world1&quot;;
-  printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1);
-  printf(&quot;%c\n&quot;,a[2]);</code></p>
-<p>  分析:这个程序是错误的,错误发生在p[2] = ‘a’<br>  首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区)<br>  但是hello world1和hello world2存储于不同区域</p>
-<p>  数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据.</p>
-<p>  三、堆区、栈区和静态存储区的使用规则</p>
-<p>【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。</p>
-<p>【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。</p>
-<p>【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。</p>
-<p>【规则4】动态内存的申请与释放必须配对，防止内存泄漏。</p>
-<p>【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。</p>
-
-          
+          -：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。
+堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/内存分配和内存区块/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1187,6 +1123,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -1354,28 +1291,17 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><p>1.你理解的多线程：<br>2.多线程的多种实现方式：<br>3.你更倾向使用哪种？</p>
-<h1 id="pthread-（C）"><a href="#pthread-（C）" class="headerlink" title="pthread （C）"></a>pthread （C）</h1><p>pthread是一套基于c语言的多线程解决方案。使用与多个平台，linux，unix，windows。是一套跨平台的多线程解决方案。但是由于使用难度，在开发过程中很少使用到。</p>
-<h1 id="NSThread-OC"><a href="#NSThread-OC" class="headerlink" title="NSThread (OC)"></a>NSThread (OC)</h1><p>NSThread是苹果开发的一种多线程解决方案，基于面向对象的思想，使用OC语言开发。使用难度小。但唯一的不足就是程序员必须管理线程的生命周期。</p>
-<h1 id="GCD-C"><a href="#GCD-C" class="headerlink" title="GCD (C)"></a>GCD (C)</h1><p>GCD旨在减少程序员管理内存问题。有点事API清晰简单，使用起来简单顺手。而且线程由线程池管理。使得程序员只需要关注提交到线程中的任务。</p>
-<h1 id="NSOperation-OC"><a href="#NSOperation-OC" class="headerlink" title="NSOperation (OC)"></a>NSOperation (OC)</h1><p>NSOperation是基于GCD封装的一套API。使用面向对象的设计原则，比GCD多了一些简单使用的功能，暂停，取消等，使用起来更加方便.生命周期也是系统管理。</p>
-<h1 id="多线程原理"><a href="#多线程原理" class="headerlink" title="多线程原理"></a>多线程原理</h1><p>在单核处理器时代，我们所说的多线程技术就是CPU在线程之间来回切换。<br>1.提交多个任务，为每个任务开辟线程和获取资源。<br>2.CPU首先执行任务a，执行一段时间后，记录任务a，然后去执行任务b，执行一段时间后，又去执行任务c。最后又去执行任务a。在多个任务键来回切换。<br>3。如果CPU的切换足够快，我们就会看到多线程并发的假象。</p>
-<p>总结：开辟的线程越多，CPU的工作量就越大，耗费的系统资源就越多，每个任务被执行的时间效率降低。</p>
-<p>多线程的优点：<br>1.能够充分利用系统资源的使用效率。<br>2.提高程序的执行效率</p>
-<h1 id="请说出你最优的选择"><a href="#请说出你最优的选择" class="headerlink" title="请说出你最优的选择"></a>请说出你最优的选择</h1><p>首先我们应该排除Pthread和NSthread，使用难度和线程生命周期管理的原因。（他们只能作为备胎，而不能作为首选）</p>
-<p>GCD 它的使用更加轻量，API简单，但是功能没有NSOperation完备。程序员只关注向block中提交任务。但是想暂停和取消任务就比较难。而且设置线程依赖也要写非常多的代码。所以对于功能简单和任务明确的小项目适合使用GCD。</p>
-<p>NSOperation 是对GCD的一套抽象封装。增加了不少的功能。而且开发者还可以继承NSOperation完成自己特质的需求。通过NSOperationQueue可以快捷方便的设置线程依赖关系。支持取消，暂停等功能。还可以设置线程的优先级。适合复杂功能和项目的开发。</p>
-<h1 id="同步与异步-串行与并发"><a href="#同步与异步-串行与并发" class="headerlink" title="同步与异步,串行与并发"></a>同步与异步,串行与并发</h1><p>同步和异步:决定是否开辟新的线程</p>
-<p>串行和并发:决定是否同时执行任务</p>
-<p>同步:不会开辟新的线程,异步会开辟新的线程</p>
-<p>并发:会同时执行多个任务</p>
-<p>串行:每次执行一个任务,先进先出</p>
-<h1 id="优秀博文篇"><a href="#优秀博文篇" class="headerlink" title="优秀博文篇"></a>优秀博文篇</h1><p><a href="https://www.jianshu.com/p/4a798bacfff8" target="_blank" rel="noopener">多线程基础</a></p>
-<p><a href="https://objccn.io/issue-2-1/#challenges" target="_blank" rel="noopener">并发编程：API及挑战</a></p>
-<p><a href="https://objccn.io/issues/" target="_blank" rel="noopener">并发编程</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>当前开发中多线程的使用和理解非常重要。但是在并发编程中会遇到各种问题，例如优先级翻转、死锁、线程竞争资源等。所以我们应该在并发编程中考虑周全，并需要完成大量的测试。保证系统资源的正常使用。</p>
-
-          
+          多线程1.你理解的多线程：2.多线程的多种实现方式：3.你更倾向使用哪种？
+pthread （C）pthread是一套基于c语言的多线程解决方案。使用与多个平台，linux，unix，windows。是一套跨平台的多线程解决方案。但是由于使用难度，在开发过程中很少使用到。
+NSThread (OC)
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/多线程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1394,6 +1320,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -1561,10 +1488,15 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <p>作为一名开发者，我喜欢红海行动中的一段话。<br>我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。</p>
-<p>作为一名观众，我喜欢红海行动。</p>
-
-          
+          作为一名开发者，我喜欢红海行动中的一段话。我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/红海行动/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1583,6 +1515,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -1750,13 +1683,16 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <h3 id="对于最近面试的总结"><a href="#对于最近面试的总结" class="headerlink" title="对于最近面试的总结"></a>对于最近面试的总结</h3><p>1.首先面试最近还是蛮多的,而且都还聊的不错.</p>
-<p>2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接着就是产品制作和服务企业,因为这个企业的产品用户较多,所以涉及安全方面的问题较多,比如代码方面的安全,个人用户信息的安全等方面.再接着是一家金融产品公司,主要针对方向是基础知识和一些新技术的发展方向和了几情况.对于产品的优化问题是如何提现的.其他的也就是类似的这种.针对企业目前或者是未来的产品做出提问.剩下的就是我们的基本功.如果基本功扎实的话,可以多了解公司.</p>
-<p>3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强)</p>
-<p>4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高</p>
-<p>总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.</p>
-
-          
+          对于最近面试的总结1.首先面试最近还是蛮多的,而且都还聊的不错.
+2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/面试总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1775,6 +1711,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -1942,84 +1879,19 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <h1 id="函数组件和类定义组件"><a href="#函数组件和类定义组件" class="headerlink" title="函数组件和类定义组件"></a>函数组件和类定义组件</h1><p>组件:在react和react-native中通常会把可复用的部件封装起来,构建成一个单独的组件.<br>组件从概念上看上去就像一个函数,他可以接收任意输入的值称之为(props)属性.并返回一个需要在页面上显示的React元素</p>
-<ul>
-<li>函数定义组件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Student(props) &#123;</span><br><span class="line">	return &lt;h1&gt;hello, &#123;props.name&#125;&lt;/h1&gt;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;Student name = &quot;vicky&quot;/&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>上面的函数就是一个有效的React组件,它接收一个props的对象参数,并返回一个有效的React元素.我们称之为函数定义组件</p>
-<ul>
-<li>类定义组件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Student extends React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;Student name = &quot;weiqi&quot;/&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>看到Class这个关键字,我们很清楚的知道这个是一个类,不论是在java,oc,还是swift他都指代一个类.所以我们通过创建一个类来完成定义在类的render()函数中返回一个React元素,然后将元素添加到界面上显示.在render函数中我们看到了this.props.name,this代表是这个类本身.而props是这个类的属性,那么是具体属性的名称.</p>
-<p>以一个上边为图片下边为文字的button来用oc的语言特征进行解释解释(强行扯上关系):比如封装一个上图下文的button</p>
-<ul>
-<li>函数形式:</li>
-</ul>
-<p>我们可以通过在需要用到的地方以函数的形式构建,然后通过函数返回值返回需要的结果,添加到页面上显示代码在这里就不写了,没什么技术含量.</p>
-<ul>
-<li>类形式</li>
-</ul>
-<p>创建一个继承自UIbutton的子类,然后在init方法中构建自己需要的页面样式.在需要使用的地方初始化,加载.</p>
-<p>上面我举的是一个很微不足道的例子,只是为了做解释说明,方便大家记忆理解,同时也是为了方便我记忆理解.可能让你单独记忆这个概念,可能记不住,但是你一旦把他和你的生活上经常干的事扯上关系,那就不算记忆,只是做一些扩展而已.就变得简单多了.</p>
-<h1 id="组件渲染"><a href="#组件渲染" class="headerlink" title="组件渲染"></a>组件渲染</h1><p>从上面的函数定义组件分析组件渲染:</p>
-<ul>
-<li>组件<student name="vicky"> 元素调用的ReactDom的render函数</student></li>
-<li>React将{name:”vicky”}作为Student的props传递给了Student组件</li>
-<li>在Student组件将函数结果返回.</li>
-<li>ReactDom将Dom更新为组件返回的结果</li>
-</ul>
-<p>介绍俩个概念:</p>
-<ul>
-<li>Dom标签:我们前面使用过的在ReactDom.render函数中直接使用的<h1>标签,作为React的元素</h1></li>
-<li>自定义组件:通过函数或类来自定义的组件</li>
-</ul>
-<h1 id="组合组件"><a href="#组合组件" class="headerlink" title="组合组件"></a>组合组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Student extends React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class App extends  React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;div&gt;</span><br><span class="line">				&lt;Student name = &quot;vicky&quot;/&gt;</span><br><span class="line">				&lt;Student name = &quot;张三&quot;/&gt;</span><br><span class="line">				&lt;Student name = &quot;李四&quot;/&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;App /&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>理解:就是在一个组件内部可已使用另外的一个组件.工程中中就是在一个自定义的子视图中使用另外的一个自定义子视图控件</p>
-<p>重点:一个新的React程序的顶部一般都是App组件,如果要讲React集成到现有的应用程序中,则可以从下而上使用小组件作为开始,然后逐渐向顶层扩展.</p>
-<p>警告:组件的返回值只能有一个根元素.</p>
-<h1 id="提取组件"><a href="#提取组件" class="headerlink" title="提取组件"></a>提取组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Comment(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;Comment&quot;&gt;</span><br><span class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</span><br><span class="line">        &lt;img className=&quot;Avatar&quot;</span><br><span class="line">          src=&#123;props.author.avatarUrl&#125;</span><br><span class="line">          alt=&#123;props.author.name&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</span><br><span class="line">          &#123;props.author.name&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</span><br><span class="line">        &#123;props.text&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</span><br><span class="line">        &#123;formatDate(props.date)&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>看到上面的代码有什么感受,好多div啊,而且嵌套了好多层啊.现在让我们一起讲上面的代码进行提取组件,然后使代码变得清晰.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function Avatar(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;img className=&quot;Avatar&quot; </span><br><span class="line">			 src=&#123;props.author.url&#125;</span><br><span class="line">			 alt=&#123;props.author.name&#125;</span><br><span class="line">		/&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function UserInfo(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;UserInfU&quot;&gt;</span><br><span class="line">			&#123;props.author.name&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function CommentText(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment-text&quot;&gt;</span><br><span class="line">			&#123;props.text&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function CommentDate(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment-date&quot;&gt;</span><br><span class="line">			&#123;formatDate(props.date)&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">		</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Comment(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment&quot;&gt;</span><br><span class="line">			&lt;div className=&quot;UserInfo&quot;&gt;</span><br><span class="line">				&lt;Avatar user = &#123;props.author&#125; /&gt;</span><br><span class="line">				&lt;UserInfo user = &#123;props.author&#125;/&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;CommentText text = &#123;props.text&#125;/&gt;</span><br><span class="line">			&lt;CommentDate date = &#123;props.date&#125;/&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>拆解之后有什么好处:</p>
-<p>1.代码的可读性较高</p>
-<p>2.拆解出来的组件可以进行复用</p>
-<p>3.可以分别拆解到不同的文件,减少单独文件的代码量</p>
-<h1 id="props属性和只读属性"><a href="#props属性和只读属性" class="headerlink" title="props属性和只读属性"></a>props属性和只读属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function sum(a,b) &#123;</span><br><span class="line"> return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数并没有修改输入值得本身,当传入值相同时结果是相同的<br>这种函数较重纯函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function withdraw(account, amount) &#123;</span><br><span class="line">  account.total -= amount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数对它自身输入的值进行了-=操作,输入值本身发生了变化.</p>
-<p>##重点:所有的React组件必须(必须)(必须)像纯函数那样使用它们的props</p>
-<h1 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h1><p>初级类定义:刚开始学就这样了,后面学习到了慢慢改进</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">//首先引入React和PropTypes</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import PropTypes from &apos;prop-types&apos;;</span><br><span class="line"></span><br><span class="line">//开始定义Student类</span><br><span class="line"></span><br><span class="line">class Student extends React.Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123;</span><br><span class="line">            name,</span><br><span class="line">            age,</span><br><span class="line">            star,</span><br><span class="line">            sex,</span><br><span class="line">            phone,</span><br><span class="line">            account,</span><br><span class="line">            headImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; = this.props;</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    name:&#123;name&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                   age: &#123;age&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    star:&#123;star&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    sex:&#123;sex&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                   phone: &#123;phone&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    account:&#123;account&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;img src= &#123;headImage&#125;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//到底我们需要哪些属性啦?按需求来定</span><br><span class="line"></span><br><span class="line">Student.defaultProps = &#123;</span><br><span class="line">    name: &quot;vicky&quot;,</span><br><span class="line">    age: 25,</span><br><span class="line">    star: &quot;摩羯座&quot;,</span><br><span class="line">    sex: 1, //1:男性,2:女性,3:未知</span><br><span class="line">    phone: 119110120,</span><br><span class="line">    account: 513961360,</span><br><span class="line">    headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//检查数据类型,如果数据类型不匹配会进行报错提醒</span><br><span class="line">Student.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string.isRequired,</span><br><span class="line">    age: PropTypes.number.isRequired,</span><br><span class="line">    star: PropTypes.string.isRequired,</span><br><span class="line">    sex: PropTypes.number.isRequired,</span><br><span class="line">    phone: PropTypes.number.isRequired,</span><br><span class="line">    account: PropTypes.number.isRequired,</span><br><span class="line">    headImage: PropTypes.string.isRequired</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//export  default Student;</span><br></pre></td></tr></table></figure>
-<p>然后在index.js引入文件并渲染组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line"></span><br><span class="line">	&lt;Student name=&quot;李四&quot; age=&quot;56&quot; star=&quot;白羊&quot; sex=&quot;2&quot; phone=&quot;122222222&quot; account=&quot;2222222&quot; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>然后运行发现报错了<br>报错大概是这样的 export default was not found ./Stundet到底什么意思啦就是在类定义组件并且分文件之后要将自己暴露出来,在类定义的最后一行引入这行代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export  default Student;</span><br></pre></td></tr></table></figure>
-<p>然后在运行发现还有报错:<br>这次就不展示什么报错了,就是类型检查报错,因为我们声明了很多属性的类型为number类型,但是我们用string赋值肯定会报错的.</p>
-<p>修改完后的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line"></span><br><span class="line">	&lt;Student name=&quot;李四&quot; age=&#123;56&#125; star=&quot;白羊&quot; sex=&#123;2&#125; phone=&#123;122222222&#125; account=&#123;2222222&#125; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>报错是消失了,但是图片和名字还是没有显示,原来是属性名写错了,sorry低级失误.</p>
-<ul>
-<li>添加属性的方法</li>
-</ul>
-<p>可以再使用组件时直接添加,例如<student name="张三">,然后在组件内部return是用this.props.name来获取属性值</student></p>
-<ul>
-<li>添加属性默认值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Student.defaultProps = &#123;</span><br><span class="line">    name: &quot;vicky&quot;,</span><br><span class="line">    age: 25,</span><br><span class="line">    star: &quot;摩羯座&quot;,</span><br><span class="line">    sex: 1, //1:男性,2:女性,3:未知</span><br><span class="line">    phone: 119110120,</span><br><span class="line">    account: 513961360,</span><br><span class="line">    headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>检查数据类型,如果数据类型不匹配会进行报错提醒</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Student.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string.isRequired,</span><br><span class="line">    age: PropTypes.number.isRequired,</span><br><span class="line">    star: PropTypes.string.isRequired,</span><br><span class="line">    sex: PropTypes.number.isRequired,</span><br><span class="line">    phone: PropTypes.number.isRequired,</span><br><span class="line">    account: PropTypes.number.isRequired,</span><br><span class="line">    headImage: PropTypes.string.isRequired</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>render函数的使用属性的多种方法,常见的就是this.props.name这种,还有在一些人的代码中经常会看到这样的代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const &#123;</span><br><span class="line">            name,</span><br><span class="line">            age,</span><br><span class="line">            star,</span><br><span class="line">            sex,</span><br><span class="line">            phone,</span><br><span class="line">            account,</span><br><span class="line">            headImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; = this.props;</span><br></pre></td></tr></table></figure>
-<p>简化赋值操作.</p>
+          函数组件和类定义组件组件:在react和react-native中通常会把可复用的部件封装起来,构建成一个单独的组件.组件从概念上看上去就像一个函数,他可以接收任意输入的值称之为(props)属性.并返回一个需要在页面上显示的React元素
 
-          
+函数定义组件
+
+123456789function St
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/React第三课/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2038,6 +1910,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -2205,83 +2078,17 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <h1 id="自动引用计数"><a href="#自动引用计数" class="headerlink" title="自动引用计数"></a>自动引用计数</h1><h2 id="1-1-什么是自动引用计数"><a href="#1-1-什么是自动引用计数" class="headerlink" title="1.1 什么是自动引用计数"></a>1.1 什么是自动引用计数</h2><p>自动引用计数就是指在内存管理上不需要程序员再次键入retain和release等内存管理语句.而是由系统自动对引用进行计数</p>
-<p>目前我们所创建的项目都是ARC的,它不仅减少了程序员的开发工作,而且也降低了程序的崩溃,内存泄漏等风险.</p>
-<h2 id="1-2内存管理-引用计数"><a href="#1-2内存管理-引用计数" class="headerlink" title="1.2内存管理/引用计数"></a>1.2内存管理/引用计数</h2><h3 id="1-2-1-概要"><a href="#1-2-1-概要" class="headerlink" title="1.2.1 概要"></a>1.2.1 概要</h3><p>书中的举例非常经典,利用办公室开关灯的实际情况对内存管理进行了详细的分析.</p>
-<ul>
-<li>当第一个人进入办公室时需要照明,所以开灯 (引用计数1)</li>
-<li>当第二个人进入办公室时也需要照明,持有对象 (引用计数2)</li>
-<li>当第一个人离开办公室时不需要照明,但是别人还需要照明,所以不能关闭灯,只能释放自己的持有 (引用计数1)</li>
-<li>当最后一个人离开时,不需要灯光了,然后关闭灯光,释放自己持有.对象释放 (引用计数0)</li>
-</ul>
-<h2 id="1-2-2-内存管理的思考方式"><a href="#1-2-2-内存管理的思考方式" class="headerlink" title="1.2.2 内存管理的思考方式"></a>1.2.2 内存管理的思考方式</h2><ul>
-<li>自己生成的对象,自己持有</li>
-<li>非自己生成的对象,自己也能持有</li>
-<li>不在需要自己持有的对象时,需要自己释放</li>
-<li>不能释放自己不持有的对象<table><tr><th>对象操作</th><th>Objective-C方法</th></tr><tr><th>生成并持有对象</th><th>alloc/new/copy/mutableCopy等</th></tr><tr><th>持有对象</th><th>retain</th></tr><tr><th>释放对象</th><th>release</th></tr><tr><th>废弃对象</th><th>dealloc</th></tr></table>
-
-</li>
-</ul>
-<h3 id="自己生成并持有对象"><a href="#自己生成并持有对象" class="headerlink" title="自己生成并持有对象"></a>自己生成并持有对象</h3><ul>
-<li>alloc</li>
-<li>new</li>
-<li>copy</li>
-<li>mutableCopy</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 自己生成并持有对象</span><br><span class="line">*/</span><br><span class="line"> </span><br><span class="line">id obj = [[NSObject alloc] init];</span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line">* 自己持有对象</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-<p>alloc方法生成的对象自己持有(自己生成并持有对象),并将指向生成持有对象的指针赋给了变量obj.new方法与alloc方法完全一致,copy和mutableCopy方法基于NSCopying和NSMutableCopying协议约定,利用copyWithZ    one:方法生成并持有对象的副本</p>
-<h4 id="alloc的调用过程"><a href="#alloc的调用过程" class="headerlink" title="alloc的调用过程"></a>alloc的调用过程</h4><p>1.首先调用NSObject的alloc方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (id)alloc &#123;</span><br><span class="line">    return _objc_rootAlloc(self);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.调用_objc_rootAlloc()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_objc_rootAlloc(Class cls)</span><br><span class="line">&#123;</span><br><span class="line">    return callAlloc(cls, false/*checkNil*/, true/*allocWithZone*/);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.调用了callAlloc()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">static ALWAYS_INLINE id</span><br><span class="line">callAlloc(Class cls, bool checkNil, bool allocWithZone=false)</span><br><span class="line">&#123;</span><br><span class="line">//判断是否为Nil和cls是否存在,不存在直接返回</span><br><span class="line">    if (checkNil &amp;&amp; !cls) return nil;</span><br><span class="line"></span><br><span class="line">#if __OBJC2__</span><br><span class="line">//判断是否自定义实现的allocwithzone方法</span><br><span class="line">    if (! cls-&gt;ISA()-&gt;hasCustomAWZ()) &#123;</span><br><span class="line">        // No alloc/allocWithZone implementation. Go straight to the allocator.</span><br><span class="line">        // fixme store hasCustomAWZ in the non-meta class and </span><br><span class="line">        // add it to canAllocFast&apos;s summary</span><br><span class="line">        //还需要再次判断当前的class是否支持快速alloc。如果支持，直接调用calloc函数，申请</span><br><span class="line">        bits.fastInstanceSize()大小的内存空间，如果创建失败，会调用callBadAllocHandler函数，如</span><br><span class="line">        果不支持快速alloc则调用class_createInstance</span><br><span class="line">        if (cls-&gt;canAllocFast()) &#123;</span><br><span class="line">            // No ctors, raw isa, etc. Go straight to the metal.</span><br><span class="line">            bool dtor = cls-&gt;hasCxxDtor();</span><br><span class="line">            id obj = (id)calloc(1, cls-&gt;bits.fastInstanceSize());</span><br><span class="line">            if (!obj) return callBadAllocHandler(cls);</span><br><span class="line">            obj-&gt;initInstanceIsa(cls, dtor);</span><br><span class="line">            return obj;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            // Has ctor or raw isa or something. Use the slower path.</span><br><span class="line">            id obj = class_createInstance(cls, 0);</span><br><span class="line">            if (!obj) return callBadAllocHandler(cls);</span><br><span class="line">            return obj;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    // No shortcuts available.</span><br><span class="line">    if (allocWithZone) return [cls allocWithZone:nil];</span><br><span class="line">    return [cls alloc];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.调用allocWithZone</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (id)allocWithZone:(struct _NSZone *)zone &#123;</span><br><span class="line">    return _objc_rootAllocWithZone(self, (malloc_zone_t *)zone);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.调用_objc_rootAllocWithZone()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_objc_rootAllocWithZone(Class cls, malloc_zone_t *zone)</span><br><span class="line">&#123;</span><br><span class="line">    id obj;</span><br><span class="line"></span><br><span class="line">#if __OBJC2__ //如果是oc代码使用class_createInstance()</span><br><span class="line">    // allocWithZone under __OBJC2__ ignores the zone parameter</span><br><span class="line">    (void)zone;</span><br><span class="line">    obj = class_createInstance(cls, 0);</span><br><span class="line">#else</span><br><span class="line">//如果不存在zone或者是使用了GC使用class_createInstance(),如果不是使用class_createInstanceFromZone()</span><br><span class="line">    if (!zone || UseGC) &#123;</span><br><span class="line">        obj = class_createInstance(cls, 0);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        obj = class_createInstanceFromZone(cls, 0, zone);</span><br><span class="line">    &#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    if (!obj) obj = callBadAllocHandler(cls);</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6.调用class_createInstance()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id </span><br><span class="line">class_createInstance(Class cls, size_t extraBytes)</span><br><span class="line">&#123;</span><br><span class="line">    return _class_createInstanceFromZone(cls, extraBytes, nil);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>7.调用_class_createInstanceFromZone()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_class_createInstanceFromZone(Class cls, size_t extraBytes, void *zone, </span><br><span class="line">                              bool cxxConstruct = true, </span><br><span class="line">                              size_t *outAllocatedSize = nil)</span><br><span class="line">&#123;</span><br><span class="line">//cls是否存在</span><br><span class="line">    if (!cls) return nil;</span><br><span class="line">//判断该类是否已经做过realize，关于realize的详请可以参考这篇和这篇，realize主要是一些数据的拷贝和整理对齐。</span><br><span class="line">    assert(cls-&gt;isRealized());</span><br><span class="line"></span><br><span class="line">    // Read class&apos;s info bits all at once for performance</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">    判断是否支持hasCxxCtor 和 hasCxxDtor还有canAllocNonpointer，hasCxxCtor 和 hasCxxDtor是对</span><br><span class="line">     Objective-C++ 的支持，表示这个类是否有 C++ 类构造函数和析构函数，如果有的话，需要进行额外的工</span><br><span class="line">     作。canAllocNonpointer我们不用太关心，这里OC 2.0以上基本上返回的都是true。</span><br><span class="line">    */</span><br><span class="line">    bool hasCxxCtor = cls-&gt;hasCxxCtor();</span><br><span class="line">    bool hasCxxDtor = cls-&gt;hasCxxDtor();</span><br><span class="line">    bool fast = cls-&gt;canAllocIndexed();</span><br><span class="line"></span><br><span class="line">//计算instance大小</span><br><span class="line">    size_t size = cls-&gt;instanceSize(extraBytes);</span><br><span class="line">    //if outAllocatedSize存在 *outAllocatedSize的大小 = size</span><br><span class="line">    if (outAllocatedSize) *outAllocatedSize = size;</span><br><span class="line"></span><br><span class="line">    id obj;</span><br><span class="line">    //如果不是用gc,不存在zone,???</span><br><span class="line">    if (!UseGC  &amp;&amp;  !zone  &amp;&amp;  fast) &#123;</span><br><span class="line">    //分配objc内存大小</span><br><span class="line">        obj = (id)calloc(1, size);</span><br><span class="line">        //如果obj不存在,return nil</span><br><span class="line">        </span><br><span class="line">        if (!obj) return nil;</span><br><span class="line">        //初始化ias指针</span><br><span class="line">        obj-&gt;initInstanceIsa(cls, hasCxxDtor);</span><br><span class="line">    &#125; </span><br><span class="line">    else &#123;</span><br><span class="line">#if SUPPORT_GC</span><br><span class="line">        if (UseGC) &#123;</span><br><span class="line">            obj = (id)auto_zone_allocate_object(gc_zone, size,</span><br><span class="line">                                                AUTO_OBJECT_SCANNED, 0, 1);</span><br><span class="line">        &#125; else </span><br><span class="line">#endif</span><br><span class="line">        if (zone) &#123;</span><br><span class="line">            obj = (id)malloc_zone_calloc ((malloc_zone_t *)zone, 1, size);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            obj = (id)calloc(1, size);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!obj) return nil;</span><br><span class="line"></span><br><span class="line">        // Use non-indexed isa on the assumption that they might be </span><br><span class="line">        // doing something weird with the zone or RR.</span><br><span class="line">        obj-&gt;initIsa(cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">// 不懂</span><br><span class="line">    if (cxxConstruct &amp;&amp; hasCxxCtor) &#123;</span><br><span class="line">        obj = _objc_constructOrFree(obj, cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们都知道alloc的作用是开辟足够的内存空间,并初始化isa指针.然后使obj指针指向对象的内存地址</p>
-<h3 id="非自己生成的对象-自己也能持有"><a href="#非自己生成的对象-自己也能持有" class="headerlink" title="非自己生成的对象,自己也能持有"></a>非自己生成的对象,自己也能持有</h3><p>在我们学习OC的时候我们只有对象的生成方法有两种,一种是使用alloc方法,还有一种是使用便利构造器也就是常见的例如:</p>
-<p><code>id obj = [NSArray array];</code></p>
-<p>分析:<br>这个对象是由自己生成,但并非自己持有.</p>
-<blockquote>
-<p>+(instancetype)array {</p>
-<p>   __autoreleasing NSArray *array = [[NSArray alloc] init];</p>
-<p>   return array;<br>}</p>
-</blockquote>
-<p>从上面第一条自己生成并持有.我们可以得到array只是将自己生成并持有对象的指针赋给了array变量.我们拿到的只是这个变量指针.</p>
-<p>那么如何取得这个对象的所有权啦???</p>
-<p>然后就用到了retain方法</p>
-<blockquote>
-<p>id obj = [NSArray array];</p>
-<p>[obj retain]; </p>
-</blockquote>
-<p>通过retain函数持有非自己生成对象</p>
-<h4 id="retain方法调用过程"><a href="#retain方法调用过程" class="headerlink" title="retain方法调用过程"></a>retain方法调用过程</h4><p>我们通过查询runtime源代码可以找到retain的调用顺序<br>1.首先是NSObject的retain方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (id)retain &#123;</span><br><span class="line">    return ((id)self)-&gt;rootRetain();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.在retain方法内部调用了rootRetain()方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_objc_rootRetain(id obj)</span><br><span class="line">&#123;</span><br><span class="line">//判断当前的obj对象是否为空</span><br><span class="line">    assert(obj);</span><br><span class="line"></span><br><span class="line">    return obj-&gt;rootRetain();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.调用obj的rootRetain()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ALWAYS_INLINE id </span><br><span class="line">objc_object::rootRetain()</span><br><span class="line">&#123;</span><br><span class="line">    return rootRetain(false, false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4.在rootRetain方法内部调用了objc_object::rootRetain(bool tryRetain, bool handleOverflow)方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">ALWAYS_INLINE id </span><br><span class="line">objc_object::rootRetain(bool tryRetain, bool handleOverflow)</span><br><span class="line">&#123;</span><br><span class="line">//判断是否为gc环境(垃圾回收,在mac系统上是由垃圾回收机制的,因为mac的内存足够大)</span><br><span class="line">    assert(!UseGC);</span><br><span class="line">    //判断是否为TaggedPointer,TaggedPointer是系统的一个优化方案[TaggedPointer](http://blog.devtang.com/2014/05/30/understand-tagged-pointer/)</span><br><span class="line">    if (isTaggedPointer()) return (id)this;</span><br><span class="line"></span><br><span class="line">    bool sideTableLocked = false;</span><br><span class="line">    bool transcribeToSideTable = false;</span><br><span class="line"></span><br><span class="line">    isa_t oldisa;</span><br><span class="line">    isa_t newisa;</span><br><span class="line">//这里没看懂</span><br><span class="line">    do &#123;</span><br><span class="line">        transcribeToSideTable = false;</span><br><span class="line">        oldisa = LoadExclusive(&amp;isa.bits);</span><br><span class="line">        newisa = oldisa;</span><br><span class="line">        if (!newisa.indexed) goto unindexed;</span><br><span class="line">        // don&apos;t check newisa.fast_rr; we already called any RR overrides</span><br><span class="line">        if (tryRetain &amp;&amp; newisa.deallocating) goto tryfail;</span><br><span class="line">        uintptr_t carry;</span><br><span class="line">        newisa.bits = addc(newisa.bits, RC_ONE, 0, &amp;carry);  // extra_rc++</span><br><span class="line"></span><br><span class="line">        if (carry) &#123;</span><br><span class="line">            // newisa.extra_rc++ overflowed</span><br><span class="line">            if (!handleOverflow) return rootRetain_overflow(tryRetain);</span><br><span class="line">            // Leave half of the retain counts inline and </span><br><span class="line">            // prepare to copy the other half to the side table.</span><br><span class="line">            if (!tryRetain &amp;&amp; !sideTableLocked) sidetable_lock();</span><br><span class="line">            sideTableLocked = true;</span><br><span class="line">            transcribeToSideTable = true;</span><br><span class="line">            newisa.extra_rc = RC_HALF;</span><br><span class="line">            newisa.has_sidetable_rc = true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; while (!StoreExclusive(&amp;isa.bits, oldisa.bits, newisa.bits));</span><br><span class="line"></span><br><span class="line">    if (transcribeToSideTable) &#123;</span><br><span class="line">        // Copy the other half of the retain counts to the side table.</span><br><span class="line">        sidetable_addExtraRC_nolock(RC_HALF);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (!tryRetain &amp;&amp; sideTableLocked) sidetable_unlock();</span><br><span class="line">    return (id)this;</span><br><span class="line"></span><br><span class="line"> tryfail:</span><br><span class="line">    if (!tryRetain &amp;&amp; sideTableLocked) sidetable_unlock();</span><br><span class="line">    return nil;</span><br><span class="line"></span><br><span class="line"> unindexed:</span><br><span class="line">    if (!tryRetain &amp;&amp; sideTableLocked) sidetable_unlock();</span><br><span class="line">    if (tryRetain) return sidetable_tryRetain() ? (id)this : nil;</span><br><span class="line">    //调用sidetable_retain()函数</span><br><span class="line">    else return sidetable_retain();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.调用sidetable_retain()函数,首先获取对象的引用技术管理结构体SideTable,在SideTable中有三个重要的成员(spinlock_t slock,RefcountMap refcnts,weak_table_t weak_table).其中引用计数是保存到refcnts.weak_table弱引用表.第一个是一个自旋锁,保证在多线程中操作.</p>
-<p>我们再看引用计数每次加SIDE_TABLE_RC_ONE到底是什么东西?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define SIDE_TABLE_RC_ONE            (1UL&lt;&lt;2)</span><br></pre></td></tr></table></figure>
-<p>这里使用了一个位操作,在二进制下将1向左移动2位,就是100.然后100代表的数字是4.所以实际上retain加的引用计数是4.第一位标识引用计数是否越界,第三位和第三位标识弱引用和析构状态.这个结构也就造成了我们为什么方位引用计数时为什么总是1而不是0.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">uintptr_t</span><br><span class="line">objc_object::sidetable_retainCount()</span><br><span class="line">&#123;</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    size_t refcnt_result = 1;</span><br><span class="line">    </span><br><span class="line">    table.lock();</span><br><span class="line">    RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">    if (it != table.refcnts.end()) &#123;</span><br><span class="line">        // this is valid for SIDE_TABLE_RC_PINNED too</span><br><span class="line">        refcnt_result += it-&gt;second &gt;&gt; SIDE_TABLE_RC_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line">    return refcnt_result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从上面的代码的代码可以看出refcnt_result+=引用计数总计.而refcnt_result = 1.所以我们访问时都是1而不是0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">objc_object::sidetable_retain()</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line">//获取管理引用计数的结构体SideTable</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    if (table.trylock()) &#123;</span><br><span class="line">    //获取当前对象的引用计数散列表,使用散列表可以将对象持有者的内存地址和引用计数保存在散列表中.就算在出现异常情况时,也能定位到地址信息</span><br><span class="line">        size_t&amp; refcntStorage = table.refcnts[this];</span><br><span class="line">        //判断当前的引用计数是否越界</span><br><span class="line">        if (! (refcntStorage &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        //如果每引用计数没有越界,引用计数加1</span><br><span class="line">            refcntStorage += SIDE_TABLE_RC_ONE;</span><br><span class="line">        &#125;</span><br><span class="line">        table.unlock();</span><br><span class="line">        return (id)this;</span><br><span class="line">    &#125;</span><br><span class="line">    return sidetable_retain_slow(table);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6.调用sidetable_retain_slow()函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">objc_object::sidetable_retain_slow(SideTable&amp; table)</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    table.lock();</span><br><span class="line">    size_t&amp; refcntStorage = table.refcnts[this];</span><br><span class="line">    if (! (refcntStorage &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        refcntStorage += SIDE_TABLE_RC_ONE;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line"></span><br><span class="line">    return (id)this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码也是引用计数进行加一的一个函数</p>
-<p>上面的所有的过程就是在我们调用retain的函数调用过程.</p>
-
-          
+          自动引用计数1.1 什么是自动引用计数自动引用计数就是指在内存管理上不需要程序员再次键入retain和release等内存管理语句.而是由系统自动对引用进行计数
+目前我们所创建的项目都是ARC的,它不仅减少了程序员的开发工作,而且也降低了程序的崩溃,内存泄漏等风险.
+1.2内存管理/引用计数1.2.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/iOS内存管理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2300,6 +2107,7 @@ UIView.animate(withDuration: animationInterval, animations: {
 
     
 
+    
     
 
     <footer class="post-footer">
@@ -3125,6 +2933,9 @@ UIView.animate(withDuration: animationInterval, animations: {
   
 
   
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
 </html>
