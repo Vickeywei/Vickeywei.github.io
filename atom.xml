@@ -43,29 +43,25 @@
   </entry>
   
   <entry>
-    <title>iOS应用攻防实战(一)</title>
-    <link href="http://yoursite.com/2018/10/12/iOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98/"/>
-    <id>http://yoursite.com/2018/10/12/iOS应用安全攻防实战/</id>
+    <title>iOS开发小记</title>
+    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:10:32.468Z</updated>
+    <updated>2018-10-12T03:08:36.847Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="误解1-认证因为这设备是安全可信任的"><a href="#误解1-认证因为这设备是安全可信任的" class="headerlink" title="误解1: 认证因为这设备是安全可信任的"></a>误解1: 认证因为这设备是安全可信任的</h1><p>设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.</p><h1 id="误解2-单一性安全机制"><a href="#误解2-单一性安全机制" class="headerlink" title="误解2: 单一性安全机制"></a>误解2: 单一性安全机制</h1><p>单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破.</p><h1 id="iOS安全模型"><a href="#iOS安全模型" class="headerlink" title="iOS安全模型"></a>iOS安全模型</h1><p>1.设备安全:防止未授权的人使用设备</p><p>2.数据安全:存储在设备上的数据得到保护</p><p>3.网络安全:当通过网络传输时的加密工具</p><p>4.应用软件安全:加固操作系统并隔离运行时应用软件的机制</p><h1 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h1><p>对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置.</p><h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><p>苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度.</p><h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p>苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全.</p><h1 id="应用软件的安全"><a href="#应用软件的安全" class="headerlink" title="应用软件的安全"></a>应用软件的安全</h1><p>应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问.</p><p>为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入.</p><p>钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法.</p><p>苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密.</p><h1 id="误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5"><a href="#误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5" class="headerlink" title="误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)"></a>误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)</h1><p>iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙</p><h1 id="密码等于弱安全"><a href="#密码等于弱安全" class="headerlink" title="密码等于弱安全"></a>密码等于弱安全</h1><p>相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。<br>举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。</p><h1 id="误解四：关心安全的用户会设置复杂的密码"><a href="#误解四：关心安全的用户会设置复杂的密码" class="headerlink" title="误解四：关心安全的用户会设置复杂的密码"></a>误解四：关心安全的用户会设置复杂的密码</h1><p>大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。</p><h1 id="误解五：强密码依然不能保证设备安全"><a href="#误解五：强密码依然不能保证设备安全" class="headerlink" title="误解五：强密码依然不能保证设备安全"></a>误解五：强密码依然不能保证设备安全</h1><p>我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。</p><h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p><h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;误解1-认证因为这设备是安全可信任的&quot;&gt;&lt;a href=&quot;#误解1-认证因为这设备是安全可信任的&quot; class=&quot;headerlink&quot; title=&quot;误解1: 认证因为这设备是安全可信任的&quot;&gt;&lt;/a&gt;误解1: 认证因为这设备是安全可信任的&lt;/h1&gt;&lt;p&gt;设备和产
+        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
       
     
     </summary>
     
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
-    
-      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="攻防" scheme="http://yoursite.com/tags/%E6%94%BB%E9%98%B2/"/>
     
   </entry>
   
@@ -226,6 +222,29 @@
   </entry>
   
   <entry>
+    <title>Architectures</title>
+    <link href="http://yoursite.com/2018/10/12/Xcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/10/12/Xcode之Architectures设置/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:19:09.404Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p><p>介绍上面的两个名词</p><h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p><p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p><h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul><li>指令集都是可以向下兼容的</li></ul><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Xcode设置项之Architectures和Valid-Architectures&quot;&gt;&lt;a href=&quot;#Xcode设置项之Architectures和Valid-Architectures&quot; class=&quot;headerlink&quot; title=&quot;Xcode设置项
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Swift学习资源</title>
     <link href="http://yoursite.com/2018/10/12/Swift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2018/10/12/Swift学习资源和大神博客/</id>
@@ -247,29 +266,6 @@
     
     
       <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Architectures</title>
-    <link href="http://yoursite.com/2018/10/12/Xcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/10/12/Xcode之Architectures设置/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:19:09.404Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p><p>介绍上面的两个名词</p><h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p><p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p><h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul><li>指令集都是可以向下兼容的</li></ul><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Xcode设置项之Architectures和Valid-Architectures&quot;&gt;&lt;a href=&quot;#Xcode设置项之Architectures和Valid-Architectures&quot; class=&quot;headerlink&quot; title=&quot;Xcode设置项
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
     
   </entry>
   
@@ -362,25 +358,29 @@
   </entry>
   
   <entry>
-    <title>iOS开发小记</title>
-    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
+    <title>iOS应用攻防实战(一)</title>
+    <link href="http://yoursite.com/2018/10/12/iOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98/"/>
+    <id>http://yoursite.com/2018/10/12/iOS应用安全攻防实战/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:36.847Z</updated>
+    <updated>2018-10-12T03:10:32.468Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="误解1-认证因为这设备是安全可信任的"><a href="#误解1-认证因为这设备是安全可信任的" class="headerlink" title="误解1: 认证因为这设备是安全可信任的"></a>误解1: 认证因为这设备是安全可信任的</h1><p>设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.</p><h1 id="误解2-单一性安全机制"><a href="#误解2-单一性安全机制" class="headerlink" title="误解2: 单一性安全机制"></a>误解2: 单一性安全机制</h1><p>单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破.</p><h1 id="iOS安全模型"><a href="#iOS安全模型" class="headerlink" title="iOS安全模型"></a>iOS安全模型</h1><p>1.设备安全:防止未授权的人使用设备</p><p>2.数据安全:存储在设备上的数据得到保护</p><p>3.网络安全:当通过网络传输时的加密工具</p><p>4.应用软件安全:加固操作系统并隔离运行时应用软件的机制</p><h1 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h1><p>对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置.</p><h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><p>苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度.</p><h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p>苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全.</p><h1 id="应用软件的安全"><a href="#应用软件的安全" class="headerlink" title="应用软件的安全"></a>应用软件的安全</h1><p>应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问.</p><p>为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入.</p><p>钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法.</p><p>苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密.</p><h1 id="误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5"><a href="#误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5" class="headerlink" title="误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)"></a>误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)</h1><p>iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙</p><h1 id="密码等于弱安全"><a href="#密码等于弱安全" class="headerlink" title="密码等于弱安全"></a>密码等于弱安全</h1><p>相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。<br>举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。</p><h1 id="误解四：关心安全的用户会设置复杂的密码"><a href="#误解四：关心安全的用户会设置复杂的密码" class="headerlink" title="误解四：关心安全的用户会设置复杂的密码"></a>误解四：关心安全的用户会设置复杂的密码</h1><p>大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。</p><h1 id="误解五：强密码依然不能保证设备安全"><a href="#误解五：强密码依然不能保证设备安全" class="headerlink" title="误解五：强密码依然不能保证设备安全"></a>误解五：强密码依然不能保证设备安全</h1><p>我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。</p><h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p><h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
+        &lt;h1 id=&quot;误解1-认证因为这设备是安全可信任的&quot;&gt;&lt;a href=&quot;#误解1-认证因为这设备是安全可信任的&quot; class=&quot;headerlink&quot; title=&quot;误解1: 认证因为这设备是安全可信任的&quot;&gt;&lt;/a&gt;误解1: 认证因为这设备是安全可信任的&lt;/h1&gt;&lt;p&gt;设备和产
       
     
     </summary>
     
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
+    
+      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="攻防" scheme="http://yoursite.com/tags/%E6%94%BB%E9%98%B2/"/>
     
   </entry>
   
@@ -412,6 +412,28 @@
   </entry>
   
   <entry>
+    <title>instrument使用</title>
+    <link href="http://yoursite.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/10/12/instrument的使用/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:08:15.489Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="内存分析" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
+    
+      <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
+    
+      <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>国际化本地化</title>
     <link href="http://yoursite.com/2018/10/12/localizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86/"/>
     <id>http://yoursite.com/2018/10/12/localizable-strings国际化和本地化处理/</id>
@@ -433,28 +455,6 @@
     
     
       <category term="Localizable.strings" scheme="http://yoursite.com/tags/Localizable-strings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>instrument使用</title>
-    <link href="http://yoursite.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/10/12/instrument的使用/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:15.489Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="内存分析" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
-    
-      <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
-    
-      <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
     
   </entry>
   

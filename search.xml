@@ -12,16 +12,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS应用攻防实战(一)]]></title>
-    <url>%2F2018%2F10%2F12%2FiOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98%2F</url>
-    <content type="text"><![CDATA[误解1: 认证因为这设备是安全可信任的设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破. 误解2: 单一性安全机制单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破. iOS安全模型1.设备安全:防止未授权的人使用设备 2.数据安全:存储在设备上的数据得到保护 3.网络安全:当通过网络传输时的加密工具 4.应用软件安全:加固操作系统并隔离运行时应用软件的机制 设备安全对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置. 数据安全苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度. 网络安全苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全. 应用软件的安全应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问. 为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入. 钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法. 苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密. 误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙 密码等于弱安全相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。 误解四：关心安全的用户会设置复杂的密码大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。 误解五：强密码依然不能保证设备安全我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。 数字取证击败加密可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。 误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？]]></content>
+    <title><![CDATA[iOS开发小记]]></title>
+    <url>%2F2018%2F10%2F12%2FiOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[iOS]]></content>
       <categories>
         <category>iOS</category>
       </categories>
-      <tags>
-        <tag>安全</tag>
-        <tag>攻防</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[HomeBrew VS Wegt]]></title>
@@ -89,6 +85,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Architectures]]></title>
+    <url>%2F2018%2F10%2F12%2FXcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Swift学习资源]]></title>
     <url>%2F2018%2F10%2F12%2FSwift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[Swift学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
@@ -98,14 +102,6 @@
       <tags>
         <tag>swift</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Architectures]]></title>
-    <url>%2F2018%2F10%2F12%2FXcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[Xcode常用命令]]></title>
@@ -146,12 +142,16 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iOS开发小记]]></title>
-    <url>%2F2018%2F10%2F12%2FiOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[iOS]]></content>
+    <title><![CDATA[iOS应用攻防实战(一)]]></title>
+    <url>%2F2018%2F10%2F12%2FiOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98%2F</url>
+    <content type="text"><![CDATA[误解1: 认证因为这设备是安全可信任的设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破. 误解2: 单一性安全机制单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破. iOS安全模型1.设备安全:防止未授权的人使用设备 2.数据安全:存储在设备上的数据得到保护 3.网络安全:当通过网络传输时的加密工具 4.应用软件安全:加固操作系统并隔离运行时应用软件的机制 设备安全对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置. 数据安全苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度. 网络安全苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全. 应用软件的安全应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问. 为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入. 钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法. 苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密. 误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙 密码等于弱安全相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。 误解四：关心安全的用户会设置复杂的密码大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。 误解五：强密码依然不能保证设备安全我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。 数字取证击败加密可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。 误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？]]></content>
       <categories>
         <category>iOS</category>
       </categories>
+      <tags>
+        <tag>安全</tag>
+        <tag>攻防</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[HTTP/DNS解析与DNS劫持]]></title>
@@ -166,17 +166,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[国际化本地化]]></title>
-    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
-    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Localizable.strings</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[instrument使用]]></title>
     <url>%2F2018%2F10%2F12%2Finstrument%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"></content>
@@ -187,6 +176,17 @@
         <tag>内存分析</tag>
         <tag>时间复杂度分析</tag>
         <tag>CPU占用分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[国际化本地化]]></title>
+    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Localizable.strings</tag>
       </tags>
   </entry>
   <entry>
@@ -229,6 +229,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[三个ImageView实现无限轮播]]></title>
+    <url>%2F2018%2F10%2F12%2F%E4%B8%89%E4%B8%AAImageView%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90%E8%BD%AE%E6%92%AD%E5%92%8C%E4%B8%89%E4%B8%AALabel%E5%AE%9E%E7%8E%B0%E5%85%AC%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[三个ImageView实现无限轮播思路 scrollView上添加三张ImageView,分别为left,center,right 初始化scrollview时设置contentOffset为中间这张图片的位置 添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,进行复位操作.left的image = center.image,center.image = right.imgae, 然后设置contentOffset = center.right.image = 获取下一张图片 代码实现如下 初始化scrollview let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) scrollview.contentSize = CGSize(width: self.frame.size.width * 3, height: 0) scrollview.isPagingEnabled = true scrollview.bounces = false scrollview.showsVerticalScrollIndicator = false scrollview.showsHorizontalScrollIndicator = false scrollview.delegate = self 初始化timer timer = Timer(timeInterval: TimeInterval(scrollInterval), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true) RunLoop.current.add(timer!, forMode: .commonModes) 初始化 leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) centerImageView = UIImageView(frame: CGRect(x: self.frame.size.width * 1, y: 0, width: self.frame.size.width, height: self.frame.size.height)) rightImageView = UIImageView(frame:CGRect(x: self.frame.size.width * 2, y: 0, width: self.frame.size.width, height: self.frame.size.height)) leftImageView?.kf.setImage(with: ImageResource(downloadURL: getBeforeImageUrl(index: self.currentPage))) centerImageView?.kf.setImage(with: ImageResource(downloadURL: getImageUrl(index: self.currentPage)!)) rightImageView?.kf.setImage(with: ImageResource(downloadURL: getAfterImageUrl(index: self.currentPage))) Timer事件 currentPage = currentPage + 1 if currentPage == imageArray.count { currentPage = 0 } UIView.animate(withDuration: animationInterval, animations: { self.centerImageView?.isUserInteractionEnabled = false self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 2, y: 0) }) { (finish) in self.centerImageView?.isUserInteractionEnabled = true self.leftImageView?.image = self.centerImageView?.image self.centerImageView?.image = self.rightImageView?.image self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 1, y: 0) self.rightImageView?.kf.setImage(with: ImageResource(downloadURL: self.getAfterImageUrl(index: self.currentPage))) self.pageController?.currentPage = self.currentPage } 主要代码如上,主要是理解思路. 三个Label实现公告这个和上面的思路一致,只不过是横向换成竖向.代码就不贴了.如果对这个感兴趣,可以私聊我.我可以发代码给你.或者把代码放到git上.]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>轮播</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[内存优化]]></title>
     <url>%2F2018%2F10%2F12%2F%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%82%B9%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[内存优化的几点分析: CoreFoundation的内存管理 block的循环引用 在for循环大量数据,不断创建局部变量的几点思考 mrc的基础问题 第三方框架中的内存问题 CoreFoundation的内存管理在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似， 需要引用时，引用计数+1，不需要引用时，引用计数-1 谁创建，谁release 谁retain，谁release 只要调用了alloc,必须要有realease(autorelease)example: 1234CFUUIDRef uuid = CFUUIDCreate(NULL);appUID = (NSString *)CFUUIDCreateString(NULL,uuid);CFRelease(uuid);CFRelease(appUID); block的循环引用问题循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。for example实例1：123456- (void)case1 &#123;NSLog(@&quot;case 1 Click&quot;); dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; self.name = @&quot;case 1&quot;; &#125;);&#125; 这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。实例2：12345678- (void)case2 &#123; NSLog(@&quot;case 2 Click&quot;); __weaktypeof(self) weakSelf = self; [self.teacher requestData:^(NSData *data) &#123; typeof(weakSelf) strongSelf = weakSelf; strongSelf.name = @&quot;case 2&quot;; &#125;];&#125; 这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。实例3：1234567- (void)case4 &#123; NSLog(@&quot;case 4 Click&quot;); [self.teacher requestData:^(NSData *data) &#123; self.name = @&quot;case 4&quot;; self.teacher = nil; &#125;];&#125; 不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计YTKNetwork就是在block执行结束后，将block置nil。实例4：1234567- (void)case5 &#123; NSLog(@&quot;case 5 Click&quot;); Teacher *t = [[Teacher alloc] init]; [t requestData:^(NSData *data) &#123; self.name = @&quot;case 5&quot;; &#125;];&#125; 不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。 实例512345678910- (void)case6 &#123; NSLog(@&quot;case 6 Click&quot;); [self.teacher callCase6BlackEvent]; self.teacher.case6Block = ^(NSData *data) &#123; self.name = @&quot;case 6&quot;; //下面两句代码任选其一 self.teacher = nil; // self.teacher.case6Block = nil; &#125;;&#125; 在block执行结束后置nil操作，解决内存泄漏问题 for循环大量数据时，不断创建局部变量的思考在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。 mrc的基础虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则： 需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release） 谁创建，谁release (alloc-&gt;release） 谁retain，谁release (retain-&gt;release) 只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease)) 关于第三方出现的循环引用问题我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。1[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; 解决办法：采用单例的方式创建。]]></content>
@@ -242,17 +253,6 @@
         <tag>for循环</tag>
         <tag>mrc的基础</tag>
         <tag>关于第三方出现的循环引用问题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[三个ImageView实现无限轮播]]></title>
-    <url>%2F2018%2F10%2F12%2F%E4%B8%89%E4%B8%AAImageView%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90%E8%BD%AE%E6%92%AD%E5%92%8C%E4%B8%89%E4%B8%AALabel%E5%AE%9E%E7%8E%B0%E5%85%AC%E5%91%8A%2F</url>
-    <content type="text"><![CDATA[三个ImageView实现无限轮播思路 scrollView上添加三张ImageView,分别为left,center,right 初始化scrollview时设置contentOffset为中间这张图片的位置 添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,进行复位操作.left的image = center.image,center.image = right.imgae, 然后设置contentOffset = center.right.image = 获取下一张图片 代码实现如下 初始化scrollview let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) scrollview.contentSize = CGSize(width: self.frame.size.width * 3, height: 0) scrollview.isPagingEnabled = true scrollview.bounces = false scrollview.showsVerticalScrollIndicator = false scrollview.showsHorizontalScrollIndicator = false scrollview.delegate = self 初始化timer timer = Timer(timeInterval: TimeInterval(scrollInterval), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true) RunLoop.current.add(timer!, forMode: .commonModes) 初始化 leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) centerImageView = UIImageView(frame: CGRect(x: self.frame.size.width * 1, y: 0, width: self.frame.size.width, height: self.frame.size.height)) rightImageView = UIImageView(frame:CGRect(x: self.frame.size.width * 2, y: 0, width: self.frame.size.width, height: self.frame.size.height)) leftImageView?.kf.setImage(with: ImageResource(downloadURL: getBeforeImageUrl(index: self.currentPage))) centerImageView?.kf.setImage(with: ImageResource(downloadURL: getImageUrl(index: self.currentPage)!)) rightImageView?.kf.setImage(with: ImageResource(downloadURL: getAfterImageUrl(index: self.currentPage))) Timer事件 currentPage = currentPage + 1 if currentPage == imageArray.count { currentPage = 0 } UIView.animate(withDuration: animationInterval, animations: { self.centerImageView?.isUserInteractionEnabled = false self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 2, y: 0) }) { (finish) in self.centerImageView?.isUserInteractionEnabled = true self.leftImageView?.image = self.centerImageView?.image self.centerImageView?.image = self.rightImageView?.image self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 1, y: 0) self.rightImageView?.kf.setImage(with: ImageResource(downloadURL: self.getAfterImageUrl(index: self.currentPage))) self.pageController?.currentPage = self.currentPage } 主要代码如上,主要是理解思路. 三个Label实现公告这个和上面的思路一致,只不过是横向换成竖向.代码就不贴了.如果对这个感兴趣,可以私聊我.我可以发代码给你.或者把代码放到git上.]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>轮播</tag>
       </tags>
   </entry>
   <entry>
@@ -293,14 +293,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[面试总结]]></title>
-    <url>%2F2018%2F10%2F12%2F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[对于最近面试的总结1.首先面试最近还是蛮多的,而且都还聊的不错. 2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接着就是产品制作和服务企业,因为这个企业的产品用户较多,所以涉及安全方面的问题较多,比如代码方面的安全,个人用户信息的安全等方面.再接着是一家金融产品公司,主要针对方向是基础知识和一些新技术的发展方向和了几情况.对于产品的优化问题是如何提现的.其他的也就是类似的这种.针对企业目前或者是未来的产品做出提问.剩下的就是我们的基本功.如果基本功扎实的话,可以多了解公司. 3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强) 4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高 总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.]]></content>
-      <categories>
-        <category>面试总结</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[React(三)]]></title>
     <url>%2F2018%2F10%2F12%2FReact%E7%AC%AC%E4%B8%89%E8%AF%BE%2F</url>
     <content type="text"><![CDATA[函数组件和类定义组件组件:在react和react-native中通常会把可复用的部件封装起来,构建成一个单独的组件.组件从概念上看上去就像一个函数,他可以接收任意输入的值称之为(props)属性.并返回一个需要在页面上显示的React元素 函数定义组件 123456789function Student(props) &#123; return &lt;h1&gt;hello, &#123;props.name&#125;&lt;/h1&gt;&#125;ReactDOM.render( &lt;span&gt; &lt;Student name = &quot;vicky&quot;/&gt; &lt;/span&gt;, document.getElementById(&apos;root&apos;)); 上面的函数就是一个有效的React组件,它接收一个props的对象参数,并返回一个有效的React元素.我们称之为函数定义组件 类定义组件 12345678910111213class Student extends React.Component &#123; render() &#123; return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt; &#125;&#125;ReactDOM.render( &lt;span&gt; &lt;Student name = &quot;weiqi&quot;/&gt; &lt;/span&gt;, document.getElementById(&apos;root&apos;)); 看到Class这个关键字,我们很清楚的知道这个是一个类,不论是在java,oc,还是swift他都指代一个类.所以我们通过创建一个类来完成定义在类的render()函数中返回一个React元素,然后将元素添加到界面上显示.在render函数中我们看到了this.props.name,this代表是这个类本身.而props是这个类的属性,那么是具体属性的名称. 以一个上边为图片下边为文字的button来用oc的语言特征进行解释解释(强行扯上关系):比如封装一个上图下文的button 函数形式: 我们可以通过在需要用到的地方以函数的形式构建,然后通过函数返回值返回需要的结果,添加到页面上显示代码在这里就不写了,没什么技术含量. 类形式 创建一个继承自UIbutton的子类,然后在init方法中构建自己需要的页面样式.在需要使用的地方初始化,加载. 上面我举的是一个很微不足道的例子,只是为了做解释说明,方便大家记忆理解,同时也是为了方便我记忆理解.可能让你单独记忆这个概念,可能记不住,但是你一旦把他和你的生活上经常干的事扯上关系,那就不算记忆,只是做一些扩展而已.就变得简单多了. 组件渲染从上面的函数定义组件分析组件渲染: 组件 元素调用的ReactDom的render函数 React将{name:”vicky”}作为Student的props传递给了Student组件 在Student组件将函数结果返回. ReactDom将Dom更新为组件返回的结果 介绍俩个概念: Dom标签:我们前面使用过的在ReactDom.render函数中直接使用的标签,作为React的元素 自定义组件:通过函数或类来自定义的组件 组合组件1234567891011121314151617181920212223class Student extends React.Component &#123; render() &#123; return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt; &#125;&#125;class App extends React.Component &#123; render() &#123; return ( &lt;div&gt; &lt;Student name = &quot;vicky&quot;/&gt; &lt;Student name = &quot;张三&quot;/&gt; &lt;Student name = &quot;李四&quot;/&gt; &lt;/div&gt; ); &#125;&#125;ReactDOM.render( &lt;span&gt; &lt;App /&gt; &lt;/span&gt;, document.getElementById(&apos;root&apos;)); 理解:就是在一个组件内部可已使用另外的一个组件.工程中中就是在一个自定义的子视图中使用另外的一个自定义子视图控件 重点:一个新的React程序的顶部一般都是App组件,如果要讲React集成到现有的应用程序中,则可以从下而上使用小组件作为开始,然后逐渐向顶层扩展. 警告:组件的返回值只能有一个根元素. 提取组件123456789101112131415161718192021function Comment(props) &#123; return ( &lt;div className=&quot;Comment&quot;&gt; &lt;div className=&quot;UserInfo&quot;&gt; &lt;img className=&quot;Avatar&quot; src=&#123;props.author.avatarUrl&#125; alt=&#123;props.author.name&#125; /&gt; &lt;div className=&quot;UserInfo-name&quot;&gt; &#123;props.author.name&#125; &lt;/div&gt; &lt;/div&gt; &lt;div className=&quot;Comment-text&quot;&gt; &#123;props.text&#125; &lt;/div&gt; &lt;div className=&quot;Comment-date&quot;&gt; &#123;formatDate(props.date)&#125; &lt;/div&gt; &lt;/div&gt; );&#125; 看到上面的代码有什么感受,好多div啊,而且嵌套了好多层啊.现在让我们一起讲上面的代码进行提取组件,然后使代码变得清晰. 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748function Avatar(props) &#123; return ( &lt;img className=&quot;Avatar&quot; src=&#123;props.author.url&#125; alt=&#123;props.author.name&#125; /&gt; )&#125;;function UserInfo(props) &#123; return ( &lt;div className=&quot;UserInfU&quot;&gt; &#123;props.author.name&#125; &lt;/div&gt; )&#125;;function CommentText(props) &#123; return ( &lt;div className=&quot;Comment-text&quot;&gt; &#123;props.text&#125; &lt;/div&gt; )&#125;;function CommentDate(props) &#123; return ( &lt;div className=&quot;Comment-date&quot;&gt; &#123;formatDate(props.date)&#125; &lt;/div&gt; )&#125;;function Comment(props) &#123; return ( &lt;div className=&quot;Comment&quot;&gt; &lt;div className=&quot;UserInfo&quot;&gt; &lt;Avatar user = &#123;props.author&#125; /&gt; &lt;UserInfo user = &#123;props.author&#125;/&gt; &lt;/div&gt; &lt;CommentText text = &#123;props.text&#125;/&gt; &lt;CommentDate date = &#123;props.date&#125;/&gt; &lt;/div&gt; );&#125;; 拆解之后有什么好处: 1.代码的可读性较高 2.拆解出来的组件可以进行复用 3.可以分别拆解到不同的文件,减少单独文件的代码量 props属性和只读属性123function sum(a,b) &#123; return a + b;&#125; 这个函数并没有修改输入值得本身,当传入值相同时结果是相同的这种函数较重纯函数 123function withdraw(account, amount) &#123; account.total -= amount;&#125; 这个函数对它自身输入的值进行了-=操作,输入值本身发生了变化. ##重点:所有的React组件必须(必须)(必须)像纯函数那样使用它们的props 类的定义初级类定义:刚开始学就这样了,后面学习到了慢慢改进 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576//首先引入React和PropTypesimport React from &apos;react&apos;;import PropTypes from &apos;prop-types&apos;;//开始定义Student类class Student extends React.Component &#123; render() &#123; const &#123; name, age, star, sex, phone, account, headImage &#125; = this.props; return ( &lt;div&gt; &lt;h1&gt; name:&#123;name&#125; &lt;/h1&gt; &lt;h1&gt; age: &#123;age&#125; &lt;/h1&gt; &lt;h1&gt; star:&#123;star&#125; &lt;/h1&gt; &lt;h1&gt; sex:&#123;sex&#125; &lt;/h1&gt; &lt;h1&gt; phone: &#123;phone&#125; &lt;/h1&gt; &lt;h1&gt; account:&#123;account&#125; &lt;/h1&gt; &lt;img src= &#123;headImage&#125;/&gt; &lt;/div&gt; ) &#125;&#125;//到底我们需要哪些属性啦?按需求来定Student.defaultProps = &#123; name: &quot;vicky&quot;, age: 25, star: &quot;摩羯座&quot;, sex: 1, //1:男性,2:女性,3:未知 phone: 119110120, account: 513961360, headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,&#125;//检查数据类型,如果数据类型不匹配会进行报错提醒Student.propTypes = &#123; name: PropTypes.string.isRequired, age: PropTypes.number.isRequired, star: PropTypes.string.isRequired, sex: PropTypes.number.isRequired, phone: PropTypes.number.isRequired, account: PropTypes.number.isRequired, headImage: PropTypes.string.isRequired&#125;//export default Student; 然后在index.js引入文件并渲染组件 12345ReactDOM.render( &lt;Student name=&quot;李四&quot; age=&quot;56&quot; star=&quot;白羊&quot; sex=&quot;2&quot; phone=&quot;122222222&quot; account=&quot;2222222&quot; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;, document.getElementById(&apos;root&apos;)) 然后运行发现报错了报错大概是这样的 export default was not found ./Stundet到底什么意思啦就是在类定义组件并且分文件之后要将自己暴露出来,在类定义的最后一行引入这行代码 1export default Student; 然后在运行发现还有报错:这次就不展示什么报错了,就是类型检查报错,因为我们声明了很多属性的类型为number类型,但是我们用string赋值肯定会报错的. 修改完后的代码 12345ReactDOM.render( &lt;Student name=&quot;李四&quot; age=&#123;56&#125; star=&quot;白羊&quot; sex=&#123;2&#125; phone=&#123;122222222&#125; account=&#123;2222222&#125; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;, document.getElementById(&apos;root&apos;)) 报错是消失了,但是图片和名字还是没有显示,原来是属性名写错了,sorry低级失误. 添加属性的方法 可以再使用组件时直接添加,例如,然后在组件内部return是用this.props.name来获取属性值 添加属性默认值 12345678910Student.defaultProps = &#123; name: &quot;vicky&quot;, age: 25, star: &quot;摩羯座&quot;, sex: 1, //1:男性,2:女性,3:未知 phone: 119110120, account: 513961360, headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,&#125; 检查数据类型,如果数据类型不匹配会进行报错提醒 123456789Student.propTypes = &#123; name: PropTypes.string.isRequired, age: PropTypes.number.isRequired, star: PropTypes.string.isRequired, sex: PropTypes.number.isRequired, phone: PropTypes.number.isRequired, account: PropTypes.number.isRequired, headImage: PropTypes.string.isRequired&#125; render函数的使用属性的多种方法,常见的就是this.props.name这种,还有在一些人的代码中经常会看到这样的代码 1234567891011const &#123; name, age, star, sex, phone, account, headImage &#125; = this.props; 简化赋值操作.]]></content>
@@ -320,5 +312,13 @@
         <tag>alloc/new/copy/mutableCopy</tag>
         <tag>retain</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试总结]]></title>
+    <url>%2F2018%2F10%2F12%2F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[对于最近面试的总结1.首先面试最近还是蛮多的,而且都还聊的不错. 2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接着就是产品制作和服务企业,因为这个企业的产品用户较多,所以涉及安全方面的问题较多,比如代码方面的安全,个人用户信息的安全等方面.再接着是一家金融产品公司,主要针对方向是基础知识和一些新技术的发展方向和了几情况.对于产品的优化问题是如何提现的.其他的也就是类似的这种.针对企业目前或者是未来的产品做出提问.剩下的就是我们的基本功.如果基本功扎实的话,可以多了解公司. 3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强) 4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高 总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.]]></content>
+      <categories>
+        <category>面试总结</category>
+      </categories>
   </entry>
 </search>
