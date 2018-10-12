@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-12T03:08:36.847Z</updated>
+  <updated>2018-10-12T06:49:42.719Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,77 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS开发小记</title>
-    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:36.847Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
+    <title>rxswift学习-</title>
+    <link href="http://yoursite.com/2018/10/12/rxswift%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/10/12/rxswift学习/</id>
+    <published>2018-10-12T06:49:10.000Z</published>
+    <updated>2018-10-12T06:49:42.719Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
-      
-    
     </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
   </entry>
   
   <entry>
-    <title>Effective Objective-C 2.0 52个方法</title>
-    <link href="http://yoursite.com/2018/10/12/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/10/12/52个方法/</id>
+    <title>instrument使用</title>
+    <link href="http://yoursite.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/10/12/instrument的使用/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T06:21:03.399Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第一条-了解Objective-C的语言的起源"><a href="#第一条-了解Objective-C的语言的起源" class="headerlink" title="第一条:了解Objective-C的语言的起源?"></a>第一条:了解Objective-C的语言的起源?</h1><p>Objective-C和C++、Java 等都是面向对象的语言。但是在面向对象的语言中Objective-C采用的是消息结构语言，而其他的面向语言采用的还是函数调用的方式。消息结构语言来自于SmallTalk。</p><p>消息结构和函数调用的区别</p><p>消息结构决定其运行过程中所需要执行的代码由运行时环境决定，而其他面向对象语言则是由编译器决定。我们都知道 OC 是在运行时才会确定对象类型。而调用方法亦是如此，在运行时才回去查找到底该执行哪个方法。而且在 OC 中接收消息的对象可以为 nil 这是其他面向对象语言所不具有的。其他的语言都会先进行判断。</p><p>OC 作为 C 的超集在很多方面还是沿用</p>]]></content>
+    <updated>2018-10-12T03:08:15.489Z</updated>
     
     <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;第一条-了解Objective-C的语言的起源&quot;&gt;&lt;a href=&quot;#第一条-了解Objective-C的语言的起源&quot; class=&quot;headerlink&quot; title=&quot;第一条:了解Objective-C的语言的起源?&quot;&gt;&lt;/a&gt;第一条:了解Objective-
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
-    
-      <category term="52个方法" scheme="http://yoursite.com/tags/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HomeBrew VS Wegt</title>
-    <link href="http://yoursite.com/2018/10/12/HomeBrew%E4%B8%8ERuby%E6%9B%B4%E6%96%B0/"/>
-    <id>http://yoursite.com/2018/10/12/HomeBrew与Ruby更新/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:05:33.984Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="HomeBrew-与-wegt"><a href="#HomeBrew-与-wegt" class="headerlink" title="HomeBrew 与 wegt"></a>HomeBrew 与 wegt</h1><p>HomeBrew 是一款自由及开放源代码的软件包管理系统,用以简化Mac OS X系统上的软件安装过程.它使用Ruby语言写成,针对Mac OS X操作系统自带的Ruby版本,默认安装在/usr/local下.由一个核心的git版本库构成,以使用户能更新HomeBrew.包管理器使用一种称为”公式”的DSL脚本来管理依赖,下载源代码及配置和编译软件,从源代码中构建软件</p><p>安装需求</p><p>Xcode</p><p>安装方式</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure><p>相关指令</p><p>搜索:</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search 套件名称</span><br></pre></td></tr></table></figure><p>查询套件信息</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info 套件名称</span><br></pre></td></tr></table></figure><p>安装套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install 套件名称</span><br></pre></td></tr></table></figure><p>查询目前已经安装的套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list</span><br></pre></td></tr></table></figure><p>更新HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure><p>卸载HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd <span class="string">`brew --prefix`</span></span><br><span class="line">$ rm -rf Cellar$ brew prune</span><br><span class="line">$ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew</span><br><span class="line">$ rm -rf ~<span class="regexp">/Library/</span>Caches/Homebrew</span><br></pre></td></tr></table></figure><p>wegt 是linux的一个命令用来下载文件的工具<br>我只有在虚拟机上使用过这个命令,主要作用是用来下载文件.比如说做后台的同学想下载tomcat,就可以通过这个来下载,过多的内容接不介绍了</p><h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><p>Mac OS X 系统自带了ruby环境,所以我们一般是不需要管理ruby环境的,今天说这个问题是在过年期间我在更新mac系统时出错了缺少系统启动文件,然后我就恢复系统了,知道今天才发现我pod install执行不了,提示ruby的版本过低,而我的pod版本是最新版,所以我就想通过更新ruby来解决问题,但是更新ruby时又发现brew出错了.所以很生气,后果很严重.下载brew,更新ruby,pod就好了<br>卸载和安装上面都有讲述.更新ruby</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade ruby</span><br></pre></td></tr></table></figure><h1 id="Cocoapods"><a href="#Cocoapods" class="headerlink" title="Cocoapods"></a>Cocoapods</h1><p>对于iOS开发的同学,使用cocoapods是在所难免的,所以不再过多讲述,网上的文章一搜一大堆.<br><a href="https://www.jianshu.com/p/edd9dbd35576" target="_blank" rel="noopener">pod入门到放弃</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;HomeBrew-与-wegt&quot;&gt;&lt;a href=&quot;#HomeBrew-与-wegt&quot; class=&quot;headerlink&quot; title=&quot;HomeBrew 与 wegt&quot;&gt;&lt;/a&gt;HomeBrew 与 wegt&lt;/h1&gt;&lt;p&gt;HomeBrew 是一款自由及开放源
-      
     
     </summary>
     
       <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="HomeBrew" scheme="http://yoursite.com/tags/HomeBrew/"/>
+      <category term="内存分析" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
     
-      <category term="wegt" scheme="http://yoursite.com/tags/wegt/"/>
+      <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
+    
+      <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
@@ -113,29 +74,6 @@
     
     
       <category term="IBoutlet" scheme="http://yoursite.com/tags/IBoutlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Objective-C视频学习资源</title>
-    <link href="http://yoursite.com/2018/10/12/Objective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2018/10/12/Objective-C学习资源和大神博客/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:13:22.293Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Objective-C视频学习资源"><a href="#Objective-C视频学习资源" class="headerlink" title="Objective-C视频学习资源"></a>Objective-C视频学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p><h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul><li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li><li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li></ul><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul><li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li><li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li><li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li><li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li><li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li><li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li><li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li><li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li><li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li></ul><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li><li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li><li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li><li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li><li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li><li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li><li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li><li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li><li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li><li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li><li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li><li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li><li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li><li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li><li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li><li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li><li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li><li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li><li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li><li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li><li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li><li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li><li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li><li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li></ul><h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul><li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li><li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li><li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li><li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li><li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li><li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li></ul><h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul><li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li><li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li><li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li><li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li><li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li><li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li><li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Objective-C视频学习资源&quot;&gt;&lt;a href=&quot;#Objective-C视频学习资源&quot; class=&quot;headerlink&quot; title=&quot;Objective-C视频学习资源&quot;&gt;&lt;/a&gt;Objective-C视频学习资源&lt;/h1&gt;&lt;p&gt;因为iOS的开发者O
-      
-    
-    </summary>
-    
-      <category term="资源" scheme="http://yoursite.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
     
   </entry>
   
@@ -169,6 +107,56 @@
       <category term="设计原则" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
     
       <category term="new" scheme="http://yoursite.com/tags/new/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP/DNS解析与DNS劫持</title>
+    <link href="http://yoursite.com/2018/10/12/HTTP-DNS%E8%A7%A3%E6%9E%90-DNS%E5%8A%AB%E6%8C%81/"/>
+    <id>http://yoursite.com/2018/10/12/HTTP-DNS解析-DNS劫持/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:06:41.566Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="HTTP-DNS解析-DNS劫持"><a href="#HTTP-DNS解析-DNS劫持" class="headerlink" title="HTTP/DNS解析/DNS劫持"></a>HTTP/DNS解析/DNS劫持</h1><h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>HTTP全名超文本传输协议，是一种用于分布式，协作式的超媒体信息系统的应用层协议。</p><p>HTTP请求行：请求地址和协议版本</p><p>HTTP请求头：</p><p>请求头中包含：Accept(能够接受的回应内容类型)，Accept-Charset(能够接受的字符集)，Cache-Control(缓存机制)，Connenct(连接类型)，Cookie，Content-Length(请求体的长度)，Content-Type（请求体的多媒体类型），Host(端口)等</p><p>HTTP请求体：</p><ul><li>任意类型：服务器不会解析请求体，请求体的处理需要后台同学自己处理解析</li><li>application/json 使得请求体结构化，序列化可以方便提交复杂的数据结构，也适合在调试接口阶段进行抓包等行为。</li><li>text/xml：以XML的方式提交，因为XML支持各种语言使用广泛。但是XML相对于JSON较为臃肿。目前大多数场景都是使用JSON提交</li><li>表单提交：application/x-www-form-urlencoded，使得参数必须以键值对的形式并用&amp;链接。</li><li>文件提交：multipart/form-data 在上传图片时或者其他类型文件时，都是将文件分成多个部分。每一个部分都是以boundary分割</li></ul><p>HTTP请求方法：</p><ul><li>POST 向指定资源提交数据，数据放在请求本文中，这个请求可以修改现有资源也可以创建新资源</li><li>GET  获取指定资源，使用GET请求只用于读取数据。</li><li>HEAD 向服务器放出指定资源的请求(目前我还没用到)</li><li>DELETE 删除服务器上Request-URL标记的资源</li><li>PUT 向服务器指定资源位置上传最新内容</li><li>TRACE (没用到)<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">HTTP维基百科</a></li><li>OPTIONS (没用到)<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">HTTP维基百科</a></li><li>CONNECT (没用到)<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">HTTP维基百科</a></li></ul><p>HTTP请求过程：<br>当我们手机，pc等网络设备请求<a href="www.baidu.com">百度</a>的域名时分为三步：</p><h5 id="1-请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址"><a href="#1-请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址" class="headerlink" title="1.请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址"></a>1.请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址</h5><h5 id="2-根据IP地址查找对应的服务器，向服务器发起一个HTTP请求"><a href="#2-根据IP地址查找对应的服务器，向服务器发起一个HTTP请求" class="headerlink" title="2.根据IP地址查找对应的服务器，向服务器发起一个HTTP请求"></a>2.根据IP地址查找对应的服务器，向服务器发起一个HTTP请求</h5><h5 id="3-服务器收到请求后，将所需资源包装后原路返回给网络设备"><a href="#3-服务器收到请求后，将所需资源包装后原路返回给网络设备" class="headerlink" title="3.服务器收到请求后，将所需资源包装后原路返回给网络设备"></a>3.服务器收到请求后，将所需资源包装后原路返回给网络设备</h5><h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>就在前一段时间我刚自己买了一个VPS服务器，然后自己买了域名，目的就是为了搭建属于自己的博客，买完服务器后，服务器有对应的IP地址，我为了使用我买的域名访问我的博客，我就必须将服务器的IP和域名进行映射(DNS解析)</p><p>DNS解析：就是讲域名指向网站空间的IP上，让用户可以通过域名访问到网站的一种服务。域名解析就是域名到IP地址的转换过程。这个过程由DNS服务器完成。</p><p>DNS解析的过程：</p><h5 id="1-用户主机上运行着DNS的客户端"><a href="#1-用户主机上运行着DNS的客户端" class="headerlink" title="1.用户主机上运行着DNS的客户端"></a>1.用户主机上运行着DNS的客户端</h5><h5 id="2-浏览器将输入的URL中抽出域名字段"><a href="#2-浏览器将输入的URL中抽出域名字段" class="headerlink" title="2.浏览器将输入的URL中抽出域名字段"></a>2.浏览器将输入的URL中抽出域名字段</h5><h5 id="3-DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。"><a href="#3-DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。" class="headerlink" title="3.DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。"></a>3.DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。</h5><h5 id="4-DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。"><a href="#4-DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。" class="headerlink" title="4.DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。"></a>4.DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。</h5><h5 id="5-DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址"><a href="#5-DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址" class="headerlink" title="5.DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址"></a>5.DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址</h5><h5 id="6-浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。"><a href="#6-浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。" class="headerlink" title="6.浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。"></a>6.浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。</h5><h2 id="DNS劫持"><a href="#DNS劫持" class="headerlink" title="DNS劫持"></a>DNS劫持</h2><p>在发生请求时，当运营商收到用户主机请求后，获取到域名，然后通过DNS服务器进行解析，在解析的过程中可能DNS服务器受到第三方攻击。就是第三方攻击解析服务器，使得服务器无法正常解析，然后修改解析后的IP地址指向一个虚假的服务器。如图所示<br><img src="/2018/10/12/HTTP-DNS解析-DNS劫持/http.png" title="This is an image"></p><p>解决办法：可以使用自己的解析服务器自行解析，或者在APP内部使用解析好的域名以IP的形式访问。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;HTTP-DNS解析-DNS劫持&quot;&gt;&lt;a href=&quot;#HTTP-DNS解析-DNS劫持&quot; class=&quot;headerlink&quot; title=&quot;HTTP/DNS解析/DNS劫持&quot;&gt;&lt;/a&gt;HTTP/DNS解析/DNS劫持&lt;/h1&gt;&lt;h2 id=&quot;HTTP请求&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="网络基础" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="HTTP/DNS解析" scheme="http://yoursite.com/tags/HTTP-DNS%E8%A7%A3%E6%9E%90/"/>
+    
+      <category term="DNS劫持" scheme="http://yoursite.com/tags/DNS%E5%8A%AB%E6%8C%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Objective-C视频学习资源</title>
+    <link href="http://yoursite.com/2018/10/12/Objective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2018/10/12/Objective-C学习资源和大神博客/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:13:22.293Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Objective-C视频学习资源"><a href="#Objective-C视频学习资源" class="headerlink" title="Objective-C视频学习资源"></a>Objective-C视频学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p><h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul><li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li><li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li></ul><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul><li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li><li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li><li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li><li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li><li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li><li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li><li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li><li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li><li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li></ul><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li><li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li><li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li><li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li><li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li><li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li><li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li><li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li><li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li><li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li><li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li><li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li><li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li><li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li><li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li><li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li><li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li><li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li><li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li><li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li><li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li><li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li><li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li><li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li></ul><h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul><li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li><li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li><li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li><li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li><li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li><li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li></ul><h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul><li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li><li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li><li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li><li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li><li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li><li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li><li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Objective-C视频学习资源&quot;&gt;&lt;a href=&quot;#Objective-C视频学习资源&quot; class=&quot;headerlink&quot; title=&quot;Objective-C视频学习资源&quot;&gt;&lt;/a&gt;Objective-C视频学习资源&lt;/h1&gt;&lt;p&gt;因为iOS的开发者O
+      
+    
+    </summary>
+    
+      <category term="资源" scheme="http://yoursite.com/categories/%E8%B5%84%E6%BA%90/"/>
+    
     
   </entry>
   
@@ -240,31 +228,6 @@
     
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Swift学习资源</title>
-    <link href="http://yoursite.com/2018/10/12/Swift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2018/10/12/Swift学习资源和大神博客/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:17:41.165Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Swift学习资源"><a href="#Swift学习资源" class="headerlink" title="Swift学习资源"></a>Swift学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p><h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul><li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li><li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li></ul><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul><li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li><li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li><li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li><li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li><li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li><li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li><li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li><li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li><li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li></ul><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li><li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li><li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li><li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li><li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li><li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li><li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li><li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li><li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li><li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li><li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li><li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li><li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li><li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li><li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li><li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li><li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li><li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li><li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li><li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li><li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li><li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li><li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li><li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li></ul><h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul><li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li><li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li><li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li><li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li><li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li><li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li></ul><h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul><li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li><li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li><li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li><li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li><li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li><li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li><li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Swift学习资源&quot;&gt;&lt;a href=&quot;#Swift学习资源&quot; class=&quot;headerlink&quot; title=&quot;Swift学习资源&quot;&gt;&lt;/a&gt;Swift学习资源&lt;/h1&gt;&lt;p&gt;因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含
-      
-    
-    </summary>
-    
-      <category term="资源" scheme="http://yoursite.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
     
   </entry>
   
@@ -357,19 +320,44 @@
   </entry>
   
   <entry>
-    <title>iOS应用攻防实战(一)</title>
-    <link href="http://yoursite.com/2018/10/12/iOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98/"/>
-    <id>http://yoursite.com/2018/10/12/iOS应用安全攻防实战/</id>
+    <title>Swift学习资源</title>
+    <link href="http://yoursite.com/2018/10/12/Swift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2018/10/12/Swift学习资源和大神博客/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:10:32.468Z</updated>
+    <updated>2018-10-12T03:17:41.165Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="误解1-认证因为这设备是安全可信任的"><a href="#误解1-认证因为这设备是安全可信任的" class="headerlink" title="误解1: 认证因为这设备是安全可信任的"></a>误解1: 认证因为这设备是安全可信任的</h1><p>设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.</p><h1 id="误解2-单一性安全机制"><a href="#误解2-单一性安全机制" class="headerlink" title="误解2: 单一性安全机制"></a>误解2: 单一性安全机制</h1><p>单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破.</p><h1 id="iOS安全模型"><a href="#iOS安全模型" class="headerlink" title="iOS安全模型"></a>iOS安全模型</h1><p>1.设备安全:防止未授权的人使用设备</p><p>2.数据安全:存储在设备上的数据得到保护</p><p>3.网络安全:当通过网络传输时的加密工具</p><p>4.应用软件安全:加固操作系统并隔离运行时应用软件的机制</p><h1 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h1><p>对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置.</p><h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><p>苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度.</p><h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p>苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全.</p><h1 id="应用软件的安全"><a href="#应用软件的安全" class="headerlink" title="应用软件的安全"></a>应用软件的安全</h1><p>应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问.</p><p>为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入.</p><p>钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法.</p><p>苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密.</p><h1 id="误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5"><a href="#误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5" class="headerlink" title="误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)"></a>误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)</h1><p>iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙</p><h1 id="密码等于弱安全"><a href="#密码等于弱安全" class="headerlink" title="密码等于弱安全"></a>密码等于弱安全</h1><p>相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。<br>举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。</p><h1 id="误解四：关心安全的用户会设置复杂的密码"><a href="#误解四：关心安全的用户会设置复杂的密码" class="headerlink" title="误解四：关心安全的用户会设置复杂的密码"></a>误解四：关心安全的用户会设置复杂的密码</h1><p>大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。</p><h1 id="误解五：强密码依然不能保证设备安全"><a href="#误解五：强密码依然不能保证设备安全" class="headerlink" title="误解五：强密码依然不能保证设备安全"></a>误解五：强密码依然不能保证设备安全</h1><p>我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。</p><h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p><h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Swift学习资源"><a href="#Swift学习资源" class="headerlink" title="Swift学习资源"></a>Swift学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p><h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul><li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li><li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li></ul><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul><li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li><li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li><li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li><li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li><li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li><li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li><li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li><li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li><li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li></ul><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li><li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li><li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li><li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li><li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li><li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li><li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li><li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li><li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li><li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li><li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li><li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li><li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li><li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li><li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li><li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li><li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li><li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li><li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li><li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li><li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li><li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li><li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li><li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li></ul><h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul><li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li><li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li><li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li><li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li><li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li><li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li></ul><h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul><li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li><li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li><li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li><li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li><li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li><li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li><li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;误解1-认证因为这设备是安全可信任的&quot;&gt;&lt;a href=&quot;#误解1-认证因为这设备是安全可信任的&quot; class=&quot;headerlink&quot; title=&quot;误解1: 认证因为这设备是安全可信任的&quot;&gt;&lt;/a&gt;误解1: 认证因为这设备是安全可信任的&lt;/h1&gt;&lt;p&gt;设备和产
+        &lt;h1 id=&quot;Swift学习资源&quot;&gt;&lt;a href=&quot;#Swift学习资源&quot; class=&quot;headerlink&quot; title=&quot;Swift学习资源&quot;&gt;&lt;/a&gt;Swift学习资源&lt;/h1&gt;&lt;p&gt;因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含
+      
+    
+    </summary>
+    
+      <category term="资源" scheme="http://yoursite.com/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发小记</title>
+    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:08:36.847Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
       
     
     </summary>
@@ -377,36 +365,32 @@
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="攻防" scheme="http://yoursite.com/tags/%E6%94%BB%E9%98%B2/"/>
-    
   </entry>
   
   <entry>
-    <title>HTTP/DNS解析与DNS劫持</title>
-    <link href="http://yoursite.com/2018/10/12/HTTP-DNS%E8%A7%A3%E6%9E%90-DNS%E5%8A%AB%E6%8C%81/"/>
-    <id>http://yoursite.com/2018/10/12/HTTP-DNS解析-DNS劫持/</id>
+    <title>HomeBrew VS Wegt</title>
+    <link href="http://yoursite.com/2018/10/12/HomeBrew%E4%B8%8ERuby%E6%9B%B4%E6%96%B0/"/>
+    <id>http://yoursite.com/2018/10/12/HomeBrew与Ruby更新/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:06:41.566Z</updated>
+    <updated>2018-10-12T03:05:33.984Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="HTTP-DNS解析-DNS劫持"><a href="#HTTP-DNS解析-DNS劫持" class="headerlink" title="HTTP/DNS解析/DNS劫持"></a>HTTP/DNS解析/DNS劫持</h1><h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>HTTP全名超文本传输协议，是一种用于分布式，协作式的超媒体信息系统的应用层协议。</p><p>HTTP请求行：请求地址和协议版本</p><p>HTTP请求头：</p><p>请求头中包含：Accept(能够接受的回应内容类型)，Accept-Charset(能够接受的字符集)，Cache-Control(缓存机制)，Connenct(连接类型)，Cookie，Content-Length(请求体的长度)，Content-Type（请求体的多媒体类型），Host(端口)等</p><p>HTTP请求体：</p><ul><li>任意类型：服务器不会解析请求体，请求体的处理需要后台同学自己处理解析</li><li>application/json 使得请求体结构化，序列化可以方便提交复杂的数据结构，也适合在调试接口阶段进行抓包等行为。</li><li>text/xml：以XML的方式提交，因为XML支持各种语言使用广泛。但是XML相对于JSON较为臃肿。目前大多数场景都是使用JSON提交</li><li>表单提交：application/x-www-form-urlencoded，使得参数必须以键值对的形式并用&amp;链接。</li><li>文件提交：multipart/form-data 在上传图片时或者其他类型文件时，都是将文件分成多个部分。每一个部分都是以boundary分割</li></ul><p>HTTP请求方法：</p><ul><li>POST 向指定资源提交数据，数据放在请求本文中，这个请求可以修改现有资源也可以创建新资源</li><li>GET  获取指定资源，使用GET请求只用于读取数据。</li><li>HEAD 向服务器放出指定资源的请求(目前我还没用到)</li><li>DELETE 删除服务器上Request-URL标记的资源</li><li>PUT 向服务器指定资源位置上传最新内容</li><li>TRACE (没用到)<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">HTTP维基百科</a></li><li>OPTIONS (没用到)<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">HTTP维基百科</a></li><li>CONNECT (没用到)<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE#%E5%AE%89%E5%85%A8%E6%96%B9%E6%B3%95" target="_blank" rel="noopener">HTTP维基百科</a></li></ul><p>HTTP请求过程：<br>当我们手机，pc等网络设备请求<a href="www.baidu.com">百度</a>的域名时分为三步：</p><h5 id="1-请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址"><a href="#1-请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址" class="headerlink" title="1.请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址"></a>1.请求到达运营商DNS服务器并解析这个域名，查找对应的IP地址</h5><h5 id="2-根据IP地址查找对应的服务器，向服务器发起一个HTTP请求"><a href="#2-根据IP地址查找对应的服务器，向服务器发起一个HTTP请求" class="headerlink" title="2.根据IP地址查找对应的服务器，向服务器发起一个HTTP请求"></a>2.根据IP地址查找对应的服务器，向服务器发起一个HTTP请求</h5><h5 id="3-服务器收到请求后，将所需资源包装后原路返回给网络设备"><a href="#3-服务器收到请求后，将所需资源包装后原路返回给网络设备" class="headerlink" title="3.服务器收到请求后，将所需资源包装后原路返回给网络设备"></a>3.服务器收到请求后，将所需资源包装后原路返回给网络设备</h5><h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>就在前一段时间我刚自己买了一个VPS服务器，然后自己买了域名，目的就是为了搭建属于自己的博客，买完服务器后，服务器有对应的IP地址，我为了使用我买的域名访问我的博客，我就必须将服务器的IP和域名进行映射(DNS解析)</p><p>DNS解析：就是讲域名指向网站空间的IP上，让用户可以通过域名访问到网站的一种服务。域名解析就是域名到IP地址的转换过程。这个过程由DNS服务器完成。</p><p>DNS解析的过程：</p><h5 id="1-用户主机上运行着DNS的客户端"><a href="#1-用户主机上运行着DNS的客户端" class="headerlink" title="1.用户主机上运行着DNS的客户端"></a>1.用户主机上运行着DNS的客户端</h5><h5 id="2-浏览器将输入的URL中抽出域名字段"><a href="#2-浏览器将输入的URL中抽出域名字段" class="headerlink" title="2.浏览器将输入的URL中抽出域名字段"></a>2.浏览器将输入的URL中抽出域名字段</h5><h5 id="3-DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。"><a href="#3-DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。" class="headerlink" title="3.DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。"></a>3.DNS客户端会向DNS服务器端发送一个查询报文，报文中包含域名字段。</h5><h5 id="4-DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。"><a href="#4-DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。" class="headerlink" title="4.DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。"></a>4.DNS服务器端响应DNS客户端报文，找到域名对应的IP地址。</h5><h5 id="5-DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址"><a href="#5-DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址" class="headerlink" title="5.DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址"></a>5.DNS客户端收到DNS服务器的响应报文，其中包含主机名和IP地址</h5><h5 id="6-浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。"><a href="#6-浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。" class="headerlink" title="6.浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。"></a>6.浏览器拿到IP地址后，就是向该IP地址定位到的HTTP服务器发起请求进行TCP连接。</h5><h2 id="DNS劫持"><a href="#DNS劫持" class="headerlink" title="DNS劫持"></a>DNS劫持</h2><p>在发生请求时，当运营商收到用户主机请求后，获取到域名，然后通过DNS服务器进行解析，在解析的过程中可能DNS服务器受到第三方攻击。就是第三方攻击解析服务器，使得服务器无法正常解析，然后修改解析后的IP地址指向一个虚假的服务器。如图所示<br><img src="/2018/10/12/HTTP-DNS解析-DNS劫持/http.png" title="This is an image"></p><p>解决办法：可以使用自己的解析服务器自行解析，或者在APP内部使用解析好的域名以IP的形式访问。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="HomeBrew-与-wegt"><a href="#HomeBrew-与-wegt" class="headerlink" title="HomeBrew 与 wegt"></a>HomeBrew 与 wegt</h1><p>HomeBrew 是一款自由及开放源代码的软件包管理系统,用以简化Mac OS X系统上的软件安装过程.它使用Ruby语言写成,针对Mac OS X操作系统自带的Ruby版本,默认安装在/usr/local下.由一个核心的git版本库构成,以使用户能更新HomeBrew.包管理器使用一种称为”公式”的DSL脚本来管理依赖,下载源代码及配置和编译软件,从源代码中构建软件</p><p>安装需求</p><p>Xcode</p><p>安装方式</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure><p>相关指令</p><p>搜索:</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search 套件名称</span><br></pre></td></tr></table></figure><p>查询套件信息</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info 套件名称</span><br></pre></td></tr></table></figure><p>安装套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install 套件名称</span><br></pre></td></tr></table></figure><p>查询目前已经安装的套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list</span><br></pre></td></tr></table></figure><p>更新HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure><p>卸载HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd <span class="string">`brew --prefix`</span></span><br><span class="line">$ rm -rf Cellar$ brew prune</span><br><span class="line">$ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew</span><br><span class="line">$ rm -rf ~<span class="regexp">/Library/</span>Caches/Homebrew</span><br></pre></td></tr></table></figure><p>wegt 是linux的一个命令用来下载文件的工具<br>我只有在虚拟机上使用过这个命令,主要作用是用来下载文件.比如说做后台的同学想下载tomcat,就可以通过这个来下载,过多的内容接不介绍了</p><h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><p>Mac OS X 系统自带了ruby环境,所以我们一般是不需要管理ruby环境的,今天说这个问题是在过年期间我在更新mac系统时出错了缺少系统启动文件,然后我就恢复系统了,知道今天才发现我pod install执行不了,提示ruby的版本过低,而我的pod版本是最新版,所以我就想通过更新ruby来解决问题,但是更新ruby时又发现brew出错了.所以很生气,后果很严重.下载brew,更新ruby,pod就好了<br>卸载和安装上面都有讲述.更新ruby</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade ruby</span><br></pre></td></tr></table></figure><h1 id="Cocoapods"><a href="#Cocoapods" class="headerlink" title="Cocoapods"></a>Cocoapods</h1><p>对于iOS开发的同学,使用cocoapods是在所难免的,所以不再过多讲述,网上的文章一搜一大堆.<br><a href="https://www.jianshu.com/p/edd9dbd35576" target="_blank" rel="noopener">pod入门到放弃</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;HTTP-DNS解析-DNS劫持&quot;&gt;&lt;a href=&quot;#HTTP-DNS解析-DNS劫持&quot; class=&quot;headerlink&quot; title=&quot;HTTP/DNS解析/DNS劫持&quot;&gt;&lt;/a&gt;HTTP/DNS解析/DNS劫持&lt;/h1&gt;&lt;h2 id=&quot;HTTP请求&quot;&gt;&lt;
+        &lt;h1 id=&quot;HomeBrew-与-wegt&quot;&gt;&lt;a href=&quot;#HomeBrew-与-wegt&quot; class=&quot;headerlink&quot; title=&quot;HomeBrew 与 wegt&quot;&gt;&lt;/a&gt;HomeBrew 与 wegt&lt;/h1&gt;&lt;p&gt;HomeBrew 是一款自由及开放源
       
     
     </summary>
     
-      <category term="网络基础" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="HTTP/DNS解析" scheme="http://yoursite.com/tags/HTTP-DNS%E8%A7%A3%E6%9E%90/"/>
+      <category term="HomeBrew" scheme="http://yoursite.com/tags/HomeBrew/"/>
     
-      <category term="DNS劫持" scheme="http://yoursite.com/tags/DNS%E5%8A%AB%E6%8C%81/"/>
+      <category term="wegt" scheme="http://yoursite.com/tags/wegt/"/>
     
   </entry>
   
@@ -436,49 +420,29 @@
   </entry>
   
   <entry>
-    <title>React(一)</title>
-    <link href="http://yoursite.com/2018/10/12/react%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
-    <id>http://yoursite.com/2018/10/12/react第一节/</id>
+    <title>iOS应用攻防实战(一)</title>
+    <link href="http://yoursite.com/2018/10/12/iOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98/"/>
+    <id>http://yoursite.com/2018/10/12/iOS应用安全攻防实战/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:14:58.960Z</updated>
+    <updated>2018-10-12T03:10:32.468Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="配置React开发环境"><a href="#配置React开发环境" class="headerlink" title="配置React开发环境"></a>配置React开发环境</h2><p>我们选择使用HomeBrew来安装node</p><ul><li>安装homebrew</li></ul><pre><code class="Ruby">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></code></pre><ul><li>更新brew</li></ul><pre><code class="Ruby">brew update</code></pre><ul><li>配置环境变量</li></ul><pre><code class="Ruby">vim ./bash.profileexport PATH=<span class="string">"/usr/local/bin:$PATH"</span>esc,shift+wq退出并保存</code></pre><ul><li>为了保证你的环境中没有node的参与文件,可以通过以下命令完全删除node</li></ul><pre><code class="sudo">sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}</code></pre><ul><li>安装node</li></ul><pre><code class="node">brew link nodebrew uninstall nodebrew install node</code></pre><ul><li>测试安装是否成功</li></ul><pre><code class="node">npm install -g grunt-cli</code></pre><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="mkdir">mkdir react-democd react-demonpm install -g create-react-appcreate-react-app my-appcd my-appnpm start</code></pre><p>这样就可以看到运行起来的react项目</p><h2 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h2><p>删除APP.js,App.css,App.test.js,index.css,logo.svg,registerServiceWorker.js 文件<br>修改index.js文件</p><pre><code class="react">import React from &apos;react&apos;;import ReactDOM from &apos;react-dom&apos;;ReactDOM.render(    &lt;h1&gt;Hello world&lt;/h1&gt;,     document.getElementById(&apos;root&apos;));npm start 运行</code></pre><h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>上面的这段代码会渲染一个id叫做root的dom元素,所以在index.html中我们会看到</p><pre><code class="react">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code></pre><p>因为我是iOS的开发工作者,我的理解是,html文件向我们提供了一个父视图View也就是这里的div,然后我们根据设置这个View的id来让外界访问.然后在index.js文件中我们创建了一个子视图,并添加到div这个父视图上.就显示到了html页面上.</p><h2 id="开始学习"><a href="#开始学习" class="headerlink" title="开始学习"></a>开始学习</h2><p>本人从未开发过react项目一切都是从零开始,选择编辑器开发react的工具有很多,有IDEA,WebStrom,SublimeText等.具体安装什么插件,网上都有教程,这里不做详细说明,可以按照个人喜好安装.</p><p>我选择是idea来编辑项目,因为公司的前端小伙伴都是使用这个编辑器,方便学习和交流,我也推荐大家按照公司小伙伴的喜好来使用编辑器,这样有什么不懂的更方便询问和学习.</p><h2 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h2><p>我对jsx    的理解就是JavaScript + XML组成JSX<br>第一步使用JSX语法修改刚才的项目</p><pre><code class="react">const element = &lt;h1&gt;Hello world!&lt;/h1&gt;;ReactDOM.render(    element,    document.getElementById(&apos;root&apos;));</code></pre><p>第一行的代码看起来既不是字符串也不是html,而他正式这个react的主角:JSX,也就是js的语法扩展,在OC中也有很多语法扩展.说到这里我就说一下iOS中的语法扩展GCC扩展语法,为什么这样写,这样写有什么好处</p><p>优点:<br>1.如果不是通过XIB来定义控件我们经常会看到大量的定义UI界面的代码,如果开发这的代码规范有很大的纰漏,那样我相信你们会很发燥,因为可能要到处找代码,例如这个控件的颜色到底在哪里设置的.但是通过这样的语法我们就可以将代码放在大括号内部,是代码更加清晰整洁.<br>2.如果你看到这样的代码,是不是也会认为这样的代码逼格会高一点啦.</p><pre><code class="Objective-C">UIButton *secondButton = ({        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];        button.frame = CGRectMake(100, 100, 100, 100);        button;    });</code></pre><p>回到JSX的话题.</p><pre><code class="React">let fommat = (user)=&gt; user.firstName + &apos;&apos; + user.lastName;const  user = {    firstName:&apos;wei&apos;,    lastName:&apos;qi&apos;};const  element = (    &lt;h1&gt;        Hello {fommat(user)}!    &lt;/h1&gt;);ReactDOM.render(    element,    document.getElementById(&apos;root&apos;));</code></pre><p>划重点:第一行代码使用了箭头函数,后面的就是JSX的基础使用</p><p>这次是我学习react的第一课,希望大家多多谅解!如果有志同道合者希望加入我的队列.谢谢!</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="误解1-认证因为这设备是安全可信任的"><a href="#误解1-认证因为这设备是安全可信任的" class="headerlink" title="误解1: 认证因为这设备是安全可信任的"></a>误解1: 认证因为这设备是安全可信任的</h1><p>设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.</p><h1 id="误解2-单一性安全机制"><a href="#误解2-单一性安全机制" class="headerlink" title="误解2: 单一性安全机制"></a>误解2: 单一性安全机制</h1><p>单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破.</p><h1 id="iOS安全模型"><a href="#iOS安全模型" class="headerlink" title="iOS安全模型"></a>iOS安全模型</h1><p>1.设备安全:防止未授权的人使用设备</p><p>2.数据安全:存储在设备上的数据得到保护</p><p>3.网络安全:当通过网络传输时的加密工具</p><p>4.应用软件安全:加固操作系统并隔离运行时应用软件的机制</p><h1 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h1><p>对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置.</p><h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><p>苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度.</p><h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p>苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全.</p><h1 id="应用软件的安全"><a href="#应用软件的安全" class="headerlink" title="应用软件的安全"></a>应用软件的安全</h1><p>应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问.</p><p>为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入.</p><p>钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法.</p><p>苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密.</p><h1 id="误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5"><a href="#误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5" class="headerlink" title="误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)"></a>误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)</h1><p>iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙</p><h1 id="密码等于弱安全"><a href="#密码等于弱安全" class="headerlink" title="密码等于弱安全"></a>密码等于弱安全</h1><p>相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。<br>举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。</p><h1 id="误解四：关心安全的用户会设置复杂的密码"><a href="#误解四：关心安全的用户会设置复杂的密码" class="headerlink" title="误解四：关心安全的用户会设置复杂的密码"></a>误解四：关心安全的用户会设置复杂的密码</h1><p>大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。</p><h1 id="误解五：强密码依然不能保证设备安全"><a href="#误解五：强密码依然不能保证设备安全" class="headerlink" title="误解五：强密码依然不能保证设备安全"></a>误解五：强密码依然不能保证设备安全</h1><p>我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。</p><h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p><h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;配置React开发环境&quot;&gt;&lt;a href=&quot;#配置React开发环境&quot; class=&quot;headerlink&quot; title=&quot;配置React开发环境&quot;&gt;&lt;/a&gt;配置React开发环境&lt;/h2&gt;&lt;p&gt;我们选择使用HomeBrew来安装node&lt;/p&gt;
-&lt;ul&gt;
-&lt;li
+        &lt;h1 id=&quot;误解1-认证因为这设备是安全可信任的&quot;&gt;&lt;a href=&quot;#误解1-认证因为这设备是安全可信任的&quot; class=&quot;headerlink&quot; title=&quot;误解1: 认证因为这设备是安全可信任的&quot;&gt;&lt;/a&gt;误解1: 认证因为这设备是安全可信任的&lt;/h1&gt;&lt;p&gt;设备和产
       
     
     </summary>
     
-      <category term="react" scheme="http://yoursite.com/categories/react/"/>
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-  </entry>
-  
-  <entry>
-    <title>instrument使用</title>
-    <link href="http://yoursite.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/10/12/instrument的使用/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:15.489Z</updated>
+      <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
     
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="内存分析" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
-    
-      <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
-    
-      <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+      <category term="攻防" scheme="http://yoursite.com/tags/%E6%94%BB%E9%98%B2/"/>
     
   </entry>
   
@@ -508,6 +472,31 @@
       <category term="安装" scheme="http://yoursite.com/tags/%E5%AE%89%E8%A3%85/"/>
     
       <category term="使用" scheme="http://yoursite.com/tags/%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React(一)</title>
+    <link href="http://yoursite.com/2018/10/12/react%E7%AC%AC%E4%B8%80%E8%8A%82/"/>
+    <id>http://yoursite.com/2018/10/12/react第一节/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:14:58.960Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置React开发环境"><a href="#配置React开发环境" class="headerlink" title="配置React开发环境"></a>配置React开发环境</h2><p>我们选择使用HomeBrew来安装node</p><ul><li>安装homebrew</li></ul><pre><code class="Ruby">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></code></pre><ul><li>更新brew</li></ul><pre><code class="Ruby">brew update</code></pre><ul><li>配置环境变量</li></ul><pre><code class="Ruby">vim ./bash.profileexport PATH=<span class="string">"/usr/local/bin:$PATH"</span>esc,shift+wq退出并保存</code></pre><ul><li>为了保证你的环境中没有node的参与文件,可以通过以下命令完全删除node</li></ul><pre><code class="sudo">sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}</code></pre><ul><li>安装node</li></ul><pre><code class="node">brew link nodebrew uninstall nodebrew install node</code></pre><ul><li>测试安装是否成功</li></ul><pre><code class="node">npm install -g grunt-cli</code></pre><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="mkdir">mkdir react-democd react-demonpm install -g create-react-appcreate-react-app my-appcd my-appnpm start</code></pre><p>这样就可以看到运行起来的react项目</p><h2 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h2><p>删除APP.js,App.css,App.test.js,index.css,logo.svg,registerServiceWorker.js 文件<br>修改index.js文件</p><pre><code class="react">import React from &apos;react&apos;;import ReactDOM from &apos;react-dom&apos;;ReactDOM.render(    &lt;h1&gt;Hello world&lt;/h1&gt;,     document.getElementById(&apos;root&apos;));npm start 运行</code></pre><h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>上面的这段代码会渲染一个id叫做root的dom元素,所以在index.html中我们会看到</p><pre><code class="react">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code></pre><p>因为我是iOS的开发工作者,我的理解是,html文件向我们提供了一个父视图View也就是这里的div,然后我们根据设置这个View的id来让外界访问.然后在index.js文件中我们创建了一个子视图,并添加到div这个父视图上.就显示到了html页面上.</p><h2 id="开始学习"><a href="#开始学习" class="headerlink" title="开始学习"></a>开始学习</h2><p>本人从未开发过react项目一切都是从零开始,选择编辑器开发react的工具有很多,有IDEA,WebStrom,SublimeText等.具体安装什么插件,网上都有教程,这里不做详细说明,可以按照个人喜好安装.</p><p>我选择是idea来编辑项目,因为公司的前端小伙伴都是使用这个编辑器,方便学习和交流,我也推荐大家按照公司小伙伴的喜好来使用编辑器,这样有什么不懂的更方便询问和学习.</p><h2 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h2><p>我对jsx    的理解就是JavaScript + XML组成JSX<br>第一步使用JSX语法修改刚才的项目</p><pre><code class="react">const element = &lt;h1&gt;Hello world!&lt;/h1&gt;;ReactDOM.render(    element,    document.getElementById(&apos;root&apos;));</code></pre><p>第一行的代码看起来既不是字符串也不是html,而他正式这个react的主角:JSX,也就是js的语法扩展,在OC中也有很多语法扩展.说到这里我就说一下iOS中的语法扩展GCC扩展语法,为什么这样写,这样写有什么好处</p><p>优点:<br>1.如果不是通过XIB来定义控件我们经常会看到大量的定义UI界面的代码,如果开发这的代码规范有很大的纰漏,那样我相信你们会很发燥,因为可能要到处找代码,例如这个控件的颜色到底在哪里设置的.但是通过这样的语法我们就可以将代码放在大括号内部,是代码更加清晰整洁.<br>2.如果你看到这样的代码,是不是也会认为这样的代码逼格会高一点啦.</p><pre><code class="Objective-C">UIButton *secondButton = ({        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];        button.frame = CGRectMake(100, 100, 100, 100);        button;    });</code></pre><p>回到JSX的话题.</p><pre><code class="React">let fommat = (user)=&gt; user.firstName + &apos;&apos; + user.lastName;const  user = {    firstName:&apos;wei&apos;,    lastName:&apos;qi&apos;};const  element = (    &lt;h1&gt;        Hello {fommat(user)}!    &lt;/h1&gt;);ReactDOM.render(    element,    document.getElementById(&apos;root&apos;));</code></pre><p>划重点:第一行代码使用了箭头函数,后面的就是JSX的基础使用</p><p>这次是我学习react的第一课,希望大家多多谅解!如果有志同道合者希望加入我的队列.谢谢!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;配置React开发环境&quot;&gt;&lt;a href=&quot;#配置React开发环境&quot; class=&quot;headerlink&quot; title=&quot;配置React开发环境&quot;&gt;&lt;/a&gt;配置React开发环境&lt;/h2&gt;&lt;p&gt;我们选择使用HomeBrew来安装node&lt;/p&gt;
+&lt;ul&gt;
+&lt;li
+      
+    
+    </summary>
+    
+      <category term="react" scheme="http://yoursite.com/categories/react/"/>
+    
     
   </entry>
   
