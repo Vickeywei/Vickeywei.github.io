@@ -44,7 +44,7 @@
     <link href="http://yoursite.com/2018/10/12/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2018/10/12/52个方法/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T02:58:00.217Z</updated>
+    <updated>2018-10-12T06:21:03.399Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第一条-了解Objective-C的语言的起源"><a href="#第一条-了解Objective-C的语言的起源" class="headerlink" title="第一条:了解Objective-C的语言的起源?"></a>第一条:了解Objective-C的语言的起源?</h1><p>Objective-C和C++、Java 等都是面向对象的语言。但是在面向对象的语言中Objective-C采用的是消息结构语言，而其他的面向语言采用的还是函数调用的方式。消息结构语言来自于SmallTalk。</p><p>消息结构和函数调用的区别</p><p>消息结构决定其运行过程中所需要执行的代码由运行时环境决定，而其他面向对象语言则是由编译器决定。我们都知道 OC 是在运行时才会确定对象类型。而调用方法亦是如此，在运行时才回去查找到底该执行哪个方法。而且在 OC 中接收消息的对象可以为 nil 这是其他面向对象语言所不具有的。其他的语言都会先进行判断。</p><p>OC 作为 C 的超集在很多方面还是沿用</p>]]></content>
     
@@ -196,33 +196,6 @@
   </entry>
   
   <entry>
-    <title>Xcode常用命令</title>
-    <link href="http://yoursite.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://yoursite.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:18:22.600Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p><p>po :常用来输出oc对象类型</p><p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p><p>call :常用来动态调用函数</p><p>image: image命令可以列出当前App中的所有模块</p><p>po [view recursiveDescription] 查看view的层级关系</p><h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p><p>Command+1~9:导航面版切换</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Xcode常用命令&quot;&gt;&lt;a href=&quot;#Xcode常用命令&quot; class=&quot;headerlink&quot; title=&quot;Xcode常用命令&quot;&gt;&lt;/a&gt;Xcode常用命令&lt;/h1&gt;&lt;p&gt;p :常用来输出基础数据类型&lt;/p&gt;
-&lt;p&gt;po :常用来输出oc对象类型&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="常用命令" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SDWebImage源码阅读(一)</title>
     <link href="http://yoursite.com/2018/10/12/SDWebImage%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
     <id>http://yoursite.com/2018/10/12/SDWebImage源码阅读/</id>
@@ -292,6 +265,33 @@
     
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Xcode常用命令</title>
+    <link href="http://yoursite.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:18:22.600Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p><p>po :常用来输出oc对象类型</p><p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p><p>call :常用来动态调用函数</p><p>image: image命令可以列出当前App中的所有模块</p><p>po [view recursiveDescription] 查看view的层级关系</p><h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p><p>Command+1~9:导航面版切换</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Xcode常用命令&quot;&gt;&lt;a href=&quot;#Xcode常用命令&quot; class=&quot;headerlink&quot; title=&quot;Xcode常用命令&quot;&gt;&lt;/a&gt;Xcode常用命令&lt;/h1&gt;&lt;p&gt;p :常用来输出基础数据类型&lt;/p&gt;
+&lt;p&gt;po :常用来输出oc对象类型&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="常用命令" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
