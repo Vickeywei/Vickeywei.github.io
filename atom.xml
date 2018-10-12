@@ -196,6 +196,33 @@
   </entry>
   
   <entry>
+    <title>Xcode常用命令</title>
+    <link href="http://yoursite.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:18:22.600Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p><p>po :常用来输出oc对象类型</p><p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p><p>call :常用来动态调用函数</p><p>image: image命令可以列出当前App中的所有模块</p><p>po [view recursiveDescription] 查看view的层级关系</p><h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p><p>Command+1~9:导航面版切换</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Xcode常用命令&quot;&gt;&lt;a href=&quot;#Xcode常用命令&quot; class=&quot;headerlink&quot; title=&quot;Xcode常用命令&quot;&gt;&lt;/a&gt;Xcode常用命令&lt;/h1&gt;&lt;p&gt;p :常用来输出基础数据类型&lt;/p&gt;
+&lt;p&gt;po :常用来输出oc对象类型&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="常用命令" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SDWebImage源码阅读(一)</title>
     <link href="http://yoursite.com/2018/10/12/SDWebImage%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
     <id>http://yoursite.com/2018/10/12/SDWebImage源码阅读/</id>
@@ -246,29 +273,25 @@
   </entry>
   
   <entry>
-    <title>Xcode常用命令</title>
-    <link href="http://yoursite.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://yoursite.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
+    <title>Architectures</title>
+    <link href="http://yoursite.com/2018/10/12/Xcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2018/10/12/Xcode之Architectures设置/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:18:22.600Z</updated>
+    <updated>2018-10-12T03:19:09.404Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p><p>po :常用来输出oc对象类型</p><p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p><p>call :常用来动态调用函数</p><p>image: image命令可以列出当前App中的所有模块</p><p>po [view recursiveDescription] 查看view的层级关系</p><h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p><p>Command+1~9:导航面版切换</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p><p>介绍上面的两个名词</p><h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p><p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p><h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul><li>指令集都是可以向下兼容的</li></ul><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Xcode常用命令&quot;&gt;&lt;a href=&quot;#Xcode常用命令&quot; class=&quot;headerlink&quot; title=&quot;Xcode常用命令&quot;&gt;&lt;/a&gt;Xcode常用命令&lt;/h1&gt;&lt;p&gt;p :常用来输出基础数据类型&lt;/p&gt;
-&lt;p&gt;po :常用来输出oc对象类型&lt;/p&gt;
-
+        &lt;h1 id=&quot;Xcode设置项之Architectures和Valid-Architectures&quot;&gt;&lt;a href=&quot;#Xcode设置项之Architectures和Valid-Architectures&quot; class=&quot;headerlink&quot; title=&quot;Xcode设置项
       
     
     </summary>
     
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
-    
-      <category term="常用命令" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -298,29 +321,6 @@
       <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
       <category term="svn" scheme="http://yoursite.com/tags/svn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Architectures</title>
-    <link href="http://yoursite.com/2018/10/12/Xcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://yoursite.com/2018/10/12/Xcode之Architectures设置/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:19:09.404Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p><p>介绍上面的两个名词</p><h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p><p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p><h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul><li>指令集都是可以向下兼容的</li></ul><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Xcode设置项之Architectures和Valid-Architectures&quot;&gt;&lt;a href=&quot;#Xcode设置项之Architectures和Valid-Architectures&quot; class=&quot;headerlink&quot; title=&quot;Xcode设置项
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
     
   </entry>
   
@@ -411,6 +411,28 @@
   </entry>
   
   <entry>
+    <title>instrument使用</title>
+    <link href="http://yoursite.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/10/12/instrument的使用/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:08:15.489Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="内存分析" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
+    
+      <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
+    
+      <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>国际化本地化</title>
     <link href="http://yoursite.com/2018/10/12/localizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86/"/>
     <id>http://yoursite.com/2018/10/12/localizable-strings国际化和本地化处理/</id>
@@ -432,28 +454,6 @@
     
     
       <category term="Localizable.strings" scheme="http://yoursite.com/tags/Localizable-strings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>instrument使用</title>
-    <link href="http://yoursite.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/10/12/instrument的使用/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:15.489Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="内存分析" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
-    
-      <category term="时间复杂度分析" scheme="http://yoursite.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
-    
-      <category term="CPU占用分析" scheme="http://yoursite.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
     
   </entry>
   

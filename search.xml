@@ -74,6 +74,17 @@
       </categories>
   </entry>
   <entry>
+    <title><![CDATA[Xcode常用命令]]></title>
+    <url>%2F2018%2F10%2F12%2FXcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[Xcode常用命令p :常用来输出基础数据类型 po :常用来输出oc对象类型 expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。 call :常用来动态调用函数 image: image命令可以列出当前App中的所有模块 po [view recursiveDescription] 查看view的层级关系 Xcode常用快捷键shift+command+o :快速打开文件 Command+1~9:导航面版切换]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>常用命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SDWebImage源码阅读(一)]]></title>
     <url>%2F2018%2F10%2F12%2FSDWebImage%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%2F</url>
     <content type="text"><![CDATA[SDWebImage的目录层级都说技术的成长要不断的学习和不断的练习.学习可以有很多方法For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框架开始! 我们要阅读一份源码,首先会看到这份源码的层级结构,包含哪些文件根据文件名判断其主要功能和作用.SD目录层级如下:]]></content>
@@ -96,15 +107,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Xcode常用命令]]></title>
-    <url>%2F2018%2F10%2F12%2FXcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[Xcode常用命令p :常用来输出基础数据类型 po :常用来输出oc对象类型 expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。 call :常用来动态调用函数 image: image命令可以列出当前App中的所有模块 po [view recursiveDescription] 查看view的层级关系 Xcode常用快捷键shift+command+o :快速打开文件 Command+1~9:导航面版切换]]></content>
+    <title><![CDATA[Architectures]]></title>
+    <url>%2F2018%2F10%2F12%2FXcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
       <categories>
-        <category>工具</category>
+        <category>iOS</category>
       </categories>
-      <tags>
-        <tag>常用命令</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[版本控制]]></title>
@@ -118,14 +126,6 @@
         <tag>git</tag>
         <tag>svn</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Architectures]]></title>
-    <url>%2F2018%2F10%2F12%2FXcode%E4%B9%8BArchitectures%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传 介绍上面的两个名词 Valid Architectures您的App需要支持的指令集,最终生成的二进制文件所支持的指令集 如果你设置Valid Architectures支出armv7/armv7s/arm64,Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本. Build Active Architecture Only该编译项用于设置是否只编译当前使用的设备对应的arm指令集。就是你用什么设备调试,就是用对应的指令集去进行编译.当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢. 重点 指令集都是可以向下兼容的 作用如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[iOS内存管理(二)]]></title>
@@ -166,17 +166,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[国际化本地化]]></title>
-    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
-    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Localizable.strings</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[instrument使用]]></title>
     <url>%2F2018%2F10%2F12%2Finstrument%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"></content>
@@ -187,6 +176,17 @@
         <tag>内存分析</tag>
         <tag>时间复杂度分析</tag>
         <tag>CPU占用分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[国际化本地化]]></title>
+    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Localizable.strings</tag>
       </tags>
   </entry>
   <entry>
@@ -229,6 +229,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[内存分配合内存区块]]></title>
+    <url>%2F2018%2F10%2F12%2F%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%86%85%E5%AD%98%E5%8C%BA%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。 静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段系统管理内存的释放。 代码区：存放函数的二进制代码 文字常量区：存放字符串常量 栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区高地址&lt;——————————————————————————&gt;低地址 问题补充：当发起内存申请，系统会如何响应？栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出） 堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。 二：内存问题举例例1:char *p = &quot;hello world1&quot;; char a[] = &quot;hello world2&quot;; //p[2] = &#39;a&#39;; a[2] = &#39;a&#39;; char *p1 = &quot;hello world1&quot;; printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1); printf(&quot;%c\n&quot;,a[2]); 分析:这个程序是错误的,错误发生在p[2] = ‘a’ 首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区) 但是hello world1和hello world2存储于不同区域 数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据. 三、堆区、栈区和静态存储区的使用规则 【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。 【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。 【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。 【规则4】动态内存的申请与释放必须配对，防止内存泄漏。 【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>内存分区</tag>
+        <tag>内存问题</tag>
+        <tag>内存使用规则</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[内存优化]]></title>
     <url>%2F2018%2F10%2F12%2F%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%82%B9%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[内存优化的几点分析: CoreFoundation的内存管理 block的循环引用 在for循环大量数据,不断创建局部变量的几点思考 mrc的基础问题 第三方框架中的内存问题 CoreFoundation的内存管理在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似， 需要引用时，引用计数+1，不需要引用时，引用计数-1 谁创建，谁release 谁retain，谁release 只要调用了alloc,必须要有realease(autorelease)example: 1234CFUUIDRef uuid = CFUUIDCreate(NULL);appUID = (NSString *)CFUUIDCreateString(NULL,uuid);CFRelease(uuid);CFRelease(appUID); block的循环引用问题循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。for example实例1：123456- (void)case1 &#123;NSLog(@&quot;case 1 Click&quot;); dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; self.name = @&quot;case 1&quot;; &#125;);&#125; 这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。实例2：12345678- (void)case2 &#123; NSLog(@&quot;case 2 Click&quot;); __weaktypeof(self) weakSelf = self; [self.teacher requestData:^(NSData *data) &#123; typeof(weakSelf) strongSelf = weakSelf; strongSelf.name = @&quot;case 2&quot;; &#125;];&#125; 这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。实例3：1234567- (void)case4 &#123; NSLog(@&quot;case 4 Click&quot;); [self.teacher requestData:^(NSData *data) &#123; self.name = @&quot;case 4&quot;; self.teacher = nil; &#125;];&#125; 不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计YTKNetwork就是在block执行结束后，将block置nil。实例4：1234567- (void)case5 &#123; NSLog(@&quot;case 5 Click&quot;); Teacher *t = [[Teacher alloc] init]; [t requestData:^(NSData *data) &#123; self.name = @&quot;case 5&quot;; &#125;];&#125; 不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。 实例512345678910- (void)case6 &#123; NSLog(@&quot;case 6 Click&quot;); [self.teacher callCase6BlackEvent]; self.teacher.case6Block = ^(NSData *data) &#123; self.name = @&quot;case 6&quot;; //下面两句代码任选其一 self.teacher = nil; // self.teacher.case6Block = nil; &#125;;&#125; 在block执行结束后置nil操作，解决内存泄漏问题 for循环大量数据时，不断创建局部变量的思考在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。 mrc的基础虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则： 需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release） 谁创建，谁release (alloc-&gt;release） 谁retain，谁release (retain-&gt;release) 只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease)) 关于第三方出现的循环引用问题我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。1[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; 解决办法：采用单例的方式创建。]]></content>
@@ -242,19 +255,6 @@
         <tag>for循环</tag>
         <tag>mrc的基础</tag>
         <tag>关于第三方出现的循环引用问题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[内存分配合内存区块]]></title>
-    <url>%2F2018%2F10%2F12%2F%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%86%85%E5%AD%98%E5%8C%BA%E5%9D%97%2F</url>
-    <content type="text"><![CDATA[-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。 静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段系统管理内存的释放。 代码区：存放函数的二进制代码 文字常量区：存放字符串常量 栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区高地址&lt;——————————————————————————&gt;低地址 问题补充：当发起内存申请，系统会如何响应？栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出） 堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。 二：内存问题举例例1:char *p = &quot;hello world1&quot;; char a[] = &quot;hello world2&quot;; //p[2] = &#39;a&#39;; a[2] = &#39;a&#39;; char *p1 = &quot;hello world1&quot;; printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1); printf(&quot;%c\n&quot;,a[2]); 分析:这个程序是错误的,错误发生在p[2] = ‘a’ 首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区) 但是hello world1和hello world2存储于不同区域 数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据. 三、堆区、栈区和静态存储区的使用规则 【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。 【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。 【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。 【规则4】动态内存的申请与释放必须配对，防止内存泄漏。 【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>内存分区</tag>
-        <tag>内存问题</tag>
-        <tag>内存使用规则</tag>
       </tags>
   </entry>
   <entry>
@@ -274,19 +274,19 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[面试总结]]></title>
-    <url>%2F2018%2F10%2F12%2F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[对于最近面试的总结1.首先面试最近还是蛮多的,而且都还聊的不错. 2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接着就是产品制作和服务企业,因为这个企业的产品用户较多,所以涉及安全方面的问题较多,比如代码方面的安全,个人用户信息的安全等方面.再接着是一家金融产品公司,主要针对方向是基础知识和一些新技术的发展方向和了几情况.对于产品的优化问题是如何提现的.其他的也就是类似的这种.针对企业目前或者是未来的产品做出提问.剩下的就是我们的基本功.如果基本功扎实的话,可以多了解公司. 3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强) 4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高 总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.]]></content>
-      <categories>
-        <category>面试总结</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[红海行动]]></title>
     <url>%2F2018%2F10%2F12%2F%E7%BA%A2%E6%B5%B7%E8%A1%8C%E5%8A%A8%2F</url>
     <content type="text"><![CDATA[作为一名开发者，我喜欢红海行动中的一段话。我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。 作为一名观众，我喜欢红海行动。]]></content>
       <categories>
         <category>日志</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[面试总结]]></title>
+    <url>%2F2018%2F10%2F12%2F%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[对于最近面试的总结1.首先面试最近还是蛮多的,而且都还聊的不错. 2.各个公司的面试方向都有所不同主要是业务和产品不同针对的方向不同,首先是某地产公司的金融产品面试,主要从面向对象编程的思想作为出发点,从单个页面到整体思路让我以面向对象的思想做出分析.还有就是对于数据量较多的处理和数据库的知识.再接着就是产品制作和服务企业,因为这个企业的产品用户较多,所以涉及安全方面的问题较多,比如代码方面的安全,个人用户信息的安全等方面.再接着是一家金融产品公司,主要针对方向是基础知识和一些新技术的发展方向和了几情况.对于产品的优化问题是如何提现的.其他的也就是类似的这种.针对企业目前或者是未来的产品做出提问.剩下的就是我们的基本功.如果基本功扎实的话,可以多了解公司. 3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强) 4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高 总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.]]></content>
+      <categories>
+        <category>面试总结</category>
       </categories>
   </entry>
   <entry>

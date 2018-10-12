@@ -590,6 +590,216 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/内存分配和内存区块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/内存分配和内存区块/" itemprop="url">
+                  内存分配合内存区块
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:01:45" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>-：内存分区<br>栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址<br>栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。</p>
+<p>堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。<br>堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。</p>
+<p>静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段<br>系统管理内存的释放。</p>
+<p>代码区：存放函数的二进制代码</p>
+<p>文字常量区：存放字符串常量</p>
+<p>栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区<br>高地址&lt;——————————————————————————&gt;低地址</p>
+<p>问题补充：<br>当发起内存申请，系统会如何响应？<br>栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。<br>注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出）</p>
+<p>堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。</p>
+<p>二：内存问题举例<br>例1:<br><code>char *p = &quot;hello world1&quot;;
+  char a[] = &quot;hello world2&quot;;
+  //p[2] = &#39;a&#39;;
+  a[2] = &#39;a&#39;;
+  char *p1 = &quot;hello world1&quot;;
+  printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1);
+  printf(&quot;%c\n&quot;,a[2]);</code></p>
+<p>  分析:这个程序是错误的,错误发生在p[2] = ‘a’<br>  首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区)<br>  但是hello world1和hello world2存储于不同区域</p>
+<p>  数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据.</p>
+<p>  三、堆区、栈区和静态存储区的使用规则</p>
+<p>【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。</p>
+<p>【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。</p>
+<p>【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。</p>
+<p>【规则4】动态内存的申请与释放必须配对，防止内存泄漏。</p>
+<p>【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/优化内存泄漏的几点分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -752,216 +962,6 @@ UIView.animate(withDuration: animationInterval, animations: {
 </ul>
 <h2 id="关于第三方出现的循环引用问题"><a href="#关于第三方出现的循环引用问题" class="headerlink" title="关于第三方出现的循环引用问题"></a>关于第三方出现的循环引用问题</h2><p>我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br></pre></td></tr></table></figure></p>
 <p>解决办法：采用单例的方式创建。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/内存分配和内存区块/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/内存分配和内存区块/" itemprop="url">
-                  内存分配合内存区块
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:01:45" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数"></span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长"></span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>-：内存分区<br>栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址<br>栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。</p>
-<p>堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。<br>堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。</p>
-<p>静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段<br>系统管理内存的释放。</p>
-<p>代码区：存放函数的二进制代码</p>
-<p>文字常量区：存放字符串常量</p>
-<p>栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区<br>高地址&lt;——————————————————————————&gt;低地址</p>
-<p>问题补充：<br>当发起内存申请，系统会如何响应？<br>栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。<br>注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出）</p>
-<p>堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。</p>
-<p>二：内存问题举例<br>例1:<br><code>char *p = &quot;hello world1&quot;;
-  char a[] = &quot;hello world2&quot;;
-  //p[2] = &#39;a&#39;;
-  a[2] = &#39;a&#39;;
-  char *p1 = &quot;hello world1&quot;;
-  printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1);
-  printf(&quot;%c\n&quot;,a[2]);</code></p>
-<p>  分析:这个程序是错误的,错误发生在p[2] = ‘a’<br>  首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区)<br>  但是hello world1和hello world2存储于不同区域</p>
-<p>  数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据.</p>
-<p>  三、堆区、栈区和静态存储区的使用规则</p>
-<p>【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。</p>
-<p>【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。</p>
-<p>【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。</p>
-<p>【规则4】动态内存的申请与释放必须配对，防止内存泄漏。</p>
-<p>【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。</p>
 
           
         
@@ -1226,6 +1226,195 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/红海行动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/红海行动/" itemprop="url">
+                  红海行动
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：10:59:45" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日志/" itemprop="url" rel="index"><span itemprop="name">日志</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作为一名开发者，我喜欢红海行动中的一段话。<br>我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。</p>
+<p>作为一名观众，我喜欢红海行动。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/面试总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1361,195 +1550,6 @@ UIView.animate(withDuration: animationInterval, animations: {
 <p>3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强)</p>
 <p>4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高</p>
 <p>总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/红海行动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/红海行动/" itemprop="url">
-                  红海行动
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：10:59:45" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日志/" itemprop="url" rel="index"><span itemprop="name">日志</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数"></span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长"></span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>作为一名开发者，我喜欢红海行动中的一段话。<br>我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。</p>
-<p>作为一名观众，我喜欢红海行动。</p>
 
           
         
@@ -2556,6 +2556,14 @@ UIView.animate(withDuration: animationInterval, animations: {
 
 
   
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+
+
 
 
 
