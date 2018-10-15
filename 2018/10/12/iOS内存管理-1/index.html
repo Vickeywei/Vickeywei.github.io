@@ -115,18 +115,18 @@
 
 
 
-  <meta name="description" content="ssssss">
+  <meta name="description" content="iOS内存管理(一) ##2.1 release 2.1.1 release的作用我们都知道release的作用是引用计数-1.当我们不需要持有对象的引用时需要进行release. 2.1.2 release的调用过程 首先调用对象的release方法 在release方法中调用rootRelease(),在rootRelease()中断言是否使用的GC,判断是否是TaggedPointer,如果">
 <meta name="keywords" content="release,autorelease,dealloc,内存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS内存管理(二)">
 <meta property="og:url" content="http://yoursite.com/2018/10/12/iOS内存管理-1/index.html">
 <meta property="og:site_name" content="Vicky的技术博客">
-<meta property="og:description" content="ssssss">
+<meta property="og:description" content="iOS内存管理(一) ##2.1 release 2.1.1 release的作用我们都知道release的作用是引用计数-1.当我们不需要持有对象的引用时需要进行release. 2.1.2 release的调用过程 首先调用对象的release方法 在release方法中调用rootRelease(),在rootRelease()中断言是否使用的GC,判断是否是TaggedPointer,如果">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-12T02:55:43.746Z">
+<meta property="og:updated_time" content="2018-10-15T08:57:15.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS内存管理(二)">
-<meta name="twitter:description" content="ssssss">
+<meta name="twitter:description" content="iOS内存管理(一) ##2.1 release 2.1.1 release的作用我们都知道release的作用是引用计数-1.当我们不需要持有对象的引用时需要进行release. 2.1.2 release的调用过程 首先调用对象的release方法 在release方法中调用rootRelease(),在rootRelease()中断言是否使用的GC,判断是否是TaggedPointer,如果">
 
 
 
@@ -397,12 +397,24 @@
                 
               
 
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：10:55:43" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="创建时间：2018-10-12 10:22:10" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-15 16:57:15" itemprop="dateModified" datetime="2018-10-15T16:57:15+08:00">2018-10-15</time>
               
             
           </span>
@@ -479,7 +491,19 @@
       
 
       
-        <p>ssssss</p>
+        <p><a href="http://blog.vicky.org.cn/2018/10/12/iOS内存管理/" target="_blank" rel="noopener">iOS内存管理(一)</a></p>
+<p>##2.1 release</p>
+<h3 id="2-1-1-release的作用"><a href="#2-1-1-release的作用" class="headerlink" title="2.1.1 release的作用"></a>2.1.1 release的作用</h3><p>我们都知道release的作用是引用计数-1.当我们不需要持有对象的引用时需要进行release.</p>
+<h3 id="2-1-2-release的调用过程"><a href="#2-1-2-release的调用过程" class="headerlink" title="2.1.2 release的调用过程"></a>2.1.2 release的调用过程</h3><ol>
+<li>首先调用对象的release方法</li>
+<li>在release方法中调用rootRelease(),在rootRelease()中断言是否使用的GC,判断是否是<b style="color:blue">TaggedPointer</b>,如果是返回false,否则调用sidetable_release(true)</li>
+<li>在sidetable_release()方法中首先获取对象保存引用计数的数据结构SideTable,定义局部变量do_dealloc是否进行dealloc.然后SideTable开锁.然后获取到对象的引用计数散列表.如果引用计数值==table.refcnts.end(). do_dealloc = true,将对象的引用计数标识为SIDE_TABLE_DEALLOCATING.如果不等于end.判断it-&gt;second  &lt; 小于SIDE_TABLE_DEALLOCATING(判断引用计数是否为0),do_dealloc = true,it-&gt;second = it-&gt;second | SIDE_TABLE_DEALLOCATING.然后如果it-&gt;second &amp; SIDE_TABLE_RC_PINNED(溢出标识).引用计数-1.如果do_dealloc和performDealloc都为true调用dealloc方法.否则调用sidetable_release_slow()</li>
+<li>sidetable_release_slow()的内部实现和sidetable_release大致类似.</li>
+</ol>
+<p><b style="color : red">欠缺点:</b></p>
+<p><b style="color : red">??? it-&gt;second是什么?</b></p>
+<p><b style="color : red">??? 按位与和按位或</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">- (oneway void)release &#123;</span><br><span class="line">    ((id)self)-&gt;rootRelease();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline bool </span><br><span class="line">objc_object::rootRelease()</span><br><span class="line">&#123;</span><br><span class="line">    assert(!UseGC);</span><br><span class="line"></span><br><span class="line">    if (isTaggedPointer()) return false;</span><br><span class="line">    return sidetable_release(true);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">uintptr_t </span><br><span class="line">objc_object::sidetable_release(bool performDealloc)</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    bool do_dealloc = false;</span><br><span class="line"></span><br><span class="line">    if (table.trylock()) &#123;</span><br><span class="line">        RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">        if (it == table.refcnts.end()) &#123;</span><br><span class="line">            do_dealloc = true;</span><br><span class="line">            table.refcnts[this] = SIDE_TABLE_DEALLOCATING;</span><br><span class="line">        &#125; else if (it-&gt;second &lt; SIDE_TABLE_DEALLOCATING) &#123;</span><br><span class="line">            // SIDE_TABLE_WEAKLY_REFERENCED may be set. Don&apos;t change it.</span><br><span class="line">            do_dealloc = true;</span><br><span class="line">            it-&gt;second |= SIDE_TABLE_DEALLOCATING;</span><br><span class="line">        &#125; else if (! (it-&gt;second &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">            it-&gt;second -= SIDE_TABLE_RC_ONE;</span><br><span class="line">        &#125;</span><br><span class="line">        table.unlock();</span><br><span class="line">        if (do_dealloc  &amp;&amp;  performDealloc) &#123;</span><br><span class="line">            ((void(*)(objc_object *, SEL))objc_msgSend)(this, SEL_dealloc);</span><br><span class="line">        &#125;</span><br><span class="line">        return do_dealloc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return sidetable_release_slow(table, performDealloc);</span><br><span class="line">&#125;</span><br><span class="line">uintptr_t</span><br><span class="line">objc_object::sidetable_release_slow(SideTable&amp; table, bool performDealloc)</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line">    bool do_dealloc = false;</span><br><span class="line"></span><br><span class="line">    table.lock();</span><br><span class="line">    RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">    if (it == table.refcnts.end()) &#123;</span><br><span class="line">        do_dealloc = true;</span><br><span class="line">        table.refcnts[this] = SIDE_TABLE_DEALLOCATING;</span><br><span class="line">    &#125; else if (it-&gt;second &lt; SIDE_TABLE_DEALLOCATING) &#123;</span><br><span class="line">        // SIDE_TABLE_WEAKLY_REFERENCED may be set. Don&apos;t change it.</span><br><span class="line">        do_dealloc = true;</span><br><span class="line">        it-&gt;second |= SIDE_TABLE_DEALLOCATING;</span><br><span class="line">    &#125; else if (! (it-&gt;second &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        it-&gt;second -= SIDE_TABLE_RC_ONE;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line">    if (do_dealloc  &amp;&amp;  performDealloc) &#123;</span><br><span class="line">        ((void(*)(objc_object *, SEL))objc_msgSend)(this, SEL_dealloc);</span><br><span class="line">    &#125;</span><br><span class="line">    return do_dealloc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -608,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -839,6 +872,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-release的作用"><span class="nav-number">1.</span> <span class="nav-text">2.1.1 release的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-release的调用过程"><span class="nav-number">2.</span> <span class="nav-text">2.1.2 release的调用过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
