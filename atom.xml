@@ -317,6 +317,29 @@
   </entry>
   
   <entry>
+    <title>iOS开发小记</title>
+    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:08:36.847Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>iOS应用攻防实战(一)</title>
     <link href="http://yoursite.com/2018/10/12/iOS%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2018/10/12/iOS应用安全攻防实战/</id>
@@ -340,29 +363,6 @@
       <category term="安全" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8/"/>
     
       <category term="攻防" scheme="http://yoursite.com/tags/%E6%94%BB%E9%98%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发小记</title>
-    <link href="http://yoursite.com/2018/10/12/iOS%E5%BC%80%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/10/12/iOS开发小记/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:36.847Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;iOS&quot;&gt;&lt;a href=&quot;#iOS&quot; class=&quot;headerlink&quot; title=&quot;iOS&quot;&gt;&lt;/a&gt;iOS&lt;/h1&gt;
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
     
   </entry>
   
@@ -473,29 +473,6 @@
   </entry>
   
   <entry>
-    <title>runtime(一)</title>
-    <link href="http://yoursite.com/2018/10/12/runtime%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/10/12/runtime（一）/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:15:41.350Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="iOS-runtime是如何通过selector找到对应的IMP地址？"><a href="#iOS-runtime是如何通过selector找到对应的IMP地址？" class="headerlink" title="iOS runtime是如何通过selector找到对应的IMP地址？"></a>iOS runtime是如何通过selector找到对应的IMP地址？</h1><p>举例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+GetImp.h&quot;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line">@implementation NSString (GetImp)</span><br><span class="line">+ (void)load &#123;</span><br><span class="line">  IMP imp = class_getMethodImplementation([NSString class], @selector(substringFromIndex:));</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">struct objc_class &#123;</span><br><span class="line">    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line">#if !__OBJC2__</span><br><span class="line">    Class _Nullable super_class                              OBJC2_UNAVAILABLE;</span><br><span class="line">    const char * _Nonnull name                               OBJC2_UNAVAILABLE;</span><br><span class="line">    long version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    long info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    long instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_ivar_list * _Nullable ivars                  OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_method_list * _Nullable * _Nullable methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_cache * _Nonnull cache                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_protocol_list * _Nullable protocols          OBJC2_UNAVAILABLE;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure><h1 id="分析类对象的定义"><a href="#分析类对象的定义" class="headerlink" title="分析类对象的定义"></a>分析类对象的定义</h1><p>objc_class的结构体有以下几个成员<br>isa指针指向元类，所有的类方法全部在元类的方法列表中<br>name：类名<br>varsion：版本号<br>info：类信息<br>instance_size：实例的大小<br>objc_ivar_list：成员变量list<br>objc_method_list：实例方法列表<br>objc_cache：缓存<br>objc_protocol_list：协议列表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct objc_method &#123;</span><br><span class="line">    SEL _Nonnull method_name                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    char * _Nullable method_types                            OBJC2_UNAVAILABLE;</span><br><span class="line">    IMP _Nonnull method_imp                                  OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>实例方法列表中保存的都是objc_method</p><h1 id="分析实例方法"><a href="#分析实例方法" class="headerlink" title="分析实例方法"></a>分析实例方法</h1><p>method_name：方法名称<br>method_types：方法的参数和返回值类型<br>method_imp：方法实现。<br>到目前我们已经看到我们需要的IMP</p><p>那么runtime到底是如何工作的啦。</p><p>1.根据class_getMethodImplementation的第一个参数确定对象类。<br>2.然后根据第二个参数开始进行查找类方法列表和实例方法列表（方法类型）<br>3.遍历实例方法列表寻找与传入的method_name相等的方法，如果找到就返回该方法的实现<br>4.如果没找到就查找父类的方法列表和元类的方法列表，知道查找到根类和根元类的方法列表。如果还没有找到就抛出异常，否则返回。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;iOS-runtime是如何通过selector找到对应的IMP地址？&quot;&gt;&lt;a href=&quot;#iOS-runtime是如何通过selector找到对应的IMP地址？&quot; class=&quot;headerlink&quot; title=&quot;iOS runtime是如何通过select
-      
-    
-    </summary>
-    
-      <category term="runtime" scheme="http://yoursite.com/categories/runtime/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Effective Objective-C 2.0 52个方法</title>
     <link href="http://yoursite.com/2018/10/12/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2018/10/12/52个方法/</id>
@@ -517,6 +494,29 @@
     
     
       <category term="52个方法" scheme="http://yoursite.com/tags/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>runtime(一)</title>
+    <link href="http://yoursite.com/2018/10/12/runtime%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/10/12/runtime（一）/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:15:41.350Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS-runtime是如何通过selector找到对应的IMP地址？"><a href="#iOS-runtime是如何通过selector找到对应的IMP地址？" class="headerlink" title="iOS runtime是如何通过selector找到对应的IMP地址？"></a>iOS runtime是如何通过selector找到对应的IMP地址？</h1><p>举例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+GetImp.h&quot;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line">@implementation NSString (GetImp)</span><br><span class="line">+ (void)load &#123;</span><br><span class="line">  IMP imp = class_getMethodImplementation([NSString class], @selector(substringFromIndex:));</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">struct objc_class &#123;</span><br><span class="line">    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line">#if !__OBJC2__</span><br><span class="line">    Class _Nullable super_class                              OBJC2_UNAVAILABLE;</span><br><span class="line">    const char * _Nonnull name                               OBJC2_UNAVAILABLE;</span><br><span class="line">    long version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    long info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    long instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_ivar_list * _Nullable ivars                  OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_method_list * _Nullable * _Nullable methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_cache * _Nonnull cache                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_protocol_list * _Nullable protocols          OBJC2_UNAVAILABLE;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure><h1 id="分析类对象的定义"><a href="#分析类对象的定义" class="headerlink" title="分析类对象的定义"></a>分析类对象的定义</h1><p>objc_class的结构体有以下几个成员<br>isa指针指向元类，所有的类方法全部在元类的方法列表中<br>name：类名<br>varsion：版本号<br>info：类信息<br>instance_size：实例的大小<br>objc_ivar_list：成员变量list<br>objc_method_list：实例方法列表<br>objc_cache：缓存<br>objc_protocol_list：协议列表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct objc_method &#123;</span><br><span class="line">    SEL _Nonnull method_name                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    char * _Nullable method_types                            OBJC2_UNAVAILABLE;</span><br><span class="line">    IMP _Nonnull method_imp                                  OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>实例方法列表中保存的都是objc_method</p><h1 id="分析实例方法"><a href="#分析实例方法" class="headerlink" title="分析实例方法"></a>分析实例方法</h1><p>method_name：方法名称<br>method_types：方法的参数和返回值类型<br>method_imp：方法实现。<br>到目前我们已经看到我们需要的IMP</p><p>那么runtime到底是如何工作的啦。</p><p>1.根据class_getMethodImplementation的第一个参数确定对象类。<br>2.然后根据第二个参数开始进行查找类方法列表和实例方法列表（方法类型）<br>3.遍历实例方法列表寻找与传入的method_name相等的方法，如果找到就返回该方法的实现<br>4.如果没找到就查找父类的方法列表和元类的方法列表，知道查找到根类和根元类的方法列表。如果还没有找到就抛出异常，否则返回。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;iOS-runtime是如何通过selector找到对应的IMP地址？&quot;&gt;&lt;a href=&quot;#iOS-runtime是如何通过selector找到对应的IMP地址？&quot; class=&quot;headerlink&quot; title=&quot;iOS runtime是如何通过select
+      
+    
+    </summary>
+    
+      <category term="runtime" scheme="http://yoursite.com/categories/runtime/"/>
+    
     
   </entry>
   
