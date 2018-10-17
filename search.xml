@@ -49,6 +49,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Objective-C视频学习资源]]></title>
+    <url>%2F2018%2F10%2F12%2FObjective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[Objective-C视频学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
+      <categories>
+        <category>资源</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Objective-C对象的构造模式]]></title>
     <url>%2F2018%2F10%2F12%2FObjective-C%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[谈对象的构造模式Objective-C语言在创建对象的时候需要先调用alloc,然后实例对象调用init方法完成初始化. alloc究竟干了什么为了能够看到alloc到底干了什么,我们可以下载GNUStep开源的libs-base工程然后找到NSObject.m文件.为什么用GNUStep来查看源码? GNUstep，GNU计划的项目之一。它将Cocoa（前身为NeXT的OpenStep）Objective-C软件库，部件工具箱（widget toolkits）以及其上的应用软件，以自由软件方式重新实现。它能够运行在类Unix操作系统上，也能运作在Microsoft Windows上。GNUStep 1234+ (id) alloc&#123; return [self allocWithZone: NSDefaultMallocZone()];&#125; 可以看到它调用了allocWithZone方法,具体作用就是给当前创建的实例对象开辟内存空间. 12345NSZone*NSDefaultMallocZone (void)&#123; return &amp;default_zone;&#125; 我们都知道oc对象的本质其实就是结构体,在开辟内存空间函数内部,他会遍历当前结构体的所有成员变量,然后根据成员变量的数据类型计算内存大小. 当alloc函数调用完成后会返回一个未初始化的实例,在这里cocoa不仅为这个实例申请了足够大的内存空间还做了以下几件事:1.将该对象的引用计数加12.将该对象的isa指针指向类3.为成员变量初始化值nil/0 init方法init方法是该对象的初始化方法,目的是初始化该对象的成员变量. new方法类方法new的出现是苹果对java等程序员的照顾,而new方法的内部和调用alloc、init是一致的。可以从GNUStep的源代码中得出结论。 1234+ (id) new&#123; return [[self alloc] init];&#125; 设计原则alloc和init的定位不同： alloc旨在为实例对象在虚拟内存上申请足够大的内存空间。而且将对象的retainCount+1.帮助系统完成内存管理。将isa指针指向该类，是为了在运行时环境中完成对该类的检查。 init方法旨在完成该对象成员变量的初始化。在内存方面并没有什么处理。 这样设计的结果可以使苹果开发者更加清晰的了解这两个函数的作用。]]></content>
@@ -62,14 +70,6 @@
         <tag>设计原则</tag>
         <tag>new</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Objective-C视频学习资源]]></title>
-    <url>%2F2018%2F10%2F12%2FObjective-C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[Objective-C视频学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源又包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。 视频教程(英文) Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。 Udemy Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。 书籍 Objective-C Programming 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。 iOS Programming 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论 Cocoa Design Patterns 适合打算深入了解 Cocoa 的人看 Learn Objective-C 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解 Objective-C 基础教程 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读 iOS 开发进阶 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读 Programming in Objective-C Programming in Objective-C 这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细 iOS 测试指南 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。 Objective-C 编程之道 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读 Objective-C 高级编程 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读 Effective Objective C 2.0 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用 The Swift Programming Language 中文版 学习Swift基础的中文文档，目前更新到Swift3.0文档 博客 OneV’s Den 唐巧的技术博客 ibireme bang 孙源的技术博客 破船之家 NSHipster Limboy 无网不剩 Kevin Blog IMTX 廖雪峰 向晨宇的技术博客 雷纯锋的技术博客 老谭笔记 Kenshin Cui’s Blog Casa Taloyum 庞海礁的个人空间 土土哥的技术blog 玉令天下的博客 萧宸宇 摇滚诗人 王中周的技术博客 Blog | nswebfrog limboy 社区论坛 objc中国 cocoachina objc code4App Cocos2d-x iPhone Dev SDK 国内知名程序员开发日报 掘金 极客头条 开发者头条 码农周刊 伯乐头条 segmentfault 知乎]]></content>
-      <categories>
-        <category>资源</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[React(二)]]></title>
@@ -167,16 +167,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[instrument使用]]></title>
-    <url>%2F2018%2F10%2F12%2Finstrument%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[国际化本地化]]></title>
+    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
       <categories>
-        <category>工具</category>
+        <category>iOS</category>
       </categories>
       <tags>
-        <tag>内存分析</tag>
-        <tag>时间复杂度分析</tag>
-        <tag>CPU占用分析</tag>
+        <tag>Localizable.strings</tag>
       </tags>
   </entry>
   <entry>
@@ -219,6 +217,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[三个ImageView实现无限轮播]]></title>
+    <url>%2F2018%2F10%2F12%2F%E4%B8%89%E4%B8%AAImageView%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90%E8%BD%AE%E6%92%AD%E5%92%8C%E4%B8%89%E4%B8%AALabel%E5%AE%9E%E7%8E%B0%E5%85%AC%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[三个ImageView实现无限轮播思路 scrollView上添加三张ImageView,分别为left,center,right 初始化scrollview时设置contentOffset为中间这张图片的位置 添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,进行复位操作.left的image = center.image,center.image = right.imgae, 然后设置contentOffset = center.right.image = 获取下一张图片 代码实现如下 初始化scrollview let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) scrollview.contentSize = CGSize(width: self.frame.size.width * 3, height: 0) scrollview.isPagingEnabled = true scrollview.bounces = false scrollview.showsVerticalScrollIndicator = false scrollview.showsHorizontalScrollIndicator = false scrollview.delegate = self 初始化timer timer = Timer(timeInterval: TimeInterval(scrollInterval), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true) RunLoop.current.add(timer!, forMode: .commonModes) 初始化 leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) centerImageView = UIImageView(frame: CGRect(x: self.frame.size.width * 1, y: 0, width: self.frame.size.width, height: self.frame.size.height)) rightImageView = UIImageView(frame:CGRect(x: self.frame.size.width * 2, y: 0, width: self.frame.size.width, height: self.frame.size.height)) leftImageView?.kf.setImage(with: ImageResource(downloadURL: getBeforeImageUrl(index: self.currentPage))) centerImageView?.kf.setImage(with: ImageResource(downloadURL: getImageUrl(index: self.currentPage)!)) rightImageView?.kf.setImage(with: ImageResource(downloadURL: getAfterImageUrl(index: self.currentPage))) Timer事件 currentPage = currentPage + 1 if currentPage == imageArray.count { currentPage = 0 } UIView.animate(withDuration: animationInterval, animations: { self.centerImageView?.isUserInteractionEnabled = false self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 2, y: 0) }) { (finish) in self.centerImageView?.isUserInteractionEnabled = true self.leftImageView?.image = self.centerImageView?.image self.centerImageView?.image = self.rightImageView?.image self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 1, y: 0) self.rightImageView?.kf.setImage(with: ImageResource(downloadURL: self.getAfterImageUrl(index: self.currentPage))) self.pageController?.currentPage = self.currentPage } 主要代码如上,主要是理解思路. 三个Label实现公告这个和上面的思路一致,只不过是横向换成竖向.代码就不贴了.如果对这个感兴趣,可以私聊我.我可以发代码给你.或者把代码放到git上.]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>轮播</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[内存优化]]></title>
     <url>%2F2018%2F10%2F12%2F%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%87%A0%E7%82%B9%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[内存优化的几点分析: CoreFoundation的内存管理 block的循环引用 在for循环大量数据,不断创建局部变量的几点思考 mrc的基础问题 第三方框架中的内存问题 CoreFoundation的内存管理在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似， 需要引用时，引用计数+1，不需要引用时，引用计数-1 谁创建，谁release 谁retain，谁release 只要调用了alloc,必须要有realease(autorelease)example: 1234CFUUIDRef uuid = CFUUIDCreate(NULL);appUID = (NSString *)CFUUIDCreateString(NULL,uuid);CFRelease(uuid);CFRelease(appUID); block的循环引用问题循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。for example实例1：123456- (void)case1 &#123;NSLog(@&quot;case 1 Click&quot;); dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; self.name = @&quot;case 1&quot;; &#125;);&#125; 这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。实例2：12345678- (void)case2 &#123; NSLog(@&quot;case 2 Click&quot;); __weaktypeof(self) weakSelf = self; [self.teacher requestData:^(NSData *data) &#123; typeof(weakSelf) strongSelf = weakSelf; strongSelf.name = @&quot;case 2&quot;; &#125;];&#125; 这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。实例3：1234567- (void)case4 &#123; NSLog(@&quot;case 4 Click&quot;); [self.teacher requestData:^(NSData *data) &#123; self.name = @&quot;case 4&quot;; self.teacher = nil; &#125;];&#125; 不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计YTKNetwork就是在block执行结束后，将block置nil。实例4：1234567- (void)case5 &#123; NSLog(@&quot;case 5 Click&quot;); Teacher *t = [[Teacher alloc] init]; [t requestData:^(NSData *data) &#123; self.name = @&quot;case 5&quot;; &#125;];&#125; 不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。 实例512345678910- (void)case6 &#123; NSLog(@&quot;case 6 Click&quot;); [self.teacher callCase6BlackEvent]; self.teacher.case6Block = ^(NSData *data) &#123; self.name = @&quot;case 6&quot;; //下面两句代码任选其一 self.teacher = nil; // self.teacher.case6Block = nil; &#125;;&#125; 在block执行结束后置nil操作，解决内存泄漏问题 for循环大量数据时，不断创建局部变量的思考在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。 mrc的基础虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则： 需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release） 谁创建，谁release (alloc-&gt;release） 谁retain，谁release (retain-&gt;release) 只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease)) 关于第三方出现的循环引用问题我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。1[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]; 解决办法：采用单例的方式创建。]]></content>
@@ -235,14 +244,16 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[三个ImageView实现无限轮播]]></title>
-    <url>%2F2018%2F10%2F12%2F%E4%B8%89%E4%B8%AAImageView%E5%AE%9E%E7%8E%B0%E6%97%A0%E9%99%90%E8%BD%AE%E6%92%AD%E5%92%8C%E4%B8%89%E4%B8%AALabel%E5%AE%9E%E7%8E%B0%E5%85%AC%E5%91%8A%2F</url>
-    <content type="text"><![CDATA[三个ImageView实现无限轮播思路 scrollView上添加三张ImageView,分别为left,center,right 初始化scrollview时设置contentOffset为中间这张图片的位置 添加定时器,设置定时器事件,当前页+1,然后在动画过渡到第三张图片的位置,在动画结束后,进行复位操作.left的image = center.image,center.image = right.imgae, 然后设置contentOffset = center.right.image = 获取下一张图片 代码实现如下 初始化scrollview let scrollview = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) scrollview.contentSize = CGSize(width: self.frame.size.width * 3, height: 0) scrollview.isPagingEnabled = true scrollview.bounces = false scrollview.showsVerticalScrollIndicator = false scrollview.showsHorizontalScrollIndicator = false scrollview.delegate = self 初始化timer timer = Timer(timeInterval: TimeInterval(scrollInterval), target: self, selector: #selector(timerAction), userInfo: nil, repeats: true) RunLoop.current.add(timer!, forMode: .commonModes) 初始化 leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)) centerImageView = UIImageView(frame: CGRect(x: self.frame.size.width * 1, y: 0, width: self.frame.size.width, height: self.frame.size.height)) rightImageView = UIImageView(frame:CGRect(x: self.frame.size.width * 2, y: 0, width: self.frame.size.width, height: self.frame.size.height)) leftImageView?.kf.setImage(with: ImageResource(downloadURL: getBeforeImageUrl(index: self.currentPage))) centerImageView?.kf.setImage(with: ImageResource(downloadURL: getImageUrl(index: self.currentPage)!)) rightImageView?.kf.setImage(with: ImageResource(downloadURL: getAfterImageUrl(index: self.currentPage))) Timer事件 currentPage = currentPage + 1 if currentPage == imageArray.count { currentPage = 0 } UIView.animate(withDuration: animationInterval, animations: { self.centerImageView?.isUserInteractionEnabled = false self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 2, y: 0) }) { (finish) in self.centerImageView?.isUserInteractionEnabled = true self.leftImageView?.image = self.centerImageView?.image self.centerImageView?.image = self.rightImageView?.image self.scrollView?.contentOffset = CGPoint(x: self.frame.size.width * 1, y: 0) self.rightImageView?.kf.setImage(with: ImageResource(downloadURL: self.getAfterImageUrl(index: self.currentPage))) self.pageController?.currentPage = self.currentPage } 主要代码如上,主要是理解思路. 三个Label实现公告这个和上面的思路一致,只不过是横向换成竖向.代码就不贴了.如果对这个感兴趣,可以私聊我.我可以发代码给你.或者把代码放到git上.]]></content>
+    <title><![CDATA[内存分配合内存区块]]></title>
+    <url>%2F2018%2F10%2F12%2F%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%86%85%E5%AD%98%E5%8C%BA%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。 静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段系统管理内存的释放。 代码区：存放函数的二进制代码 文字常量区：存放字符串常量 栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区高地址&lt;——————————————————————————&gt;低地址 问题补充：当发起内存申请，系统会如何响应？栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出） 堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。 二：内存问题举例例1:char *p = &quot;hello world1&quot;; char a[] = &quot;hello world2&quot;; //p[2] = &#39;a&#39;; a[2] = &#39;a&#39;; char *p1 = &quot;hello world1&quot;; printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1); printf(&quot;%c\n&quot;,a[2]); 分析:这个程序是错误的,错误发生在p[2] = ‘a’ 首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区) 但是hello world1和hello world2存储于不同区域 数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据. 三、堆区、栈区和静态存储区的使用规则 【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。 【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。 【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。 【规则4】动态内存的申请与释放必须配对，防止内存泄漏。 【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。]]></content>
       <categories>
         <category>iOS</category>
       </categories>
       <tags>
-        <tag>轮播</tag>
+        <tag>内存分区</tag>
+        <tag>内存问题</tag>
+        <tag>内存使用规则</tag>
       </tags>
   </entry>
   <entry>
@@ -259,19 +270,6 @@
         <tag>GCD</tag>
         <tag>NSOperation</tag>
         <tag>多线程原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[内存分配合内存区块]]></title>
-    <url>%2F2018%2F10%2F12%2F%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%86%85%E5%AD%98%E5%8C%BA%E5%9D%97%2F</url>
-    <content type="text"><![CDATA[-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。 静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段系统管理内存的释放。 代码区：存放函数的二进制代码 文字常量区：存放字符串常量 栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区高地址&lt;——————————————————————————&gt;低地址 问题补充：当发起内存申请，系统会如何响应？栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出） 堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。 二：内存问题举例例1:char *p = &quot;hello world1&quot;; char a[] = &quot;hello world2&quot;; //p[2] = &#39;a&#39;; a[2] = &#39;a&#39;; char *p1 = &quot;hello world1&quot;; printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1); printf(&quot;%c\n&quot;,a[2]); 分析:这个程序是错误的,错误发生在p[2] = ‘a’ 首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区) 但是hello world1和hello world2存储于不同区域 数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据. 三、堆区、栈区和静态存储区的使用规则 【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。 【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。 【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。 【规则4】动态内存的申请与释放必须配对，防止内存泄漏。 【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>内存分区</tag>
-        <tag>内存问题</tag>
-        <tag>内存使用规则</tag>
       </tags>
   </entry>
   <entry>
@@ -311,14 +309,16 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[国际化本地化]]></title>
-    <url>%2F2018%2F10%2F12%2Flocalizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86%2F</url>
-    <content type="text"><![CDATA[这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理]]></content>
+    <title><![CDATA[instrument使用]]></title>
+    <url>%2F2018%2F10%2F12%2Finstrument%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"></content>
       <categories>
-        <category>iOS</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Localizable.strings</tag>
+        <tag>内存分析</tag>
+        <tag>时间复杂度分析</tag>
+        <tag>CPU占用分析</tag>
       </tags>
   </entry>
 </search>
