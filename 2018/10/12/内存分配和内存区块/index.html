@@ -1,4 +1,1072 @@
-<!DOCTYPE html><html class="theme-next pisces use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2"><link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"6.4.2",sidebar:{position:"left",display:"post",offset:12,b2t:!0,scrollpercent:!0,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比"><meta name="keywords" content="内存分区,内存问题,内存使用规则"><meta property="og:type" content="article"><meta property="og:title" content="内存分配合内存区块"><meta property="og:url" content="http://yoursite.com/2018/10/12/内存分配和内存区块/index.html"><meta property="og:site_name" content="Vicky的技术博客"><meta property="og:description" content="-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2018-10-12T03:01:45.865Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="内存分配合内存区块"><meta name="twitter:description" content="-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比"><link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml"><link rel="canonical" href="http://yoursite.com/2018/10/12/内存分配和内存区块/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>内存分配合内存区块 | Vicky的技术博客</title><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">Vicky的技术博客</span><span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"><button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-history"></i><br>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益 404</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/内存分配和内存区块/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Vicky"><meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift"><meta itemprop="image" content="/images/avatar.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Vicky的技术博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">内存分配合内存区块</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:01:45" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span></span><div class="post-symbolscount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">本文字数：</span> <span title="本文字数">1.5k</span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-clock-o"></i></span> <span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">3 分钟</span></div></div></header><div class="post-body" itemprop="articleBody"><p>-：内存分区<br>栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址<br>栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。</p><p>堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。<br>堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。</p><p>静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段<br>系统管理内存的释放。</p><p>代码区：存放函数的二进制代码</p><p>文字常量区：存放字符串常量</p><p>栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区<br>高地址&lt;——————————————————————————&gt;低地址</p><p>问题补充：<br>当发起内存申请，系统会如何响应？<br>栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。<br>注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出）</p><p>堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。</p><p>二：内存问题举例<br>例1:<br><code>char *p = &quot;hello world1&quot;; char a[] = &quot;hello world2&quot;; //p[2] = &#39;a&#39;; a[2] = &#39;a&#39;; char *p1 = &quot;hello world1&quot;; printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1); printf(&quot;%c\n&quot;,a[2]);</code></p><p>分析:这个程序是错误的,错误发生在p[2] = ‘a’<br>首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区)<br>但是hello world1和hello world2存储于不同区域</p><p>数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据.</p><p>三、堆区、栈区和静态存储区的使用规则</p><p>【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。</p><p>【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。</p><p>【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。</p><p>【规则4】动态内存的申请与释放必须配对，防止内存泄漏。</p><p>【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。</p></div><div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>坚持原创技术分享，您的支持将鼓励我继续创作！</div><button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'><span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"><img id="wechat_qr" src="/images/Wechat.jpg" alt="Vicky 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"><img id="alipay_qr" src="/images/alipay.jpg" alt="Vicky 支付宝"><p>支付宝</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/内存分区/" rel="tag"><i class="fa fa-tag"></i> 内存分区</a><a href="/tags/内存问题/" rel="tag"><i class="fa fa-tag"></i> 内存问题</a><a href="/tags/内存使用规则/" rel="tag"><i class="fa fa-tag"></i> 内存使用规则</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2018/10/12/多线程/" rel="next" title="多线程"><i class="fa fa-chevron-left"></i> 多线程</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/2018/10/12/优化内存泄漏的几点分析/" rel="prev" title="内存优化">内存优化<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview-wrap sidebar-panel sidebar-panel-active"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Vicky"><p class="site-author-name" itemprop="name">Vicky</p><p class="site-description motion-element" itemprop="description">15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">30</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">9</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">48</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="mailto:Iosdevelopersvicky@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a href="https://github.com/Vickeywei" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i> GitHub</a></span><span class="links-of-author-item"><a href="https://www.facebook.com/profile.php?id=100017090401793" target="_blank" title="Facebook"><i class="fa fa-fw fa-globe"></i> Facebook</a></span></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> Links</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"><a href="https://www.jianshu.com/u/833aa07bca9d" title="简书" target="_blank">简书</a></li></ul></div></div></section><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2018</span><span class="with-love" id="animate"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">Vicky</span></div></div></footer></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script><script id="ribbon" type="text/javascript" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script><script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script><script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script><script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script><script id="dsq-count-scr" src="https://vickySteven.disqus.com/count.js" async></script><script type="text/javascript">// Popup Window;
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比">
+<meta name="keywords" content="内存分区,内存问题,内存使用规则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存分配合内存区块">
+<meta property="og:url" content="http://yoursite.com/2018/10/12/内存分配和内存区块/index.html">
+<meta property="og:site_name" content="Vicky的技术博客">
+<meta property="og:description" content="-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-12T03:01:45.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内存分配合内存区块">
+<meta name="twitter:description" content="-：内存分区栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。 堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/12/内存分配和内存区块/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>内存分配合内存区块 | Vicky的技术博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Vicky的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-history"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/内存分配和内存区块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">内存分配合内存区块
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:01:45" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>-：内存分区<br>栈区：分为动态分配和静态分配。栈区的地址分配是高地址指向低地址<br>栈区主要存储函数的实参和局部变量。静态分配是由编译器完成，动态分配是由malloc函数来完成。栈区的内存释放由系统完成。</p>
+<p>堆区：内存的申请和释放由程序员管理。在内存申请时，操作系统会从管理堆区的内存地址的链表中查找未被使用的且足够大的内存。当完成内存分配后会从链表中删除这段内存。将剩余内存的首地址插入到链表中。所以与栈区对比堆区的内存具有碎片化的特性。<br>堆内存的释放有程序员完成，如果程序员未完成内存释放，在程序结束后系统将自动释放这段内存。</p>
+<p>静态（全局区）：全局变量和静态变量的存放位置，初始化的静态变量和初始化的全局变量存放在.data段（数据段）。未初始化的放在。bss段<br>系统管理内存的释放。</p>
+<p>代码区：存放函数的二进制代码</p>
+<p>文字常量区：存放字符串常量</p>
+<p>栈区-&gt;堆区-&gt;静态全局区-&gt;文字常量区-&gt;代码区<br>高地址&lt;——————————————————————————&gt;低地址</p>
+<p>问题补充：<br>当发起内存申请，系统会如何响应？<br>栈：当每一个函数执行的时候，都会向系统索要资源，函数的运行时发生在栈区的。栈区内存是静态分配和动态分配两种。随着函数的运行而分配内存，随着函数的运行而释放内存。<br>注意：在内存申请过程中，如果剩余的内存空间大于申请的内存空间，系统将为城西分配足够大的内存，如果则表示栈内存不够（栈溢出）</p>
+<p>堆：堆区的内存管理由程序员负责，在申请内存过程中，系统维护着一张空闲内存的链表。当申请内存时，系统会遍历空闲内存链表，然后找到第一个大于申请内存空间的内存首地址返回。当然申请的内存不可能正好等于分配的内存空间。所以系统会将剩余的内存空间又存到链表当中，这也是为什么堆区的内存会产生碎片化的原因。</p>
+<p>二：内存问题举例<br>例1:<br><code>char *p = &quot;hello world1&quot;;
+  char a[] = &quot;hello world2&quot;;
+  //p[2] = &#39;a&#39;;
+  a[2] = &#39;a&#39;;
+  char *p1 = &quot;hello world1&quot;;
+  printf(&quot;%p\n,%p\n,%p\n&quot;,p,a,p1);
+  printf(&quot;%c\n&quot;,a[2]);</code></p>
+<p>  分析:这个程序是错误的,错误发生在p[2] = ‘a’<br>  首先变量数组a和变量p都存储于栈区(任何临时变量都是处于栈区)<br>  但是hello world1和hello world2存储于不同区域</p>
+<p>  数据hello world2存储于数组当中,此数据存储于栈区,对它修改是没有任何问题的.但是指针变量p仅仅你能够保存某个存储单元的地址.也就是真正存储hello world1的内存地址.因为hello world1属于字符串常量所以存储于静态区.虽然通过p[2]可以访问到静态区,但是作为常量不可被修改.所以导致内存问题.指针p1和p保存的内存地址相等,因为数据区只会保留一份相同的数据.</p>
+<p>  三、堆区、栈区和静态存储区的使用规则</p>
+<p>【规则1】用malloc 或new 申请内存之后，应该立即检查指针值是否为NULL。防止使用指针值为NULL 的内存。</p>
+<p>【规则2】不要忘记为数组和动态内存赋初值。防止将未被初始化的内存作为右值使用。</p>
+<p>【规则3】避免数组或指针的下标越界，特别要当心发生“多1”或者“少1”操作。</p>
+<p>【规则4】动态内存的申请与释放必须配对，防止内存泄漏。</p>
+<p>【规则5】用free 或delete 释放了内存之后，立即将指针设置为NULL，防止产生“野指针”。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+        
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/Wechat.jpg" alt="Vicky 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Vicky 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/内存分区/" rel="tag"><i class="fa fa-tag"></i> 内存分区</a>
+          
+            <a href="/tags/内存问题/" rel="tag"><i class="fa fa-tag"></i> 内存问题</a>
+          
+            <a href="/tags/内存使用规则/" rel="tag"><i class="fa fa-tag"></i> 内存使用规则</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/12/红海行动/" rel="next" title="红海行动">
+                <i class="fa fa-chevron-left"></i> 红海行动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/12/多线程/" rel="prev" title="多线程">
+                多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Vicky" />
+            
+              <p class="site-author-name" itemprop="name">Vicky</p>
+              <p class="site-description motion-element" itemprop="description">15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:Iosdevelopersvicky@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Vickeywei" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/profile.php?id=100017090401793" target="_blank" title="Facebook"><i class="fa fa-fw fa-globe"></i>Facebook</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/833aa07bca9d" title="简书" target="_blank">简书</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vicky</span>
+
+  
+  <!-- -->
+
+  <!--
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">67k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:03</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.4.4</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://vickySteven.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
     var isfetched = false;
     var isXml = true;
     // Search DB path;
@@ -314,4 +1382,36 @@
       if (shouldDismissSearchPopup) {
         onPopupClose();
       }
-    });</script><script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({pluginModelPath:"assets/",model:{jsonPath:"/live2dw/assets/miku.model.json"},display:{position:"right",width:150,height:300},mobile:{show:!1},log:!1,pluginJsPath:"lib/",pluginRootPath:"live2dw/",tagMode:!1})</script></body></html>
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
