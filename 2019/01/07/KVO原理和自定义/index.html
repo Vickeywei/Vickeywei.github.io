@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="KVO的自定义和原理分析  KVO的触发模式kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- (void)observeValueForKeyPath:(NSString )keyPath ofO">
+  <meta name="description" content="KVO的自定义和原理分析  KVO的触发模式 kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- (void)observeValueForKeyPath:(NSString )keyPath of">
 <meta name="keywords" content="KVO分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KVO原理和自定义">
 <meta property="og:url" content="https://blog.devvk.com/2019/01/07/KVO原理和自定义/index.html">
 <meta property="og:site_name" content="Vicky的技术博客">
-<meta property="og:description" content="KVO的自定义和原理分析  KVO的触发模式kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- (void)observeValueForKeyPath:(NSString )keyPath ofO">
+<meta property="og:description" content="KVO的自定义和原理分析  KVO的触发模式 kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- (void)observeValueForKeyPath:(NSString )keyPath of">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-07T08:45:38.423Z">
+<meta property="og:updated_time" content="2019-01-07T08:51:12.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KVO原理和自定义">
-<meta name="twitter:description" content="KVO的自定义和原理分析  KVO的触发模式kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- (void)observeValueForKeyPath:(NSString )keyPath ofO">
+<meta name="twitter:description" content="KVO的自定义和原理分析  KVO的触发模式 kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- (void)observeValueForKeyPath:(NSString )keyPath of">
 
 
 
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2019-01-07 16:38:07 / 修改时间：16:45:38" itemprop="dateCreated datePublished" datetime="2019-01-07T16:38:07+08:00">2019-01-07</time>
+              <time title="创建时间：2019-01-07 16:38:07 / 修改时间：16:51:12" itemprop="dateCreated datePublished" datetime="2019-01-07T16:38:07+08:00">2019-01-07</time>
             
 
             
@@ -488,18 +488,10 @@
       
         <h1>KVO的自定义和原理分析</h1>
 
-<h2>KVO的触发模式</h2><br><p>kvo的触发方式分为<b>手动</b>和<b>自动触发</b></p><br><p>自动触发:</p><br><p>添加观察,实现监听方法</p><br><pre><br>[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];<br><br>- (void)observeValueForKeyPath:(NSString <em>)keyPath ofObject:(id)object change:(NSDictionary<nskeyvaluechangekey,id> </nskeyvaluechangekey,id></em>)change context:(void <em>)context {<br>    NSLog(@”%@,%@”,change,_p.name);<br>}<br></em></pre><br><p>手动观察</p><br><p>实现automaticallyNotifiesObserversForKey:(NSString )key 方法,判断key值是否开启手动观察</p><br><pre><br>@implementation Person<br><br>//返回一个bool值,该值指示所观察的对象是否支持对给定的键值自动观察<br>+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {<br>    if ([key isEqualToString:@”name”]) {<br>        return NO;<br>    }<br>    return YES;<br>}<br>@end<br><br></pre><br><p>当开启手动观察后,如果需要监听值的改变,必须调用willChangeValueForKey:和didChangeValueForKey:</p><br><pre><br> [_p willChangeValueForKey:@”name”];<br> _p.name = [NSString stringWithFormat:@”%d”,a++];<br> [_p didChangeValueForKey:@”name”];<br></pre><br><br><h2>KVO的属性依赖</h2>
-
-<p><pre><br>@interface Dog : NSObject<br>@property(nonatomic, assign) int age;<br>@property(nonatomic, assign) int level;<br>@end<br></pre></p>
-<p><pre><br>@interface Person : NSObject<br>@property(nonatomic, copy) NSString <em>name;<br>@property(nonatomic, strong)Dog </em>dog;<br>@end<br></pre></p>
-<p><pre></pre></p>
-<ul>
-<li>(NSSet<nsstring *=""> <em>)keyPathsForValuesAffectingValueForKey:(NSString </em>)key {<br>  NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];;<br>  if ([key isEqualToString:@”dog”]) {<pre><code>keyPaths = [[NSSet alloc] initWithObjects:@&quot;_dog.age&quot;,@&quot;_dog._level&quot;, nil];  
-</code></pre>  }<br>  return keyPaths;<br>}<br><br><pre><br>_p = [[Person alloc] init];<br>[_p addObserver:self forKeyPath:@”dog” options:(NSKeyValueObservingOptionNew) context:nil];<br></pre><p>当我们需要监听属性的属性的变化,如果只有一个属性可以直接使用keypath,但是如果有多个属性时,我们要么添加多个addObserver,要不就是使用属性依赖</p>
+<p></p><h2>KVO的触发模式</h2><p></p>
+<p>kvo的触发方式分为<b>手动</b>和<b>自动触发</b></p><br><p>自动触发:</p><br><p>添加观察,实现监听方法</p><br><pre><br>[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];<br><br>- (void)observeValueForKeyPath:(NSString <em>)keyPath ofObject:(id)object change:(NSDictionary<nskeyvaluechangekey,id> </nskeyvaluechangekey,id></em>)change context:(void <em>)context {<br>    NSLog(@”%@,%@”,change,_p.name);<br>}<br></em></pre><br><p>手动观察</p><br><p>实现automaticallyNotifiesObserversForKey:(NSString )key 方法,判断key值是否开启手动观察</p><br><pre><br>@implementation Person<br><br>//返回一个bool值,该值指示所观察的对象是否支持对给定的键值自动观察<br>+ (BOOL)automaticallyNotifiesObserversForKey:(NSString <em>)key {<br>    if ([key isEqualToString:@”name”]) {<br>        return NO;<br>    }<br>    return YES;<br>}<br>@end<br><br></em></pre><br><p>当开启手动观察后,如果需要监听值的改变,必须调用willChangeValueForKey:和didChangeValueForKey:</p><br><pre><br> [_p willChangeValueForKey:@”name”];<br> _p.name = [NSString stringWithFormat:@”%d”,a++];<br> [_p didChangeValueForKey:@”name”];<br></pre><br><br><h2>KVO的属性依赖</h2><br><pre><br>@interface Dog : NSObject<br>@property(nonatomic, assign) int age;<br>@property(nonatomic, assign) int level;<br>@end<br><br>@interface Person : NSObject<br>@property(nonatomic, copy) NSString name;<br>@property(nonatomic, strong)Dog <em>dog;<br>@end<br><br>+ (NSSet&lt;NSString </em>&gt; <em>)keyPathsForValuesAffectingValueForKey:(NSString </em>)key {<br>    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];;<br>    if ([key isEqualToString:@”dog”]) {<br>        keyPaths = [[NSSet alloc] initWithObjects:@”_dog.age”,@”_dog._level”, nil];<br>    }<br>    return keyPaths;<br>}<br><br> _p = [[Person alloc] init];<br>[_p addObserver:self forKeyPath:@”dog” options:(NSKeyValueObservingOptionNew) context:nil];<br></pre><br><br><p>当我们需要监听属性的属性的变化,如果只有一个属性可以直接使用keypath,但是如果有多个属性时,我们要么添加多个addObserver,要不就是使用属性依赖</p>
 
 
-</nsstring></li>
-</ul>
 <p></p><h2>KVO的原理</h2><p></p>
 <ol>
 <li>创建子类NSKVONotyfing_Person</li>
