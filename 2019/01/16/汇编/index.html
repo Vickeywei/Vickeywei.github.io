@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="#基础知识 汇编语言的组成 汇编指令 伪指令 其他符号:如+,-,*,/等  存储器CPU所需要的指令和数据都在存储器中存放,也就是我们所说的内存当中.磁盘不同于内存,磁盘上的数据或程序如果不读到内存中,就无法被CPU使用. 指令和数据在内存或磁盘上,指令和数据没有任何区别,都是二进制信息. 存储单元存储器被划分成或干戈存储单元,每个存储单元从0开始顺序额编号.微机存储器的容量是以字节为最小单位来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编">
+<meta property="og:url" content="https://blog.devvk.com/2019/01/16/汇编/index.html">
+<meta property="og:site_name" content="Vicky的技术博客">
+<meta property="og:description" content="#基础知识 汇编语言的组成 汇编指令 伪指令 其他符号:如+,-,*,/等  存储器CPU所需要的指令和数据都在存储器中存放,也就是我们所说的内存当中.磁盘不同于内存,磁盘上的数据或程序如果不读到内存中,就无法被CPU使用. 指令和数据在内存或磁盘上,指令和数据没有任何区别,都是二进制信息. 存储单元存储器被划分成或干戈存储单元,每个存储单元从0开始顺序额编号.微机存储器的容量是以字节为最小单位来">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F914100916142.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F914104043P9.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F914144329401.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F914150Q5A4.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F914153254337.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F91416123IP.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F9151J30K46.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F91Q20520335.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F919102I0949.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F919103A2R7.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F919104H9539.png">
+<meta property="og:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F91910553H50.png">
+<meta property="og:updated_time" content="2019-01-16T02:47:52.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编">
+<meta name="twitter:description" content="#基础知识 汇编语言的组成 汇编指令 伪指令 其他符号:如+,-,*,/等  存储器CPU所需要的指令和数据都在存储器中存放,也就是我们所说的内存当中.磁盘不同于内存,磁盘上的数据或程序如果不读到内存中,就无法被CPU使用. 指令和数据在内存或磁盘上,指令和数据没有任何区别,都是二进制信息. 存储单元存储器被划分成或干戈存储单元,每个存储单元从0开始顺序额编号.微机存储器的容量是以字节为最小单位来">
+<meta name="twitter:image" content="https://blog.devvk.com/2019/01/16/汇编/1-1F914100916142.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://blog.devvk.com/2019/01/16/汇编/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>汇编 | Vicky的技术博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Vicky的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-history"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2019/01/16/汇编/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">汇编
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-16 10:17:24 / 修改时间：10:47:52" itemprop="dateCreated datePublished" datetime="2019-01-16T10:17:24+08:00">2019-01-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/16/汇编/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/16/汇编/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#基础知识</p>
+<h5 id="汇编语言的组成"><a href="#汇编语言的组成" class="headerlink" title="汇编语言的组成"></a>汇编语言的组成</h5><ol>
+<li>汇编指令</li>
+<li>伪指令</li>
+<li>其他符号:如+,-,*,/等</li>
+</ol>
+<h5 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h5><p>CPU所需要的指令和数据都在存储器中存放,也就是我们所说的内存当中.磁盘不同于内存,磁盘上的数据或程序如果不读到内存中,就无法被CPU使用.</p>
+<h5 id="指令和数据"><a href="#指令和数据" class="headerlink" title="指令和数据"></a>指令和数据</h5><p>在内存或磁盘上,指令和数据没有任何区别,都是二进制信息.</p>
+<h5 id="存储单元"><a href="#存储单元" class="headerlink" title="存储单元"></a>存储单元</h5><p>存储器被划分成或干戈存储单元,每个存储单元从0开始顺序额编号.<br>微机存储器的容量是以字节为最小单位来计算的.</p>
+<h5 id="CPU对存储器的读写"><a href="#CPU对存储器的读写" class="headerlink" title="CPU对存储器的读写"></a>CPU对存储器的读写</h5><p>CPU要从内存中读数据,首先要指定存储单元的地址.在一台微机中不是只有存储器这一种器件,CPU在读写数据时还要指明,他要对哪一个器件进行操作.进行哪种操作,是读出数据还是写入数据.</p>
+<p>CPU读写数据时的必备条件</p>
+<ol>
+<li>存储单元的地址</li>
+<li>器件的选择,读或写的命令</li>
+<li>读或写的数据</li>
+</ol>
+<h5 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h5><p>电子计算机能处理,传输的信息都是电信号,电信号当然要用导线传送,在计算机中专门有链接CPU和其他芯片的导线,通常称为总线</p>
+<ol>
+<li>地址总线</li>
+<li>控制总线</li>
+<li>数据总线</li>
+</ol>
+<h5 id="地址总线"><a href="#地址总线" class="headerlink" title="地址总线"></a>地址总线</h5><p>CPU是通过地址总线来指定存储单元的,可见地址总线能传送多少个不同的信息,CPU就可以对多少个存储单元进行寻址.</p>
+<p>一个CPU有N根地址线,则可以说这个CPU的地址总线的宽度为N.这样CPU最多可以寻找2的N次方个内存单元</p>
+<h5 id="数据总线"><a href="#数据总线" class="headerlink" title="数据总线"></a>数据总线</h5><p>数据总线的宽度决定了CPU和外界的数据传送速度.8根数据总线一次课传送一个8位二进制数据(一个字节).16根数据总线一次可传送两个字节</p>
+<h5 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h5><p>有多少根控制总线,就意味着CPU提供了对外部期间的多少种控制.所以控制总线的宽度决定了CPU对外部器件的控制能力</p>
+<p>总结</p>
+<ol>
+<li>汇编指令是机器指令的助记符,统计器指令一一对应</li>
+<li>每一种CPU都有自己的汇编指令集</li>
+<li>CPU可以直接使用的信息在存储器中存放</li>
+<li>在存储其中的指令和数据没有任何区别,都是二进制信息</li>
+<li>存储单元从零开始顺序编号</li>
+<li>一个存储单元可以存储8个bit,即8位二进制数(一个字节)</li>
+<li>每一个CPU芯片都有许多管教,这些管脚和总线相连.也可以说这些管教引出总线.一个CPU可以引出3中总线的宽度标志了这个CPU的不同方面的性能,地址总线的宽度决定了CPU的寻址能力,数据总线的宽度决定了CPU与其他部件进行数据传送石的一次数据传送量.控制总线的宽度决定了CPU对系统中其他期间的控制能力</li>
+</ol>
+<h5 id="内存地址空间"><a href="#内存地址空间" class="headerlink" title="内存地址空间"></a>内存地址空间</h5><p>一个CPU的地址总线宽度为10,那么可以寻址1024个内存单元(byte,8bit),这个1024个可寻到的内存单元就构成这个CPU的内存地址空间</p>
+<h5 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h5><p>主板上有核心器件和一些主要器件,这些器件通过总线(地址,数据,控制总线)相连.这些器件有CPU,存储器,外围芯片组,扩展插槽.扩展插槽上一般由RAM内存条和各类接口卡</p>
+<h5 id="接口卡"><a href="#接口卡" class="headerlink" title="接口卡"></a>接口卡</h5><p>CPU对外部设备不能直接控制.直接控制这些设备进行工作的是插在扩展插槽上的接口卡.扩展插槽通过总线和CPU相连,所以接口卡也通过总线同CPU相连.CPU可以直接控制这些接口卡,从而实现CPU对外设的间接控制.CPU通过总线向接口卡发送命令,接口卡根据CPU的命令控制外设进行工作.</p>
+<h5 id="各类存储器芯片"><a href="#各类存储器芯片" class="headerlink" title="各类存储器芯片"></a>各类存储器芯片</h5><p>存储器芯片从物理连接上看是独立的.不同的期间.从读写属性分为随机存储器和只读存储器.随机存储器可读可写,但必须带电存储.关机后存储的内容丢失.只读存储器只能读取不能写入.关机后其中的内容不丢失</p>
+<ol>
+<li>随机存储器,用于存放工CPU使用的大部分程序和数据,主随机存储器一般由两个位置的RAM组成,装在主板上的RAM和插在扩展插槽上的RAM</li>
+<li>装有BIOS的ROM</li>
+<li>接口卡上的RAM某些接口卡上需要对大批量输入,输出数据进行暂时存储,在其上装有RAM最典型的就是显示卡上的RAM,一般称为显存.</li>
+</ol>
+<h5 id="内存地址空间-1"><a href="#内存地址空间-1" class="headerlink" title="内存地址空间"></a>内存地址空间</h5><p>上述的存储器在物理上是独立的期间.但是都与CPU的总线相连接.CPU对他们进行读或写的时候都通过控制总线发出内存读写命令<br>CPU在操作他们的时候,把他们都当做内存来对待,把他们总的看做一个由若干存储单元组成的逻辑存储器,这个逻辑存储器就是我们所说的内存地址空间</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>一个CPU是由运算器,控制器,寄存器等期间构成,这些期间靠内部总线相连.</p>
+<ol>
+<li>运算器进行信息处理</li>
+<li>寄存器进行信息存储</li>
+<li>控制器控制各种器件进行工作</li>
+<li>内部总线连接各种器件,在它们之间进行数据的传送</li>
+</ol>
+<p>CPU中的主要部件是寄存器,寄存器是CPU中程序员可以用指令读写的部件.程序员通过改变各种寄存器中的内容来实现对CPU的控制</p>
+<h5 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h5><p>8086CPU的所有紧蹙起都是16位的,可以存放两个字节.AX,BX,CX,DX这四个寄存器通常用来存放一般性的数据,被称为通用寄存器</p>
+<p>8086CPU为了兼容上一代寄存器(8位)所以8086CPU的AX,BX,CX,DX这四个寄存器都可分为两个可独立使用的8位寄存器来用:</p>
+<ol>
+<li>AX可分为AH和AL</li>
+<li>BX可分为BH和BL</li>
+<li>CX可分为CH和CL</li>
+<li>DX可分为DH和DL</li>
+</ol>
+<h5 id="字在寄存器中的存储"><a href="#字在寄存器中的存储" class="headerlink" title="字在寄存器中的存储"></a>字在寄存器中的存储</h5><ol>
+<li>字节:记为byte,一个字节有8bit组成,可以存放在8位寄存器中</li>
+<li>字:记为word,一个字由两个字节组成,这两个字节分别称为这个字的高位字节和低位字</li>
+</ol>
+<h5 id="几条汇编指令"><a href="#几条汇编指令" class="headerlink" title="几条汇编指令"></a>几条汇编指令</h5><p>mov ax,18 将18送入寄存器AX<br>mov ah,78 将78送入寄存器AH<br>add ax,8  将寄存器AX的值加上8<br>mov ax,bx 将寄存器bx中的数据送入寄存器AX<br>add ax,bx 将AX和BX的数值相加,结果存在寄存器AX</p>
+<pre>
+mov ax,4e20h 4e20h
+add ax,1406h 6226h
+mov bx,2000h 6226h
+add ax,bx 8226h
+mov bx,ax 8226h
+add ax,bx 1044ch
+</pre>
+本来ax中的值为1044ch但是由于ax寄存器为16位,只能保存16位数.所以最高位的1,被舍弃,ax的数据为044ch
+<pre>
+mov ax,001ah 001ah   0000h
+mov bx,0026h 001ah   0026h
+add al,bl    0040h   0026h
+add ah,bl    2640h   0026h
+add bh,al    2640h     4026h
+mov ah,0     0040h   4026h   
+add al,85h   00c5h   4026h
+add al,93h   0058h   4026h
+</pre>
+
+<p><b style="color:red">注意</b>在进行数据传送和运算时,要注意指令的两个操作对象的位数应当是一致的</p><p><br><br></p><h4> 物理地址</h4><br>所有的内存单元构成的存储空间是一个一维的线性空间,每一个内存单元在这个空间中都有唯一的地址,我们将这个唯一的地址称为物理地址.<br>CPU通过地址总线送入村塾琦的,必须是一个内存单元的物理地址<br><br>##### 16位结构的CPU<br><br>16位CPU具有下面几方面的结构特性<br><br>1. 运算器一次最多可以处理16位的数据<br>2. 寄存器的最大宽度为16位<br>3. 寄存器和运算器之间的通路为16位<br><br>8084是16位结构的CPU,这也就是说,在8086内部,能够一次性处理,传输,暂时存储的信息的最大长度是16位的.内存单元的地址在送上地址总线之前,必须在CPU中处理,传输,暂时存放.<br><br>##### 8086CPU给出物理地址的方法<br><br>8086CPU有20位地址总线,可以传送20位地址,达到1MB寻址能力.8086CPU采用一种在内部用两个16位地址合成的方法来形成一个20位的物理地址<br><br>1. CPU中的相关部件提供两个16位的地址,一个称谓段地址,一个称为偏移地址<br>2. 段地址和偏移地址通过内部总线送入一个称为地址加法器的部件<br>3. 地址加法器将两个16位的地址合成为一个20位的物理地址<br>4. 地址加法器通过内部总线将20位物理地址送入输入输出控制电路<br>5. 输入输出控制电路将20位物理地址送上地址总线<br>6. 20位物理地址被地址总线传送到存储器<br><br>地址加法器采用物理地址=段地址x16+偏移地址的方法用段地址和偏移地址合成物理地址<br><br>##### 段地址x16(16进制向左移一位)+偏移地址=物理地址的本质<br>在CPU访问内存时,用一个基础地址(段地址x16)和一个相对于基础地址的偏移地址相加给出内存单元的物理地址<br><br>##### 段的概念<br>内存并没有分段,段的划分来自于CPU,由于8086CPU用”基础地址(段地址x16)+偏移地址=物理地址”的方式给出内存单元的物理地址,使得我们可以用分段的方式来管理内存.<br><br><pre><br>物理地址          段地址   偏移地址<br>21F60H            2000H      1F60H<br>                2100H     0F60H<br>                21F0H      0060H<br>                21F6H      0000H<br>                1F00H     2F60H<br></pre><br><br><p><b style="color:red">结论</b></p><br><ul><br>    <li>CPU可以用不同的段地址和偏移地址形成同一个物理地址</li><br>    <li>偏移地址为16位的,变化范围为0-FFFFH,仅用偏移地址来寻址最多可寻64kb的内存单元</li><br></ul><br><br><h4>段寄存器</h4><br><br>8086CPU在访问内存时,要由相关部件提供内存单元的段地址和偏移地址,送入地址加法器合成物理地址.段地址在8086的段寄存器中存放,8086CPU有4个寄存器CS,DS,SS,ES.<br><br><h4>CS和IP</h4><br>CS和IP是8086CPU中两个最关键的寄存器,他们指示当前要读取指令的地址.CS魏代码段寄存器,IP魏指令指针寄存器.<br><p><b>任意时刻,CPU将CS:IP指向的内容当做指令执行</b></p>
+
+<p><b style="color:orange">指令执行的步骤</b></p>
+
+<ol><br><li>从CS:IP指向的内存单元读取指令,读取的指令进入指令缓冲器</li><br><li>IP=IP+所读取指令的长度,从而指向下一条指令</li><br><li>执行指令</li><br></ol>
+
+<p>在8086CPU加电启动或复位后(即CPU刚开始工作时)CS和IP被设置为CS=FFFFH,IP=0000H,即在8086CPU机刚启动时,CPU从内存FFF0H单元中读取指令,FFFF0H单元中的指令是8086CPU开机后的第一条指令</p>
+
+<h4>修改CS,IP的指令</h4><br>可以通过mov指令来改变AX,BX,CX,DX中的值,mov指令被称为传送指令<br>mov指令不能用于设置CS,IP的值.8086CPU为CS,IP提供了另外的指令来改变他们的值.能够改变CS,IP的内容的指令被称为转移指令:<b>jmp指令</b><br><br>若想同时修改CS,IP的内容,可用形如jmp段地址:偏移地址的指令完成<br>jmp 2AE3:3执行后:CS=2AE3H,IP=0003H,CPU将从2AE33H处读取指令<br>jmp段地址:偏移地址指令的功能为:用指令中给出的段地址修改CS,偏移地址修改IP<br>若想仅修改IP的内容,可用形如jmp某一合法寄存器的指令完成<br>jmp ax,指令执行前:1x=1000H,CS=2000H,IP为0003H.指令执行后:ax=1000H,CS=2000H,IP=1000H<br>jmp 某一合法寄存器,指令的功能为:用寄存器中的值修改IP<br><br>##### 代码段<br><br><p><b style="color:red">如何使代码段中的指令被执行</b></p><br>将一段内存当做代码段,仅仅是我们再编程时的一种安排,CPU并不会由于这种安排,就自动地将我们定义的代码段中的指令当做指令来执行.CPU只认被CS:IP指向的内存单元中的内容为指令.所以要让CPU执行我们放在代码段中的指令,必须要将CS:IP指向所定义的代码段的第一条指令的首地址.<br><br><p><b style="color:red">小结</b></p><br><ol><br><li>段地址在8086CPU的段寄存器中存放.当8086CPU要访问内存时,由段寄存器提供内存单元的段地址.8086CPU有4个段寄存器,其中CS用来存放指令的段地址</li><br><li>CS存放指令的段地址,IP存放指令的偏移地址,8086机中,任意时候,CPU将CS:IP指向的内容当做指令执行</li><br><li>8086CPU的工作过程</li><br><ol><br><li>从CS:IP执行的内存单元读取指令,读取的指令进入指令缓冲器</li><br><li>IP指向下一条指令</li><br><li>执行指令</li><br></ol><br><li>8086CPU提供转移指令修改CS,IP的内容,jmp段地址:偏移地址:修改CS:IP.jmp 某个合法寄存器:修改IP</li><br></ol><br><br><br><h2>寄存器(内存访问)</h2><br><br><h4> 内存中字的存储 </h4>
+
+<p>CPU中,用16位寄存器来存储一个字,高8位存放高位字节,低8位存放低位字节,在内存中存储时,由于内存单元是字节单元(一个单元存放一个字节),则一个字要用两个地址连续的内存单元来存放,这个字的低位字节存放在低地址单元中,高位字节存放在高地址单元中.</p>
+<p><b style="color:red">进制</b></p>
+
+<p><b>十进制</b></p><br><p>平时使用的数字都是由0~9共10个数字组成的,一个数字最多能表示9,如果要表示十,十一,二十九,一百等,就需要多个数字组合起来</p><br><p>因为逢十进一,也因为只有0~9共十个数字,所以被叫做十进制;这时进一位相当于十,进两位相当于二十</p><br><p>进制也就是进位制.进行加法运算时逢X进一,进行减法运算时借一当X,这就是X进制,这种进制也就包含X个数字,基数为X.十进制有0~9共10个数字,基数为10,在加减法运算中,逢十进一,借一当十</p>
+
+<p><b>二进制</b></p>
+
+<p>既然可以用0~9共十个数字表示数值,那么也可以用0,1两个数字表示数值,这就是二进制</p><br><p>二进制加减法和十进制加减法的思想是类似的:</p><br><ul><br><li>对于十进制,进行加法运算时逢十进一,进行减法运算时借一当十</li><br><li>对于二进制,进行加法运算时逢二进一,进行减法运算时借一当二</li><br></ul><br><ol><br><li>二进制加法:1+0=1,1+1=10,11+10=101,111+111=1110</li><br><img src="/2019/01/16/汇编/1-1F914100916142.png" title="This is an image"><br><li>二进制减法:1-0=1,10-1=1,101-11=10,1100-111=101</li><br><img src="/2019/01/16/汇编/1-1F914104043P9.png" title="This is an image"><br></ol><br><br><p><b>八进制</b></p><br><p>八进制有0~7共8个数字,基数为8,加法运算时逢八进一,减法运算时借一当八</p><br><ol><br><li>八进制加法:3+4=7,5+6=13,75+42=137,2427+567-3216</li><br><img src="/2019/01/16/汇编/1-1F914144329401.png" title="This is an image"><br><li>八进制减法:6-4=2,52-27=23,307-141=146,7430-1451=5757</li><br><img src="/2019/01/16/汇编/1-1F914150Q5A4.png" title="This is an image"><br></ol><br><p><b>十六进制</b></p><br>十六进制中,用A表示10,B表示11,C表示12,D表示13,E表示14,F表示15,因此有0~F共有16个数字,基数为16,加法运算时逢16进1,减法运算时借1当16.<br><br><ol><br><li>十六进制加法:6+7=D,18+BA=D2,595=792=D27,2F87+F8A=3F11</li><br><img src="/2019/01/16/汇编/1-1F914153254337.png" title="This is an image"><br><li>十六进制减法:D-3=A,52-2F=23,E07-141=CC6,7CA0-1CB1=5FEF</li><br><img src="/2019/01/16/汇编/1-1F91416123IP.png" title="This is an image"><br></ol><br><p><b>进制转换</b></p><br><p><b>将二进制、八进制、十六进制转换为十进制</b></p>
+
+<p style="color:red">二进制,八进制和十六进制向十进制转换都非常容易,就是”按权相加”.<span style="color:black">所谓”权”,也即”位权”</span></p><br><p>假设当前数字是N进制,那么</p><br><ul><br><li>对于整数部分,从右往左看,第i位的位权等于N<sup>i-1</sup></li><br><li>对于小数部分,恰好相反,要从左往右看,第j位的位权为N<sup>-j</sup></li><br></ul><br><br><ol><br><li><b>整数部分</b></li><br><p>将八进制数字53627转换成十进制:<br>53627=5x8<sup>4</sup>+3x8<sup><br>3</sup>+6x8<sup>2</sup>+2x8<sup>1</sup>+7x8<sup>0</sup></p><br><li><b>小数部分</b></li><br><p>将八进制数字423.5176转换成十进制:423.5176=4x8<sup>2</sup>+2x8<sup>1</sup>+3x8<sup>0</sup>+5x8<sup>-1</sup>+1x8<sup>-2</sup>+7x8<sup>-3</sup>+6x8<sup>-4</sup></p><br><p>小数部分和证书部分相反,要从左往右看,第一位的位权为8<sup>-1</sup>=1/8</p><br></ol><br><br><p><b>将十进制转换成二进制,八进制、十六进制</b></p>
+
+<p><ol></ol></p>
+<p><li>整数部分</li></p>
+<p></p><p>将十进制整数转换为N进制整数采用”除N取余,逆序排列”法.具体做法是</p><p></p>
+<p><ul></ul></p>
+<p><li>将N作为除数,用十进制整数除以N,可以得到一个商和余数</li></p>
+<p><li>保留余数,用商继续除以N,又得到一个新的商和余数</li></p>
+<p><li>仍保留余数,用商继续除以N,还会得到一个新的商和余数</li></p>
+<p><li>……</li></p>
+<p><li>如此反复进行,每次都保留余数,用商接着除以N,直到商为0时停止</li><br></p>
+<p></p><p>把先得到的余数作为 N 进制数的低位数字，后得到的余数作为 N 进制数的高位数字，依次排列起来，就得到了 N 进制数字。<br><img src="/2019/01/16/汇编/1-1F9151J30K46.png" title="This is an image"><br></p><p></p>
+<p><li>小数部分</li></p>
+<p></p><p>十进制小数转换成N进制小数采用”<span style="color:red">乘N取整,顺序排列</span>“法.具体做法如下</p><p></p>
+<p><ul></ul></p>
+<p><li>用N乘以十进制小数,可以得到一个积,这个积包含了整数部分和小数部分;</li></p>
+<p><li>将积的整数部分取出,再用N乘以余下的小数部分,又得到一个新的积;</li></p>
+<p><li>再将积的整数部分取出,继续用N乘以余下的小数部分;</li></p>
+<p><li>……</li></p>
+<p><li>如此反复进行,每次都取出整数部分,用N接着乘以小数部分,直到几种的小数部分为0,或者达到所要求的精度为止</li></p>
+<p></p><p>把取出的整数部分按顺序排列起来，先取出的整数作为 N 进制小数的高位数字，后取出的整数作为低位数字，这样就得到了 N 进制小数。<br></p><br>1-1F91Q20520335.png<br><img src="/2019/01/16/汇编/1-1F91Q20520335.png" title="This is an image"><br><br><p></p>
+<p></p><p>如果一个数字既包含了整数部分又包含了小数部分,那么将整数部分和小数部分分开,分别按照上面的方法完成转换,然后再合并在一起即可</p><p></p>
+<p></p><p><b style="color:red">注意</b></p><p></p>
+<p></p><p>十进制小数转换成其他进制小数时,结果有可能是一个无限位的小数</p><p></p>
+<p></p><p><b>二进制和八进制、十六进制的转换</b></p><p></p>
+<p></p><p>将二进制转换为八进制和十六进制时就有非常简洁的方法，反之亦然</p><p></p>
+<p><ol></ol></p>
+<p><li>二进制整数和八进制整数之间的转换</li></p>
+<p></p><p>二进制整数转换成八进制整数时,每三位二进制数字转换为一位八进制数字,运算的顺序是从低位向高位依次进行,高位不足三位用零补齐</p><br><img src="/2019/01/16/汇编/1-1F919102I0949.png" title="This is an image"><p></p>
+<p></p><p>八进制整数转换成二进制数时,思路是相反的,每一位八进制数字转换为三位二进制数字,运算的顺序也是从低位向高位依次进行</p><br><img src="/2019/01/16/汇编/1-1F919103A2R7.png" title="This is an image"><p></p>
+<p><li>二进制整数和十六进制整数之间的转换</li></p>
+<p></p><p>二进制整数转换为十六进制整数时,每四位二进制数字转换为一位十六进制数字,运算的顺序是从低位向高位依次进行,高位不足四位用零补齐.</p><br><img src="/2019/01/16/汇编/1-1F919104H9539.png" title="This is an image"><p></p>
+<p></p><p>十六进制整数转换为二进制整数时,思路是相反的,每一位十六进制数字转换为四位二进制数字,运算顺序也是从低位向高位依次进行</p><br><img src="/2019/01/16/汇编/1-1F91910553H50.png" title="This is an image"><br><p></p>
+<table><br><tbody><br><tr><br><th><br>十进制</th><br><td><br>0</td><br><td><br>1</td><br><td><br>2</td><br><td><br>3</td><br><td><br>4</td><br><td><br>5</td><br><td><br>6</td><br><td><br>7</td><br><td><br>8</td><br><td><br>9</td><br><td><br>10</td><br><td><br>11</td><br><td><br>12</td><br><td><br>13</td><br><td><br>14</td><br><td><br>15</td><br><td><br>16</td><br></tr><br><tr><br><th><br>二进制</th><br><td><br>0</td><br><td><br>1</td><br><td><br>10</td><br><td><br>11</td><br><td><br>100</td><br><td><br>101</td><br><td><br>110</td><br><td><br>111</td><br><td><br>1000</td><br><td><br>1001</td><br><td><br>1010</td><br><td><br>1011</td><br><td><br>1100</td><br><td><br>1101</td><br><td><br>1110</td><br><td><br>1111</td><br><td><br>10000</td><br></tr><br><tr><br><th><br>八进制</th><br><td><br>0</td><br><td><br>1</td><br><td><br>2</td><br><td><br>3</td><br><td><br>4</td><br><td><br>5</td><br><td><br>6</td><br><td><br>7</td><br><td><br>10</td><br><td><br>11</td><br><td><br>12</td><br><td><br>13</td><br><td><br>14</td><br><td><br>15</td><br><td><br>16</td><br><td><br>17</td><br><td><br>20</td><br></tr><br><tr><br><th><br>十六进制</th><br><td><br>0</td><br><td><br>1</td><br><td><br>2</td><br><td><br>3</td><br><td><br>4</td><br><td><br>5</td><br><td><br>6</td><br><td><br>7</td><br><td><br>8</td><br><td><br>9</td><br><td><br>A</td><br><td><br>B</td><br><td><br>C</td><br><td><br>D</td><br><td><br>E</td><br><td><br>F</td><br><td><br>10</td><br></tr><br></tbody><br></table>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+      
+        
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/Wechat.jpg" alt="Vicky 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Vicky 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/07/KVO原理和自定义/" rel="next" title="KVO原理和自定义">
+                <i class="fa fa-chevron-left"></i> KVO原理和自定义
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Vicky" />
+            
+              <p class="site-author-name" itemprop="name">Vicky</p>
+              <p class="site-description motion-element" itemprop="description">15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:Iosdevelopersvicky@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Vickeywei" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/profile.php?id=100017090401793" target="_blank" title="Facebook"><i class="fa fa-fw fa-globe"></i>Facebook</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/833aa07bca9d" title="简书" target="_blank">简书</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#汇编语言的组成"><span class="nav-number">1.</span> <span class="nav-text">汇编语言的组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储器"><span class="nav-number">2.</span> <span class="nav-text">存储器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指令和数据"><span class="nav-number">3.</span> <span class="nav-text">指令和数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储单元"><span class="nav-number">4.</span> <span class="nav-text">存储单元</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU对存储器的读写"><span class="nav-number">5.</span> <span class="nav-text">CPU对存储器的读写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总线"><span class="nav-number">6.</span> <span class="nav-text">总线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址总线"><span class="nav-number">7.</span> <span class="nav-text">地址总线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据总线"><span class="nav-number">8.</span> <span class="nav-text">数据总线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#控制总线"><span class="nav-number">9.</span> <span class="nav-text">控制总线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存地址空间"><span class="nav-number">10.</span> <span class="nav-text">内存地址空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#主板"><span class="nav-number">11.</span> <span class="nav-text">主板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口卡"><span class="nav-number">12.</span> <span class="nav-text">接口卡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#各类存储器芯片"><span class="nav-number">13.</span> <span class="nav-text">各类存储器芯片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存地址空间-1"><span class="nav-number">14.</span> <span class="nav-text">内存地址空间</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number"></span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通用寄存器"><span class="nav-number">1.</span> <span class="nav-text">通用寄存器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字在寄存器中的存储"><span class="nav-number">2.</span> <span class="nav-text">字在寄存器中的存储</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#几条汇编指令"><span class="nav-number">3.</span> <span class="nav-text">几条汇编指令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text"> 物理地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">段寄存器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">CS和IP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">修改CS,IP的指令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">寄存器(内存访问)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text"> 内存中字的存储 </span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vicky</span>
+
+  
+  <!-- -->
+
+  <!--
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">83k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:31</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.4.4</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
+
+
+
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://vickySteven.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://blog.devvk.com/2019/01/16/汇编/';
+        this.page.identifier = '2019/01/16/汇编/';
+        this.page.title = '汇编';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://vickySteven.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
