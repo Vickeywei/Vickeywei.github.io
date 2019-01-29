@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.devvk.com/"/>
-  <updated>2019-01-25T05:54:01.872Z</updated>
+  <updated>2019-01-29T08:41:00.463Z</updated>
   <id>https://blog.devvk.com/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>property认识</title>
+    <link href="https://blog.devvk.com/2019/01/29/property%E8%AE%A4%E8%AF%86/"/>
+    <id>https://blog.devvk.com/2019/01/29/property认识/</id>
+    <published>2019-01-29T08:36:16.000Z</published>
+    <updated>2019-01-29T08:41:00.463Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><h1 style="text-align:center">@property</h1><p>为什么要讨论这些问题?因为这些东西在平常开发是很难用到的,但是在面试和找工作的过程中就会被提及,公司不仅需要实战者,也需要理论和实战相结合的人.所以我们要掌握理论来完成实战.</p><ol><li>@property本质是什么?</li><li>@property为我们做了哪几件事?</li><li>分类如何为类添加属性?能够添加实例变量吗?</li><li>通过编译的类能够添加实例变量?在运行时创建的类能否添加实例变量?</li></ol><p>我们将从这几个方面来查找和解决这个问题?</p><p>property是我们在开发中为某个类来添加属性的声明方式.它为了我们做了三件事情,1.生成带有下划线的实例变量,2.生成getter方法,3.生成setter方法.settet和getter也被称为属性合成方法.平时我们开发过程中不需要写,系统会帮我们完成这项繁琐的工作.但是如果我们需要自己实现该如何写呢?</p><pre>@implementation MJPerson<br>@synthesize name =_name;<br>- (NSString <em>)name{<br>return @”1111”;<br>}<br>- (void)setName:(NSString </em>)name {<br>_name = name;<br>}</pre><br><p>关键字:@synthesize和@dynamic这个稍后讨论</p><p>分类是不可以添加实例变量的,因为在类经过编译后,类的objc_ivar_list已经确定,并且已经调用了class_setIvarLayout和class_setWeakIvarLayout已经确定了实例变量的布局,所以无法增加实例变量</p><p>那么分类是否可以添加属性呢?答案是肯定的,因为在运行时环境中,我们可以采用关联引用为类动态添加属性</p><pre><br>//设置属性的值<br>OBJC_EXPORT <br>void objc_setAssociatedObject(id _Nonnull object, const void <em> _Nonnull key,<br>id _Nullable value, objc_AssociationPolicy policy)<br><br>//获取属性的值<br>OBJC_EXPORT<br>id_Nullable<br>objc_getAssociatedObject(id _Nonnull object, const void </em> _Nonnull key)<br>OBJC_AVAILABLE<br>(10.6, 3.1, 9.0, 1.0, 2.0);<br>//移除属性<br>OBJC_EXPORT void<br>objc_removeAssociatedObjects(id _Nonnull object)<br>    OBJC_AVAILABLE(10.6, 3.1, 9.0, 1.0, 2.0);</pre><p>上面第一个方法是设置关联属性的值,必须给定一个object,一个唯一的key,和缓存策略.我们再给定一个唯一的key是要注意,我们再获取时也需要用到这个key所以必须具有唯一性.所以我们一般使用static char来定义这个key,在选择缓存策略时就要考虑这个属性的类型,如果输基础数据类型,就是assign,如果是对象就是retain,如果是字符串或者是block等要选择copy.这个缓存策略中在对象时,会有NONATOMIC和atomic这个的选择和我们声明属性一致.</p><p>第二个方式是获取关联属性的值,参数为关联的属性和唯一的key</p><p>第三个方法是移除所有的关联属性,我们要想移除单个关联属性,应该调用设置关联属性值的函数,并且设置value为nil</p><p>我们无法给通过编译的类,添加实例变量,但是我们可以给运行时创建的类添加实例变量.</p><pre>runtime函数如下:<br>//首先创建类<br>OBJC_EXPORT Class _Nullable<br>objc_allocateClassPair(Class _Nullable superclass, const char <em> _Nonnull name, size_t extraBytes)OBJC_AVAILABLE(10.5, 2.0, 9.0, 1.0, 2.0);<br>//为类添加属性<br>参数:创建的类,属性名称,和修饰属性的关键字属性数组,属性数组count<br>OBJC_EXPORT BOOL<br>class_addProperty(Class _Nullable cls, const char </em> _Nonnull name,const objc_property_attribute_t * _Nullable attributes,unsigned int attributeCount)<br>OBJC_AVAILABLE(10.7, 4.3, 9.0, 1.0, 2.0);<br>//注册类<br>objc_registerClassPair(cls);</pre><p>我们可以为这个类添加属性,添加方法,添加协议等等,还可以添加实例变量,但是这个类必须包含一个同名的实例变量</p><p>好了上面的四个小问题说完了,该说刚才说的@synthesize和@dynamic,如果两个都没写就是@ synthesize  property=_property,@synthesize系统会帮我们自动实现setter和getter方法,@dynamic 需要我们自己实现setter和getter方法,如果不实现,就会出现崩溃,因为这个是你告诉系统说,我要自己实现,系统自然不会帮你实现,但是你却没实现,然后就找不到方法了.</p><p>说起属性就要说属性的默认关键字:基础数据类型:内存关键字:assign,读写属性:readwrite,原子性:atomic,对象类型:内存关键字:strong,读写属性:readWrite,原子性:atomic</p><br><b style="color:red">重点:</b><p></p><p>关联引用</p><p>属性的setter和getter的合成方式,@synthesize自动合成,@dynamic手动合成.</p><p>如何为运行时创建的类添加属性,方法等</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;/p&gt;&lt;h1 style=&quot;text-align:center&quot;&gt;@property&lt;/h1&gt;&lt;p&gt;为什么要讨论这些问题?因为这些东西在平常开发是很难用到的,但是在面试和找工作的过程中就会被提及,公司不仅需要实战者,也需要理论和实战相结合的人.所以我们要掌握理论来完成实战
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://blog.devvk.com/categories/iOS/"/>
+    
+    
+      <category term="property本质" scheme="https://blog.devvk.com/tags/property%E6%9C%AC%E8%B4%A8/"/>
+    
+      <category term="property做了哪些事情" scheme="https://blog.devvk.com/tags/property%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85/"/>
+    
+      <category term="分类添加属性" scheme="https://blog.devvk.com/tags/%E5%88%86%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7/"/>
+    
+      <category term="如何给运行时创建的类添加属性,方法等" scheme="https://blog.devvk.com/tags/%E5%A6%82%E4%BD%95%E7%BB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E5%88%9B%E5%BB%BA%E7%9A%84%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7-%E6%96%B9%E6%B3%95%E7%AD%89/"/>
+    
+      <category term="属性的默认关键字" scheme="https://blog.devvk.com/tags/%E5%B1%9E%E6%80%A7%E7%9A%84%E9%BB%98%E8%AE%A4%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+      <category term="synthesize和dynamic区别" scheme="https://blog.devvk.com/tags/synthesize%E5%92%8Cdynamic%E5%8C%BA%E5%88%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>runtime方法查找</title>
@@ -228,7 +263,7 @@
     <link href="https://blog.devvk.com/2018/10/17/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B8%89/"/>
     <id>https://blog.devvk.com/2018/10/17/iOS内存管理三/</id>
     <published>2018-10-17T07:34:53.000Z</published>
-    <updated>2018-10-18T02:07:09.355Z</updated>
+    <updated>2019-01-29T08:39:40.305Z</updated>
     
     <content type="html"><![CDATA[<h2 id="3-1-内存管理的思考方式"><a href="#3-1-内存管理的思考方式" class="headerlink" title="3.1 内存管理的思考方式"></a>3.1 内存管理的思考方式</h2><p>自己生成的对象,自己持有<br>非自己生成的对象,自己也能持有<br>不再需要自己持有的对象时释放<br>非自己持有的对象不能释放</p>]]></content>
     
@@ -275,52 +310,29 @@
   </entry>
   
   <entry>
-    <title>SDWebImage源码阅读(一)</title>
-    <link href="https://blog.devvk.com/2018/10/12/SDWebImage%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
-    <id>https://blog.devvk.com/2018/10/12/SDWebImage源码阅读/</id>
+    <title>Xcode常用命令</title>
+    <link href="https://blog.devvk.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://blog.devvk.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:16:29.675Z</updated>
+    <updated>2018-10-12T03:18:22.600Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="SDWebImage的目录层级"><a href="#SDWebImage的目录层级" class="headerlink" title="SDWebImage的目录层级"></a>SDWebImage的目录层级</h1><p>都说技术的成长要不断的学习和不断的练习.学习可以有很多方法<br>For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框架开始!</p><p>我们要阅读一份源码,首先会看到这份源码的层级结构,包含哪些文件根据文件名判断其主要功能和作用.SD目录层级如下:</p><img src="/2018/10/12/SDWebImage源码阅读/sdwebimage.gif" title="This is an image">]]></content>
+    <content type="html"><![CDATA[<h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p><p>po :常用来输出oc对象类型</p><p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p><p>call :常用来动态调用函数</p><p>image: image命令可以列出当前App中的所有模块</p><p>po [view recursiveDescription] 查看view的层级关系</p><h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p><p>Command+1~9:导航面版切换</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;SDWebImage的目录层级&quot;&gt;&lt;a href=&quot;#SDWebImage的目录层级&quot; class=&quot;headerlink&quot; title=&quot;SDWebImage的目录层级&quot;&gt;&lt;/a&gt;SDWebImage的目录层级&lt;/h1&gt;&lt;p&gt;都说技术的成长要不断的学习和不断的练
+        &lt;h1 id=&quot;Xcode常用命令&quot;&gt;&lt;a href=&quot;#Xcode常用命令&quot; class=&quot;headerlink&quot; title=&quot;Xcode常用命令&quot;&gt;&lt;/a&gt;Xcode常用命令&lt;/h1&gt;&lt;p&gt;p :常用来输出基础数据类型&lt;/p&gt;
+&lt;p&gt;po :常用来输出oc对象类型&lt;/p&gt;
+
       
     
     </summary>
     
-      <category term="源码阅读" scheme="https://blog.devvk.com/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
+      <category term="工具" scheme="https://blog.devvk.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="sdwebimage" scheme="https://blog.devvk.com/tags/sdwebimage/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift学习资源</title>
-    <link href="https://blog.devvk.com/2018/10/12/Swift%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E5%92%8C%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://blog.devvk.com/2018/10/12/Swift学习资源和大神博客/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:17:41.165Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Swift学习资源"><a href="#Swift学习资源" class="headerlink" title="Swift学习资源"></a>Swift学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p><h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul><li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li><li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li></ul><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul><li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li><li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li><li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li><li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li><li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li><li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li><li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li><li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li><li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li><li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li><li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li></ul><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul><li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li><li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li><li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li><li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li><li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li><li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li><li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li><li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li><li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li><li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li><li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li><li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li><li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li><li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li><li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li><li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li><li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li><li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li><li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li><li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li><li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li><li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li><li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li><li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li></ul><h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul><li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li><li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li><li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li><li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li><li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li><li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li></ul><h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul><li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li><li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li><li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li><li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li><li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li><li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li><li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Swift学习资源&quot;&gt;&lt;a href=&quot;#Swift学习资源&quot; class=&quot;headerlink&quot; title=&quot;Swift学习资源&quot;&gt;&lt;/a&gt;Swift学习资源&lt;/h1&gt;&lt;p&gt;因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含
-      
-    
-    </summary>
-    
-      <category term="资源" scheme="https://blog.devvk.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="swift" scheme="https://blog.devvk.com/tags/swift/"/>
+      <category term="常用命令" scheme="https://blog.devvk.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
@@ -344,6 +356,39 @@
     
       <category term="iOS" scheme="https://blog.devvk.com/categories/iOS/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Objective-C对象的构造模式</title>
+    <link href="https://blog.devvk.com/2018/10/12/Objective-C%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://blog.devvk.com/2018/10/12/Objective-C的对象构造模式/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:46:44.078Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="谈对象的构造模式"><a href="#谈对象的构造模式" class="headerlink" title="谈对象的构造模式"></a>谈对象的构造模式</h1><p>Objective-C语言在创建对象的时候需要先调用alloc,然后实例对象调用init方法完成初始化.</p><h1 id="alloc究竟干了什么"><a href="#alloc究竟干了什么" class="headerlink" title="alloc究竟干了什么"></a>alloc究竟干了什么</h1><p>为了能够看到alloc到底干了什么,我们可以下载GNUStep开源的libs-base工程然后找到NSObject.m文件.<br>为什么用GNUStep来查看源码?</p><p>GNUstep，GNU计划的项目之一。它将Cocoa（前身为NeXT的OpenStep）Objective-C软件库，部件工具箱（widget toolkits）以及其上的应用软件，以自由软件方式重新实现。它能够运行在类Unix操作系统上，也能运作在Microsoft Windows上。<a href="https://zh.wikipedia.org/wiki/GNUstep" target="_blank" rel="noopener">GNUStep</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ (id) alloc</span><br><span class="line">&#123;</span><br><span class="line">  return [self allocWithZone: NSDefaultMallocZone()];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>可以看到它调用了allocWithZone方法,具体作用就是给当前创建的实例对象开辟内存空间.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSZone*</span><br><span class="line">NSDefaultMallocZone (void)</span><br><span class="line">&#123;</span><br><span class="line">  return &amp;default_zone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们都知道oc对象的本质其实就是结构体,在开辟内存空间函数内部,他会遍历当前结构体的所有成员变量,然后根据成员变量的数据类型计算内存大小.</p><p>当alloc函数调用完成后会返回一个未初始化的实例,在这里cocoa不仅为这个实例申请了足够大的内存空间还做了以下几件事:<br>1.将该对象的引用计数加1<br>2.将该对象的isa指针指向类<br>3.为成员变量初始化值nil/0</p><h1 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a>init方法</h1><p>init方法是该对象的初始化方法,目的是初始化该对象的成员变量.</p><h1 id="new方法"><a href="#new方法" class="headerlink" title="new方法"></a>new方法</h1><p>类方法new的出现是苹果对java等程序员的照顾,而new方法的内部和调用alloc、init是一致的。可以从GNUStep的源代码中得出结论。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ (id) new</span><br><span class="line">&#123;</span><br><span class="line">  return [[self alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h1><p>alloc和init的定位不同：</p><p><strong>alloc旨在为实例对象在虚拟内存上申请足够大的内存空间。而且将对象的retainCount+1.帮助系统完成内存管理。将isa指针指向该类，是为了在运行时环境中完成对该类的检查。</strong></p><p><strong>init方法旨在完成该对象成员变量的初始化。在内存方面并没有什么处理。</strong></p><p>这样设计的结果可以使苹果开发者更加清晰的了解这两个函数的作用。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;谈对象的构造模式&quot;&gt;&lt;a href=&quot;#谈对象的构造模式&quot; class=&quot;headerlink&quot; title=&quot;谈对象的构造模式&quot;&gt;&lt;/a&gt;谈对象的构造模式&lt;/h1&gt;&lt;p&gt;Objective-C语言在创建对象的时候需要先调用alloc,然后实例对象调用init方法
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://blog.devvk.com/categories/iOS/"/>
+    
+    
+      <category term="alloc" scheme="https://blog.devvk.com/tags/alloc/"/>
+    
+      <category term="构造模式" scheme="https://blog.devvk.com/tags/%E6%9E%84%E9%80%A0%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="init" scheme="https://blog.devvk.com/tags/init/"/>
+    
+      <category term="设计原则" scheme="https://blog.devvk.com/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/"/>
+    
+      <category term="new" scheme="https://blog.devvk.com/tags/new/"/>
     
   </entry>
   
@@ -375,21 +420,19 @@
   </entry>
   
   <entry>
-    <title>Xcode常用命令</title>
-    <link href="https://blog.devvk.com/2018/10/12/Xcode%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>https://blog.devvk.com/2018/10/12/Xcode调试技巧和常用快捷键/</id>
+    <title>HomeBrew VS Wegt</title>
+    <link href="https://blog.devvk.com/2018/10/12/HomeBrew%E4%B8%8ERuby%E6%9B%B4%E6%96%B0/"/>
+    <id>https://blog.devvk.com/2018/10/12/HomeBrew与Ruby更新/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:18:22.600Z</updated>
+    <updated>2018-10-12T03:05:33.984Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p><p>po :常用来输出oc对象类型</p><p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p><p>call :常用来动态调用函数</p><p>image: image命令可以列出当前App中的所有模块</p><p>po [view recursiveDescription] 查看view的层级关系</p><h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p><p>Command+1~9:导航面版切换</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="HomeBrew-与-wegt"><a href="#HomeBrew-与-wegt" class="headerlink" title="HomeBrew 与 wegt"></a>HomeBrew 与 wegt</h1><p>HomeBrew 是一款自由及开放源代码的软件包管理系统,用以简化Mac OS X系统上的软件安装过程.它使用Ruby语言写成,针对Mac OS X操作系统自带的Ruby版本,默认安装在/usr/local下.由一个核心的git版本库构成,以使用户能更新HomeBrew.包管理器使用一种称为”公式”的DSL脚本来管理依赖,下载源代码及配置和编译软件,从源代码中构建软件</p><p>安装需求</p><p>Xcode</p><p>安装方式</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure><p>相关指令</p><p>搜索:</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search 套件名称</span><br></pre></td></tr></table></figure><p>查询套件信息</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info 套件名称</span><br></pre></td></tr></table></figure><p>安装套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install 套件名称</span><br></pre></td></tr></table></figure><p>查询目前已经安装的套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list</span><br></pre></td></tr></table></figure><p>更新HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure><p>卸载HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd <span class="string">`brew --prefix`</span></span><br><span class="line">$ rm -rf Cellar$ brew prune</span><br><span class="line">$ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew</span><br><span class="line">$ rm -rf ~<span class="regexp">/Library/</span>Caches/Homebrew</span><br></pre></td></tr></table></figure><p>wegt 是linux的一个命令用来下载文件的工具<br>我只有在虚拟机上使用过这个命令,主要作用是用来下载文件.比如说做后台的同学想下载tomcat,就可以通过这个来下载,过多的内容接不介绍了</p><h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><p>Mac OS X 系统自带了ruby环境,所以我们一般是不需要管理ruby环境的,今天说这个问题是在过年期间我在更新mac系统时出错了缺少系统启动文件,然后我就恢复系统了,知道今天才发现我pod install执行不了,提示ruby的版本过低,而我的pod版本是最新版,所以我就想通过更新ruby来解决问题,但是更新ruby时又发现brew出错了.所以很生气,后果很严重.下载brew,更新ruby,pod就好了<br>卸载和安装上面都有讲述.更新ruby</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade ruby</span><br></pre></td></tr></table></figure><h1 id="Cocoapods"><a href="#Cocoapods" class="headerlink" title="Cocoapods"></a>Cocoapods</h1><p>对于iOS开发的同学,使用cocoapods是在所难免的,所以不再过多讲述,网上的文章一搜一大堆.<br><a href="https://www.jianshu.com/p/edd9dbd35576" target="_blank" rel="noopener">pod入门到放弃</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Xcode常用命令&quot;&gt;&lt;a href=&quot;#Xcode常用命令&quot; class=&quot;headerlink&quot; title=&quot;Xcode常用命令&quot;&gt;&lt;/a&gt;Xcode常用命令&lt;/h1&gt;&lt;p&gt;p :常用来输出基础数据类型&lt;/p&gt;
-&lt;p&gt;po :常用来输出oc对象类型&lt;/p&gt;
-
+        &lt;h1 id=&quot;HomeBrew-与-wegt&quot;&gt;&lt;a href=&quot;#HomeBrew-与-wegt&quot; class=&quot;headerlink&quot; title=&quot;HomeBrew 与 wegt&quot;&gt;&lt;/a&gt;HomeBrew 与 wegt&lt;/h1&gt;&lt;p&gt;HomeBrew 是一款自由及开放源
       
     
     </summary>
@@ -397,61 +440,9 @@
       <category term="工具" scheme="https://blog.devvk.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="常用命令" scheme="https://blog.devvk.com/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <category term="HomeBrew" scheme="https://blog.devvk.com/tags/HomeBrew/"/>
     
-  </entry>
-  
-  <entry>
-    <title>版本控制</title>
-    <link href="https://blog.devvk.com/2018/10/12/git%E4%BB%8E0%E5%88%B01/"/>
-    <id>https://blog.devvk.com/2018/10/12/git从0到1/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-22T09:11:26.129Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="关于版本控制"><a href="#关于版本控制" class="headerlink" title="关于版本控制"></a>关于版本控制</h1><p>版本控制是帮助我们记录文件内容发生变化,方便后面查阅每个版本不同的修订情况.还可以通过版本控制回溯到某个版本的状态.还可以比较文件的变化细节.</p><h1 id="git的工作状态"><a href="#git的工作状态" class="headerlink" title="git的工作状态"></a>git的工作状态</h1><ol><li>工作目录</li><li>暂存区域</li><li>git仓库</li></ol><p>工作目录是在本地计算机上拉取远程仓库某个版本的内容和数据,然后我们进行修改和使用.</p><p>暂存区域是一个文件,它会保存下次即将要提交的文件列表信息,一般会在git仓库的目录中.</p><p>git仓库:是用来保存项目元数据和对象数据库的地方.每次我们提交的更新通过快照也保存在git仓库中.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;关于版本控制&quot;&gt;&lt;a href=&quot;#关于版本控制&quot; class=&quot;headerlink&quot; title=&quot;关于版本控制&quot;&gt;&lt;/a&gt;关于版本控制&lt;/h1&gt;&lt;p&gt;版本控制是帮助我们记录文件内容发生变化,方便后面查阅每个版本不同的修订情况.还可以通过版本控制回溯到某个版本
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="https://blog.devvk.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="版本控制" scheme="https://blog.devvk.com/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
-    
-      <category term="git" scheme="https://blog.devvk.com/tags/git/"/>
-    
-      <category term="svn" scheme="https://blog.devvk.com/tags/svn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Effective Objective-C 2.0 52个方法</title>
-    <link href="https://blog.devvk.com/2018/10/12/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
-    <id>https://blog.devvk.com/2018/10/12/52个方法/</id>
-    <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T06:21:03.399Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="第一条-了解Objective-C的语言的起源"><a href="#第一条-了解Objective-C的语言的起源" class="headerlink" title="第一条:了解Objective-C的语言的起源?"></a>第一条:了解Objective-C的语言的起源?</h1><p>Objective-C和C++、Java 等都是面向对象的语言。但是在面向对象的语言中Objective-C采用的是消息结构语言，而其他的面向语言采用的还是函数调用的方式。消息结构语言来自于SmallTalk。</p><p>消息结构和函数调用的区别</p><p>消息结构决定其运行过程中所需要执行的代码由运行时环境决定，而其他面向对象语言则是由编译器决定。我们都知道 OC 是在运行时才会确定对象类型。而调用方法亦是如此，在运行时才回去查找到底该执行哪个方法。而且在 OC 中接收消息的对象可以为 nil 这是其他面向对象语言所不具有的。其他的语言都会先进行判断。</p><p>OC 作为 C 的超集在很多方面还是沿用</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;第一条-了解Objective-C的语言的起源&quot;&gt;&lt;a href=&quot;#第一条-了解Objective-C的语言的起源&quot; class=&quot;headerlink&quot; title=&quot;第一条:了解Objective-C的语言的起源?&quot;&gt;&lt;/a&gt;第一条:了解Objective-
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://blog.devvk.com/categories/iOS/"/>
-    
-    
-      <category term="52个方法" scheme="https://blog.devvk.com/tags/52%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
+      <category term="wegt" scheme="https://blog.devvk.com/tags/wegt/"/>
     
   </entry>
   
@@ -483,6 +474,28 @@
   </entry>
   
   <entry>
+    <title>instrument使用</title>
+    <link href="https://blog.devvk.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://blog.devvk.com/2018/10/12/instrument的使用/</id>
+    <published>2018-10-12T02:22:10.000Z</published>
+    <updated>2018-10-12T03:08:15.489Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.devvk.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="内存分析" scheme="https://blog.devvk.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
+    
+      <category term="时间复杂度分析" scheme="https://blog.devvk.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
+    
+      <category term="CPU占用分析" scheme="https://blog.devvk.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>国际化本地化</title>
     <link href="https://blog.devvk.com/2018/10/12/localizable-strings%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%A4%84%E7%90%86/"/>
     <id>https://blog.devvk.com/2018/10/12/localizable-strings国际化和本地化处理/</id>
@@ -508,19 +521,21 @@
   </entry>
   
   <entry>
-    <title>HomeBrew VS Wegt</title>
-    <link href="https://blog.devvk.com/2018/10/12/HomeBrew%E4%B8%8ERuby%E6%9B%B4%E6%96%B0/"/>
-    <id>https://blog.devvk.com/2018/10/12/HomeBrew与Ruby更新/</id>
+    <title>mysql</title>
+    <link href="https://blog.devvk.com/2018/10/12/mysql%E5%AE%89%E8%A3%85/"/>
+    <id>https://blog.devvk.com/2018/10/12/mysql安装/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:05:33.984Z</updated>
+    <updated>2018-10-12T03:11:38.811Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="HomeBrew-与-wegt"><a href="#HomeBrew-与-wegt" class="headerlink" title="HomeBrew 与 wegt"></a>HomeBrew 与 wegt</h1><p>HomeBrew 是一款自由及开放源代码的软件包管理系统,用以简化Mac OS X系统上的软件安装过程.它使用Ruby语言写成,针对Mac OS X操作系统自带的Ruby版本,默认安装在/usr/local下.由一个核心的git版本库构成,以使用户能更新HomeBrew.包管理器使用一种称为”公式”的DSL脚本来管理依赖,下载源代码及配置和编译软件,从源代码中构建软件</p><p>安装需求</p><p>Xcode</p><p>安装方式</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure><p>相关指令</p><p>搜索:</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search 套件名称</span><br></pre></td></tr></table></figure><p>查询套件信息</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info 套件名称</span><br></pre></td></tr></table></figure><p>安装套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install 套件名称</span><br></pre></td></tr></table></figure><p>查询目前已经安装的套件</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list</span><br></pre></td></tr></table></figure><p>更新HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure><p>卸载HomeBrew</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd <span class="string">`brew --prefix`</span></span><br><span class="line">$ rm -rf Cellar$ brew prune</span><br><span class="line">$ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew</span><br><span class="line">$ rm -rf ~<span class="regexp">/Library/</span>Caches/Homebrew</span><br></pre></td></tr></table></figure><p>wegt 是linux的一个命令用来下载文件的工具<br>我只有在虚拟机上使用过这个命令,主要作用是用来下载文件.比如说做后台的同学想下载tomcat,就可以通过这个来下载,过多的内容接不介绍了</p><h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><p>Mac OS X 系统自带了ruby环境,所以我们一般是不需要管理ruby环境的,今天说这个问题是在过年期间我在更新mac系统时出错了缺少系统启动文件,然后我就恢复系统了,知道今天才发现我pod install执行不了,提示ruby的版本过低,而我的pod版本是最新版,所以我就想通过更新ruby来解决问题,但是更新ruby时又发现brew出错了.所以很生气,后果很严重.下载brew,更新ruby,pod就好了<br>卸载和安装上面都有讲述.更新ruby</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade ruby</span><br></pre></td></tr></table></figure><h1 id="Cocoapods"><a href="#Cocoapods" class="headerlink" title="Cocoapods"></a>Cocoapods</h1><p>对于iOS开发的同学,使用cocoapods是在所难免的,所以不再过多讲述,网上的文章一搜一大堆.<br><a href="https://www.jianshu.com/p/edd9dbd35576" target="_blank" rel="noopener">pod入门到放弃</a></p>]]></content>
+    <content type="html"><![CDATA[<p>mac 安装mysql</p><p>1.安装<a href="http://blog.vicky.org.cn/2018/02/24/HomeBrew与Ruby更新/" target="_blank" rel="noopener">homebrew</a></p><p>2.brew uninstall mysql</p><p>3.brew install mysql</p><p>4.mysql -u root -p</p><p>5.如果出现报错执行</p><p><code>unset TMPDIR</code></p><p><code>bash mysql_install_db --verbose --user=root --basedir=&quot;$(brew --prefix mysql)&quot;--datadir=/usr/local/var/mysql --tmpdir=/tmp</code></p><p><code>bash mysql.server start</code></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;HomeBrew-与-wegt&quot;&gt;&lt;a href=&quot;#HomeBrew-与-wegt&quot; class=&quot;headerlink&quot; title=&quot;HomeBrew 与 wegt&quot;&gt;&lt;/a&gt;HomeBrew 与 wegt&lt;/h1&gt;&lt;p&gt;HomeBrew 是一款自由及开放源
+        &lt;p&gt;mac 安装mysql&lt;/p&gt;
+&lt;p&gt;1.安装&lt;a href=&quot;http://blog.vicky.org.cn/2018/02/24/HomeBrew与Ruby更新/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;homebrew&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
       
     
     </summary>
@@ -528,31 +543,34 @@
       <category term="工具" scheme="https://blog.devvk.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="HomeBrew" scheme="https://blog.devvk.com/tags/HomeBrew/"/>
+      <category term="安装" scheme="https://blog.devvk.com/tags/%E5%AE%89%E8%A3%85/"/>
     
-      <category term="wegt" scheme="https://blog.devvk.com/tags/wegt/"/>
+      <category term="使用" scheme="https://blog.devvk.com/tags/%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
-    <title>instrument使用</title>
-    <link href="https://blog.devvk.com/2018/10/12/instrument%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://blog.devvk.com/2018/10/12/instrument的使用/</id>
+    <title>细说IBoutlet</title>
+    <link href="https://blog.devvk.com/2018/10/12/IBoutlet%E6%9D%82%E8%B0%88/"/>
+    <id>https://blog.devvk.com/2018/10/12/IBoutlet杂谈/</id>
     <published>2018-10-12T02:22:10.000Z</published>
-    <updated>2018-10-12T03:08:15.489Z</updated>
+    <updated>2018-10-12T03:07:18.181Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="细说IBoutlet"><a href="#细说IBoutlet" class="headerlink" title="细说IBoutlet"></a>细说IBoutlet</h1><p>当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生</p><pre><code>@property(nonatomic,weak) IBoutlet UIbutton *button</code></pre><p>那么 IBoutlet到底有什么作用啦.<br>首先IBoutlet不是系统关键字,只是位于系统头文件中的一组预处理命令</p><pre><code>#ifdef IBoutlet#define IBoutlet#endif</code></pre><p>对于编译器来说,它没有任何作用.它只是告诉Xcode,它和Xib文件中的对象关联.</p><p>在古老的OC语言中.我们声明属性是,都需要声明相对应的实例变量</p><pre><code>@interface ViewController : UIViewController {    IBoutlet UIbutton *button;}@property(nonatomic,weak) IBoutlet UIbutton *button;@end</code></pre><p>那为什么要这么做,因为当时采用GCC的编译器.最后苹果开发出了自己的编译器LLVM.在声明属性时,就不需要声明实例变量了.因为LLVM在编译过程中如果没有找到对应属性的实例变量,会自己创建.所以就不需要声明了.就将IBoutlet迁移到了属性声明上.区别于自己声明的属性和与XIB文件中对象关联的属性.</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h1 id=&quot;细说IBoutlet&quot;&gt;&lt;a href=&quot;#细说IBoutlet&quot; class=&quot;headerlink&quot; title=&quot;细说IBoutlet&quot;&gt;&lt;/a&gt;细说IBoutlet&lt;/h1&gt;&lt;p&gt;当我们在XIb文件或者SB文件中添加空间后,需要与对应属性关联时就会产生&lt;/
+      
+    
     </summary>
     
-      <category term="工具" scheme="https://blog.devvk.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="iOS" scheme="https://blog.devvk.com/categories/iOS/"/>
     
     
-      <category term="内存分析" scheme="https://blog.devvk.com/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
-    
-      <category term="时间复杂度分析" scheme="https://blog.devvk.com/tags/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/"/>
-    
-      <category term="CPU占用分析" scheme="https://blog.devvk.com/tags/CPU%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90/"/>
+      <category term="IBoutlet" scheme="https://blog.devvk.com/tags/IBoutlet/"/>
     
   </entry>
   
