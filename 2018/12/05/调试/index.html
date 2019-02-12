@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="LLDBdSYM文件调试信息文件 断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.  异常断点  首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会组织程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们">
+  <meta name="description" content="LLDBdSYM文件调试信息文件 断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.  异常断点  首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会阻止程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们">
 <meta name="keywords" content="LLDB调试,断点,控制台,NSZombieEnabled,崩溃类型,断言,异常,崩溃报告收集,第三方崩溃报告服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="调试">
 <meta property="og:url" content="https://blog.devvk.com/2018/12/05/调试/index.html">
 <meta property="og:site_name" content="Vicky的技术博客">
-<meta property="og:description" content="LLDBdSYM文件调试信息文件 断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.  异常断点  首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会组织程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们">
+<meta property="og:description" content="LLDBdSYM文件调试信息文件 断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.  异常断点  首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会阻止程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:49:15.070Z">
+<meta property="og:updated_time" content="2019-02-12T03:44:46.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="调试">
-<meta name="twitter:description" content="LLDBdSYM文件调试信息文件 断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.  异常断点  首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会组织程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们">
+<meta name="twitter:description" content="LLDBdSYM文件调试信息文件 断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.  异常断点  首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会阻止程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们">
 
 
 
@@ -390,12 +390,24 @@
                 
               
 
-              <time title="创建时间：2018-12-05 15:12:00 / 修改时间：15:49:15" itemprop="dateCreated datePublished" datetime="2018-12-05T15:12:00+08:00">2018-12-05</time>
+              <time title="创建时间：2018-12-05 15:12:00" itemprop="dateCreated datePublished" datetime="2018-12-05T15:12:00+08:00">2018-12-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-12 11:44:46" itemprop="dateModified" datetime="2019-02-12T11:44:46+08:00">2019-02-12</time>
               
             
           </span>
@@ -434,7 +446,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">915</span>
+                <span title="本文字数">913</span>
               
 
               
@@ -473,7 +485,7 @@
 <ol>
 <li>异常断点</li>
 </ol>
-<p>首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会组织程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们经常会看到程序会在抛出异常的瞬间,停止程序.然后在调用栈中我们可以找到导致程序抛出异常的代码.从而帮助我们解决问题,在这里我建议大家在创建完项目后,就打上异常断点,这样在抛出异常的时候就能快速查阅调用堆栈,方便解决问题.</p>
+<p>首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会阻止程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们经常会看到程序会在抛出异常的瞬间,停止程序.然后在调用栈中我们可以找到导致程序抛出异常的代码.从而帮助我们解决问题,在这里我建议大家在创建完项目后,就打上异常断点,这样在抛出异常的时候就能快速查阅调用堆栈,方便解决问题.</p>
 <ol>
 <li>符号断点</li>
 </ol>
@@ -482,13 +494,13 @@
 <li>open gl (没用过) </li>
 <li>编辑断点</li>
 </ol>
-<p>我们滚动到需要添加断点的代码时,添加完断点,可以点击鼠标右键选择edit breakpoint,来编辑断点.这个在日常开法中也是很有用的.可以设置condition,来终止程序继续执行,也可以添加action(apple script,sound,shell,log,debug command,GPU frame)等.</p>
+<p>我们滚动到需要添加断点的代码时,添加完断点,可以点击鼠标右键选择edit breakpoint,来编辑断点.这个在日常开发中也是很有用的.可以设置condition,来终止程序继续执行,也可以添加action(apple script,sound,shell,log,debug command,GPU frame)等.</p>
 <ol>
 <li>共享断点</li>
 </ol>
-<p>我们可以再断点导航面板,点击断点,然后鼠标右键,然后点击share,就可以将断点保存到工程文件包的xcshareddata中.然后提交到代码版本库中.</p>
+<p>我们可以在断点导航面板,点击断点,然后鼠标右键,然后点击share,就可以将断点保存到工程文件包的xcshareddata中.然后提交到代码版本库中.</p>
 <h5 id="控制台"><a href="#控制台" class="headerlink" title="控制台"></a>控制台</h5><p>我们在开发过程中经常会使用po和p来调试</p>
-<p>p主要用来在控制台输出整型和结构体类型</p>
+<p>p主要用来在控制台输出基础数据类型</p>
 <p>po主要用来在控制要输出对象</p>
 <p>还可以使用register read来查看寄存器信息,我们知道使用register关键字申明的变量不是保存在内存上的,而是保存在寄存器上的.所有不能使用取地址符来方法这些变量.因为取地址符是用来访问内存的.</p>
 <p>如果你是一名python的开发者,或者说熟悉python,也可以在控制台输入script来引入python脚本来进行调试</p>
