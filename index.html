@@ -2,27 +2,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -50,6 +38,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -58,57 +50,38 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
-  <meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+
+  <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vicky的技术博客">
 <meta property="og:url" content="https://blog.devvk.com/index.html">
@@ -121,8 +94,29 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml" />
-
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
 
@@ -130,11 +124,7 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
   <title>Vicky的技术博客</title>
   
@@ -146,37 +136,7 @@
 
 
 
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
 </head>
-
-
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -195,17 +155,19 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Vicky的技术博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -213,121 +175,48 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-history"></i> <br />归档</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-commonweal">
-    <a href="/404.html" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
         </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
       
     </ul>
   
 
   
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -340,8 +229,6 @@
   
   
 
-  
-
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
   
   
@@ -351,8 +238,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -366,52 +253,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/17/iOS内存管理三/" itemprop="url">
-                  iOS内存管理三
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/17/iOS内存管理三/" itemprop="url">iOS内存管理三</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-17 15:34:53" itemprop="dateCreated datePublished" datetime="2018-10-17T15:34:53+08:00">2018-10-17</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-17T15:34:53+08:00">
+                2018-10-17
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-29 16:39:40" itemprop="dateModified" datetime="2019-01-29T16:39:40+08:00">2019-01-29</time>
-              
             
           </span>
 
@@ -424,10 +284,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -442,34 +306,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">67</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
           
 
           
@@ -489,35 +325,20 @@
       
         
           
-          3.1 内存管理的思考方式自己生成的对象,自己持有非自己生成的对象,自己也能持有不再需要自己持有的对象时释放非自己持有的对象不能释放
+            <h2 id="3-1-内存管理的思考方式"><a href="#3-1-内存管理的思考方式" class="headerlink" title="3.1 内存管理的思考方式"></a>3.1 内存管理的思考方式</h2><p>自己生成的对象,自己持有<br>非自己生成的对象,自己也能持有<br>不再需要自己持有的对象时释放<br>非自己持有的对象不能释放</p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/17/iOS内存管理三/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -546,8 +367,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -559,8 +378,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -574,52 +393,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/iOS内存管理-1/" itemprop="url">
-                  iOS内存管理(二)
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/iOS内存管理-1/" itemprop="url">iOS内存管理(二)</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-17 16:39:43" itemprop="dateModified" datetime="2018-10-17T16:39:43+08:00">2018-10-17</time>
-              
             
           </span>
 
@@ -632,10 +424,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -650,34 +446,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">16k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">29 分钟</span>
-              
-            </div>
           
 
           
@@ -697,38 +465,61 @@
       
         
           
-          iOS内存管理(一)
-2.1 release2.1.1 release的作用我们都知道release的作用是引用计数-1.当我们不需要持有对象的引用时需要进行release.
-2.1.2 release的调用过程
-首先调用对象的release方法
-在release方法中调用rootRelease()
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/iOS内存管理-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><a href="http://blog.vicky.org.cn/2018/10/12/iOS内存管理/" target="_blank" rel="noopener">iOS内存管理(一)</a></p>
+<h2 id="2-1-release"><a href="#2-1-release" class="headerlink" title="2.1 release"></a>2.1 release</h2><h3 id="2-1-1-release的作用"><a href="#2-1-1-release的作用" class="headerlink" title="2.1.1 release的作用"></a>2.1.1 release的作用</h3><p>我们都知道release的作用是引用计数-1.当我们不需要持有对象的引用时需要进行release.</p>
+<h3 id="2-1-2-release的调用过程"><a href="#2-1-2-release的调用过程" class="headerlink" title="2.1.2 release的调用过程"></a>2.1.2 release的调用过程</h3><ol>
+<li>首先调用对象的release方法</li>
+<li>在release方法中调用rootRelease(),在rootRelease()中断言是否使用的GC,判断是否是<b style="color:blue">TaggedPointer</b>,如果是返回false,否则调用sidetable_release(true)</li>
+<li>在sidetable_release()方法中首先获取对象保存引用计数的数据结构SideTable,定义局部变量do_dealloc是否进行dealloc.然后SideTable开锁.然后获取到对象的引用计数散列表.如果引用计数值==table.refcnts.end(). do_dealloc = true,将对象的引用计数标识为SIDE_TABLE_DEALLOCATING.如果不等于end.判断it-&gt;second  &lt; 小于SIDE_TABLE_DEALLOCATING(判断引用计数是否为0),do_dealloc = true,it-&gt;second = it-&gt;second | SIDE_TABLE_DEALLOCATING.然后如果it-&gt;second &amp; SIDE_TABLE_RC_PINNED(溢出标识).引用计数-1.如果do_dealloc和performDealloc都为true调用dealloc方法.否则调用sidetable_release_slow()</li>
+<li>sidetable_release_slow()的内部实现和sidetable_release大致类似.</li>
+</ol>
+<p><b style="color : red">欠缺点:</b></p>
+<p><b style="color : red">??? it-&gt;second是什么?</b></p>
+<p><b style="color : red">??? 按位与和按位或</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">- (oneway void)release &#123;</span><br><span class="line">    ((id)self)-&gt;rootRelease();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline bool </span><br><span class="line">objc_object::rootRelease()</span><br><span class="line">&#123;</span><br><span class="line">    assert(!UseGC);</span><br><span class="line"></span><br><span class="line">    if (isTaggedPointer()) return false;</span><br><span class="line">    return sidetable_release(true);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">uintptr_t </span><br><span class="line">objc_object::sidetable_release(bool performDealloc)</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    bool do_dealloc = false;</span><br><span class="line"></span><br><span class="line">    if (table.trylock()) &#123;</span><br><span class="line">        RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">        if (it == table.refcnts.end()) &#123;</span><br><span class="line">            do_dealloc = true;</span><br><span class="line">            table.refcnts[this] = SIDE_TABLE_DEALLOCATING;</span><br><span class="line">        &#125; else if (it-&gt;second &lt; SIDE_TABLE_DEALLOCATING) &#123;</span><br><span class="line">            // SIDE_TABLE_WEAKLY_REFERENCED may be set. Don&apos;t change it.</span><br><span class="line">            do_dealloc = true;</span><br><span class="line">            it-&gt;second |= SIDE_TABLE_DEALLOCATING;</span><br><span class="line">        &#125; else if (! (it-&gt;second &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">            it-&gt;second -= SIDE_TABLE_RC_ONE;</span><br><span class="line">        &#125;</span><br><span class="line">        table.unlock();</span><br><span class="line">        if (do_dealloc  &amp;&amp;  performDealloc) &#123;</span><br><span class="line">            ((void(*)(objc_object *, SEL))objc_msgSend)(this, SEL_dealloc);</span><br><span class="line">        &#125;</span><br><span class="line">        return do_dealloc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return sidetable_release_slow(table, performDealloc);</span><br><span class="line">&#125;</span><br><span class="line">uintptr_t</span><br><span class="line">objc_object::sidetable_release_slow(SideTable&amp; table, bool performDealloc)</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line">    bool do_dealloc = false;</span><br><span class="line"></span><br><span class="line">    table.lock();</span><br><span class="line">    RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">    if (it == table.refcnts.end()) &#123;</span><br><span class="line">        do_dealloc = true;</span><br><span class="line">        table.refcnts[this] = SIDE_TABLE_DEALLOCATING;</span><br><span class="line">    &#125; else if (it-&gt;second &lt; SIDE_TABLE_DEALLOCATING) &#123;</span><br><span class="line">        // SIDE_TABLE_WEAKLY_REFERENCED may be set. Don&apos;t change it.</span><br><span class="line">        do_dealloc = true;</span><br><span class="line">        it-&gt;second |= SIDE_TABLE_DEALLOCATING;</span><br><span class="line">    &#125; else if (! (it-&gt;second &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        it-&gt;second -= SIDE_TABLE_RC_ONE;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line">    if (do_dealloc  &amp;&amp;  performDealloc) &#123;</span><br><span class="line">        ((void(*)(objc_object *, SEL))objc_msgSend)(this, SEL_dealloc);</span><br><span class="line">    &#125;</span><br><span class="line">    return do_dealloc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-autorelease"><a href="#2-2-autorelease" class="headerlink" title="2.2 autorelease"></a>2.2 autorelease</h2><h3 id="2-2-1-autorelease的作用"><a href="#2-2-1-autorelease的作用" class="headerlink" title="2.2.1 autorelease的作用"></a>2.2.1 autorelease的作用</h3><p>autorelease的目的是为了让内存能够延迟释放.那么到底它的释放时机什么时候?那么我们先看autorelease的调用过程</p>
+<ol>
+<li>调用NSObject的autorelease方法</li>
+<li>调用rootAutorelease()方法.在方法内部首先断言是否使用GC,然后就会判断对象是否为<b style="color:blue">TaggedPointer</b>如果是返回当前对象本身,继续判断prepareOptimizedReturn(ReturnAtPlus1),如果为true,返回当前对象,否则调用rootAutorelease2()</li>
+<li>在rootAutorelease2()方法中首先判断是否为<b style="color:blue">TaggedPointer</b>.然后调用AutoreleasePoolPage::autorelease((id)this)</li>
+<li>在AutoreleasePoolPage::autorelease((id)this)方法中首先断言对象obj是否存在,在判断是否为<b style="color:blue">TaggedPointer</b>.然后会定义一个id类型的变量接受autoreleaseFast(obj)的返回值.在autoreleaseFast(obj)方法中首先获取AutoreleasePoolPage对象.如果page存在并且page没有被塞满,就将obj对象加到page中.否则page存在,但是page已经塞满会重新new一个page,然后在添加进去.如果没有page就回调用autoreleaseNoPage,也会new一个然后把obj添加进去.然后返回对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">1.- (id)autorelease &#123;</span><br><span class="line">    return ((id)self)-&gt;rootAutorelease();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2.inline id </span><br><span class="line">objc_object::rootAutorelease()</span><br><span class="line">&#123;</span><br><span class="line">    assert(!UseGC);</span><br><span class="line"></span><br><span class="line">    if (isTaggedPointer()) return (id)this;</span><br><span class="line">    if (prepareOptimizedReturn(ReturnAtPlus1)) return (id)this;</span><br><span class="line"></span><br><span class="line">    return rootAutorelease2();</span><br><span class="line">&#125;</span><br><span class="line">3.id </span><br><span class="line">objc_object::rootAutorelease2()</span><br><span class="line">&#123;</span><br><span class="line">    assert(!isTaggedPointer());</span><br><span class="line">    return AutoreleasePoolPage::autorelease((id)this);</span><br><span class="line">&#125;</span><br><span class="line">4.static inline id autorelease(id obj)</span><br><span class="line">    &#123;</span><br><span class="line">        assert(obj);</span><br><span class="line">        assert(!obj-&gt;isTaggedPointer());</span><br><span class="line">        id *dest __unused = autoreleaseFast(obj);</span><br><span class="line">        assert(!dest  ||  *dest == obj);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line"> 5. static inline id *autoreleaseFast(id obj)</span><br><span class="line">    &#123;</span><br><span class="line">        AutoreleasePoolPage *page = hotPage();</span><br><span class="line">        if (page &amp;&amp; !page-&gt;full()) &#123;</span><br><span class="line">            return page-&gt;add(obj);</span><br><span class="line">        &#125; else if (page) &#123;</span><br><span class="line">            return autoreleaseFullPage(obj, page);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return autoreleaseNoPage(obj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  6.static __attribute__((noinline))</span><br><span class="line">    id *autoreleaseFullPage(id obj, AutoreleasePoolPage *page)</span><br><span class="line">    &#123;</span><br><span class="line">        // The hot page is full. </span><br><span class="line">        // Step to the next non-full page, adding a new page if necessary.</span><br><span class="line">        // Then add the object to that page.</span><br><span class="line">        assert(page == hotPage());</span><br><span class="line">        assert(page-&gt;full()  ||  DebugPoolAllocation);</span><br><span class="line"></span><br><span class="line">        do &#123;</span><br><span class="line">            if (page-&gt;child) page = page-&gt;child;</span><br><span class="line">            else page = new AutoreleasePoolPage(page);</span><br><span class="line">        &#125; while (page-&gt;full());</span><br><span class="line"></span><br><span class="line">        setHotPage(page);</span><br><span class="line">        return page-&gt;add(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static __attribute__((noinline))</span><br><span class="line">    id *autoreleaseNoPage(id obj)</span><br><span class="line">    &#123;</span><br><span class="line">        // No pool in place.</span><br><span class="line">        assert(!hotPage());</span><br><span class="line"></span><br><span class="line">        if (obj != POOL_SENTINEL  &amp;&amp;  DebugMissingPools) &#123;</span><br><span class="line">            // We are pushing an object with no pool in place, </span><br><span class="line">            // and no-pool debugging was requested by environment.</span><br><span class="line">            _objc_inform(&quot;MISSING POOLS: Object %p of class %s &quot;</span><br><span class="line">                         &quot;autoreleased with no pool in place - &quot;</span><br><span class="line">                         &quot;just leaking - break on &quot;</span><br><span class="line">                         &quot;objc_autoreleaseNoPool() to debug&quot;, </span><br><span class="line">                         (void*)obj, object_getClassName(obj));</span><br><span class="line">            objc_autoreleaseNoPool(obj);</span><br><span class="line">            return nil;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Install the first page.</span><br><span class="line">        AutoreleasePoolPage *page = new AutoreleasePoolPage(nil);</span><br><span class="line">        setHotPage(page);</span><br><span class="line"></span><br><span class="line">        // Push an autorelease pool boundary if it wasn&apos;t already requested.</span><br><span class="line">        if (obj != POOL_SENTINEL) &#123;</span><br><span class="line">            page-&gt;add(POOL_SENTINEL);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Push the requested object.</span><br><span class="line">        return page-&gt;add(obj);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这样就完成了将一个对象的延迟释放.但是autorelease的对象什么时机会释放啦.我们的猜想肯定是和AutoreleasePoolPage有关.我们看class AutoreleasePoolPage 的代码会发现,它有push和pop方法.释放肯定和pop有关,push肯定和入栈有关.<br>我们先看代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">    static inline void pop(void *token) </span><br><span class="line">    &#123;</span><br><span class="line">    //定义局部变量AutoreleasePoolPage *page</span><br><span class="line">        AutoreleasePoolPage *page;</span><br><span class="line">        //定义stop变量</span><br><span class="line">        id *stop;</span><br><span class="line">        //根据token获取page</span><br><span class="line">        page = pageForPointer(token);</span><br><span class="line">        //然后将token赋值给stop</span><br><span class="line">        stop = (id *)token;</span><br><span class="line">        DebugPoolAllocation:halt when autorelease pools are popped out of order, and allow heap debuggers to track autorelease pools大致的意思就是当自动释放池出现故障或停止时,允许堆调试器跟踪自动释放池</span><br><span class="line">        *stop != POOL_SENTINEL : stop不为nil</span><br><span class="line">        无效的自动释放池</span><br><span class="line">        </span><br><span class="line">        if (DebugPoolAllocation  &amp;&amp;  *stop != POOL_SENTINEL) &#123;</span><br><span class="line">            // This check is not valid with DebugPoolAllocation off</span><br><span class="line">            // after an autorelease with a pool page but no pool in place.</span><br><span class="line">            _objc_fatal(&quot;invalid or prematurely-freed autorelease pool %p; &quot;, </span><br><span class="line">                        token);</span><br><span class="line">        &#125;</span><br><span class="line">        //如果自动释放池的高位置标记存在,就打印高位置标记</span><br><span class="line">        if (PrintPoolHiwat) printHiwat();</span><br><span class="line">        </span><br><span class="line">        //page调用releaseUntil()方法</span><br><span class="line">        page-&gt;releaseUntil(stop);</span><br><span class="line">        </span><br><span class="line">        /*</span><br><span class="line">      void releaseUntil(id *stop) </span><br><span class="line">    &#123;</span><br><span class="line">        // Not recursive: we don&apos;t want to blow out the stack </span><br><span class="line">        // if a thread accumulates a stupendous amount of garbage</span><br><span class="line">        //当page-&gt;next = stop时停止,否则进行循环</span><br><span class="line">        while (this-&gt;next != stop) &#123;</span><br><span class="line">            // Restart from hotPage() every time, in case -release </span><br><span class="line">            // autoreleased more objects</span><br><span class="line">            //获取AutoreleasePoolPage</span><br><span class="line">            AutoreleasePoolPage *page = hotPage();</span><br><span class="line"></span><br><span class="line">            // fixme I think this `while` can be `if`, but I can&apos;t prove it</span><br><span class="line">            while循环如果page为空,就找parent,然后赋值给page.当page不为空时停止循环</span><br><span class="line">            </span><br><span class="line">            while (page-&gt;empty()) &#123;</span><br><span class="line">                page = page-&gt;parent;</span><br><span class="line">                setHotPage(page);</span><br><span class="line">            &#125;</span><br><span class="line">            //修改page的内存区域保护属性 (mprotect()函数可以用来修改一段指定内存区域的保护属性)</span><br><span class="line">            page-&gt;unprotect();</span><br><span class="line">            ??? 从下面的段代码可以看出将obj添加进page时也是通过next的++操作,然后通过--操作可以获取到当前对象.</span><br><span class="line">            /*</span><br><span class="line">             id *add(id obj)</span><br><span class="line">			    &#123;</span><br><span class="line">			        assert(!full());</span><br><span class="line">			        unprotect();</span><br><span class="line">			        id *ret = next;  // faster than `return next-1` because of aliasing</span><br><span class="line">			        *next++ = obj;</span><br><span class="line">			        protect();</span><br><span class="line">			        return ret;</span><br><span class="line">			    &#125;</span><br><span class="line">            </span><br><span class="line">            */</span><br><span class="line">            id obj = *--page-&gt;next;</span><br><span class="line">            //将page-&gt;next的内存重置为0xA3</span><br><span class="line">            memset((void*)page-&gt;next, SCRIBBLE, sizeof(*page-&gt;next));</span><br><span class="line">            修改page的内存区域保护属性</span><br><span class="line">            page-&gt;protect();</span><br><span class="line">            //如果obj不为nil,就会release</span><br><span class="line">            if (obj != POOL_SENTINEL) &#123;</span><br><span class="line">            //和上面的release调用过程同</span><br><span class="line">                objc_release(obj);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        setHotPage(this);</span><br><span class="line"></span><br><span class="line">#if DEBUG</span><br><span class="line">        // we expect any children to be completely empty</span><br><span class="line">        for (AutoreleasePoolPage *page = child; page; page = page-&gt;child) &#123;</span><br><span class="line">            assert(page-&gt;empty());</span><br><span class="line">        &#125;</span><br><span class="line">#endif</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line">        // memory: delete empty children</span><br><span class="line">        if (DebugPoolAllocation  &amp;&amp;  page-&gt;empty()) &#123;</span><br><span class="line">            // special case: delete everything during page-per-pool debugging</span><br><span class="line">            AutoreleasePoolPage *parent = page-&gt;parent;</span><br><span class="line">            page-&gt;kill();</span><br><span class="line">            setHotPage(parent);</span><br><span class="line">        &#125; else if (DebugMissingPools  &amp;&amp;  page-&gt;empty()  &amp;&amp;  !page-&gt;parent) &#123;</span><br><span class="line">            // special case: delete everything for pop(top) </span><br><span class="line">            // when debugging missing autorelease pools</span><br><span class="line">            page-&gt;kill();</span><br><span class="line">            setHotPage(nil);</span><br><span class="line">        &#125; </span><br><span class="line">        else if (page-&gt;child) &#123;</span><br><span class="line">            // hysteresis: keep one empty child if page is more than half full</span><br><span class="line">            if (page-&gt;lessThanHalfFull()) &#123;</span><br><span class="line">                page-&gt;child-&gt;kill();</span><br><span class="line">            &#125;</span><br><span class="line">            else if (page-&gt;child-&gt;child) &#123;</span><br><span class="line">                page-&gt;child-&gt;child-&gt;kill();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们根据autoreleasePoolPage的pop方法一直向上寻找,终于找到以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">1. loadimages方法</span><br><span class="line"></span><br><span class="line">const char *</span><br><span class="line">load_images(enum dyld_image_states state, uint32_t infoCount,</span><br><span class="line">            const struct dyld_image_info infoList[])</span><br><span class="line">&#123;</span><br><span class="line">    bool found;</span><br><span class="line"></span><br><span class="line">    // Return without taking locks if there are no +load methods here.</span><br><span class="line">    found = false;</span><br><span class="line">    for (uint32_t i = 0; i &lt; infoCount; i++) &#123;</span><br><span class="line">        if (hasLoadMethods((const headerType *)infoList[i].imageLoadAddress)) &#123;</span><br><span class="line">            found = true;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!found) return nil;</span><br><span class="line"></span><br><span class="line">    recursive_mutex_locker_t lock(loadMethodLock);</span><br><span class="line"></span><br><span class="line">    // Discover load methods</span><br><span class="line">    &#123;</span><br><span class="line">        rwlock_writer_t lock2(runtimeLock);</span><br><span class="line">        found = load_images_nolock(state, infoCount, infoList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Call +load methods (without runtimeLock - re-entrant)</span><br><span class="line">    if (found) &#123;</span><br><span class="line">        call_load_methods();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2. call_load_methods方法</span><br><span class="line"></span><br><span class="line">void call_load_methods(void)</span><br><span class="line">&#123;</span><br><span class="line">    static bool loading = NO;</span><br><span class="line">    bool more_categories;</span><br><span class="line"></span><br><span class="line">    loadMethodLock.assertLocked();</span><br><span class="line"></span><br><span class="line">    // Re-entrant calls do nothing; the outermost call will finish the job.</span><br><span class="line">    if (loading) return;</span><br><span class="line">    loading = YES;</span><br><span class="line"></span><br><span class="line">    void *pool = objc_autoreleasePoolPush();</span><br><span class="line"></span><br><span class="line">    do &#123;</span><br><span class="line">        // 1. Repeatedly call class +loads until there aren&apos;t any more</span><br><span class="line">        while (loadable_classes_used &gt; 0) &#123;</span><br><span class="line">            call_class_loads();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 2. Call category +loads ONCE</span><br><span class="line">        more_categories = call_category_loads();</span><br><span class="line"></span><br><span class="line">        // 3. Run more +loads if there are classes OR more untried categories</span><br><span class="line">    &#125; while (loadable_classes_used &gt; 0  ||  more_categories);</span><br><span class="line"></span><br><span class="line">    objc_autoreleasePoolPop(pool);</span><br><span class="line"></span><br><span class="line">    loading = NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.objc_autoreleasePoolPop方法</span><br><span class="line">void</span><br><span class="line">objc_autoreleasePoolPop(void *ctxt)</span><br><span class="line">&#123;</span><br><span class="line">    if (UseGC) return;</span><br><span class="line">    AutoreleasePoolPage::pop(ctxt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">4._objc_load_image 也有调用call_load_methods</span><br><span class="line">OBJC_EXPORT void _objc_load_image(HMODULE image, header_info *hinfo)</span><br><span class="line">&#123;</span><br><span class="line">    prepare_load_methods(hinfo);</span><br><span class="line">    call_load_methods();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们看到了AutoreleasePoolPage调用了pop方法.而loadiamges方法以前应该也见过,就是在使用method swwizing的时候,重写load方法时,打上断点看到调用栈时看到过,还有就是framework有问题时,程序已启动就会在控制台上显示loadimages报错等.<br>这个不是这个文章的研究重点,只是简单提一下.xnu内核加载mach-o-&gt;从xnu内核态将控制权转移到dyld-&gt;_dyld_start-&gt;加载系统的framework和dylib到内存,然后runtime开始初始化和注册-&gt;当每次有心的镜像加入运行时会回调loadinages</p>
+<p>然后就是在每次runloop进入休眠期时会调用pop和push释放旧的,创建新的,所以在runloop的每次进入休眠时会释放一次.</p>
+<p><b style="color : red">篇幅已经过长,先进入下面的内容,下次再详细介绍runloop的内容和autoreleasepool</b></p>
+<h2 id="2-3-dealloc"><a href="#2-3-dealloc" class="headerlink" title="2.3 dealloc"></a>2.3 dealloc</h2><p>作用:销毁对象</p>
+<h3 id="2-3-1-调用过程"><a href="#2-3-1-调用过程" class="headerlink" title="2.3.1 调用过程"></a>2.3.1 调用过程</h3><ol>
+<li>NSObject的dealloc方法</li>
+<li>_objc_rootDealloc()方法</li>
+<li>调用objc_object::rootDealloc()</li>
+<li>调用object_dispose(id obj)方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">1.dealloc</span><br><span class="line">- (void)dealloc &#123;</span><br><span class="line">    _objc_rootDealloc(self);</span><br><span class="line">&#125;</span><br><span class="line">2. _objc_rootDealloc</span><br><span class="line">void</span><br><span class="line">_objc_rootDealloc(id obj)</span><br><span class="line">&#123;</span><br><span class="line">    assert(obj);</span><br><span class="line"></span><br><span class="line">    obj-&gt;rootDealloc();</span><br><span class="line">&#125;</span><br><span class="line">3.objc_object::rootDealloc()</span><br><span class="line">inline void</span><br><span class="line">objc_object::rootDealloc()</span><br><span class="line">&#123;</span><br><span class="line">    if (isTaggedPointer()) return;</span><br><span class="line">    object_dispose((id)this);</span><br><span class="line">&#125;</span><br><span class="line">4.object_dispose()</span><br><span class="line">id </span><br><span class="line">object_dispose(id obj)</span><br><span class="line">&#123;</span><br><span class="line">    if (!obj) return nil;</span><br><span class="line"></span><br><span class="line">    objc_destructInstance(obj);</span><br><span class="line">    </span><br><span class="line">#if SUPPORT_GC</span><br><span class="line">    if (UseGC) &#123;</span><br><span class="line">        auto_zone_retain(gc_zone, obj); // gc free expects rc==1</span><br><span class="line">    &#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    free(obj);</span><br><span class="line"></span><br><span class="line">    return nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void *objc_destructInstance(id obj) </span><br><span class="line">&#123;</span><br><span class="line">    if (obj) &#123;</span><br><span class="line">        // Read all of the flags at once for performance.</span><br><span class="line">        //对象是否有析构函数</span><br><span class="line">        bool cxx = obj-&gt;hasCxxDtor();</span><br><span class="line">        //对象是否有动态绑定和关联引用</span><br><span class="line">        bool assoc = !UseGC &amp;&amp; obj-&gt;hasAssociatedObjects();</span><br><span class="line">        //是否使用gc</span><br><span class="line">        bool dealloc = !UseGC;</span><br><span class="line"></span><br><span class="line">        // This order is important.</span><br><span class="line">        //如果存在使用析构函数</span><br><span class="line">        if (cxx) object_cxxDestruct(obj);</span><br><span class="line">        //如果存在动态属性,移除动态绑定和关联应用</span><br><span class="line">        if (assoc) _object_remove_assocations(obj);</span><br><span class="line">        //</span><br><span class="line">        if (dealloc) obj-&gt;clearDeallocating();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-retainCount"><a href="#2-4-retainCount" class="headerlink" title="2.4 retainCount"></a>2.4 retainCount</h2><p>作用:查看对象的引用计数</p>
+<h3 id="2-4-1-调用"><a href="#2-4-1-调用" class="headerlink" title="2.4.1 调用"></a>2.4.1 调用</h3><ol>
+<li>retainCount</li>
+<li>rootRetainCount</li>
+<li>sidetable_retainCount()</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">1. retainCount</span><br><span class="line">- (NSUInteger)retainCount &#123;</span><br><span class="line">    return ((id)self)-&gt;rootRetainCount();</span><br><span class="line">&#125;</span><br><span class="line">2. rootRetainCount</span><br><span class="line">inline uintptr_t </span><br><span class="line">objc_object::rootRetainCount()</span><br><span class="line">&#123;</span><br><span class="line">    assert(!UseGC);</span><br><span class="line"></span><br><span class="line">    if (isTaggedPointer()) return (uintptr_t)this;</span><br><span class="line">    return sidetable_retainCount();</span><br><span class="line">&#125;</span><br><span class="line">3.sidetable_retainCount</span><br><span class="line">uintptr_t</span><br><span class="line">objc_object::sidetable_retainCount()</span><br><span class="line">&#123;</span><br><span class="line">//获取对象保存引用计数的数据结构</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line">    //定义局部变量refcnt_result</span><br><span class="line">    size_t refcnt_result = 1;</span><br><span class="line">    </span><br><span class="line">    table.lock();</span><br><span class="line">    //获取对象的引用计数表</span><br><span class="line">    RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">    //如果引用计数 != end(引用计数散列表未填充满)</span><br><span class="line">    if (it != table.refcnts.end()) &#123;</span><br><span class="line">        // this is valid for SIDE_TABLE_RC_PINNED too</span><br><span class="line">        然后引用计数 = </span><br><span class="line">        refcnt_result += it-&gt;second &gt;&gt; SIDE_TABLE_RC_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line">    return refcnt_result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -757,8 +548,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
@@ -770,8 +559,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -785,52 +574,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/29/property认识/" itemprop="url">
-                  property认识
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/29/property认识/" itemprop="url">property认识</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-29 16:36:16" itemprop="dateCreated datePublished" datetime="2019-01-29T16:36:16+08:00">2019-01-29</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-29T16:36:16+08:00">
+                2019-01-29
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-30 09:58:55" itemprop="dateModified" datetime="2019-01-30T09:58:55+08:00">2019-01-30</time>
-              
             
           </span>
 
@@ -843,10 +605,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -861,34 +627,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.4k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">4 分钟</span>
-              
-            </div>
           
 
           
@@ -908,34 +646,20 @@
       
         
           
-          @property为什么要讨论这些问题?因为这些东西在平常开发是很难用到的,但是在面试和找工作的过程中就会被提及,公司不仅需要实战者,也需要理论和实战相结合的人.所以我们要掌握理论来完成实战.@property本质是什么?@property为我们做了哪几件事?分类如何为类添加属性?能够添加实例变量吗
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/29/property认识/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p></p><h1 style="text-align:center">@property</h1><p>为什么要讨论这些问题?因为这些东西在平常开发是很难用到的,但是在面试和找工作的过程中就会被提及,公司不仅需要实战者,也需要理论和实战相结合的人.所以我们要掌握理论来完成实战.</p><ol><li>@property本质是什么?</li><li>@property为我们做了哪几件事?</li><li>分类如何为类添加属性?能够添加实例变量吗?</li><li>通过编译的类能够添加实例变量?在运行时创建的类能否添加实例变量?</li></ol><p>我们将从这几个方面来查找和解决这个问题?</p><p>property是我们在开发中为某个类来添加属性的声明方式.它为了我们做了三件事情,1.生成带有下划线的实例变量,2.生成getter方法,3.生成setter方法.settet和getter也被称为属性合成方法.平时我们开发过程中不需要写,编译器会帮我们完成这项繁琐的工作.但是如果我们需要自己实现该如何写呢?</p><pre>@implementation MJPerson<br>@synthesize name =_name;<br>- (NSString <em>)name{<br>return @”1111”;<br>}<br>- (void)setName:(NSString </em>)name {<br>_name = name;<br>}</pre><br><p>关键字:@synthesize和@dynamic这个稍后讨论</p><p>分类是不可以添加实例变量的,因为在类经过编译后,类的objc_ivar_list已经确定,并且已经调用了class_setIvarLayout和class_setWeakIvarLayout已经确定了实例变量的布局,所以无法增加实例变量</p><p>那么分类是否可以添加属性呢?答案是肯定的,因为在运行时环境中,我们可以采用关联引用为类动态添加属性</p><pre><br>//设置属性的值<br>OBJC_EXPORT <br>void objc_setAssociatedObject(id _Nonnull object, const void <em> _Nonnull key,<br>id _Nullable value, objc_AssociationPolicy policy)<br><br>//获取属性的值<br>OBJC_EXPORT<br>id_Nullable<br>objc_getAssociatedObject(id _Nonnull object, const void </em> _Nonnull key)<br>OBJC_AVAILABLE<br>(10.6, 3.1, 9.0, 1.0, 2.0);<br>//移除属性<br>OBJC_EXPORT void<br>objc_removeAssociatedObjects(id _Nonnull object)<br>    OBJC_AVAILABLE(10.6, 3.1, 9.0, 1.0, 2.0);</pre><p>上面第一个方法是设置关联属性的值,必须给定一个object,一个唯一的key,和缓存策略.我们再给定一个唯一的key是要注意,我们再获取时也需要用到这个key所以必须具有唯一性.所以我们一般使用static char来定义这个key,在选择缓存策略时就要考虑这个属性的类型,如果输基础数据类型,就是assign,如果是对象就是retain,如果是字符串或者是block等要选择copy.这个缓存策略中在对象时,会有NONATOMIC和atomic这个的选择和我们声明属性一致.</p><p>第二个方式是获取关联属性的值,参数为关联的属性和唯一的key</p><p>第三个方法是移除所有的关联属性,我们要想移除单个关联属性,应该调用设置关联属性值的函数,并且设置value为nil</p><p>我们无法给通过编译的类,添加实例变量,但是我们可以给运行时创建的类添加实例变量.</p><pre>runtime函数如下:<br>//首先创建类<br>OBJC_EXPORT Class _Nullable<br>objc_allocateClassPair(Class _Nullable superclass, const char <em> _Nonnull name, size_t extraBytes)OBJC_AVAILABLE(10.5, 2.0, 9.0, 1.0, 2.0);<br>//为类添加属性<br>参数:创建的类,属性名称,和修饰属性的关键字属性数组,属性数组count<br>OBJC_EXPORT BOOL<br>class_addProperty(Class _Nullable cls, const char </em> _Nonnull name,const objc_property_attribute_t * _Nullable attributes,unsigned int attributeCount)<br>OBJC_AVAILABLE(10.7, 4.3, 9.0, 1.0, 2.0);<br>//注册类<br>objc_registerClassPair(cls);</pre><p>我们可以为这个类添加属性,添加方法,添加协议等等,还可以添加实例变量,但是这个类必须包含一个同名的实例变量</p><p>好了上面的四个小问题说完了,该说刚才说的@synthesize和@dynamic,如果两个都没写就是@ synthesize  property=_property,@synthesize系统会帮我们自动实现setter和getter方法,@dynamic 需要我们自己实现setter和getter方法,如果不实现,就会出现崩溃,因为这个是你告诉系统说,我要自己实现,系统自然不会帮你实现,但是你却没实现,然后就找不到方法了.</p><p>说起属性就要说属性的默认关键字:基础数据类型:内存关键字:assign,读写属性:readwrite,原子性:atomic,对象类型:内存关键字:strong,读写属性:readWrite,原子性:atomic</p><br><b style="color:red">重点:</b><p></p>
+<p>关联引用</p><p>属性的setter和getter的合成方式,@synthesize自动合成,@dynamic手动合成.</p><p>如何为运行时创建的类添加属性,方法等</p><br><p>在上面代码中,由于macdown的编辑器*都被阉割掉了.抱歉!</p>
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -964,8 +688,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -977,8 +699,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -992,52 +714,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/iOS内存管理/" itemprop="url">
-                  iOS内存分析(一)
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/iOS内存管理/" itemprop="url">iOS内存分析(一)</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-17 10:35:01" itemprop="dateModified" datetime="2018-10-17T10:35:01+08:00">2018-10-17</time>
-              
             
           </span>
 
@@ -1050,10 +745,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1068,34 +767,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">19 分钟</span>
-              
-            </div>
           
 
           
@@ -1115,36 +786,93 @@
       
         
           
-          自动引用计数1.1 什么是自动引用计数自动引用计数就是指在内存管理上不需要程序员再次键入retain和release等内存管理语句.而是由系统自动对引用进行计数
-目前我们所创建的项目都是ARC的,它不仅减少了程序员的开发工作,而且也降低了程序的崩溃,内存泄漏等风险.
-1.2内存管理/引用计数1.2.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/iOS内存管理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="自动引用计数"><a href="#自动引用计数" class="headerlink" title="自动引用计数"></a>自动引用计数</h1><h2 id="1-1-什么是自动引用计数"><a href="#1-1-什么是自动引用计数" class="headerlink" title="1.1 什么是自动引用计数"></a>1.1 什么是自动引用计数</h2><p>自动引用计数就是指在内存管理上不需要程序员再次键入retain和release等内存管理语句.而是由系统自动对引用进行计数</p>
+<p>目前我们所创建的项目都是ARC的,它不仅减少了程序员的开发工作,而且也降低了程序的崩溃,内存泄漏等风险.</p>
+<h2 id="1-2内存管理-引用计数"><a href="#1-2内存管理-引用计数" class="headerlink" title="1.2内存管理/引用计数"></a>1.2内存管理/引用计数</h2><h3 id="1-2-1-概要"><a href="#1-2-1-概要" class="headerlink" title="1.2.1 概要"></a>1.2.1 概要</h3><p>书中的举例非常经典,利用办公室开关灯的实际情况对内存管理进行了详细的分析.</p>
+<ul>
+<li>当第一个人进入办公室时需要照明,所以开灯 (引用计数1)</li>
+<li>当第二个人进入办公室时也需要照明,持有对象 (引用计数2)</li>
+<li>当第一个人离开办公室时不需要照明,但是别人还需要照明,所以不能关闭灯,只能释放自己的持有 (引用计数1)</li>
+<li>当最后一个人离开时,不需要灯光了,然后关闭灯光,释放自己持有.对象释放 (引用计数0)</li>
+</ul>
+<h2 id="1-2-2-内存管理的思考方式"><a href="#1-2-2-内存管理的思考方式" class="headerlink" title="1.2.2 内存管理的思考方式"></a>1.2.2 内存管理的思考方式</h2><ul>
+<li>自己生成的对象,自己持有</li>
+<li>非自己生成的对象,自己也能持有</li>
+<li>不在需要自己持有的对象时,需要自己释放</li>
+<li>不能释放自己不持有的对象</li>
+</ul>
+<table><tr><th>对象操作</th><th>Objective-C方法</th></tr><tr><th>生成并持有对象</th><th>alloc/new/copy/mutableCopy等</th></tr><tr><th>持有对象</th><th>retain</th></tr><tr><th>释放对象</th><th>release</th></tr><tr><th>废弃对象</th><th>dealloc</th></tr></table>
+
+<h3 id="自己生成并持有对象"><a href="#自己生成并持有对象" class="headerlink" title="自己生成并持有对象"></a>自己生成并持有对象</h3><ul>
+<li>alloc</li>
+<li>new</li>
+<li>copy</li>
+<li>mutableCopy</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 自己生成并持有对象</span><br><span class="line">*/</span><br><span class="line"> </span><br><span class="line">id obj = [[NSObject alloc] init];</span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line">* 自己持有对象</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<p>alloc方法生成的对象自己持有(自己生成并持有对象),并将指向生成持有对象的指针赋给了变量obj.new方法与alloc方法完全一致,copy和mutableCopy方法基于NSCopying和NSMutableCopying协议约定,利用copyWithZ    one:方法生成并持有对象的副本</p>
+<p>##1.2.3 alloc的调用过程</p>
+<p>1.首先调用NSObject的alloc方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (id)alloc &#123;</span><br><span class="line">    return _objc_rootAlloc(self);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.调用_objc_rootAlloc()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_objc_rootAlloc(Class cls)</span><br><span class="line">&#123;</span><br><span class="line">    return callAlloc(cls, false/*checkNil*/, true/*allocWithZone*/);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.调用了callAlloc()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">static ALWAYS_INLINE id</span><br><span class="line">callAlloc(Class cls, bool checkNil, bool allocWithZone=false)</span><br><span class="line">&#123;</span><br><span class="line">//判断是否为Nil和cls是否存在,不存在直接返回</span><br><span class="line">    if (checkNil &amp;&amp; !cls) return nil;</span><br><span class="line"></span><br><span class="line">#if __OBJC2__</span><br><span class="line">//判断是否自定义实现的allocwithzone方法</span><br><span class="line">    if (! cls-&gt;ISA()-&gt;hasCustomAWZ()) &#123;</span><br><span class="line">        // No alloc/allocWithZone implementation. Go straight to the allocator.</span><br><span class="line">        // fixme store hasCustomAWZ in the non-meta class and </span><br><span class="line">        // add it to canAllocFast&apos;s summary</span><br><span class="line">        //还需要再次判断当前的class是否支持快速alloc。如果支持，直接调用calloc函数，申请</span><br><span class="line">        bits.fastInstanceSize()大小的内存空间，如果创建失败，会调用callBadAllocHandler函数，如</span><br><span class="line">        果不支持快速alloc则调用class_createInstance</span><br><span class="line">        if (cls-&gt;canAllocFast()) &#123;</span><br><span class="line">            // No ctors, raw isa, etc. Go straight to the metal.</span><br><span class="line">            bool dtor = cls-&gt;hasCxxDtor();</span><br><span class="line">            id obj = (id)calloc(1, cls-&gt;bits.fastInstanceSize());</span><br><span class="line">            if (!obj) return callBadAllocHandler(cls);</span><br><span class="line">            obj-&gt;initInstanceIsa(cls, dtor);</span><br><span class="line">            return obj;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            // Has ctor or raw isa or something. Use the slower path.</span><br><span class="line">            id obj = class_createInstance(cls, 0);</span><br><span class="line">            if (!obj) return callBadAllocHandler(cls);</span><br><span class="line">            return obj;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    // No shortcuts available.</span><br><span class="line">    if (allocWithZone) return [cls allocWithZone:nil];</span><br><span class="line">    return [cls alloc];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.调用allocWithZone</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (id)allocWithZone:(struct _NSZone *)zone &#123;</span><br><span class="line">    return _objc_rootAllocWithZone(self, (malloc_zone_t *)zone);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.调用_objc_rootAllocWithZone()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_objc_rootAllocWithZone(Class cls, malloc_zone_t *zone)</span><br><span class="line">&#123;</span><br><span class="line">    id obj;</span><br><span class="line"></span><br><span class="line">#if __OBJC2__ //如果是oc代码使用class_createInstance()</span><br><span class="line">    // allocWithZone under __OBJC2__ ignores the zone parameter</span><br><span class="line">    (void)zone;</span><br><span class="line">    obj = class_createInstance(cls, 0);</span><br><span class="line">#else</span><br><span class="line">//如果不存在zone或者是使用了GC使用class_createInstance(),如果不是使用class_createInstanceFromZone()</span><br><span class="line">    if (!zone || UseGC) &#123;</span><br><span class="line">        obj = class_createInstance(cls, 0);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        obj = class_createInstanceFromZone(cls, 0, zone);</span><br><span class="line">    &#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    if (!obj) obj = callBadAllocHandler(cls);</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.调用class_createInstance()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id </span><br><span class="line">class_createInstance(Class cls, size_t extraBytes)</span><br><span class="line">&#123;</span><br><span class="line">    return _class_createInstanceFromZone(cls, extraBytes, nil);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7.调用_class_createInstanceFromZone()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_class_createInstanceFromZone(Class cls, size_t extraBytes, void *zone, </span><br><span class="line">                              bool cxxConstruct = true, </span><br><span class="line">                              size_t *outAllocatedSize = nil)</span><br><span class="line">&#123;</span><br><span class="line">//cls是否存在</span><br><span class="line">    if (!cls) return nil;</span><br><span class="line">//判断该类是否已经做过realize,realize主要是一些数据的拷贝和整理对齐。???(具体做什么)</span><br><span class="line">    assert(cls-&gt;isRealized());</span><br><span class="line"></span><br><span class="line">    // Read class&apos;s info bits all at once for performance</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">    判断是否支持hasCxxCtor 和 hasCxxDtor还有canAllocNonpointer，hasCxxCtor 和 hasCxxDtor是对</span><br><span class="line">     Objective-C++ 的支持，表示这个类是否有 C++ 类构造函数和析构函数，如果有的话，需要进行额外的工</span><br><span class="line">     作。canAllocNonpointer我们不用太关心，这里OC 2.0以上基本上返回的都是true。</span><br><span class="line">    */</span><br><span class="line">    bool hasCxxCtor = cls-&gt;hasCxxCtor();</span><br><span class="line">    bool hasCxxDtor = cls-&gt;hasCxxDtor();</span><br><span class="line">    bool fast = cls-&gt;canAllocIndexed();</span><br><span class="line"></span><br><span class="line">//计算instance大小</span><br><span class="line">    size_t size = cls-&gt;instanceSize(extraBytes);</span><br><span class="line">    //if outAllocatedSize存在 *outAllocatedSize的大小 = size</span><br><span class="line">    if (outAllocatedSize) *outAllocatedSize = size;</span><br><span class="line"></span><br><span class="line">    id obj;</span><br><span class="line">    //如果不是用gc,不存在zone,???</span><br><span class="line">    if (!UseGC  &amp;&amp;  !zone  &amp;&amp;  fast) &#123;</span><br><span class="line">    //分配objc内存大小</span><br><span class="line">        obj = (id)calloc(1, size);</span><br><span class="line">        //如果obj不存在,return nil</span><br><span class="line">        </span><br><span class="line">        if (!obj) return nil;</span><br><span class="line">        //初始化函数</span><br><span class="line">        obj-&gt;initInstanceIsa(cls, hasCxxDtor);</span><br><span class="line">    &#125; </span><br><span class="line">    else &#123;</span><br><span class="line">#if SUPPORT_GC</span><br><span class="line">        if (UseGC) &#123;</span><br><span class="line">            obj = (id)auto_zone_allocate_object(gc_zone, size,</span><br><span class="line">                                                AUTO_OBJECT_SCANNED, 0, 1);</span><br><span class="line">        &#125; else </span><br><span class="line">#endif</span><br><span class="line">        if (zone) &#123;</span><br><span class="line">            obj = (id)malloc_zone_calloc ((malloc_zone_t *)zone, 1, size);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            obj = (id)calloc(1, size);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!obj) return nil;</span><br><span class="line"></span><br><span class="line">        // Use non-indexed isa on the assumption that they might be </span><br><span class="line">        // doing something weird with the zone or RR.</span><br><span class="line">        obj-&gt;initIsa(cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">// 不懂</span><br><span class="line">    if (cxxConstruct &amp;&amp; hasCxxCtor) &#123;</span><br><span class="line">        obj = _objc_constructOrFree(obj, cls);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们都知道alloc的作用是开辟足够的内存空间,并<b style="color:red">初始化</b>.然后使obj指针指向对象的内存地址</p>
+<p>##1.2.4 initInstanceIsa与init</p>
+<h3 id="initInstanceIsa"><a href="#initInstanceIsa" class="headerlink" title="initInstanceIsa"></a>initInstanceIsa</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">inline void </span><br><span class="line">objc_object::initInstanceIsa(Class cls, bool hasCxxDtor)</span><br><span class="line">&#123;</span><br><span class="line">    assert(!UseGC);//是否使用GC</span><br><span class="line">    assert(!cls-&gt;requiresRawIsa());//是否具有原始的isa</span><br><span class="line">    assert(hasCxxDtor == cls-&gt;hasCxxDtor());//是否有析构函数</span><br><span class="line"></span><br><span class="line">    initIsa(cls, true, hasCxxDtor);</span><br><span class="line">&#125;</span><br><span class="line">inline void </span><br><span class="line">objc_object::initIsa(Class cls, bool indexed, bool hasCxxDtor) </span><br><span class="line">&#123; </span><br><span class="line">//非TaggedPointer</span><br><span class="line">    assert(!isTaggedPointer()); </span><br><span class="line">    </span><br><span class="line">    if (!indexed) &#123;</span><br><span class="line">        isa.cls = cls;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">    </span><br><span class="line">        assert(!DisableIndexedIsa);</span><br><span class="line">        //设置bits的值为define ISA_MAGIC_VALUE 0x001d800000000001ULL</span><br><span class="line">        isa.bits = ISA_MAGIC_VALUE;</span><br><span class="line">        // isa.magic is part of ISA_MAGIC_VALUE</span><br><span class="line">        // isa.indexed is part of ISA_MAGIC_VALUE</span><br><span class="line">        //设置isa构造韩式</span><br><span class="line">        isa.has_cxx_dtor = hasCxxDtor;</span><br><span class="line">        </span><br><span class="line">        isa.shiftcls = (uintptr_t)cls &gt;&gt; 3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到initInstanceIsa与isa有巨大关系和对象本身没有多大关系,所以上面的韩式是初始化isa的操作</p>
+<h3 id="init函数"><a href="#init函数" class="headerlink" title="init函数"></a>init函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (id)init &#123;</span><br><span class="line">    return _objc_rootInit(self);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">id</span><br><span class="line">_objc_rootInit(id obj)</span><br><span class="line">&#123;</span><br><span class="line">    // In practice, it will be hard to rely on this function.</span><br><span class="line">    // Many classes do not properly chain -init calls.</span><br><span class="line">    //返回对象本身</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以当我们不自定义实现init方法时,系统默认只是返回对象本身,我们可以再自定义的init方法中设置属性的值</p>
+<p>##1.2.5 非自己生成的对象,自己也能持有</p>
+<p>在我们学习OC的时候我们只有对象的生成方法有两种,一种是使用alloc方法,还有一种是使用便利构造器也就是常见的例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id obj = [NSArray array];</span><br></pre></td></tr></table></figure>
+<p>分析:<br>这个对象是由自己生成,但并非自己持有.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+(instancetype)array &#123; </span><br><span class="line">	 __autoreleasing NSArray *array = [[NSArray alloc] init];</span><br><span class="line">    </span><br><span class="line">    return array;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>从上面第一条自己生成并持有.我们可以得到array只是将自己生成并持有对象的指针赋给了array变量.我们拿到的只是这个变量指针.</p>
+<p>那么如何取得这个对象的所有权啦???<em>**</em></p>
+<p>然后就用到了retain方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id obj = [NSArray array];</span><br><span class="line"></span><br><span class="line">[obj retain];</span><br></pre></td></tr></table></figure>
+<p>通过retain函数持有非自己生成对象</p>
+<h4 id="retain方法调用过程"><a href="#retain方法调用过程" class="headerlink" title="retain方法调用过程"></a>retain方法调用过程</h4><p>我们通过查询runtime源代码可以找到retain的调用顺序<br>1.首先是NSObject的retain方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (id)retain &#123;</span><br><span class="line">    return ((id)self)-&gt;rootRetain();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.在retain方法内部调用了rootRetain()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">_objc_rootRetain(id obj)</span><br><span class="line">&#123;</span><br><span class="line">//判断当前的obj对象是否为空</span><br><span class="line">    assert(obj);</span><br><span class="line"></span><br><span class="line">    return obj-&gt;rootRetain();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.在rootRetain方法内部调用了objc_object::rootRetain()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">inline id </span><br><span class="line">objc_object::rootRetain()</span><br><span class="line">&#123;</span><br><span class="line">    assert(!UseGC);</span><br><span class="line">    //如果是TaggedPointer直接返回对象本身</span><br><span class="line">    if (isTaggedPointer()) return (id)this;</span><br><span class="line">    //如果不是调用sidetable_retain()</span><br><span class="line">    return sidetable_retain();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.调用sidetable_retain()函数,首先获取对象的引用技术管理结构体SideTable,在SideTable中有三个重要的成员(spinlock_t slock,RefcountMap refcnts,weak_table_t weak_table).其中引用计数是保存到refcnts.weak_table弱引用表.第一个是一个自旋锁,保证在多线程中操作.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">objc_object::sidetable_retain()</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.nonpointer);</span><br><span class="line">#endif</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    table.lock();</span><br><span class="line">    size_t&amp; refcntStorage = table.refcnts[this];</span><br><span class="line">    if (! (refcntStorage &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        refcntStorage += SIDE_TABLE_RC_ONE;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line"></span><br><span class="line">    return (id)this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们再看引用计数每次加SIDE_TABLE_RC_ONE到底是什么东西?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#define SIDE_TABLE_WEAKLY_REFERENCED (1UL&lt;&lt;0)</span><br><span class="line">#define SIDE_TABLE_DEALLOCATING      (1UL&lt;&lt;1)  // MSB-ward of weak bit</span><br><span class="line">#define SIDE_TABLE_RC_ONE            (1UL&lt;&lt;2)  // MSB-ward of deallocating bit</span><br><span class="line">#define SIDE_TABLE_RC_PINNED         (1UL&lt;WORD_BITS-1))</span><br><span class="line"></span><br><span class="line">#define SIDE_TABLE_RC_SHIFT 2</span><br><span class="line">#define SIDE_TABLE_FLAG_MASK (SIDE_TABLE_RC_ONE-1)</span><br></pre></td></tr></table></figure>
+<p>这里使用了一个位操作,在二进制下将1向左移动2位,就是100.然后100代表的数字是4.所以实际上retain加的引用计数是4.<br>SIDE_TABLE_WEAKLY_REFERENCED （内存的第1位）标识该对象是否有过weak对象；<br>SIDE_TABLE_DEALLOCATING（内存的第2位），标识该对象是否正在dealloc。<br>SIDE_TABLE_RC_ONE （内存的第3位），存放引用计数数值（三位之后都用来存放引用计数数值）。<br>SIDE_TABLE_RC_PINNED, 标识引用计数的溢出<br>所以每次我们引用计数加一时，真正加的是4,在取出真正的引用计数时需要右移两位</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">uintptr_t</span><br><span class="line">objc_object::sidetable_retainCount()</span><br><span class="line">&#123;</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    size_t refcnt_result = 1;</span><br><span class="line">    </span><br><span class="line">    table.lock();</span><br><span class="line">    RefcountMap::iterator it = table.refcnts.find(this);</span><br><span class="line">    if (it != table.refcnts.end()) &#123;</span><br><span class="line">        // this is valid for SIDE_TABLE_RC_PINNED too</span><br><span class="line">        refcnt_result += it-&gt;second &gt;&gt; SIDE_TABLE_RC_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line">    return refcnt_result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面的代码的代码可以看出refcnt_result+=引用计数总计.而refcnt_result = 1.所以我们访问时都是1而不是0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">objc_object::sidetable_retain()</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line">//获取管理引用计数的结构体SideTable</span><br><span class="line">    SideTable&amp; table = SideTables()[this];</span><br><span class="line"></span><br><span class="line">    if (table.trylock()) &#123;</span><br><span class="line">    //获取当前对象的引用计数散列表,使用散列表可以将对象持有者的内存地址和引用计数保存在散列表中.就算在出现异常情况时,也能定位到地址信息</span><br><span class="line">        size_t&amp; refcntStorage = table.refcnts[this];</span><br><span class="line">        //判断当前的引用计数是否越界</span><br><span class="line">        if (! (refcntStorage &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        //如果引用计数没有越界,引用计数加1</span><br><span class="line">            refcntStorage += SIDE_TABLE_RC_ONE;</span><br><span class="line">        &#125;</span><br><span class="line">        table.unlock();</span><br><span class="line">        return (id)this;</span><br><span class="line">    &#125;</span><br><span class="line">    return sidetable_retain_slow(table);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.调用sidetable_retain_slow()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">objc_object::sidetable_retain_slow(SideTable&amp; table)</span><br><span class="line">&#123;</span><br><span class="line">#if SUPPORT_NONPOINTER_ISA</span><br><span class="line">    assert(!isa.indexed);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    table.lock();</span><br><span class="line">    size_t&amp; refcntStorage = table.refcnts[this];</span><br><span class="line">    if (! (refcntStorage &amp; SIDE_TABLE_RC_PINNED)) &#123;</span><br><span class="line">        refcntStorage += SIDE_TABLE_RC_ONE;</span><br><span class="line">    &#125;</span><br><span class="line">    table.unlock();</span><br><span class="line"></span><br><span class="line">    return (id)this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码也是引用计数进行加一的一个函数</p>
+<p>上面的所有的过程就是在我们调用retain的函数调用过程.</p>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1173,8 +901,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
@@ -1186,8 +912,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1201,40 +927,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/25/runtime方法查找/" itemprop="url">
-                  runtime方法查找
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/25/runtime方法查找/" itemprop="url">runtime方法查找</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-25 10:30:25 / 修改时间：13:54:01" itemprop="dateCreated datePublished" datetime="2019-01-25T10:30:25+08:00">2019-01-25</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T10:30:25+08:00">
+                2019-01-25
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -1247,34 +958,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">9.9k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">18 分钟</span>
-              
-            </div>
           
 
           
@@ -1294,34 +977,45 @@
       
         
           
-          runtime是如何查找到一个方法的在iOS开发过程中我们知道OC语言是C语言的超集.并且将SmallTalk的消息传递特性加入了其中,使得Objective-C也具有了消息传递这一特性.Objective-C方法调用的本质既然说Objective-C结合了smallTalk的消息传递,那自然也是将
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/25/runtime方法查找/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p></p><h1>runtime是如何查找到一个方法的</h1><p>在iOS开发过程中我们知道OC语言是C语言的超集.并且将SmallTalk的消息传递特性加入了其中,使得Objective-C也具有了消息传递这一特性.</p><h4>Objective-C方法调用的本质</h4><p>既然说Objective-C结合了smallTalk的消息传递,那自然也是将这个特性发挥到了这个方面,而且Objective-C作为一门动态语言,与其他面向对象语言不同,它总是想办法把一些决定工作从编译连接推迟到运行时.Objective-C依赖运行时系统,runtime运行时库提供了很多在运行时过程中操作类和对象的API.而我们的方法调用就是依赖于这个运行时系统.</p><pre>MJPerson <em>person = [[MJPerson alloc] init];<br>person.name=@”1111”;<br>[person print];</em></pre><p>这是我们使用OC语言开发中常见的方法调用,那么它底层做了什么呢?它是怎么用到消息传递机制的?下面我们再看这段代码:</p><pre><br>MJPerson person = objc_msgSend(objc_getClass(“MJPerson”), @selector(alloc));<br><br>objc_msgSend(person, @selector(init));<br><br>objc_msgSend(person, @selector(setName:),@”11111”);<br><br>objc_msgSend(person, @selector(print));</pre><p>系统会在调用方法时都会将方法调用转成消息传递的方式进行.那么就让我们来通过runtime的源代码看一下:</p><h4>alloc方法</h4><ol><li>alloc是NSObject的类方法,而我们大多数的类都继承于NSObject.和不常见的NSProxy.我们也知道通过继承,我们可以继承父类的属性和方法</li><li>那么在调用alloc方法后,系统是如何找到该方法的实现的.</li><li>因为在runtime中关于objc_class的定义中有objc_ivar_list和objc_method_list还有objc_cache还有objc_protocol_list.通过名称我们也能知道一个是成员变量列表,一个是方法列表一个是方法缓存列表,一个是协议列表.查找方法肯定先会找方法缓存列表,别问我为什么?,因为这是系统对方法调用进行的优化,有缓存直接使用缓存,减少查找,增快效率,如果没有缓存,就找方法列表,找到就返回并执行,如果没找到就找父类,一直向上查找,如果找到根类还没有找到,就看有没有转发,如果有转发就执行转发,如果没有那就只能抛出异常.</li><li>上面说到的是怎么寻找方法,alloc做为类方法,我们也知道类方法存在于元类的方法列表当中,然后和上面的步骤相同进行查找</li></ol><p style="color:red;text-indent:0em">alloc方法查找代码:</p><pre><br>//1,查找类方法<br>Method class_getClassMethod(Class cls, SEL sel)<br>{<br>if (!cls  ||  !sel)return nil;<br>return class_getInstanceMethod(cls-&gt;getMeta(), sel);//在这里我们首先获取了cls的元类metaClass,然后查找元类的方法列表}<br>//2.查找类的实例方法<br>Method class_getInstanceMethod(Class cls, SEL sel){<br>if (!cls  ||  !sel) return nil;//判断cls和方法编号是否存在<br><p style="text-indent:0">#warning fixme build and search caches</p><br>lookUpImpOrNil(cls, sel, nil,<br>                   NO/<em>initialize</em>/, NO/<em>cache</em>/, YES/<em>resolver</em>/);//查找方法缓存;在查找方法缓存是会看到cache_getImp这个函数.但是无法查看它的内部实现,但是runtime源码中有这个方法的汇编代码,一会可以通过汇编代码进行大致了解.<br><p style="text-indent:0">#warning fixme build and search caches</p><br>return _class_getMethod(cls, sel);//如果缓存中没有找到,就会查找方法列表,并同时会创建缓存链表,如果找到方法实现就进行方法缓存<br>}<br><br>//3.cache_getImp的汇编代码<br>STATIC_ENTRY _cache_getImp<br>mov    r9, r0 :r0标识要在哪个缓存类中搜索,将r0寄存器的值传递给r9寄存器.在后面解释<p style="color:red">lookUpImpOrForward</p>源代码是会看到,_cache_getImp传入的参数是cls,和方法编号,如果是类方法传入的就是metaClass,如果是实例方法就是当前类.<br>CacheLookup NORMAL //这个宏定义中r0和r1表示消息接收者,r1或r2代表方法编号;方法实现imp在r12中<br>mov    r0, r12 //缓存命中,方法的实现在r12寄存器中,然后传递给r0寄存器;如果没命中就继续执行cacheLookup2<br>bx    lr            // return imp<br>CacheLookup2 GETIMP<br>// 缓存没命中,丢失返回nil<br>mov    r0, #0<br>bx    lr<br>END_ENTRY _cache_getImp<br>//objc_msgSend汇编代码<br>ENTRY _objc_msgSend<br>    MESSENGER_START<br>    cbz    r0, LNilReceiver_f //判断消息接收者是否为nil<br>    ldr    r9, [r0]        // r9 = self-&gt;isa<br>    GetClassFromIsa            // r9 = class<br>    CacheLookup NORMAL //缓存命中,直接调用imp<br>    nonstret forwarding<br>    MESSENGER_END_FAST<br>    bx    r12            // call imp<br>    CacheLookup2 NORMAL //缓存miss<br>    ldr    r9, [r0]        // r9 = self-&gt;isa<br>    GetClassFromIsa            // r9 = class<br>    MESSENGER_END_SLOW<br>    b    __objc_msgSend_uncached //方法未缓存<br><br>    STATIC_ENTRY __objc_msgSend_uncached<br>    // THIS IS NOT A CALLABLE C FUNCTION<br>    // Out-of-band r9 is the class to search<br>    MethodTableLookup NORMAL    // returns IMP in r12<br>    bx    r12<br>    END_ENTRY __objc_msgSend_uncached<br>    STATIC_ENTRY __objc_msgSend_stret_uncached<br>    // THIS IS NOT A CALLABLE C FUNCTION<br>    // Out-of-band r9 is the class to search<br>    MethodTableLookup STRET        // returns IMP in r12<br>    bx    r12<br>    END_ENTRY __objc_msgSend_stret_uncached<br>    STATIC_ENTRY __objc_msgLookup_uncached<br>    // THIS IS NOT A CALLABLE C FUNCTION<br>    // Out-of-band r9 is the class to search<br>    MethodTableLookup NORMAL    // returns IMP in r12<br>    bx    lr<br>    END_ENTRY __objc_msgLookup_uncached<br>    STATIC_ENTRY __objc_msgLookup_stret_uncached<br>    // THIS IS NOT A CALLABLE C FUNCTION<br>    // Out-of-band r9 is the class to search<br>    MethodTableLookup STRET        // returns IMP in r12<br>    bx    lr<br>    END_ENTRY __objc_msgLookup_stret_uncached<p></p>
+<p></p></pre><p>可能看不懂汇编,而且和我们学的8086汇编不同,但是从它的注释中我们可以看出首先会判断消息接收者是否为nil,然后在缓存方法查找,如果找到直接call imp,如果没找到就表明该方法没缓存就执行__objc_msgSend_uncached 在这个汇编代码中可以看到MethodTableLookup;我们再查看这个到底是什么东西</p><pre><br>.macro MethodTableLookup<br>    stmfd    sp!, {r0-r3,r7,lr}<br>    add    r7, sp, #16<br>    sub    sp, #8            // align stack<br>    FP_SAVE<br>.if $0 == NORMAL<br>    // receiver already in r0<br>    // selector already in r1<br>.else<br>    mov     r0, r1            // receiver<br>    mov     r1, r2            // selector<br>.endif<br>    mov    r2, r9            // class to search<br>    blx    __class_lookupMethodAndLoadCache3<br>    mov    r12, r0            // r12 = IMP<br>.if $0 == NORMAL<br>    cmp    r12, r12        // set eq for nonstret forwarding<br>.else<br>    tst    r12, r12        // set ne for stret forwarding<br>.endif<br>    FP_RESTORE<br>    add    sp, #8            // align stack<br>    ldmfd    sp!, {r0-r3,r7,lr}<br>.endmacro<br></pre><p>在这个宏定义中,我们看到了__class_lookupMethodAndLoadCache3这个方法名,然后在runtime的方法中查找,找到了函数的实现</p><pre><br>IMP _class_lookupMethodAndLoadCache3(id obj, SEL sel, Class cls)<br>{<br>    return lookUpImpOrForward(cls, sel, obj,<br>                              YES/<em>initialize</em>/, NO/<em>cache</em>/, YES/<em>resolver</em>/);<br>}<br>IMP lookUpImpOrForward(Class cls, SEL sel, id inst,<br>                       bool initialize, bool cache, bool resolver)<br>{<br>    IMP imp = nil;<br>    bool triedResolver = NO;<br>    runtimeLock.assertUnlocked();<br>    // Optimistic cache lookup<br>    if (cache) {<br>        imp = cache_getImp(cls, sel);<br>        if (imp) return imp;<br>    }<br>    // runtimeLock is held during isRealized and isInitialized checking<br>    // to prevent races against concurrent realization.<br>    // runtimeLock is held during method search to make<br>    // method-lookup + cache-fill atomic with respect to method addition.<br>    // Otherwise, a category could be added but ignored indefinitely because<br>    // the cache was re-filled with the old value after the cache flush on<br>    // behalf of the category.<br>    runtimeLock.read();<br>    if (!cls-&gt;isRealized()) {<br>        // Drop the read-lock and acquire the write-lock.<br>        // realizeClass() checks isRealized() again to prevent<br>        // a race while the lock is down.<br>        runtimeLock.unlockRead();<br>        runtimeLock.write();<br>        realizeClass(cls);<br>        runtimeLock.unlockWrite();<br>        runtimeLock.read();<br>    }<br>    if (initialize  &amp;&amp;  !cls-&gt;isInitialized()) {<br>        runtimeLock.unlockRead();<br>        _class_initialize (_class_getNonMetaClass(cls, inst));<br>        runtimeLock.read();<br>        // If sel == initialize, _class_initialize will send +initialize and<br>        // then the messenger will send +initialize again after this<br>        // procedure finishes. Of course, if this is not being called<br>        // from the messenger then it won’t happen. 2778172<br>    }<br> retry:<br>    runtimeLock.assertReading();<br>    // Try this class’s cache.<br>    imp = cache_getImp(cls, sel);<br>    if (imp) goto done;<br>    // Try this class’s method lists.<br>    {<br>        Method meth = getMethodNoSuper_nolock(cls, sel);<br>        if (meth) {<br>            log_and_fill_cache(cls, meth-&gt;imp, sel, inst, cls);<br>            imp = meth-&gt;imp;<br>            goto done;<br>        }<br>    }<br>    // Try superclass caches and method lists.<br>    {<br>        unsigned attempts = unreasonableClassCount();<br>        for (Class curClass = cls-&gt;superclass;<br>             curClass != nil;<br>             curClass = curClass-&gt;superclass)<br>        {<br>            // Halt if there is a cycle in the superclass chain.<br>            if (–attempts == 0) {<br>                _objc_fatal(“Memory corruption in class list.”);<br>            }<br>            // Superclass cache.<br>            imp = cache_getImp(curClass, sel);<br>            if (imp) {<br>                if (imp != (IMP)_objc_msgForward_impcache) {<br>                    // Found the method in a superclass. Cache it in this class.<br>                    log_and_fill_cache(cls, imp, sel, inst, curClass);<br>                    goto done;<br>                }<br>                else {<br>                    // Found a forward:: entry in a superclass.<br>                    // Stop searching, but don’t cache yet; call method<br>                    // resolver for this class first.<br>                    break;<br>                }<br>            }<br>            // Superclass method list.<br>            Method meth = getMethodNoSuper_nolock(curClass, sel);<br>            if (meth) {<br>                log_and_fill_cache(cls, meth-&gt;imp, sel, inst, curClass);<br>                imp = meth-&gt;imp;<br>                goto done;<br>            }<br>        }<br>    }<br>    // No implementation found. Try method resolver once.<br>    if (resolver  &amp;&amp;  !triedResolver) {<br>        runtimeLock.unlockRead();<br>        _class_resolveMethod(cls, sel, inst);<br>        runtimeLock.read();<br>        // Don’t cache the result; we don’t hold the lock so it may have<br>        // changed already. Re-do the search from scratch instead.<br>        triedResolver = YES;<br>        goto retry;<br>    }<br>    // No implementation found, and method resolver didn’t help.<br>    // Use forwarding.<br>    imp = (IMP)_objc_msgForward_impcache;<br>    cache_fill(cls, sel, imp, inst);<br> done:<br>    runtimeLock.unlockRead();<br>    return imp;<br>}<br></pre><p>通过上面的代码已经很明显能看出了,方法是如何被查找到的.首先我们忽略锁的操作,然后主要看关心的部分,如果cache传入的为yes,就会去类方法缓存列表中去找,如果存在就返回,否则就看有没有被初始化.初始化过的直接查找this class’s method list,如果找到就done,并为imp赋值.如果不存在就查找superclass caches and method lists.如果找到了就done,并为imp赋值.如果还没找到方法实现,然后会判断是否有能处理的对象,也是就是我们刚才提到的走转发,如果没有找到方法,也没有转发那么就会failure.</p><p></p>
+<p></p><p style="color:red;text-indent:0">扩展</p><p></p>
+<p></p><p>下面这段方法就是查找类方法列表是调用的方法,然后都是<b style="color:cyan">循环遍历cls-&gt;data()-&gt;methods.beiginLists到endLists?</b>方法不是放在结构体objc_method_list中的吗?</p><p></p>
+<p></p><p>然后我们一层一层往上找,在objc-runtime-new.h中objc_class:objc_object的定义中看到了data(),他是一个class_rw_t*指针,然后点进去看到了我们看到的methods,properties,protocols,firstSubClass,还有很多函数和成员变量,我们关心的就这三个,方法,属性列表,和协议列表.而且发现runtime.h中的定义和objc-runtime-new中的定义不同了.runtime使用的是结构体,而new中使用的是c++中的类.然后我再看了class_copyProtocolList函数也是通过遍历cls-&gt;data()-&gt;protocols,然后查看objc_getivar也是通过cls-&gt;data()-&gt;ro-&gt;ivars来获取,所以明白runtime中定义的是老的版本,而new中定义的是新版本的.但是对于两者都进行了解比较好</p><p></p>
+<pre>
+static method_t *
+getMethodNoSuper_nolock(Class cls, SEL sel)
+{
+    runtimeLock.assertLocked();
+
+    assert(cls->isRealized());
+    // fixme nil cls? 
+    // fixme nil sel?
+
+    for (auto mlists = cls->data()->methods.beginLists(), 
+              end = cls->data()->methods.endLists(); 
+         mlists != end;
+         ++mlists)
+    {
+        method_t *m = search_method_list(*mlists, sel);
+        if (m) return m;
+    }
+
+    return nil;
+}
+</pre>
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1350,8 +1044,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1363,8 +1055,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1378,52 +1070,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/16/汇编/" itemprop="url">
-                  汇编
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/16/汇编/" itemprop="url">汇编</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-16 10:17:24" itemprop="dateCreated datePublished" datetime="2019-01-16T10:17:24+08:00">2019-01-16</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-16T10:17:24+08:00">
+                2019-01-16
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-23 13:57:58" itemprop="dateModified" datetime="2019-01-23T13:57:58+08:00">2019-01-23</time>
-              
             
           </span>
 
@@ -1431,18 +1096,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/16/汇编/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/01/16/汇编/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1450,34 +1103,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">20 分钟</span>
-              
-            </div>
           
 
           
@@ -1497,34 +1122,20 @@
       
         
           
-          基础知识 汇编语言的组成汇编指令伪指令其他符号:如+,-,*,/等 存储器CPU所需要的指令和数据都在存储器中存放,也就是我们所说的内存当中.磁盘不同于内存,磁盘上的数据或程序如果不读到内存中,就无法被CPU使用.指令和数据在内存或磁盘上,指令和数据没有任何区别,都是二进制信息.存储单元存储器被划分
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/16/汇编/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <body><h1>基础知识</h1><h4> 汇编语言的组成</h4><ol><li>汇编指令</li><li>伪指令</li><li>其他符号:如+,-,*,/等</li></ol><h4> 存储器</h4><p>CPU所需要的指令和数据都在存储器中存放,也就是我们所说的内存当中.磁盘不同于内存,磁盘上的数据或程序如果不读到内存中,就无法被CPU使用.</p><h4>指令和数据</h4><p>在内存或磁盘上,指令和数据没有任何区别,都是二进制信息.</p><h4>存储单元</h4><p>存储器被划分成或干戈存储单元,每个存储单元从0开始顺序额编号.微机存储器的容量是以字节为最小单位来计算的.</p><h4>CPU对存储器的读写</h4><p>CPU要从内存中读数据,首先要指定存储单元的地址.在一台微机中不是只有存储器这一种器件,CPU在读写数据时还要指明,他要对哪一个器件进行操作.进行哪种操作,是读出数据还是写入数据.</p><p>CPU读写数据时的必备条件</p><ol><li>存储单元的地址</li><li>器件的选择,读或写的命令</li><li>读或写的数据</li></ol><h4> 总线</h4><p>电子计算机能处理,传输的信息都是电信号,电信号当然要用导线传送,在计算机中专门有链接CPU和其他芯片的导线,通常称为总线</p><ol><li>地址总线</li><li>控制总线</li><li>数据总线</li></ol><h4>地址总线</h4><p>CPU是通过地址总线来指定存储单元的,可见地址总线能传送多少个不同的信息,CPU就可以对多少个存储单元进行寻址.</p><p>一个CPU有N根地址线,则可以说这个CPU的地址总线的宽度为N.这样CPU最多可以寻找2的N次方个内存单元</p><h4>数据总线</h4><p>数据总线的宽度决定了CPU和外界的数据传送速度.8根数据总线一次课传送一个8位二进制数据(一个字节).16根数据总线一次可传送两个字节</p><h4>控制总线</h4><p>有多少根控制总线,就意味着CPU提供了对外部期间的多少种控制.所以控制总线的宽度决定了CPU对外部器件的控制能力</p><p></p><p><b>总结</b></p><ol><li>汇编指令是机器指令的助记符,统计器指令一一对应</li><li>每一种CPU都有自己的汇编指令集</li><li>CPU可以直接使用的信息在存储器中存放</li><li>在存储其中的指令和数据没有任何区别,都是二进制信息</li><li>存储单元从零开始顺序编号</li><li>一个存储单元可以存储8个bit,即8位二进制数(一个字节)</li><li>每一个CPU芯片都有许多管教,这些管脚和总线相连.也可以说这些管教引出总线.一个CPU可以引出3中总线的宽度标志了这个CPU的不同方面的性能,地址总线的宽度决定了CPU的寻址能力,数据总线的宽度决定了CPU与其他部件进行数据传送石的一次数据传送量.控制总线的宽度决定了CPU对系统中其他期间的控制能力</li></ol><h4>内存地址空间</h4><p>一个CPU的地址总线宽度为10,那么可以寻址1024个内存单元(byte,8bit),这个1024个可寻到的内存单元就构成这个CPU的内存地址空间</p><h4>主板</h4><p>主板上有核心器件和一些主要器件,这些器件通过总线(地址,数据,控制总线)相连.这些器件有CPU,存储器,外围芯片组,扩展插槽.扩展插槽上一般由RAM内存条和各类接口卡</p><h4>接口卡</h4><p>CPU对外部设备不能直接控制.直接控制这些设备进行工作的是插在扩展插槽上的接口卡.扩展插槽通过总线和CPU相连,所以接口卡也通过总线同CPU相连.CPU可以直接控制这些接口卡,从而实现CPU对外设的间接控制.CPU通过总线向接口卡发送命令,接口卡根据CPU的命令控制外设进行工作.</p><h4>各类存储器芯片</h4><p>存储器芯片从物理连接上看是独立的.不同的期间.从读写属性分为随机存储器和只读存储器.随机存储器可读可写,但必须带电存储.关机后存储的内容丢失.只读存储器只能读取不能写入.关机后其中的内容不丢失</p><ol><li>随机存储器,用于存放工CPU使用的大部分程序和数据,主随机存储器一般由两个位置的RAM组成,装在主板上的RAM和插在扩展插槽上的RAM</li><li>装有BIOS的ROM</li><li>接口卡上的RAM某些接口卡上需要对大批量输入,输出数据进行暂时存储,在其上装有RAM最典型的就是显示卡上的RAM,一般称为显存.</li></ol><h4>内存地址空间</h4><p>上述的存储器在物理上是独立的期间.但是都与CPU的总线相连接.CPU对他们进行读或写的时候都通过控制总线发出内存读写命令CPU在操作他们的时候,把他们都当做内存来对待,把他们总的看做一个由若干存储单元组成的逻辑存储器,这个逻辑存储器就是我们所说的内存地址空间</p><h2>寄存器</h2><p>一个CPU是由运算器,控制器,寄存器等期间构成,这些期间靠内部总线相连.</p><ol><li>运算器进行信息处理</li><li>寄存器进行信息存储</li><li>控制器控制各种器件进行工作</li><li>内部总线连接各种器件,在它们之间进行数据的传送</li></ol><p>CPU中的主要部件是寄存器,寄存器是CPU中程序员可以用指令读写的部件.程序员通过改变各种寄存器中的内容来实现对CPU的控制</p><h4>通用寄存器</h4><p>8086CPU的所有紧蹙起都是16位的,可以存放两个字节.AX,BX,CX,DX这四个寄存器通常用来存放一般性的数据,被称为通用寄存器</p><p>8086CPU为了兼容上一代寄存器(8位)所以8086CPU的AX,BX,CX,DX这四个寄存器都可分为两个可独立使用的8位寄存器来用:</p><ol><li>AX可分为AH和AL</li><li>BX可分为BH和BL</li><li>CX可分为CH和CL</li><li>DX可分为DH和DL</li></ol><h4>字在寄存器中的存储</h4><ol><li>字节:记为byte,一个字节有8bit组成,可以存放在8位寄存器中</li><li>字:记为word,一个字由两个字节组成,这两个字节分别称为这个字的高位字节和低位字</li></ol><h4>几条汇编指令</h4><p>mov ax,18 将18送入寄存器AX</p><p>mov ah,78 将78送入寄存器AH</p><p>add ax,8  将寄存器AX的值加上8</p><p>mov ax,bx 将寄存器bx中的数据送入寄存器AX</p><p>add ax,bx 将AX和BX的数值相加,结果存在寄存器AX</p><pre>mov ax,4e20h<br>add ax,1406h<br>mov bx,2000h<br>add ax,bx<br>mov bx,ax<br>add ax,bx<br></pre><p>本来ax中的值为1044ch但是由于ax寄存器为16位,只能保存16位数.所以最高位的1,被舍弃,ax的数据为044ch</p><pre>mov ax,001ah<br>mov bx,0026h<br>add al,bl<br>add ah,bl<br>add bh,al<br>mov ah,0<br>add al,85h<br>add al,93h </pre><p><b style="color:red">注意</b></p><p>在进行数据传送和运算时,要注意指令的两个操作对象的位数应当是一致的</p><h4> 物理地址</h4><p>所有的内存单元构成的存储空间是一个一维的线性空间,每一个内存单元在这个空间中都有唯一的地址,我们将这个唯一的地址称为物理地址.CPU通过地址总线送入村塾琦的,必须是一个内存单元的物理地址</p><h4> 16位结构的CPU</h4><p>16位CPU具有下面几方面的结构特性</p><ol><li>运算器一次最多可以处理16位的数据</li><li>寄存器的最大宽度为16位</li><li>寄存器和运算器之间的通路为16位</li></ol><p>8084是16位结构的CPU,这也就是说,在8086内部,能够一次性处理,传输,暂时存储的信息的最大长度是16位的.内存单元的地址在送上地址总线之前,必须在CPU中处理,传输,暂时存放.</p><h4> 8086CPU给出物理地址的方法</h4><p>8086CPU有20位地址总线,可以传送20位地址,达到1MB寻址能力.8086CPU采用一种在内部用两个16位地址合成的方法来形成一个20位的物理地址</p><ol><li>CPU中的相关部件提供两个16位的地址,一个称谓段地址,一个称为偏移地址</li><li>段地址和偏移地址通过内部总线送入一个称为地址加法器的部件</li><li>地址加法器将两个16位的地址合成为一个20位的物理地址</li><li></li><li>地址加法器通过内部总线将20位物理地址送入输入输出控制电路</li><li>输入输出控制电路将20位物理地址送上地址总线</li><li>20位物理地址被地址总线传送到存储器</li></ol><p>地址加法器采用物理地址=段地址x16+偏移地址的方法用段地址和偏移地址合成物理地址</p><h4> 段地址x16(16进制向左移一位)+偏移地址=物理地址的本质</h4><p>在CPU访问内存时,用一个基础地址(段地址x16)和一个相对于基础地址的偏移地址相加给出内存单元的物理地址</p><h4> 段的概念</h4><p>内存并没有分段,段的划分来自于CPU,由于8086CPU用”基础地址(段地址x16)+偏移地址=物理地址”的方式给出内存单元的物理地址,使得我们可以用分段的方式来管理内存.</p><pre>物理地址          段地址   偏移地<br>21F60H        2000H      1F60H<br>                2100H    0F60H<br>                21F0H    0060H<br>                21F6H      0000H<br>                1F00H    2F60H</pre><p><b style="color:red">结论</b></p><ul>    <li>CPU可以用不同的段地址和偏移地址形成同一个物理地址</li>    <li>偏移地址为16位的,变化范围为0-FFFFH,仅用偏移地址来寻址最多可寻64kb的内存单元</li></ul><h4>段寄存器</h4><p>8086CPU在访问内存时,要由相关部件提供内存单元的段地址和偏移地址,送入地址加法器合成物理地址.段地址在8086的段寄存器中存放,8086CPU有4个寄存器CS,DS,SS,ES.</p><h4>CS和IP</h4><p>CS和IP是8086CPU中两个最关键的寄存器,他们指示当前要读取指令的地址.CS魏代码段寄存器,IP魏指令指针寄存器.</p><p><b>任意时刻,CPU将CS:IP指向的内容当做指令执行</b></p><p><b style="color:orange">指令执行的步骤</b></p><ol><li>从CS:IP指向的内存单元读取指令,读取的指令进入指令缓冲器</li><li>IP=IP+所读取指令的长度,从而指向下一条指令</li><li>执行指令</li></ol><p>在8086CPU加电启动或复位后(即CPU刚开始工作时)CS和IP被设置为CS=FFFFH,IP=0000H,即在8086CPU机刚启动时,CPU从内存FFF0H单元中读取指令,FFFF0H单元中的指令是8086CPU开机后的第一条指令</p><h4>修改CS,IP的指令</h4><p>可以通过mov指令来改变AX,BX,CX,DX中的值,mov指令被称为传送指令</p><p>mov指令不能用于设置CS,IP的值.8086CPU为CS,IP提供了另外的指令来改变他们的值.能够改变CS,IP的内容的指令被称为转移指令:<b>jmp指令</b></p><p>若想同时修改CS,IP的内容,可用形如jmp段地址:偏移地址的指令完成</p><p></p><p>jmp 2AE3:3执行后:CS=2AE3H,IP=0003H,CPU将从2AE33H处读取指令</p><p></p><p>jmp段地址:偏移地址指令的功能为:用指令中给出的段地址修改CS,偏移地址修改IP</p><p>若想仅修改IP的内容,可用形如jmp某一合法寄存器的指令完成</p><p>jmp ax,指令执行前:1x=1000H,CS=2000H,IP为0003H.指令执行后:ax=1000H,CS=2000H,IP=1000H</p><p>jmp 某一合法寄存器,指令的功能为:用寄存器中的值修改IP</p><h4> 代码段</h4><p><b style="color:red">如何使代码段中的指令被执行</b>将一段内存当做代码段,仅仅是我们再编程时的一种安排,CPU并不会由于这种安排,就自动地将我们定义的代码段中的指令当做指令来执行.CPU只认被CS:IP指向的内存单元中的内容为指令.所以要让CPU执行我们放在代码段中的指令,必须要将CS:IP指向所定义的代码段的第一条指令的首地址.</p><p><b style="color:red">小结</b></p><ol><li>段地址在8086CPU的段寄存器中存放.当8086CPU要访问内存时,由段寄存器提供内存单元的段地址.8086CPU有4个段寄存器,其中CS用来存放指令的段地址</li><li>CS存放指令的段地址,IP存放指令的偏移地址,8086机中,任意时候,CPU将CS:IP指向的内容当做指令执行</li><li>8086CPU的工作过程</li><ol><li>从CS:IP执行的内存单元读取指令,读取的指令进入指令缓冲器</li><li>IP指向下一条指令</li><li>执行指令</li></ol><li>8086CPU提供转移指令修改CS,IP的内容,jmp段地址:偏移地址:修改CS:IP.jmp 某个合法寄存器:修改IP</li></ol><h2>寄存器(内存访问)</h2><h4> 内存中字的存储</h4><p>CPU中,用16位寄存器来存储一个字,高8位存放高位字节,低8位存放低位字节,在内存中存储时,由于内存单元是字节单元(一个单元存放一个字节),则一个字要用两个地址连续的内存单元来存放,这个字的低位字节存放在低地址单元中,高位字节存放在高地址单元中.</p><h4>进制</h4><p><b>十进制</b></p><p>平时使用的数字都是由0~9共10个数字组成的,一个数字最多能表示9,如果要表示十,十一,二十九,一百等,就需要多个数字组合起来</p><p>因为逢十进一,也因为只有0~9共十个数字,所以被叫做十进制;这时进一位相当于十,进两位相当于二十</p><p>进制也就是进位制.进行加法运算时逢X进一,进行减法运算时借一当X,这就是X进制,这种进制也就包含X个数字,基数为X.十进制有0~9共10个数字,基数为10,在加减法运算中,逢十进一,借一当十</p><p><b>二进制</b></p><p>既然可以用0~9共十个数字表示数值,那么也可以用0,1两个数字表示数值,这就是二进制</p><p>二进制加减法和十进制加减法的思想是类似的:</p><ul><li>对于十进制,进行加法运算时逢十进一,进行减法运算时借一当十</li><li>对于二进制,进行加法运算时逢二进一,进行减法运算时借一当二</li></ul><ol><li>二进制加法:1+0=1,1+1=10,11+10=101,111+111=1110</li><img src="/2019/01/16/汇编/1-1F914100916142.png" title="This is an image"><li>二进制减法:1-0=1,10-1=1,101-11=10,1100-111=101</li><img src="/2019/01/16/汇编/1-1F914104043P9.png" title="This is an image"></ol><p><b>八进制</b></p><p>八进制有0~7共8个数字,基数为8,加法运算时逢八进一,减法运算时借一当八</p><ol><li>八进制加法:3+4=7,5+6=13,75+42=137,2427+567-3216</li><img src="/2019/01/16/汇编/1-1F914144329401.png" title="This is an image"><li>八进制减法:6-4=2,52-27=23,307-141=146,7430-1451=5757</li><img src="/2019/01/16/汇编/1-1F914150Q5A4.png" title="This is an image"></ol><p><b>十六进制</b></p><p>十六进制中,用A表示10,B表示11,C表示12,D表示13,E表示14,F表示15,因此有0~F共有16个数字,基数为16,加法运算时逢16进1,减法运算时借1当16.</p><ol><li>十六进制加法:6+7=D,18+BA=D2,595=792=D27,2F87+F8A=3F11</li><img src="/2019/01/16/汇编/1-1F914153254337.png" title="This is an image"><li>十六进制减法:D-3=A,52-2F=23,E07-141=CC6,7CA0-1CB1=5FEF</li><img src="/2019/01/16/汇编/1-1F91416123IP.png" title="This is an image"></ol><p><b>进制转换</b></p><p><b>将二进制、八进制、十六进制转换为十进制</b></p><p style="color:red">二进制,八进制和十六进制向十进制转换都非常容易,就是”按权相加”.</p><p style="color:black">所谓”权”,也即”位权”</p><p></p><p>假设当前数字是N进制,那么</p><ul><li>对于整数部分,从右往左看,第i位的位权等于N<sup>i-1</sup></li><li>对于小数部分,恰好相反,要从左往右看,第j位的位权为N<sup>-j</sup></li></ul><ol><li><b>整数部分</b></li><p>将八进制数字53627转换成十进制:53627=5x8<sup>4</sup>+3x8<sup>3</sup>+6x8<sup>2</sup>+2x8<sup>1</sup>+7x8<sup>0</sup></p><li><b>小数部分</b></li><p>将八进制数字423.5176转换成十进制:423.5176=4x8<sup>2</sup>+2x8<sup>1</sup>+3x8<sup>0</sup>+5x8<sup>-1</sup>+1x8<sup>-2</sup>+7x8<sup>-3</sup>+6x8<sup>-4</sup></p><p>小数部分和证书部分相反,要从左往右看,第一位的位权为8<sup>-1</sup>=1/8</p></ol><p><b>将十进制转换成二进制,八进制、十六进制</b></p><ol><li>整数部分</li><p>将十进制整数转换为N进制整数采用”除N取余,逆序排列”法.具体做法是</p><ul><li>将N作为除数,用十进制整数除以N,可以得到一个商和余数</li><li>保留余数,用商继续除以N,又得到一个新的商和余数</li><li>仍保留余数,用商继续除以N,还会得到一个新的商和余数</li><li>……</li><li>如此反复进行,每次都保留余数,用商接着除以N,直到商为0时停止</li></ul><p>把先得到的余数作为 N 进制数的低位数字，后得到的余数作为 N 进制数的高位数字，依次排列起来，就得到了 N 进制数字。<img src="/2019/01/16/汇编/1-1F9151J30K46.png" title="This is an image"></p><li>小数部分</li><p>十进制小数转换成N进制小数采用”</p><p style="color:red">乘N取整,顺序排列</p>“法.具体做法如下<p></p><ul><li>用N乘以十进制小数,可以得到一个积,这个积包含了整数部分和小数部分;</li><li>将积的整数部分取出,再用N乘以余下的小数部分,又得到一个新的积;</li><li>再将积的整数部分取出,继续用N乘以余下的小数部分;</li><li>……</li><li>如此反复进行,每次都取出整数部分,用N接着乘以小数部分,直到几种的小数部分为0,或者达到所要求的精度为止</li><p>把取出的整数部分按顺序排列起来，先取出的整数作为 N 进制小数的高位数字，后取出的整数作为低位数字，这样就得到了 N 进制小数。</p>1-1F91Q20520335.png<img src="/2019/01/16/汇编/1-1F91Q20520335.png" title="This is an image"></ul></ol><p>如果一个数字既包含了整数部分又包含了小数部分,那么将整数部分和小数部分分开,分别按照上面的方法完成转换,然后再合并在一起即可</p><p><b style="color:red">注意</b></p><p>十进制小数转换成其他进制小数时,结果有可能是一个无限位的小数</p><p><b>二进制和八进制、十六进制的转换</b></p><p>将二进制转换为八进制和十六进制时就有非常简洁的方法，反之亦然</p><ol><li>二进制整数和八进制整数之间的转换</li><p>二进制整数转换成八进制整数时,每三位二进制数字转换为一位八进制数字,运算的顺序是从低位向高位依次进行,高位不足三位用零补齐</p><img src="/2019/01/16/汇编/1-1F919102I0949.png" title="This is an image"><p>八进制整数转换成二进制数时,思路是相反的,每一位八进制数字转换为三位二进制数字,运算的顺序也是从低位向高位依次进行</p><img src="/2019/01/16/汇编/1-1F919103A2R7.png" title="This is an image"><li>二进制整数和十六进制整数之间的转换</li><p>二进制整数转换为十六进制整数时,每四位二进制数字转换为一位十六进制数字,运算的顺序是从低位向高位依次进行,高位不足四位用零补齐.</p><img src="/2019/01/16/汇编/1-1F919104H9539.png" title="This is an image"><p>十六进制整数转换为二进制整数时,思路是相反的,每一位十六进制数字转换为四位二进制数字,运算顺序也是从低位向高位依次进行</p><img src="/2019/01/16/汇编/1-1F91910553H50.png" title="This is an image"></ol><table><tbody><tr><th>十进制</th><td>0</td><td></td><td>1</td><td></td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr><tr><th>二进制</th><td>0</td><td>1</td><td>10</td><td>11</td><td>100</td><td>101</td><td>110</td><td>111</td><td>1000</td><td>1001</td><td>1010</td><td>1011</td><td>1100</td><td>1101</td><td>1110</td><td>1111</td><td>10000</td></tr><tr><th>八进制</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>20</td></tr><tr><th>十六进制</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td></td><td>F</td><td>10</td></tr></tbody></table><h4>内存存储</h4><p>在内存中存储时,由于内存单元是字节单元(一个单元存放一个字节)则一个字要用两个地址连续的内存单元来存放,这个字的低位字节存放在低地址单元中,高位字节存放在高地址单元中</p><p>字单元:即存放一个字型数据(16位)的内存单元,由两个地址连续的内存单元组成.高地址内存单元中存放字型数据的高位自己,低地址内存单元中存放字型数据的低位字节.</p><h4>DS和[address]</h4><p>CPU要读写一个内存单元的时候,必须给出这个内存单元的地址,在8086CPU中,内存地址有段地址和偏移地址组成.8086CPU中有一个DS寄存器,通常用来存放要访问数据的段地址.</p><pre><br>mov bx,1000h<br>mov ds,bx<br>mov al,[0]</pre><p>详细解释mov al,[0].前面我们使用mov指令完成过两种传送.1,将数据直接传送到寄存器,2将一个寄存器中的内容送入另一个寄存器</p><p>也可以使用mov指令将一个内存单元中的内容送入另一个寄存器中.mov 寄存器名,内存单元地址</p><p>“[…]”标识一个内存单元,”[…]”中的0标识内存单元的偏移地址,我们知道只有偏移地址是不能定位一个内存单元的,那么在指令执行时,8086CPU自动取ds中的数据为内存单元的段地址</p><p><b style="color:red">注意</b></p><p>8086CPU不支持将数据直接送入段寄存器的操作,ds是一段寄存器,所以mv ds,1000h这条指令是非法的.</p><h4>字的传送</h4><p style="color:red">因为8086CPU是16位结构,有16根数据线,所以一次性传送16位的数据,也就是说可以一次性传送一个字.只要在mov指令中给出16位寄存器就可以进行16位数据的传送(简单理解就是如果mov指令后面给的是ax就取2个字节数据给ax,如果是al就读一个字节数据给寄存器的al)</p><h4>mov,add,sub指令</h4><p>常见的mov指令形式:mov ax,8(mov 寄存器 数据),mov ax,bx(mov 寄存器 寄存器),mov ax,<a href="mov 寄存器 内存单元">0</a>,mov [0],bx(mov 内存单元 寄存器),mov ds,ax(mov 段寄存器,寄存器),mov ax,ds(mov 寄存器 段寄存器),mov [0],cs(mov 内存单元 段寄存器),mov ds,[0]</p><p>add和sub指令同mov一样,都有两个操作队形</p><h4>数据段</h4><p><b style="color:red">总结</b></p><ol><li>字在内存中存储时,要用两个地址连续的内存单元存放,字的低位字节存放在低地址单元中,高位字节存放在高地址单元中</li><li>用mov指令访问内存单元,可以再mov指令中只给出单元的偏移地址,此时段地址默认在DS寄存器中</li><li>[address]表示一个偏移地址为address的内存单元.</li><li>在内存和寄存器之间传送字型数据时,高地址单元和高8位寄存器,低地址单元和低8位寄存器相对应</li><li>mov,add,sub是具有两个操作对象的指令,jmp是具有一个操作对象的指令</li><li>可以根据自己的推测,在Debug中实验指令的新格式</li></ol><h4>栈</h4><p>栈的基本操作有入栈和出栈,入栈就是将一个新的元素放到栈顶,出栈就是从栈顶取出一个元素.栈顶的元素总是最后入栈,需要出栈时,又最先被从栈中取出.栈的这种操作规则被称为LIFO</p><h4>CPU提供的栈机制</h4><p>8086CPU提供入栈和出栈指令,最基本的两个是PUSH(入栈)和POP(出栈).比如push ax表示将寄存器ax中的数据送入栈中,pop ax表示从栈顶取出数据送入ax,8086CPU的入栈和出栈操作都是以字为单位进行的</p><p style="color:BLUE">8086CPU中,有两个寄存器,段寄存器SS和寄存器SP,栈顶的段地址存放在SS中,偏移地址存放在SP中,任意时候,SS:SP指向栈顶的元素.push指令和pop指令执行时,CPU从SS和SP中得到栈顶的地址</p><h4>栈顶超界问题</h4><p style="color:red">一句话只能自己在编程的时候要自己操心栈顶超姐的问题,要根据可能用到的醉倒栈空间来安排栈的大小,防止入栈的数据太多而导致的超界;执行出栈操作时也要注意,以防栈空的时候继续出栈而导致的超界</p><h4>push,pop指令</h4><p>push和pop指令是可以再寄存器和内存(栈空间当然也是内存空间的一部分,它只是一段可以以一种特殊的方式进行访问的内存空间.)之间传送数据的</p><p style="text-align:center;color:black"><b>栈的综述</b></p><ol><li>8086CPU提供了栈操作的机制,方案如下.<p>在SS,SP中存放栈顶的段地址和偏移地址;提供入栈和出栈指令,他们根据SS:SP指示的地址,按照栈的方式访问内存单元</p></li><li>push指令的执行步骤:<p>SP=SP-2;<br>向SS:SP指向的字单元中送入数据</p></li><li>pop指令的执行步骤:<p>从SS:SP指向的子单元中读取数据;<br>SP=SP+2</p></li><li>任意时刻,SS:SP指向栈顶元素</li><li>8086CPU只记录栈顶,栈空间的大小我们要自己管理</li><li>用栈来暂存以后需要恢复的寄存器的内容时,寄存器出栈的顺序要和入栈的顺序相反</li><li>push,pop实质上是一种内存传送指令,注意它们的灵活应用</li></ol><h2>第一个程序</h2><h4>一个源程序从写出到执行的过程</h4><p>可执行文件包含两部分内容<ul><li>程序(从源程序中的汇编指令翻译过来的机器码)和数据(源程序中定义的数据)</li><li>相关的描述信息(比如,程序有多大,要占用多少内存空间等)</li></ul></p><p>汇编语言程序从写出到最终执行的简要过程<ol><li>编写汇编源程序</li><li>对源程序进行编译链接</li><li>执行可执行文件中的程序</li></ol></p><h4>源程序</h4><b style="color:black">程序4.1</b><pre>assume cs:codesg<br>code segment<br>mov ax,0123h<br>mov bx,0456h<br>add ax,bx<br>add ax,ax<br><br>mov ax,4c00h<br>int 21h<br>codesg ends<br>end</pre><ol><li style="color:black">伪指令</li><p>在汇编语言源程序中,包含两种指令,一种是汇编指令,一种是伪指令.汇编指令是有对应的机器码的指令,可以被编译魏机器指令,最终为CPU所执行.而伪指令没有对应的机器指令,最终不被CPU所执行.那么谁来执行伪指令呢?伪指令是由编译器来执行的指令,编译器根据伪指令来进行相关的编译工作,程序4.1中出现的3中伪指令:XXX segment,:,XXX ends.segment和ends是一对成对使用的伪指令,这是在写可被编译器编译的汇编程序时,必须要用到的一对伪指令.segment和ends的功能是定义一个段,segment说明一个段的开始,ends说明一个段的结束.一个段必须有一个名称来标识</p><p>伪指令:end,end是一个汇编程序的结束标记,编译器在编译汇编程序的过程中,如果碰到了伪指令end,就结束对源程序的编译.</p><p>assume:这条伪指令的含义为假设,它假设某一段的寄存器和程序中的某一个用segment…ends定义的段相关联.</p><li style="color:black">源程序中的”程序”</li><p>源程序中的汇编指令组成了最终有计算机执行的程序,而源程序中的伪指令由编译器来处理的,这里所说的程序就是指源程序中最终由计算机执行,处理的指令和数据</p><li style="color:black">标号</li><p>汇编源程序中,除了汇编指令和伪指令,还有一些标号,一个标号指代一个地址.比如codesg在segment的前面,作为一个段的名称,这个段的名称最终被编译,链接程序处理为一个段的段地址</p><li style="color:black">程序的结构</li><p>源程序是由一些段构成的我们可以在这些断种存放代码,数据或将某个段当做栈中的空间.</p><li style="color:black">程序返回</li><p>一个程序P2在可执行文件中,则必须有一个正在运行的程序P1,将P2从可执行文件中加载入内存后,将CPU的控制权交给P2,P2才能得以运行.P2开始运行后,P1暂停运行.而当P2运行完毕后,应该将CPU的控制权交还给使它得以运行的程序,我们称这个过程为:程序返回.<pre>mov ax,4c00h<br>int 21h</pre></p><li style="color:black">语法错误和逻辑错误</li></ol><h4>编辑源程序</h4><p>可以用任意的文本编辑器来编辑源程序,只要最终将其存储为.asm即可</p><h4>编译</h4><h4>连接</h4><h4>以简化的方式进行编译和连接</h4><h4>1.exe的执行</h4><h4>谁将可执行文件中的程序装载入内存并使它运行?</h4><p style="text-align:center">操作系统的外壳</p><p>操作系统是由多个功能模块组成的庞大,复杂的软件系统.任何通用的操作系统,都要提供一个称为shell(外壳)的程序,用户(操作人员)使用这个程序来操作计算机系统进行工作</p><p>DOS中有一个程序command.com,这个程序在DOS中称为命令解释器,也就是DOS系统的shell</p><p>DOS启动时,先完成其他重要的初始化工作,然后运行command.com,command.com运行后,执行完其他的相关任务后,在屏幕上显示出由当前盘符和当前路径组成的提示符,然后等待用户输入</p><p>用户可以输入所以执行的命令,比如,cd,dir,type等,这些命令由command执行,command执行完这些命令后,再次显示由当前盘符和当前路径组成的提示符,等待用户的输入</p><p>如果用户要执行一个程序,则输入该程序的可执行文件的名称,command首先根据文件名找到可执行文件,然后将这个可执行文件中的程序加载如内存,设置CS:IP指向程序的入口.此后,command暂停运行,CPU运行程序,程序运行结束后,返回到command中,command再次显示由当前盘符和当前路径组成的提示符,等待用户的输入</p><p>在DOS中,command处理各种输入:命令或要执行的程序的文件名.我们就是通过command来进行工作的</p><ol><li>在DOS中直接执行1.exe时,是正在运行的command,将1.exe中程序加载入内存;</li><li>command设置CPU的CS:IP指向程序的第一条指令(即程序的入口),从而使程序得以运行;</li><li>程序运行结束后,返回到command中,CPU继续运行command</li></ol><p style="text-align:center">汇编程序从写出到执行的过程</p><p>编程-&gt;1.asm-&gt;编译-&gt;1.obj-&gt;连接-&gt;1.exe-&gt;记载-&gt;内存中的程序-&gt;运行</p><h2>第五章[BX]和loop指令</h2><br><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1553,8 +1164,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1566,8 +1175,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1581,52 +1190,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/07/KVO原理和自定义/" itemprop="url">
-                  KVO原理和自定义
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/07/KVO原理和自定义/" itemprop="url">KVO原理和自定义</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-07 16:38:07" itemprop="dateCreated datePublished" datetime="2019-01-07T16:38:07+08:00">2019-01-07</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-07T16:38:07+08:00">
+                2019-01-07
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-13 16:03:51" itemprop="dateModified" datetime="2019-02-13T16:03:51+08:00">2019-02-13</time>
-              
             
           </span>
 
@@ -1639,10 +1221,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1652,18 +1238,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/07/KVO原理和自定义/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/01/07/KVO原理和自定义/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1671,34 +1245,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.5k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">6 分钟</span>
-              
-            </div>
           
 
           
@@ -1718,37 +1264,35 @@
       
         
           
-          KVO的自定义和原理分析
+            <h1>KVO的自定义和原理分析</h1>
 
-KVO的触发模式
-kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监听方法[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];- 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/07/KVO原理和自定义/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p></p><h2>KVO的触发模式</h2><p></p>
+<p>kvo的触发方式分为<b>手动</b>和<b>自动触发</b></p><br><p>自动触发:</p><br><p>添加观察,实现监听方法</p><br><pre><br>[_p addObserver:self forKeyPath:@”name” options:(NSKeyValueObservingOptionNew) context:nil];<br><br>- (void)observeValueForKeyPath:(NSString <em>)keyPath ofObject:(id)object change:(NSDictionary<nskeyvaluechangekey,id> </nskeyvaluechangekey,id></em>)change context:(void <em>)context {<br>    NSLog(@”%@,%@”,change,_p.name);<br>}<br></em></pre><br><p>手动观察</p><br><p>实现automaticallyNotifiesObserversForKey:(NSString )key 方法,判断key值是否开启手动观察</p><br><pre><br>@implementation Person<br><br>//返回一个bool值,该值指示所观察的对象是否支持对给定的键值自动观察<br>+ (BOOL)automaticallyNotifiesObserversForKey:(NSString <em>)key {<br>    if ([key isEqualToString:@”name”]) {<br>        return NO;<br>    }<br>    return YES;<br>}<br>@end<br><br></em></pre><br><p>当开启手动观察后,如果需要监听值的改变,必须调用willChangeValueForKey:和didChangeValueForKey:</p><br><pre><br> [_p willChangeValueForKey:@”name”];<br> _p.name = [NSString stringWithFormat:@”%d”,a++];<br> [_p didChangeValueForKey:@”name”];<br></pre><br><br><h2>KVO的属性依赖</h2><br><pre><br>@interface Dog : NSObject<br>@property(nonatomic, assign) int age;<br>@property(nonatomic, assign) int level;<br>@end<br><br>@interface Person : NSObject<br>@property(nonatomic, copy) NSString name;<br>@property(nonatomic, strong)Dog <em>dog;<br>@end<br><br>+ (NSSet&lt;NSString </em>&gt; <em>)keyPathsForValuesAffectingValueForKey:(NSString </em>)key {<br>    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];;<br>    if ([key isEqualToString:@”dog”]) {<br>        keyPaths = [[NSSet alloc] initWithObjects:@”_dog.age”,@”_dog._level”, nil];<br>    }<br>    return keyPaths;<br>}<br><br> _p = [[Person alloc] init];<br>[_p addObserver:self forKeyPath:@”dog” options:(NSKeyValueObservingOptionNew) context:nil];<br></pre><br><br><p>当我们需要监听属性的属性的变化,如果只有一个属性可以直接使用keypath,但是如果有多个属性时,我们要么添加多个addObserver,要不就是使用属性依赖</p>
+
+
+<p></p><h2>KVO的原理</h2><p></p>
+<ol>
+<li>创建子类NSKVONotyfing_Person</li>
+<li>重写setter方法</li>
+<li>将isa指针指向子类</li>
+<li>保存观察者</li>
+<li>通知观察者,并调用父类的set方法</li>
+</ol>
+<p></p><h2>自定义KVO</h2><p></p>
+<p>我在思考上面的步骤,并在完成时进行了扩展和封装,并取消掉了4和5的部分步骤,而是使用了imp的block的方法,使代码看起来更加简单和清晰</p><br><pre><br>- (void)WQ<em>addObserver:(NSObject <em>)observer forKeyPath:(NSString </em>)keyPath options:(NSKeyValueObservingOptions)options context:(nullable void <em>)context {<br>    //子类名称<br>    NSString </em>className = [[@”WQ” stringByAppendingString:@”KVONotyfing</em>“] stringByAppendingString:NSStringFromClass([self class])];<br>    //创建子类<br>    Class myClass = objc_allocateClassPair([self class], [className UTF8String], 0);<br>    //注册子类<br>    objc_registerClassPair(myClass);<br>    //将keyPath的首字母大写<br>    NSString <em>propertyName = [keyPath capitalizedString];<br>    //完成setter方法名拼接<br>    NSString </em>methodName = [[@”set” stringByAppendingString:propertyName] stringByAppendingString:@”:”];<br>    //获取方法的SEL<br>    SEL methodSel = NSSelectorFromString(methodName);<br>    //添加方法实现<br>    IMP methodImp = imp_implementationWithBlock(^(id self, id value) {<br>    //创建objc_super结构体,结构体有两个成员变量,一个是receiver,一个是super<em>class,reciver是指定类的实例,在本利中就是Person类的实例,但是这个实例对象的类型经过更改isa指针指向时已经变为子类类型(WQ</em> KVONotyfing_ Person),第二个参数是父类,也就是Person类.<br>        struct objc_super * reciver = malloc(sizeof(struct objc_super));<br>        reciver-&gt;receiver = self;<br>        reciver-&gt;super_class = [self superclass];<br>        //调用objc_msgSendSuper,向父类发送消息,第一个参数就是objc_super结构体,第二个参数就是SEL,后面的参数就是sel的参数<br>        objc_msgSendSuper(reciver, methodSel,value);<br>        //判断observer是否存在,如果存在就调用objc_msgSend,告诉观察者,值发生了改变<br>        if (observer) {<br>          objc_msgSend(observer, @selector(observeValueForKeyPath:ofObject:change:context:),keyPath,nil,@{@”new:”:value,@”kind”:@1},context);<br>        }<br>    });<br> //为子类添加setter方法<br> class_addMethod(myClass,methodSel,methodImp,”v@:@”);<br> //将父类的isa指针,指向子类<br> object_setClass(self, myClass);<br>}<br><br></pre><br><p>在我研究的过程中,我本来也是创建了函数来实现setter方法,最后看到IMP的方法可以传入block作为方法实现,如果是使用函数的话,函数默认有两个参数(id self,SEL _cmd).而使用imp的block的话(有一个默认参数id self,去除了SEL _cmd).</p><br><p>还有就是在调用父类的setter方法时,一直调用不了,我也一直在想到底是什么问题,检查了几次代码发现没有问题,然后在其他文件夹中找到了一个Person的分类,重写了setter方法,这个错误也让我明白了,如果分类重写了某个方法,如果一旦调用该方法,会执行分类的方法,而不会再调用类本身的方法(因为这个方法已经失效)</p>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1777,8 +1321,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
   
   
-  
-
   
 
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
@@ -1790,8 +1332,8 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1805,40 +1347,25 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/19/CFNetwork/" itemprop="url">
-                  CFNetwork
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/12/19/CFNetwork/" itemprop="url">CFNetwork</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-19 10:13:46 / 修改时间：16:19:37" itemprop="dateCreated datePublished" datetime="2018-12-19T10:13:46+08:00">2018-12-19</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-19T10:13:46+08:00">
+                2018-12-19
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -1851,34 +1378,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">6 分钟</span>
-              
-            </div>
           
 
           
@@ -1898,38 +1397,26 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
       
         
           
-          CFNetwork
+            <h1 style="text-align:center">CFNetwork</h1>
 
-引言
+<h2>引言</h2>
 
-在iOS应用开发中,CFNetwork框架其实并不是非常常用的,我们常用的网络框架有NSURLSession,&nbsp;NSURLConnect,和底层的CFNetwork在目前我做过的项目中一直在使用AFNetworking,这个框架在3.0版本时放弃了NSURLC
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/19/CFNetwork/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p style="text-indent:2em">在iOS应用开发中,CFNetwork框架其实并不是非常常用的,我们常用的网络框架有<a href="https://developer.apple.com/documentation/foundation/nsurlsession" target="_blank" rel="noopener">NSURLSession</a>,&nbsp;<a href="https://developer.apple.com/documentation/foundation/nsurlconnection" title="NSURLConnect在iOS9之后,已经被苹果废弃取而代之的是NSURLSession" target="_blank" rel="noopener">NSURLConnect</a>,和底层的<a href="https://developer.apple.com/documentation/cfnetwork" target="_blank" rel="noopener">CFNetwork</a></p><br><p style="text-indent:2em">在目前我做过的项目中一直在使用<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a>,这个框架在3.0版本时放弃了NSURLConnect,开始采用了苹果推荐的NSURLSession.主要使用提升了网络连接速度,Session采用了共享,而非每次新建.使用共享就是避免每次发送请求时都会进行tcp的三次握手,session共享就是复用这个tcp连接.</p>
+
+<h2>使用CFNetwork进行网络请求</h2><br><p style="text-indent:2em">CFNetwork是基于C语言实现的一套网络请求框架,所以它的使用难度是比NSURLSession和NSURLConnect大的.示例代码如下</p><br><pre><br>//创建请求URL字符串<br>    NSURL <em>url = [NSURL URLWithString:URLString];<br>//创建HTTP消息<br>    CFHTTPMessageRef request = CFHTTPMessageCreateRequest(kCFAllocatorDefault, CFSTR(“GET”),(<strong>bridge CFURLRef)url, kCFHTTPVersion1_1);<br>//设置请求头content-type<br>    for (id object in self.networkResponseContentType) {<br>        if ([object isKindOfClass: [NSString class]]) {<br>            CFHTTPMessageSetHeaderFieldValue(request, CFSTR(“Content-type”), (</strong>bridge CFStringRef )object);<br>        }<br>        else {<br>            NSAssert([object isKindOfClass:[NSString class]], @”content-type value must be string”);<br>        }<br>    }<br> //设置请求头<br>    [self.allHttpHeaders enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL </em> _Nonnull stop) {<br>        if ([key isKindOfClass:[NSString class]] &amp;&amp; [obj isKindOfClass:[NSString class]]) {<br>            CFHTTPMessageSetHeaderFieldValue(request, (<strong>bridge CFStringRef)key, (</strong>bridge CFStringRef )obj);<br>        }<br>        else {<br>            NSAssert([obj isKindOfClass:[NSString class]] &amp;&amp; [key isKindOfClass:[NSString class]], @”http header key and value must be string”);<br>        }<br>    }];<br>   //HTTP返回消息<br>    CFHTTPMessageRef reponse = [self performHTTPRequest:request];<br>    NSData <em>data = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];<br>    CFHTTPMessageSetBody(request, (__bridge CFDataRef)data);<br><br>    CFIndex statusCode;<br>    statusCode = CFHTTPMessageGetResponseStatusCode(reponse);<br>    if (statusCode == 200) {<br>        CFDataRef responseDataRef = CFHTTPMessageCopyBody(reponse);<br>        NSDictionary </em>dic = [NSJSONSerialization JSONObjectWithData:(<strong>bridge NSData <em>)responseDataRef options:NSJSONReadingAllowFragments error:nil];<br>        success(reponse,dic);<br>    }<br>    else {<br>        NSError </em>error = [NSError errorWithDomain:NSCocoaErrorDomain code:statusCode userInfo:@{@”url”:url.absoluteString,@”errorDesc”:(</strong>bridge NSString <em>)CFHTTPMessageCopyResponseStatusLine(reponse)}];<br>        failure(reponse,error);<br><br>    }<br></em></pre><br><p style="text-indemt:2em">下面的方法是接收到数据流后,然后将流数据拼接起来返回</p><br><pre><br>- (CFHTTPMessageRef)performHTTPRequest:(CFHTTPMessageRef)request<br>{<br>//从请求中读取流<br>    CFReadStreamRef requestStream = CFReadStreamCreateForHTTPRequest(NULL, request);<br>//打开流<br>    CFReadStreamOpen(requestStream);<br>//拼接流<br>    NSMutableData responseBytes = [NSMutableData data];<br><br>    CFIndex numBytesRead = 0;<br>    do {<br>        UInt8 buf[1024];<br>        numBytesRead = CFReadStreamRead(requestStream, buf, sizeof(buf));<br><br>        if (numBytesRead &gt; 0) {<br>            [responseBytes appendBytes:buf length:numBytesRead];<br>        }<br>    } while (numBytesRead &gt; 0);<br> //<br>    CFHTTPMessageRef response = (CFHTTPMessageRef) CFReadStreamCopyProperty(requestStream, kCFStreamPropertyHTTPResponseHeader);<br>    CFHTTPMessageSetBody(response, (__bridge CFDataRef)responseBytes);<br><br>    CFReadStreamClose(requestStream);<br>    CFRelease(requestStream);<br><br>    return ((CFHTTPMessageRef) CFAutorelease(response));<br>}<br><br></pre><br><br><h2>CFHTTPMessageRef详解</h2>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1960,8 +1447,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
   
   
 
-  
-
   <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1971,8 +1456,8 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1986,40 +1471,25 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/06/c语言操作符/" itemprop="url">
-                  c语言操作符
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/12/06/c语言操作符/" itemprop="url">c语言操作符</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-06 10:59:26 / 修改时间：13:18:28" itemprop="dateCreated datePublished" datetime="2018-12-06T10:59:26+08:00">2018-12-06</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-06T10:59:26+08:00">
+                2018-12-06
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -2032,10 +1502,14 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C和指针/" itemprop="url" rel="index"><span itemprop="name">C和指针</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C和指针/" itemprop="url" rel="index">
+                    <span itemprop="name">C和指针</span>
+                  </a>
+                </span>
 
                 
                 
@@ -2051,34 +1525,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
           
 
           
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">823</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
 
           
 
@@ -2097,39 +1543,40 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
       
         
           
-          #####操作符
+            <p>#####操作符</p>
+<ol>
+<li><p>算术操作符</p>
+<p>+,  -,  *,  /,  %<br>除了%操作符,其他算术操作符均可用于浮点数和整数算术运算当中.当/的两个操作数为整数时,进行整除,如果是浮点数则运行浮点数除法.%取模操作符只能用于两个操作符魏整数的情况,返回值不是两个操作符的商而是两数进行整除后的余数.</p>
+</li>
+<li><p>移位操作符<br>(以下都是以8位二进制讨论10010110)<br>分为左移位和右移位,移位操作简单的理解就是将一个值向左或者向右移动指定的位数.</p>
+</li>
+</ol>
+<p>左移位:将指定的数向左移动若干位,但是最左边的几位会被抛弃,右边不足的几位由0补齐.这样又可以形成一个完整的二进制.</p>
+<p>右移位:将指定的数向右移动若干位,但是在右移位当中分为两种情况,一种是逻辑移位,一种是算术移位,逻辑移位是指将指定的数向右移动若干位,左边移入的位用0补齐.然后最右边的会被抛弃.算术移位是指,将指定的数移动若干位,左边移入的位不是用0来补齐而是用符号位来补齐.如果符号位为0就用0补齐,如果是1就用1补齐.</p>
+<p>左移三位:10110000<br>右移三位:逻辑:00010010,算术:11110010</p>
+<p>左移的操作符为&lt;&lt;,右移操作符为&gt;&gt;,左操作数的值将移动右操作数的位数,两个操作数都必须魏整型类型</p>
+<p><strong>警告</strong></p>
+<p>标准说明所有无符号的移位操作都是逻辑移位,但是有符号的移位操作到底是采用逻辑移位还是算术移位取决于编译器.</p>
+<ol>
+<li>位操作符<br>位操作符对他们的操作数的各个位执行AND.OR和XOR等逻辑操作.</li>
+</ol>
+<p>&amp; | ^<br>AND OR XOR</p>
+<p>当两个位进行AND操作时,如果<strong>两个位都是1结果为1</strong>,否则都为0.当两个位进行OR操作时,如果<strong>两个位都是0,结果为0</strong>,否则结果为1.当两个位进行XOR操作时,如果<strong>两个位不同则为1</strong>,否则为0.</p>
+<p>举例:<br>a 为00101110<br>b 为01011011</p>
+<p>a &amp; b = 00001010<br>a | b = 01111111<br>a ^ b = 01110101</p>
 
-算术操作符
-+,  -,  *,  /,  %除了%操作符,其他算术操作符均可用于浮点数和整数算术运算当中.当/的两个操作数为整数时,进行整除,如果是浮点数则运行浮点数除法.%取模操作符只能用于两个操作符魏整数的情况,返回值不是两个操作符的商而是两数进行整除后的余数.
-
-移位操作
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/06/c语言操作符/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -2160,8 +1607,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -2171,8 +1616,8 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2186,52 +1631,25 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/调试/" itemprop="url">
-                  调试
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/12/05/调试/" itemprop="url">调试</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-05 15:12:00" itemprop="dateCreated datePublished" datetime="2018-12-05T15:12:00+08:00">2018-12-05</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T15:12:00+08:00">
+                2018-12-05
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-12 11:44:46" itemprop="dateModified" datetime="2019-02-12T11:44:46+08:00">2019-02-12</time>
-              
             
           </span>
 
@@ -2239,18 +1657,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/05/调试/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/05/调试/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -2258,34 +1664,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">913</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
           
 
           
@@ -2305,39 +1683,44 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
       
         
           
-          LLDBdSYM文件调试信息文件
-断点断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.
+            <h3 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h3><h5 id="dSYM文件"><a href="#dSYM文件" class="headerlink" title="dSYM文件"></a>dSYM文件</h5><p>调试信息文件</p>
+<h5 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h5><p>断点目前分为swift error ,exception,symbolic,opne gl error,constraint error,Test faliure error.</p>
+<ol>
+<li>异常断点</li>
+</ol>
+<p>首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常后,断点会阻止程序运行,如果不设置异常断点,只看控制台也不知道到底发生了什么.设置了异常断点后,我们经常会看到程序会在抛出异常的瞬间,停止程序.然后在调用栈中我们可以找到导致程序抛出异常的代码.从而帮助我们解决问题,在这里我建议大家在创建完项目后,就打上异常断点,这样在抛出异常的时候就能快速查阅调用堆栈,方便解决问题.</p>
+<ol>
+<li>符号断点</li>
+</ol>
+<p>我们可以设置符号断点,符号可以使方法名,类方法名,c函数的方法名等.(不常用)</p>
+<ol>
+<li>open gl (没用过) </li>
+<li>编辑断点</li>
+</ol>
+<p>我们滚动到需要添加断点的代码时,添加完断点,可以点击鼠标右键选择edit breakpoint,来编辑断点.这个在日常开发中也是很有用的.可以设置condition,来终止程序继续执行,也可以添加action(apple script,sound,shell,log,debug command,GPU frame)等.</p>
+<ol>
+<li>共享断点</li>
+</ol>
+<p>我们可以在断点导航面板,点击断点,然后鼠标右键,然后点击share,就可以将断点保存到工程文件包的xcshareddata中.然后提交到代码版本库中.</p>
+<h5 id="控制台"><a href="#控制台" class="headerlink" title="控制台"></a>控制台</h5><p>我们在开发过程中经常会使用po和p来调试</p>
+<p>p主要用来在控制台输出基础数据类型</p>
+<p>po主要用来在控制要输出对象</p>
+<p>还可以使用register read来查看寄存器信息,我们知道使用register关键字申明的变量不是保存在内存上的,而是保存在寄存器上的.所有不能使用取地址符来方法这些变量.因为取地址符是用来访问内存的.</p>
+<p>如果你是一名python的开发者,或者说熟悉python,也可以在控制台输入script来引入python脚本来进行调试</p>
+<h5 id="NSZombieEnabled"><a href="#NSZombieEnabled" class="headerlink" title="NSZombieEnabled"></a>NSZombieEnabled</h5><p>NSZombieEnabled,它会用一个僵尸实现来替换默认的dealloc实现.当引用计数降到0时,</p>
 
-异常断点
-
-首先介绍异常断点(在开发中也被称为全局断点),在代码运行过程中抛出异常
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/05/调试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -2364,12 +1747,15 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
 
           </div>
+          
+
+
           
 
         </div>
@@ -2396,236 +1782,46 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Vicky" />
-            
               <p class="site-author-name" itemprop="name">Vicky</p>
               <p class="site-description motion-element" itemprop="description">15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift</p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">38</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
+                <a href="/archives/">
               
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
 
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">81</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-name">Tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
 
           
             <div class="feed-link motion-element">
@@ -2636,50 +1832,16 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
             </div>
           
 
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:Iosdevelopersvicky@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/Vickeywei" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/profile.php?id=100017090401793" target="_blank" title="Facebook"><i class="fa fa-fw fa-globe"></i>Facebook</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.jianshu.com/u/833aa07bca9d" title="简书" target="_blank">简书</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
+          <div class="links-of-author motion-element">
             
+          </div>
+
           
+          
+
+          
+          
+
           
 
         </div>
@@ -2687,13 +1849,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
       
 
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
       
 
     </div>
@@ -2706,53 +1861,13 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Vicky</span>
-
-  
-  <!-- -->
-
-  <!--
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-    <span title="站点总字数">99k</span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    
-    <span title="站点阅读时长">3:01</span>
-  
+        <div class=BbeiAn-info">
+  浙ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">18049477号</a>
+  </a>
 </div>
 
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.4.4</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
-
-
-
--->
-
         
-
 
 
 
@@ -2765,12 +1880,14 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
     </footer>
 
     
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
     
-	
-    
 
-    
   </div>
 
   
@@ -2789,11 +1906,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
 
 
-
-
-
-
-
   
 
 
@@ -2802,9 +1914,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
 
 
-
-
-  
 
 
 
@@ -2813,6 +1922,16 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
   
   
     <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
@@ -2827,48 +1946,44 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-  
-  
-    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
-
-
 
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
   
 
+
   
-    <script id="dsq-count-scr" src="https://vickySteven.disqus.com/count.js" async></script>
-  
+
+
+
+
+	
+
+
+
+
 
   
 
@@ -2876,6 +1991,12 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
 
 
+  
+
+
+
+
+
 
 
 
@@ -2885,331 +2006,9 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
 
   
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
 
 
 
-
-
-  
 
   
 
@@ -3225,13 +2024,6 @@ kvo的触发方式分为手动和自动触发自动触发:添加观察,实现监
   
 
   
-
-  
-
-  
-
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

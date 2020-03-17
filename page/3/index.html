@@ -2,27 +2,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -50,6 +38,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -58,57 +50,38 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
-
-
-
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
 
 
 
 
 
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
-  <meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
+
+  <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vicky的技术博客">
 <meta property="og:url" content="https://blog.devvk.com/page/3/index.html">
@@ -121,8 +94,29 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Vicky的技术博客" type="application/atom+xml" />
-
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
 
@@ -130,11 +124,7 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
   <title>Vicky的技术博客</title>
   
@@ -146,37 +136,7 @@
 
 
 
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
 </head>
-
-
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -195,17 +155,19 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Vicky的技术博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -213,121 +175,48 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-history"></i> <br />归档</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-commonweal">
-    <a href="/404.html" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
         </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
       
     </ul>
   
 
   
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
 </nav>
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -340,8 +229,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -351,8 +238,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -366,40 +253,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/SDWebImage源码阅读/" itemprop="url">
-                  SDWebImage源码阅读(一)
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/SDWebImage源码阅读/" itemprop="url">SDWebImage源码阅读(一)</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:16:29" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -412,10 +284,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/源码阅读/" itemprop="url" rel="index"><span itemprop="name">源码阅读</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/源码阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">源码阅读</span>
+                  </a>
+                </span>
 
                 
                 
@@ -430,34 +306,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">263</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
           
 
           
@@ -477,34 +325,22 @@
       
         
           
-          SDWebImage的目录层级都说技术的成长要不断的学习和不断的练习.学习可以有很多方法For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/SDWebImage源码阅读/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="SDWebImage的目录层级"><a href="#SDWebImage的目录层级" class="headerlink" title="SDWebImage的目录层级"></a>SDWebImage的目录层级</h1><p>都说技术的成长要不断的学习和不断的练习.学习可以有很多方法<br>For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框架开始!</p>
+<p>我们要阅读一份源码,首先会看到这份源码的层级结构,包含哪些文件根据文件名判断其主要功能和作用.SD目录层级如下:</p>
+<img src="/2018/10/12/SDWebImage源码阅读/sdwebimage.gif" title="This is an image">
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -533,8 +369,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -546,8 +380,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -561,40 +395,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/Swift学习资源和大神博客/" itemprop="url">
-                  Swift学习资源
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/Swift学习资源和大神博客/" itemprop="url">Swift学习资源</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:17:41" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -607,10 +426,14 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/资源/" itemprop="url" rel="index"><span itemprop="name">资源</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/资源/" itemprop="url" rel="index">
+                    <span itemprop="name">资源</span>
+                  </a>
+                </span>
 
                 
                 
@@ -625,34 +448,6 @@
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
           
 
           
@@ -672,36 +467,81 @@
       
         
           
-          Swift学习资源因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。
-视频教程(英文)
-Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/Swift学习资源和大神博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="Swift学习资源"><a href="#Swift学习资源" class="headerlink" title="Swift学习资源"></a>Swift学习资源</h1><p>因为iOS的开发者Objective-C和Swift不分家，所以下面的有关资源既包含Swift资源也包含Objective-C 资源，博主并没有细分内容还请各位看官见谅。</p>
+<h3 id="视频教程-英文"><a href="#视频教程-英文" class="headerlink" title="视频教程(英文)"></a>视频教程(英文)</h3><ul>
+<li><a href="https://www.lynda.com/search?q=ios" target="_blank" rel="noopener">Lynda</a> Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高级都涉及，无论你目前处于什么层次，都有你适合的视频教学。</li>
+<li><a href="https://www.udemy.com/courses/development/mobile-apps/learn-objective-c/all-courses/" target="_blank" rel="noopener">Udemy</a> Udemy帮助初学者规划视频学习路线，从新手到高级分的很详尽。</li>
+</ul>
+<h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><ul>
+<li><a href="https://www.amazon.com/dp/032194206X/ref=cm_sw_r_tw_dp_fWrPub0BGRHJ3" target="_blank" rel="noopener">Objective-C Programming</a> 内容不多, 却都是精华, 有了一点 C 语言基础可以快速阅读此书, 大概一天时间就可以看完, 看完后对 iOS 开发能够有个基本的印象。</li>
+<li><a href="https://book.douban.com/subject/24538384/" target="_blank" rel="noopener">iOS Programming</a> 这本书在 Quora 上被评为 iOS 入门最佳书籍, 具体评价可见豆瓣下方该书籍的评论</li>
+<li><a href="https://book.douban.com/subject/3688896/" target="_blank" rel="noopener">Cocoa Design Patterns</a> 适合打算深入了解 Cocoa 的人看</li>
+<li><a href="http://cocoadevcentral.com/d/learn_objectivec/" target="_blank" rel="noopener">Learn Objective-C</a> 短小精练, 适合有编程基础的人在半小时内对 Objective-C 有个一定了解</li>
+<li><a href="https://www.amazon.cn/dp/B00COG40Y0/ref=cm_sw_r_qz_2_dp_l2OPub0N45R0Q" target="_blank" rel="noopener">Objective-C 基础教程</a> 该书作者 Scott Knaster 是 Mac 开发界的传奇人物, 目前在 Google 出过多数书籍都广受许多程序员好评, 此书适合从初级跳到中级的 iOS 开发者阅读</li>
+<li><a href="https://www.amazon.cn/dp/B00R43XG9S/ref=cm_sw_r_qz_pi_T2A_jdp_fCPPub0VBF67T" target="_blank" rel="noopener">iOS 开发进阶</a> 该书作者唐巧是国内 iOS 开发界的名人, 曾参与多个知名软件的开发, 目前该书作者已经不再推荐本书，因为内容已经比较老了，但是在学习的过程中还是可以翻阅一下的, 书本内容由浅入深, 将读者一步一步引入到 iOS 中去, 同样适合初级跳到中级的 iOS 开发者阅读</li>
+<li><a href="https://www.amazon.com/Programming-Objective-C-Edition-Developers-Library/dp/0321967607" target="_blank" rel="noopener">Programming in Objective-C</a>  Programming in Objective-C   这本书在亚马逊上面深受欢迎, 有关 Objective-C 的东西讲得非常详细</li>
+<li><a href="https://www.amazon.cn/dp/B00JPVNFKM/ref=cm_sw_r_qz_4_dp_tdPPub14X59PV" target="_blank" rel="noopener">iOS 测试指南</a> 该书作者是豆瓣的员工, 书中写的多数内容都是作者在平时的工作实践当中提炼出来的测试经验, 重点讲述了各个测试阶段的具体实践方法, 并且通过持续集成串联了各个测试阶段的活动。</li>
+<li><a href="https://book.douban.com/subject/6920082/" target="_blank" rel="noopener">Objective-C 编程之道</a> 解析 iOS 的开山之作, 详细介绍了 MVC 在 Cocoa Touch 上的运作过程, 该书适用于 iOS 中级开发者阅读</li>
+<li><a href="https://www.amazon.cn/dp/B00DE60G3S/ref=cm_sw_r_qz_2_dp_hdPPub11MFE6G" target="_blank" rel="noopener">Objective-C 高级编程</a> 本书主要介绍 iOS 与 OS X 多线程和内存管理, 深入破析了苹果官方公布的源代码, 告诉你一些苹果公司官方文档中不会出现的知识, 适合中级以上 iOS 开发人员阅读</li>
+<li><a href="https://www.amazon.cn/dp/B00IDSGY06/ref=cm_sw_r_qz_2_dp_A2OPub0CH96YH" target="_blank" rel="noopener">Effective Objective C 2.0</a> 书里写了编写高质量 iOS 与 OS X 代码的 52 个有效方法, 适合 iOS 开发的进阶使用</li>
+<li><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html" target="_blank" rel="noopener">The Swift Programming Language 中文版</a> 学习Swift基础的中文文档，目前更新到Swift3.0文档</li>
+</ul>
+<h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul>
+<li><a href="https://onevcat.com/#blog" target="_blank" rel="noopener">OneV’s Den</a></li>
+<li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">唐巧的技术博客</a></li>
+<li><a href="https://blog.ibireme.com" target="_blank" rel="noopener">ibireme</a></li>
+<li><a href="http://blog.cnbang.net" target="_blank" rel="noopener">bang</a></li>
+<li><a href="http://blog.sunnyxx.com" target="_blank" rel="noopener">孙源的技术博客</a></li>
+<li><a href="http://beyondvincent.com/" target="_blank" rel="noopener">破船之家</a></li>
+<li><a href="http://nshipster.cn/" target="_blank" rel="noopener">NSHipster</a></li>
+<li><a href="http://limboy.me/" target="_blank" rel="noopener">Limboy 无网不剩</a></li>
+<li><a href="http://zhowkev.in/" target="_blank" rel="noopener">Kevin Blog</a></li>
+<li><a href="https://imtx.me/" target="_blank" rel="noopener">IMTX</a></li>
+<li><a href="https://www.liaoxuefeng.com" target="_blank" rel="noopener">廖雪峰</a></li>
+<li><a href="http://www.iosxxx.com" target="_blank" rel="noopener">向晨宇的技术博客</a></li>
+<li><a href="http://blog.leichunfeng.com" target="_blank" rel="noopener">雷纯锋的技术博客</a></li>
+<li><a href="http://www.tanhao.me" target="_blank" rel="noopener">老谭笔记</a></li>
+<li><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="noopener">Kenshin Cui’s Blog</a></li>
+<li><a href="https://casatwy.com" target="_blank" rel="noopener">Casa Taloyum</a></li>
+<li><a href="http://www.olinone.com" target="_blank" rel="noopener">庞海礁的个人空间</a></li>
+<li><a href="http://tutuge.me" target="_blank" rel="noopener">土土哥的技术blog</a></li>
+<li><a href="http://yulingtianxia.com" target="_blank" rel="noopener">玉令天下的博客</a></li>
+<li><a href="http://www.iiiyu.com" target="_blank" rel="noopener">萧宸宇</a></li>
+<li><a href="http://www.cnblogs.com/biosli" target="_blank" rel="noopener">摇滚诗人</a></li>
+<li><a href="http://foggry.com" target="_blank" rel="noopener">王中周的技术博客</a></li>
+<li><a href="https://blog.nswebfrog.com" target="_blank" rel="noopener">Blog | nswebfrog</a></li>
+<li><a href="http://limboy.me" target="_blank" rel="noopener">limboy</a></li>
+</ul>
+<h3 id="社区论坛"><a href="#社区论坛" class="headerlink" title="社区论坛"></a>社区论坛</h3><ul>
+<li><a href="https://objccn.io/" target="_blank" rel="noopener">objc中国</a></li>
+<li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">cocoachina</a></li>
+<li><a href="https://www.objc.io/" target="_blank" rel="noopener">objc</a></li>
+<li><a href="http://www.code4app.com/" target="_blank" rel="noopener">code4App</a></li>
+<li><a href="http://discuss.cocos2d-x.org/" target="_blank" rel="noopener">Cocos2d-x</a></li>
+<li><a href="http://iphonedevsdk.com/" target="_blank" rel="noopener">iPhone Dev SDK</a></li>
+</ul>
+<h3 id="国内知名程序员开发日报"><a href="#国内知名程序员开发日报" class="headerlink" title="国内知名程序员开发日报"></a>国内知名程序员开发日报</h3><ul>
+<li><a href="https://juejin.im/#/tag/iOS" target="_blank" rel="noopener">掘金</a></li>
+<li><a href="http://geek.csdn.net/" target="_blank" rel="noopener">极客头条</a></li>
+<li><a href="https://toutiao.io/" target="_blank" rel="noopener">开发者头条</a></li>
+<li><a href="http://weekly.manong.io/" target="_blank" rel="noopener">码农周刊</a></li>
+<li><a href="http://top.jobbole.com/" target="_blank" rel="noopener">伯乐头条</a></li>
+<li><a href="https://segmentfault.com/" target="_blank" rel="noopener">segmentfault</a></li>
+<li><a href="https://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></li>
+</ul>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -730,8 +570,6 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -743,8 +581,8 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -758,40 +596,25 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/Xcode之Architectures设置/" itemprop="url">
-                  Architectures
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/Xcode之Architectures设置/" itemprop="url">Architectures</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:19:09" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -804,10 +627,14 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -822,34 +649,6 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
           
 
           
@@ -869,34 +668,28 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
       
         
           
-          Xcode设置项之Architectures和Valid Architectures为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/Xcode之Architectures设置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p>
+<p>介绍上面的两个名词</p>
+<h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p>
+<p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p>
+<h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p>
+<h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul>
+<li>指令集都是可以向下兼容的</li>
+</ul>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -925,8 +718,6 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -938,8 +729,8 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -953,40 +744,25 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/Xcode调试技巧和常用快捷键/" itemprop="url">
-                  Xcode常用命令
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/Xcode调试技巧和常用快捷键/" itemprop="url">Xcode常用命令</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:18:22" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -999,10 +775,14 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1017,34 +797,6 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">224</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
           
 
           
@@ -1064,39 +816,27 @@ Lynda Lynda上面iOS和Objective-C的学习资料比较丰富，从初级到高�
       
         
           
-          Xcode常用命令p :常用来输出基础数据类型
-po :常用来输出oc对象类型
-expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。
-call :常用来动态调用函数
-image: image命令可以列出当前App中的所有模块
-po [view recursiveDesc
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/Xcode调试技巧和常用快捷键/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p>
+<p>po :常用来输出oc对象类型</p>
+<p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p>
+<p>call :常用来动态调用函数</p>
+<p>image: image命令可以列出当前App中的所有模块</p>
+<p>po [view recursiveDescription] 查看view的层级关系</p>
+<h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p>
+<p>Command+1~9:导航面版切换</p>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1125,8 +865,6 @@ po [view recursiveDesc
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1138,8 +876,8 @@ po [view recursiveDesc
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1153,52 +891,25 @@ po [view recursiveDesc
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/git从0到1/" itemprop="url">
-                  版本控制
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/git从0到1/" itemprop="url">版本控制</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-22 17:11:26" itemprop="dateModified" datetime="2018-10-22T17:11:26+08:00">2018-10-22</time>
-              
             
           </span>
 
@@ -1211,10 +922,14 @@ po [view recursiveDesc
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1229,34 +944,6 @@ po [view recursiveDesc
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">241</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
           
 
           
@@ -1276,41 +963,28 @@ po [view recursiveDesc
       
         
           
-          关于版本控制版本控制是帮助我们记录文件内容发生变化,方便后面查阅每个版本不同的修订情况.还可以通过版本控制回溯到某个版本的状态.还可以比较文件的变化细节.
-git的工作状态
-工作目录
-暂存区域
-git仓库
+            <h1 id="关于版本控制"><a href="#关于版本控制" class="headerlink" title="关于版本控制"></a>关于版本控制</h1><p>版本控制是帮助我们记录文件内容发生变化,方便后面查阅每个版本不同的修订情况.还可以通过版本控制回溯到某个版本的状态.还可以比较文件的变化细节.</p>
+<h1 id="git的工作状态"><a href="#git的工作状态" class="headerlink" title="git的工作状态"></a>git的工作状态</h1><ol>
+<li>工作目录</li>
+<li>暂存区域</li>
+<li>git仓库</li>
+</ol>
+<p>工作目录是在本地计算机上拉取远程仓库某个版本的内容和数据,然后我们进行修改和使用.</p>
+<p>暂存区域是一个文件,它会保存下次即将要提交的文件列表信息,一般会在git仓库的目录中.</p>
+<p>git仓库:是用来保存项目元数据和对象数据库的地方.每次我们提交的更新通过快照也保存在git仓库中.</p>
 
-工作目录是在本地计算机上拉取远程仓库某个版本的内容和数据,然后我们进行修改和使用.
-暂存区域
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/git从0到1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1339,8 +1013,6 @@ git仓库
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1352,8 +1024,8 @@ git仓库
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1367,40 +1039,25 @@ git仓库
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/iOS应用安全攻防实战/" itemprop="url">
-                  iOS应用攻防实战(一)
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/iOS应用安全攻防实战/" itemprop="url">iOS应用攻防实战(一)</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:10:32" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -1413,10 +1070,14 @@ git仓库
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -1431,34 +1092,6 @@ git仓库
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
           
 
           
@@ -1478,35 +1111,38 @@ git仓库
       
         
           
-          误解1: 认证因为这设备是安全可信任的设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.
-误解2: 单一性安全机制单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/iOS应用安全攻防实战/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="误解1-认证因为这设备是安全可信任的"><a href="#误解1-认证因为这设备是安全可信任的" class="headerlink" title="误解1: 认证因为这设备是安全可信任的"></a>误解1: 认证因为这设备是安全可信任的</h1><p>设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.</p>
+<h1 id="误解2-单一性安全机制"><a href="#误解2-单一性安全机制" class="headerlink" title="误解2: 单一性安全机制"></a>误解2: 单一性安全机制</h1><p>单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破.</p>
+<h1 id="iOS安全模型"><a href="#iOS安全模型" class="headerlink" title="iOS安全模型"></a>iOS安全模型</h1><p>1.设备安全:防止未授权的人使用设备</p>
+<p>2.数据安全:存储在设备上的数据得到保护</p>
+<p>3.网络安全:当通过网络传输时的加密工具</p>
+<p>4.应用软件安全:加固操作系统并隔离运行时应用软件的机制</p>
+<h1 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h1><p>对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置.</p>
+<h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><p>苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度.</p>
+<h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p>苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全.</p>
+<h1 id="应用软件的安全"><a href="#应用软件的安全" class="headerlink" title="应用软件的安全"></a>应用软件的安全</h1><p>应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问.</p>
+<p>为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入.</p>
+<p>钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法.</p>
+<p>苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密.</p>
+<h1 id="误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5"><a href="#误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5" class="headerlink" title="误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)"></a>误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)</h1><p>iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙</p>
+<h1 id="密码等于弱安全"><a href="#密码等于弱安全" class="headerlink" title="密码等于弱安全"></a>密码等于弱安全</h1><p>相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。<br>举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。</p>
+<h1 id="误解四：关心安全的用户会设置复杂的密码"><a href="#误解四：关心安全的用户会设置复杂的密码" class="headerlink" title="误解四：关心安全的用户会设置复杂的密码"></a>误解四：关心安全的用户会设置复杂的密码</h1><p>大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。</p>
+<h1 id="误解五：强密码依然不能保证设备安全"><a href="#误解五：强密码依然不能保证设备安全" class="headerlink" title="误解五：强密码依然不能保证设备安全"></a>误解五：强密码依然不能保证设备安全</h1><p>我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。</p>
+<h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p>
+<h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>
+
+          
         
       
     </div>
-
-    
-
     
     
     
-
-    <div>
-      
-    </div>
 
     
 
     
 
-    
     
 
     <footer class="post-footer">
@@ -1535,601 +1171,6 @@ git仓库
 
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/instrument的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/instrument的使用/" itemprop="url">
-                  instrument使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:08:15" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">0</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/instrument的使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/localizable-strings国际化和本地化处理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/localizable-strings国际化和本地化处理/" itemprop="url">
-                  国际化本地化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:11:00" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">53</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          这篇文章我在简书上已经写过直接跳转简书查看利用Localizable.strings做本地化和国际化处理
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/localizable-strings国际化和本地化处理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/mysql安装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/mysql安装/" itemprop="url">
-                  mysql
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:11:38" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">270</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          mac 安装mysql
-1.安装homebrew
-2.brew uninstall mysql
-3.brew install mysql
-4.mysql -u root -p
-5.如果出现报错执行
-unset TMPDIR
-bash mysql_install_db --verbose --user
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/mysql安装/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -2141,8 +1182,8 @@ bash mysql_install_db --verbose --user
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -2156,40 +1197,25 @@ bash mysql_install_db --verbose --user
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/iOS开发小记/" itemprop="url">
-                  iOS开发小记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/10/12/iOS开发小记/" itemprop="url">iOS开发小记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-12 10:22:10 / 修改时间：11:08:36" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">2018-10-12</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -2202,10 +1228,14 @@ bash mysql_install_db --verbose --user
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
 
                 
                 
@@ -2220,34 +1250,6 @@ bash mysql_install_db --verbose --user
 
           
 
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
           
 
           
@@ -2267,34 +1269,447 @@ bash mysql_install_db --verbose --user
       
         
           
-          iOS
+            <h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/12/iOS开发小记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
 
-    <div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/instrument的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/instrument的使用/" itemprop="url">instrument使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
       
     </div>
-
+    
+    
     
 
     
 
     
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/localizable-strings国际化和本地化处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/localizable-strings国际化和本地化处理/" itemprop="url">国际化本地化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章我在简书上已经写过直接跳转简书查看<br><a href="https://www.jianshu.com/p/7a5495dbff3f" target="_blank" rel="noopener">利用Localizable.strings做本地化和国际化处理</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/mysql安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/mysql安装/" itemprop="url">mysql</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>mac 安装mysql</p>
+<p>1.安装<a href="http://blog.vicky.org.cn/2018/02/24/HomeBrew与Ruby更新/" target="_blank" rel="noopener">homebrew</a></p>
+<p>2.brew uninstall mysql</p>
+<p>3.brew install mysql</p>
+<p>4.mysql -u root -p</p>
+<p>5.如果出现报错执行</p>
+<p><code>unset TMPDIR</code></p>
+<p><code>bash mysql_install_db --verbose --user=root
+ --basedir=&quot;$(brew --prefix mysql)&quot;--datadir=/usr/local/var/mysql --tmpdir=/tmp</code></p>
+<p><code>bash mysql.server start</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
     
 
     <footer class="post-footer">
@@ -2321,12 +1736,15 @@ bash mysql_install_db --verbose --user
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
 
           </div>
+          
+
+
           
 
         </div>
@@ -2353,236 +1771,46 @@ bash mysql_install_db --verbose --user
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="Vicky" />
-            
               <p class="site-author-name" itemprop="name">Vicky</p>
               <p class="site-description motion-element" itemprop="description">15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift</p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">38</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
+                <a href="/archives/">
               
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
 
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">81</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">81</span>
+                  <span class="site-state-item-name">Tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
 
           
             <div class="feed-link motion-element">
@@ -2593,50 +1821,16 @@ bash mysql_install_db --verbose --user
             </div>
           
 
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:Iosdevelopersvicky@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/Vickeywei" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/profile.php?id=100017090401793" target="_blank" title="Facebook"><i class="fa fa-fw fa-globe"></i>Facebook</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.jianshu.com/u/833aa07bca9d" title="简书" target="_blank">简书</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
+          <div class="links-of-author motion-element">
             
+          </div>
+
           
+          
+
+          
+          
+
           
 
         </div>
@@ -2644,13 +1838,6 @@ bash mysql_install_db --verbose --user
 
       
 
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
       
 
     </div>
@@ -2663,53 +1850,13 @@ bash mysql_install_db --verbose --user
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Vicky</span>
-
-  
-  <!-- -->
-
-  <!--
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-    <span title="站点总字数">99k</span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    
-    <span title="站点阅读时长">3:01</span>
-  
+        <div class=BbeiAn-info">
+  浙ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">18049477号</a>
+  </a>
 </div>
 
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.4.4</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
-
-
-
--->
-
         
-
 
 
 
@@ -2722,12 +1869,14 @@ bash mysql_install_db --verbose --user
     </footer>
 
     
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
     
-	
-    
 
-    
   </div>
 
   
@@ -2746,11 +1895,6 @@ bash mysql_install_db --verbose --user
 
 
 
-
-
-
-
-
   
 
 
@@ -2759,9 +1903,6 @@ bash mysql_install_db --verbose --user
 
 
 
-
-
-  
 
 
 
@@ -2770,6 +1911,16 @@ bash mysql_install_db --verbose --user
   
   
     <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
@@ -2784,48 +1935,44 @@ bash mysql_install_db --verbose --user
 
   
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-  
-  
-    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
 
 
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
-
-
 
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
   
 
+
   
-    <script id="dsq-count-scr" src="https://vickySteven.disqus.com/count.js" async></script>
-  
+
+
+
+
+	
+
+
+
+
 
   
 
@@ -2833,6 +1980,12 @@ bash mysql_install_db --verbose --user
 
 
 
+  
+
+
+
+
+
 
 
 
@@ -2842,331 +1995,9 @@ bash mysql_install_db --verbose --user
 
   
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
 
 
 
-
-
-  
 
   
 
@@ -3182,13 +2013,6 @@ bash mysql_install_db --verbose --user
   
 
   
-
-  
-
-  
-
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
