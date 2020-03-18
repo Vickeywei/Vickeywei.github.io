@@ -85,16 +85,16 @@
 <meta name="keywords" content="sdwebimage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SDWebImage源码阅读(一)">
-<meta property="og:url" content="https://blog.devvk.com/2018/10/12/SDWebImage源码阅读/index.html">
+<meta property="og:url" content="https://devvk.com/2018/10/12/SDWebImage源码阅读/index.html">
 <meta property="og:site_name" content="Vicky的技术博客">
 <meta property="og:description" content="SDWebImage的目录层级都说技术的成长要不断的学习和不断的练习.学习可以有很多方法For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.devvk.com/2018/10/12/SDWebImage源码阅读/sdwebimage.gif">
+<meta property="og:image" content="https://devvk.com/2018/10/12/SDWebImage源码阅读/sdwebimage.gif">
 <meta property="og:updated_time" content="2018-10-12T03:16:29.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SDWebImage源码阅读(一)">
 <meta name="twitter:description" content="SDWebImage的目录层级都说技术的成长要不断的学习和不断的练习.学习可以有很多方法For example 读书,阅读博客,阅读源代码,还有就是我们观看一些技术讨论会,分享会和开发者大会.而我们今天要讲的是从阅读源码开始.从事iOS开发三年来,有读过源码,但是都不完整.所以我目前的长进还只是停留在某个层面.所以从现在开始养成阅读源码的习惯.但是好的源码有很多,到底该如何入手.那么先从加载图片框">
-<meta name="twitter:image" content="https://blog.devvk.com/2018/10/12/SDWebImage源码阅读/sdwebimage.gif">
+<meta name="twitter:image" content="https://devvk.com/2018/10/12/SDWebImage源码阅读/sdwebimage.gif">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.devvk.com/2018/10/12/SDWebImage源码阅读/"/>
+  <link rel="canonical" href="https://devvk.com/2018/10/12/SDWebImage源码阅读/"/>
 
 
 
@@ -190,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -237,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/SDWebImage源码阅读/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/SDWebImage源码阅读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -264,7 +264,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
                 2018-10-12
@@ -285,7 +285,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -357,8 +357,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/12/React第二课/" rel="next" title="React(二)">
-                <i class="fa fa-chevron-left"></i> React(二)
+              <a href="/2018/10/12/Swift学习资源和大神博客/" rel="next" title="Swift学习资源">
+                <i class="fa fa-chevron-left"></i> Swift学习资源
               </a>
             
           </div>
@@ -367,8 +367,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/12/Objective-C学习资源和大神博客/" rel="prev" title="Objective-C视频学习资源">
-                Objective-C视频学习资源 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/12/React第三课/" rel="prev" title="React(三)">
+                React(三) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -419,10 +419,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -443,7 +443,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">38</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -454,7 +454,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -465,7 +465,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">81</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
