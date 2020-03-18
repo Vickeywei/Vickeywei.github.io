@@ -234,221 +234,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/React第三课/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/React第三课/" itemprop="url">React(三)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index">
-                    <span itemprop="name">react</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="函数组件和类定义组件"><a href="#函数组件和类定义组件" class="headerlink" title="函数组件和类定义组件"></a>函数组件和类定义组件</h1><p>组件:在react和react-native中通常会把可复用的部件封装起来,构建成一个单独的组件.<br>组件从概念上看上去就像一个函数,他可以接收任意输入的值称之为(props)属性.并返回一个需要在页面上显示的React元素</p>
-<ul>
-<li>函数定义组件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Student(props) &#123;</span><br><span class="line">	return &lt;h1&gt;hello, &#123;props.name&#125;&lt;/h1&gt;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;Student name = &quot;vicky&quot;/&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>上面的函数就是一个有效的React组件,它接收一个props的对象参数,并返回一个有效的React元素.我们称之为函数定义组件</p>
-<ul>
-<li>类定义组件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Student extends React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;Student name = &quot;weiqi&quot;/&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>看到Class这个关键字,我们很清楚的知道这个是一个类,不论是在java,oc,还是swift他都指代一个类.所以我们通过创建一个类来完成定义在类的render()函数中返回一个React元素,然后将元素添加到界面上显示.在render函数中我们看到了this.props.name,this代表是这个类本身.而props是这个类的属性,那么是具体属性的名称.</p>
-<p>以一个上边为图片下边为文字的button来用oc的语言特征进行解释解释(强行扯上关系):比如封装一个上图下文的button</p>
-<ul>
-<li>函数形式:</li>
-</ul>
-<p>我们可以通过在需要用到的地方以函数的形式构建,然后通过函数返回值返回需要的结果,添加到页面上显示代码在这里就不写了,没什么技术含量.</p>
-<ul>
-<li>类形式</li>
-</ul>
-<p>创建一个继承自UIbutton的子类,然后在init方法中构建自己需要的页面样式.在需要使用的地方初始化,加载.</p>
-<p>上面我举的是一个很微不足道的例子,只是为了做解释说明,方便大家记忆理解,同时也是为了方便我记忆理解.可能让你单独记忆这个概念,可能记不住,但是你一旦把他和你的生活上经常干的事扯上关系,那就不算记忆,只是做一些扩展而已.就变得简单多了.</p>
-<h1 id="组件渲染"><a href="#组件渲染" class="headerlink" title="组件渲染"></a>组件渲染</h1><p>从上面的函数定义组件分析组件渲染:</p>
-<ul>
-<li>组件<student name="vicky"> 元素调用的ReactDom的render函数</student></li>
-<li>React将{name:”vicky”}作为Student的props传递给了Student组件</li>
-<li>在Student组件将函数结果返回.</li>
-<li>ReactDom将Dom更新为组件返回的结果</li>
-</ul>
-<p>介绍俩个概念:</p>
-<ul>
-<li>Dom标签:我们前面使用过的在ReactDom.render函数中直接使用的<h1>标签,作为React的元素</h1></li>
-<li>自定义组件:通过函数或类来自定义的组件</li>
-</ul>
-<h1 id="组合组件"><a href="#组合组件" class="headerlink" title="组合组件"></a>组合组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Student extends React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return &lt;h1&gt;hello, &#123;this.props.name&#125;&lt;/h1&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class App extends  React.Component &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return (</span><br><span class="line">			&lt;div&gt;</span><br><span class="line">				&lt;Student name = &quot;vicky&quot;/&gt;</span><br><span class="line">				&lt;Student name = &quot;张三&quot;/&gt;</span><br><span class="line">				&lt;Student name = &quot;李四&quot;/&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">	&lt;span&gt;</span><br><span class="line">		&lt;App /&gt;</span><br><span class="line">	&lt;/span&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>理解:就是在一个组件内部可已使用另外的一个组件.工程中中就是在一个自定义的子视图中使用另外的一个自定义子视图控件</p>
-<p>重点:一个新的React程序的顶部一般都是App组件,如果要讲React集成到现有的应用程序中,则可以从下而上使用小组件作为开始,然后逐渐向顶层扩展.</p>
-<p>警告:组件的返回值只能有一个根元素.</p>
-<h1 id="提取组件"><a href="#提取组件" class="headerlink" title="提取组件"></a>提取组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Comment(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;Comment&quot;&gt;</span><br><span class="line">      &lt;div className=&quot;UserInfo&quot;&gt;</span><br><span class="line">        &lt;img className=&quot;Avatar&quot;</span><br><span class="line">          src=&#123;props.author.avatarUrl&#125;</span><br><span class="line">          alt=&#123;props.author.name&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;div className=&quot;UserInfo-name&quot;&gt;</span><br><span class="line">          &#123;props.author.name&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=&quot;Comment-text&quot;&gt;</span><br><span class="line">        &#123;props.text&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=&quot;Comment-date&quot;&gt;</span><br><span class="line">        &#123;formatDate(props.date)&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>看到上面的代码有什么感受,好多div啊,而且嵌套了好多层啊.现在让我们一起讲上面的代码进行提取组件,然后使代码变得清晰.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function Avatar(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;img className=&quot;Avatar&quot; </span><br><span class="line">			 src=&#123;props.author.url&#125;</span><br><span class="line">			 alt=&#123;props.author.name&#125;</span><br><span class="line">		/&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function UserInfo(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;UserInfU&quot;&gt;</span><br><span class="line">			&#123;props.author.name&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function CommentText(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment-text&quot;&gt;</span><br><span class="line">			&#123;props.text&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function CommentDate(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment-date&quot;&gt;</span><br><span class="line">			&#123;formatDate(props.date)&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">		</span><br><span class="line">	)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function Comment(props) &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;div className=&quot;Comment&quot;&gt;</span><br><span class="line">			&lt;div className=&quot;UserInfo&quot;&gt;</span><br><span class="line">				&lt;Avatar user = &#123;props.author&#125; /&gt;</span><br><span class="line">				&lt;UserInfo user = &#123;props.author&#125;/&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;CommentText text = &#123;props.text&#125;/&gt;</span><br><span class="line">			&lt;CommentDate date = &#123;props.date&#125;/&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>拆解之后有什么好处:</p>
-<p>1.代码的可读性较高</p>
-<p>2.拆解出来的组件可以进行复用</p>
-<p>3.可以分别拆解到不同的文件,减少单独文件的代码量</p>
-<h1 id="props属性和只读属性"><a href="#props属性和只读属性" class="headerlink" title="props属性和只读属性"></a>props属性和只读属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function sum(a,b) &#123;</span><br><span class="line"> return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数并没有修改输入值得本身,当传入值相同时结果是相同的<br>这种函数较重纯函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function withdraw(account, amount) &#123;</span><br><span class="line">  account.total -= amount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个函数对它自身输入的值进行了-=操作,输入值本身发生了变化.</p>
-<p>##重点:所有的React组件必须(必须)(必须)像纯函数那样使用它们的props</p>
-<h1 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h1><p>初级类定义:刚开始学就这样了,后面学习到了慢慢改进</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">//首先引入React和PropTypes</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import PropTypes from &apos;prop-types&apos;;</span><br><span class="line"></span><br><span class="line">//开始定义Student类</span><br><span class="line"></span><br><span class="line">class Student extends React.Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123;</span><br><span class="line">            name,</span><br><span class="line">            age,</span><br><span class="line">            star,</span><br><span class="line">            sex,</span><br><span class="line">            phone,</span><br><span class="line">            account,</span><br><span class="line">            headImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; = this.props;</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    name:&#123;name&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                   age: &#123;age&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    star:&#123;star&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    sex:&#123;sex&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                   phone: &#123;phone&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;h1&gt;</span><br><span class="line">                    account:&#123;account&#125;</span><br><span class="line">                &lt;/h1&gt;</span><br><span class="line">                &lt;img src= &#123;headImage&#125;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//到底我们需要哪些属性啦?按需求来定</span><br><span class="line"></span><br><span class="line">Student.defaultProps = &#123;</span><br><span class="line">    name: &quot;vicky&quot;,</span><br><span class="line">    age: 25,</span><br><span class="line">    star: &quot;摩羯座&quot;,</span><br><span class="line">    sex: 1, //1:男性,2:女性,3:未知</span><br><span class="line">    phone: 119110120,</span><br><span class="line">    account: 513961360,</span><br><span class="line">    headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//检查数据类型,如果数据类型不匹配会进行报错提醒</span><br><span class="line">Student.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string.isRequired,</span><br><span class="line">    age: PropTypes.number.isRequired,</span><br><span class="line">    star: PropTypes.string.isRequired,</span><br><span class="line">    sex: PropTypes.number.isRequired,</span><br><span class="line">    phone: PropTypes.number.isRequired,</span><br><span class="line">    account: PropTypes.number.isRequired,</span><br><span class="line">    headImage: PropTypes.string.isRequired</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//export  default Student;</span><br></pre></td></tr></table></figure>
-<p>然后在index.js引入文件并渲染组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line"></span><br><span class="line">	&lt;Student name=&quot;李四&quot; age=&quot;56&quot; star=&quot;白羊&quot; sex=&quot;2&quot; phone=&quot;122222222&quot; account=&quot;2222222&quot; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>然后运行发现报错了<br>报错大概是这样的 export default was not found ./Stundet到底什么意思啦就是在类定义组件并且分文件之后要将自己暴露出来,在类定义的最后一行引入这行代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export  default Student;</span><br></pre></td></tr></table></figure>
-<p>然后在运行发现还有报错:<br>这次就不展示什么报错了,就是类型检查报错,因为我们声明了很多属性的类型为number类型,但是我们用string赋值肯定会报错的.</p>
-<p>修改完后的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line"></span><br><span class="line">	&lt;Student name=&quot;李四&quot; age=&#123;56&#125; star=&quot;白羊&quot; sex=&#123;2&#125; phone=&#123;122222222&#125; account=&#123;2222222&#125; headImag=&quot;https://www.baidu.com/img/bd_logo1.png&quot;/&gt;,</span><br><span class="line">	document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>报错是消失了,但是图片和名字还是没有显示,原来是属性名写错了,sorry低级失误.</p>
-<ul>
-<li>添加属性的方法</li>
-</ul>
-<p>可以再使用组件时直接添加,例如<student name="张三">,然后在组件内部return是用this.props.name来获取属性值</student></p>
-<ul>
-<li>添加属性默认值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Student.defaultProps = &#123;</span><br><span class="line">    name: &quot;vicky&quot;,</span><br><span class="line">    age: 25,</span><br><span class="line">    star: &quot;摩羯座&quot;,</span><br><span class="line">    sex: 1, //1:男性,2:女性,3:未知</span><br><span class="line">    phone: 119110120,</span><br><span class="line">    account: 513961360,</span><br><span class="line">    headImage:&quot;https://www.baidu.com/img/bd_logo1.png&quot;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>检查数据类型,如果数据类型不匹配会进行报错提醒</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Student.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string.isRequired,</span><br><span class="line">    age: PropTypes.number.isRequired,</span><br><span class="line">    star: PropTypes.string.isRequired,</span><br><span class="line">    sex: PropTypes.number.isRequired,</span><br><span class="line">    phone: PropTypes.number.isRequired,</span><br><span class="line">    account: PropTypes.number.isRequired,</span><br><span class="line">    headImage: PropTypes.string.isRequired</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>render函数的使用属性的多种方法,常见的就是this.props.name这种,还有在一些人的代码中经常会看到这样的代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const &#123;</span><br><span class="line">            name,</span><br><span class="line">            age,</span><br><span class="line">            star,</span><br><span class="line">            sex,</span><br><span class="line">            phone,</span><br><span class="line">            account,</span><br><span class="line">            headImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; = this.props;</span><br></pre></td></tr></table></figure>
-<p>简化赋值操作.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/Swift学习资源和大神博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -650,153 +435,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/Xcode调试技巧和常用快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/Xcode调试技巧和常用快捷键/" itemprop="url">Xcode常用命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p>
-<p>po :常用来输出oc对象类型</p>
-<p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p>
-<p>call :常用来动态调用函数</p>
-<p>image: image命令可以列出当前App中的所有模块</p>
-<p>po [view recursiveDescription] 查看view的层级关系</p>
-<h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p>
-<p>Command+1~9:导航面版切换</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/Xcode之Architectures设置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -897,6 +535,153 @@
 <li>指令集都是可以向下兼容的</li>
 </ul>
 <h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/Xcode调试技巧和常用快捷键/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/Xcode调试技巧和常用快捷键/" itemprop="url">Xcode常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Xcode常用命令"><a href="#Xcode常用命令" class="headerlink" title="Xcode常用命令"></a>Xcode常用命令</h1><p>p :常用来输出基础数据类型</p>
+<p>po :常用来输出oc对象类型</p>
+<p>expr :可以在调试时动态的执行表达式，同时打印出结果。常用来动态修改变量的值。</p>
+<p>call :常用来动态调用函数</p>
+<p>image: image命令可以列出当前App中的所有模块</p>
+<p>po [view recursiveDescription] 查看view的层级关系</p>
+<h1 id="Xcode常用快捷键"><a href="#Xcode常用快捷键" class="headerlink" title="Xcode常用快捷键"></a>Xcode常用快捷键</h1><p>shift+command+o :快速打开文件</p>
+<p>Command+1~9:导航面版切换</p>
 
           
         
@@ -1093,145 +878,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/iOS开发小记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/iOS开发小记/" itemprop="url">iOS开发小记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/iOS应用安全攻防实战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1343,6 +989,145 @@
 <h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p>
 <h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/iOS开发小记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/iOS开发小记/" itemprop="url">iOS开发小记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h1>
           
         
       
@@ -1770,6 +1555,246 @@
 <p><code>bash mysql_install_db --verbose --user=root
  --basedir=&quot;$(brew --prefix mysql)&quot;--datadir=/usr/local/var/mysql --tmpdir=/tmp</code></p>
 <p><code>bash mysql.server start</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/react第一节/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/react第一节/" itemprop="url">React(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="配置React开发环境"><a href="#配置React开发环境" class="headerlink" title="配置React开发环境"></a>配置React开发环境</h2><p>我们选择使用HomeBrew来安装node</p>
+<ul>
+<li>安装homebrew</li>
+</ul>
+<pre><code class="Ruby">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+</code></pre>
+<ul>
+<li>更新brew</li>
+</ul>
+<pre><code class="Ruby">brew update
+</code></pre>
+<ul>
+<li>配置环境变量</li>
+</ul>
+<pre><code class="Ruby">vim ./bash.profile
+export PATH=<span class="string">"/usr/local/bin:$PATH"</span>
+esc,shift+wq退出并保存
+</code></pre>
+<ul>
+<li>为了保证你的环境中没有node的参与文件,可以通过以下命令完全删除node</li>
+</ul>
+<pre><code class="sudo">sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}
+</code></pre>
+<ul>
+<li>安装node</li>
+</ul>
+<pre><code class="node">brew link node
+brew uninstall node
+brew install node
+</code></pre>
+<ul>
+<li>测试安装是否成功</li>
+</ul>
+<pre><code class="node">npm install -g grunt-cli
+</code></pre>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="mkdir">mkdir react-demo
+cd react-demo
+npm install -g create-react-app
+create-react-app my-app
+
+cd my-app
+npm start
+</code></pre>
+<p>这样就可以看到运行起来的react项目</p>
+<h2 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h2><p>删除APP.js,App.css,App.test.js,index.css,logo.svg,registerServiceWorker.js 文件<br>修改index.js文件</p>
+<pre><code class="react">import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+
+ReactDOM.render(
+    &lt;h1&gt;Hello world&lt;/h1&gt;, 
+    document.getElementById(&apos;root&apos;)
+);
+npm start 运行
+</code></pre>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>上面的这段代码会渲染一个id叫做root的dom元素,所以在index.html中我们会看到</p>
+<pre><code class="react">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>因为我是iOS的开发工作者,我的理解是,html文件向我们提供了一个父视图View也就是这里的div,然后我们根据设置这个View的id来让外界访问.然后在index.js文件中我们创建了一个子视图,并添加到div这个父视图上.就显示到了html页面上.</p>
+<h2 id="开始学习"><a href="#开始学习" class="headerlink" title="开始学习"></a>开始学习</h2><p>本人从未开发过react项目一切都是从零开始,选择编辑器开发react的工具有很多,有IDEA,WebStrom,SublimeText等.具体安装什么插件,网上都有教程,这里不做详细说明,可以按照个人喜好安装.</p>
+<p>我选择是idea来编辑项目,因为公司的前端小伙伴都是使用这个编辑器,方便学习和交流,我也推荐大家按照公司小伙伴的喜好来使用编辑器,这样有什么不懂的更方便询问和学习.</p>
+<h2 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h2><p>我对jsx    的理解就是JavaScript + XML组成JSX<br>第一步使用JSX语法修改刚才的项目</p>
+<pre><code class="react">const element = &lt;h1&gt;Hello world!&lt;/h1&gt;;
+ReactDOM.render(
+    element,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>第一行的代码看起来既不是字符串也不是html,而他正式这个react的主角:JSX,也就是js的语法扩展,在OC中也有很多语法扩展.说到这里我就说一下iOS中的语法扩展GCC扩展语法,为什么这样写,这样写有什么好处</p>
+<p>优点:<br>1.如果不是通过XIB来定义控件我们经常会看到大量的定义UI界面的代码,如果开发这的代码规范有很大的纰漏,那样我相信你们会很发燥,因为可能要到处找代码,例如这个控件的颜色到底在哪里设置的.但是通过这样的语法我们就可以将代码放在大括号内部,是代码更加清晰整洁.<br>2.如果你看到这样的代码,是不是也会认为这样的代码逼格会高一点啦.</p>
+<pre><code class="Objective-C">UIButton *secondButton = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(100, 100, 100, 100);
+        button;
+    });
+</code></pre>
+<p>回到JSX的话题.</p>
+<pre><code class="React">let fommat = (user)=&gt; user.firstName + &apos;&apos; + user.lastName;
+
+
+const  user = {
+
+    firstName:&apos;wei&apos;,
+    lastName:&apos;qi&apos;
+
+};
+
+const  element = (
+    &lt;h1&gt;
+        Hello {fommat(user)}!
+    &lt;/h1&gt;
+);
+
+
+ReactDOM.render(
+    element,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>划重点:第一行代码使用了箭头函数,后面的就是JSX的基础使用</p>
+<p>这次是我学习react的第一课,希望大家多多谅解!如果有志同道合者希望加入我的队列.谢谢!</p>
 
           
         
