@@ -84,7 +84,7 @@
 <meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vicky的技术博客">
-<meta property="og:url" content="https://blog.devvk.com/page/4/index.html">
+<meta property="og:url" content="https://devvk.com/page/4/index.html">
 <meta property="og:site_name" content="Vicky的技术博客">
 <meta property="og:description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
 <meta property="og:locale" content="zh-CN">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.devvk.com/page/4/"/>
+  <link rel="canonical" href="https://devvk.com/page/4/"/>
 
 
 
@@ -234,7 +234,247 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/runtime（一）/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/react第一节/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/react第一节/" itemprop="url">React(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="配置React开发环境"><a href="#配置React开发环境" class="headerlink" title="配置React开发环境"></a>配置React开发环境</h2><p>我们选择使用HomeBrew来安装node</p>
+<ul>
+<li>安装homebrew</li>
+</ul>
+<pre><code class="Ruby">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span>
+</code></pre>
+<ul>
+<li>更新brew</li>
+</ul>
+<pre><code class="Ruby">brew update
+</code></pre>
+<ul>
+<li>配置环境变量</li>
+</ul>
+<pre><code class="Ruby">vim ./bash.profile
+export PATH=<span class="string">"/usr/local/bin:$PATH"</span>
+esc,shift+wq退出并保存
+</code></pre>
+<ul>
+<li>为了保证你的环境中没有node的参与文件,可以通过以下命令完全删除node</li>
+</ul>
+<pre><code class="sudo">sudo rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/{npm*,node*,man1/node*}
+</code></pre>
+<ul>
+<li>安装node</li>
+</ul>
+<pre><code class="node">brew link node
+brew uninstall node
+brew install node
+</code></pre>
+<ul>
+<li>测试安装是否成功</li>
+</ul>
+<pre><code class="node">npm install -g grunt-cli
+</code></pre>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><pre><code class="mkdir">mkdir react-demo
+cd react-demo
+npm install -g create-react-app
+create-react-app my-app
+
+cd my-app
+npm start
+</code></pre>
+<p>这样就可以看到运行起来的react项目</p>
+<h2 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h2><p>删除APP.js,App.css,App.test.js,index.css,logo.svg,registerServiceWorker.js 文件<br>修改index.js文件</p>
+<pre><code class="react">import React from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+
+ReactDOM.render(
+    &lt;h1&gt;Hello world&lt;/h1&gt;, 
+    document.getElementById(&apos;root&apos;)
+);
+npm start 运行
+</code></pre>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>上面的这段代码会渲染一个id叫做root的dom元素,所以在index.html中我们会看到</p>
+<pre><code class="react">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>因为我是iOS的开发工作者,我的理解是,html文件向我们提供了一个父视图View也就是这里的div,然后我们根据设置这个View的id来让外界访问.然后在index.js文件中我们创建了一个子视图,并添加到div这个父视图上.就显示到了html页面上.</p>
+<h2 id="开始学习"><a href="#开始学习" class="headerlink" title="开始学习"></a>开始学习</h2><p>本人从未开发过react项目一切都是从零开始,选择编辑器开发react的工具有很多,有IDEA,WebStrom,SublimeText等.具体安装什么插件,网上都有教程,这里不做详细说明,可以按照个人喜好安装.</p>
+<p>我选择是idea来编辑项目,因为公司的前端小伙伴都是使用这个编辑器,方便学习和交流,我也推荐大家按照公司小伙伴的喜好来使用编辑器,这样有什么不懂的更方便询问和学习.</p>
+<h2 id="JSX简介"><a href="#JSX简介" class="headerlink" title="JSX简介"></a>JSX简介</h2><p>我对jsx    的理解就是JavaScript + XML组成JSX<br>第一步使用JSX语法修改刚才的项目</p>
+<pre><code class="react">const element = &lt;h1&gt;Hello world!&lt;/h1&gt;;
+ReactDOM.render(
+    element,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>第一行的代码看起来既不是字符串也不是html,而他正式这个react的主角:JSX,也就是js的语法扩展,在OC中也有很多语法扩展.说到这里我就说一下iOS中的语法扩展GCC扩展语法,为什么这样写,这样写有什么好处</p>
+<p>优点:<br>1.如果不是通过XIB来定义控件我们经常会看到大量的定义UI界面的代码,如果开发这的代码规范有很大的纰漏,那样我相信你们会很发燥,因为可能要到处找代码,例如这个控件的颜色到底在哪里设置的.但是通过这样的语法我们就可以将代码放在大括号内部,是代码更加清晰整洁.<br>2.如果你看到这样的代码,是不是也会认为这样的代码逼格会高一点啦.</p>
+<pre><code class="Objective-C">UIButton *secondButton = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(100, 100, 100, 100);
+        button;
+    });
+</code></pre>
+<p>回到JSX的话题.</p>
+<pre><code class="React">let fommat = (user)=&gt; user.firstName + &apos;&apos; + user.lastName;
+
+
+const  user = {
+
+    firstName:&apos;wei&apos;,
+    lastName:&apos;qi&apos;
+
+};
+
+const  element = (
+    &lt;h1&gt;
+        Hello {fommat(user)}!
+    &lt;/h1&gt;
+);
+
+
+ReactDOM.render(
+    element,
+    document.getElementById(&apos;root&apos;)
+);
+</code></pre>
+<p>划重点:第一行代码使用了箭头函数,后面的就是JSX的基础使用</p>
+<p>这次是我学习react的第一课,希望大家多多谅解!如果有志同道合者希望加入我的队列.谢谢!</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/runtime（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -382,178 +622,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/优化内存泄漏的几点分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/优化内存泄漏的几点分析/" itemprop="url">内存优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="内存优化的几点分析"><a href="#内存优化的几点分析" class="headerlink" title="内存优化的几点分析:"></a>内存优化的几点分析:</h1><ul>
-<li>CoreFoundation的内存管理</li>
-<li>block的循环引用</li>
-<li>在for循环大量数据,不断创建局部变量的几点思考</li>
-<li>mrc的基础问题</li>
-<li>第三方框架中的内存问题</li>
-</ul>
-<h2 id="CoreFoundation的内存管理"><a href="#CoreFoundation的内存管理" class="headerlink" title="CoreFoundation的内存管理"></a>CoreFoundation的内存管理</h2><p>在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似，</p>
-<ul>
-<li>需要引用时，引用计数+1，不需要引用时，引用计数-1</li>
-<li>谁创建，谁release</li>
-<li>谁retain，谁release</li>
-<li>只要调用了alloc,必须要有realease(autorelease)<br>example:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CFUUIDRef uuid = CFUUIDCreate(NULL);</span><br><span class="line">appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</span><br><span class="line">CFRelease(uuid);</span><br><span class="line">CFRelease(appUID);</span><br></pre></td></tr></table></figure>
-<h2 id="block的循环引用问题"><a href="#block的循环引用问题" class="headerlink" title="block的循环引用问题"></a>block的循环引用问题</h2><p>循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。<br>解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。<br>for example<br>实例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)case1 &#123;</span><br><span class="line">NSLog(@&quot;case 1 Click&quot;);</span><br><span class="line">  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">      self.name = @&quot;case 1&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block<br>在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。<br>实例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)case2 &#123;</span><br><span class="line">  NSLog(@&quot;case 2 Click&quot;);</span><br><span class="line">  __weaktypeof(self) weakSelf = self;</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">      strongSelf.name = @&quot;case 2&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。<br>实例3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case4 &#123;</span><br><span class="line">  NSLog(@&quot;case 4 Click&quot;);</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 4&quot;;</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a>就是在block执行结束后，将block置nil。<br>实例4：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case5 &#123;</span><br><span class="line">  NSLog(@&quot;case 5 Click&quot;);</span><br><span class="line">  Teacher *t = [[Teacher alloc] init];</span><br><span class="line">  [t requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 5&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。</p>
-<p>实例5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)case6 &#123;</span><br><span class="line">  NSLog(@&quot;case 6 Click&quot;);</span><br><span class="line">  [self.teacher callCase6BlackEvent];</span><br><span class="line">  self.teacher.case6Block = ^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 6&quot;;</span><br><span class="line">  //下面两句代码任选其一</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  //  self.teacher.case6Block = nil;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在block执行结束后置nil操作，解决内存泄漏问题</p>
-<h2 id="for循环大量数据时，不断创建局部变量的思考"><a href="#for循环大量数据时，不断创建局部变量的思考" class="headerlink" title="for循环大量数据时，不断创建局部变量的思考"></a>for循环大量数据时，不断创建局部变量的思考</h2><p>在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。<br>conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。</p>
-<h2 id="mrc的基础"><a href="#mrc的基础" class="headerlink" title="mrc的基础"></a>mrc的基础</h2><p>虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则：</p>
-<ul>
-<li>需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release）</li>
-<li>谁创建，谁release (alloc-&gt;release）</li>
-<li>谁retain，谁release (retain-&gt;release)</li>
-<li>只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease))</li>
-</ul>
-<h2 id="关于第三方出现的循环引用问题"><a href="#关于第三方出现的循环引用问题" class="headerlink" title="关于第三方出现的循环引用问题"></a>关于第三方出现的循环引用问题</h2><p>我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br></pre></td></tr></table></figure></p>
-<p>解决办法：采用单例的方式创建。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/三个ImageView实现无限轮播和三个Label实现公告/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/三个ImageView实现无限轮播和三个Label实现公告/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -743,7 +812,178 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/内存分配和内存区块/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/优化内存泄漏的几点分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/优化内存泄漏的几点分析/" itemprop="url">内存优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="内存优化的几点分析"><a href="#内存优化的几点分析" class="headerlink" title="内存优化的几点分析:"></a>内存优化的几点分析:</h1><ul>
+<li>CoreFoundation的内存管理</li>
+<li>block的循环引用</li>
+<li>在for循环大量数据,不断创建局部变量的几点思考</li>
+<li>mrc的基础问题</li>
+<li>第三方框架中的内存问题</li>
+</ul>
+<h2 id="CoreFoundation的内存管理"><a href="#CoreFoundation的内存管理" class="headerlink" title="CoreFoundation的内存管理"></a>CoreFoundation的内存管理</h2><p>在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似，</p>
+<ul>
+<li>需要引用时，引用计数+1，不需要引用时，引用计数-1</li>
+<li>谁创建，谁release</li>
+<li>谁retain，谁release</li>
+<li>只要调用了alloc,必须要有realease(autorelease)<br>example:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CFUUIDRef uuid = CFUUIDCreate(NULL);</span><br><span class="line">appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</span><br><span class="line">CFRelease(uuid);</span><br><span class="line">CFRelease(appUID);</span><br></pre></td></tr></table></figure>
+<h2 id="block的循环引用问题"><a href="#block的循环引用问题" class="headerlink" title="block的循环引用问题"></a>block的循环引用问题</h2><p>循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。<br>解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。<br>for example<br>实例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)case1 &#123;</span><br><span class="line">NSLog(@&quot;case 1 Click&quot;);</span><br><span class="line">  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">      self.name = @&quot;case 1&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block<br>在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。<br>实例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)case2 &#123;</span><br><span class="line">  NSLog(@&quot;case 2 Click&quot;);</span><br><span class="line">  __weaktypeof(self) weakSelf = self;</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">      strongSelf.name = @&quot;case 2&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。<br>实例3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case4 &#123;</span><br><span class="line">  NSLog(@&quot;case 4 Click&quot;);</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 4&quot;;</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a>就是在block执行结束后，将block置nil。<br>实例4：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case5 &#123;</span><br><span class="line">  NSLog(@&quot;case 5 Click&quot;);</span><br><span class="line">  Teacher *t = [[Teacher alloc] init];</span><br><span class="line">  [t requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 5&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。</p>
+<p>实例5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)case6 &#123;</span><br><span class="line">  NSLog(@&quot;case 6 Click&quot;);</span><br><span class="line">  [self.teacher callCase6BlackEvent];</span><br><span class="line">  self.teacher.case6Block = ^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 6&quot;;</span><br><span class="line">  //下面两句代码任选其一</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  //  self.teacher.case6Block = nil;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在block执行结束后置nil操作，解决内存泄漏问题</p>
+<h2 id="for循环大量数据时，不断创建局部变量的思考"><a href="#for循环大量数据时，不断创建局部变量的思考" class="headerlink" title="for循环大量数据时，不断创建局部变量的思考"></a>for循环大量数据时，不断创建局部变量的思考</h2><p>在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。<br>conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。</p>
+<h2 id="mrc的基础"><a href="#mrc的基础" class="headerlink" title="mrc的基础"></a>mrc的基础</h2><p>虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则：</p>
+<ul>
+<li>需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release）</li>
+<li>谁创建，谁release (alloc-&gt;release）</li>
+<li>谁retain，谁release (retain-&gt;release)</li>
+<li>只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease))</li>
+</ul>
+<h2 id="关于第三方出现的循环引用问题"><a href="#关于第三方出现的循环引用问题" class="headerlink" title="关于第三方出现的循环引用问题"></a>关于第三方出现的循环引用问题</h2><p>我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br></pre></td></tr></table></figure></p>
+<p>解决办法：采用单例的方式创建。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/内存分配和内存区块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -905,7 +1145,7 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/多线程/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/多线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -1064,7 +1304,7 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/红海行动/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/红海行动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -1205,7 +1445,7 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/面试总结/">
+    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/面试总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -1301,164 +1541,6 @@ UIView.animate(withDuration: animationInterval, animations: {
 <p>3.目前面试了很多家发现自己的不足就是说的时候,表达的不够清楚,感觉好像是这么回事有感觉不像这么回事.其实应该仔细考虑提问并花时间考虑回答.因为面试时间较短所以反应能力和表达能力很重要(需要加强)</p>
 <p>4.对于基础知识方面:只要是用过的做过的都能说个差不多,但是就怕没用过的.所以发现自己的知识面的横向拓展还有待提高</p>
 <p>总结:生活就是这样,亦步亦趋.在面试和生活中找寻不足,然后面对不足做出回应,然后使自己更加完善.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.devvk.com/2018/10/12/iOS应用安全攻防实战/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/iOS应用安全攻防实战/" itemprop="url">iOS应用攻防实战(一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="误解1-认证因为这设备是安全可信任的"><a href="#误解1-认证因为这设备是安全可信任的" class="headerlink" title="误解1: 认证因为这设备是安全可信任的"></a>误解1: 认证因为这设备是安全可信任的</h1><p>设备和产品的认证,只是认证机构对于设备和产品的概念性功能和实现能力的合规性认证,在认证的过程中并没有对设备和产品进行渗透性测试.并不能保证设备和程序不被黑客攻破.</p>
-<h1 id="误解2-单一性安全机制"><a href="#误解2-单一性安全机制" class="headerlink" title="误解2: 单一性安全机制"></a>误解2: 单一性安全机制</h1><p>单一性安全机制的问题,就存在与单一性上,他简化了攻破所需要分析的代码.如果一旦单一的安全机制被攻破,所有基于这个单一安全机制的设备和程序都将被攻破.</p>
-<h1 id="iOS安全模型"><a href="#iOS安全模型" class="headerlink" title="iOS安全模型"></a>iOS安全模型</h1><p>1.设备安全:防止未授权的人使用设备</p>
-<p>2.数据安全:存储在设备上的数据得到保护</p>
-<p>3.网络安全:当通过网络传输时的加密工具</p>
-<p>4.应用软件安全:加固操作系统并隔离运行时应用软件的机制</p>
-<h1 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h1><p>对于设备安全,苹果做出的应对是设置密码和PIN锁.苹果允许企业在安全策略中强制设置这些锁,或个人用户手动设置.</p>
-<h1 id="数据安全"><a href="#数据安全" class="headerlink" title="数据安全"></a>数据安全</h1><p>苹果的数据加密是很值得一提的,采用硬件加密加速器来加密选定的应用软件数据.通过将这些存储在设备上的特定加密密钥与用户设置的密码结合,该系统可以保证只有在用户输入密码后文件系统中这些被保护的文件才会解密.所以用户输入的密码的安全性就是关键.所以密码的复杂度就决定破解的难度.</p>
-<h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><p>苹果使用了很多方法来加密网络包括VPN,SSL,TLS传输层协议,WEP,WPA,WPA2无线网络加密和认证,和2017年一月份提出的HTTPS强制要求都是为了网络安全.</p>
-<h1 id="应用软件的安全"><a href="#应用软件的安全" class="headerlink" title="应用软件的安全"></a>应用软件的安全</h1><p>应用软件的安全,完全依赖于苹果的沙盒技术.拼过系统将自身可被访问的API作为接口放出.应用软件本身不可以访问系统组件,和其他应用软件.沙盒机制限制了一个应用的内存和CPU使用的总量,当超出限制时,出现崩溃闪退现象.他只可以对自己文件目录访问.</p>
-<p>为了限制应用软件访问设备资源,苹果使用代码签名的方式,所有运行在设备上的二进制代码,必须经过苹果签名或者使用苹果办法的证书签名.这样做可以保证自身无法修改二进制文件.苹果也可以检测其应用软件的完整性.确保没有被签名的代码注入.</p>
-<p>钥匙串技术,可以将一些网络凭证,其他信息保存在钥匙串中,还提供了低级别的加密解密方法.</p>
-<p>苹果还提供了基础的加密解密算法(common crypto),开发者可以使用加密算法,对数据机型加密.</p>
-<h1 id="误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5"><a href="#误解三-iOS文件系统加密可以防止设备上的数据失窃-直到iOS5" class="headerlink" title="误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)"></a>误解三:iOS文件系统加密可以防止设备上的数据失窃(直到iOS5)</h1><p>iOS的文件系统加密使用了将秘钥he数据存储在同一设备上的加密系统(直到iOS5)攻击者只需要活的在设备上执行代码的权限,就可以计算出密钥来破解数据.密钥是数字形态的,谁拥有设备的数字拥有权,谁就能同时拿到锁和钥匙</p>
-<h1 id="密码等于弱安全"><a href="#密码等于弱安全" class="headerlink" title="密码等于弱安全"></a>密码等于弱安全</h1><p>相比于PC，移动设备的安全性和用户体验之间的取舍就很严重了。<br>举一个例子：我们在使用完手机后，时不时会把放进口袋里。每一次使用手机都要进行解锁。所以手机厂商在设计这个安全锁时，就必须考虑密码的简单性。要不然用户体验就会很差（vicky_12@.qq.com）。这样的密码在pc上输入还可以，在每次解锁手机屏幕时，用户可能会取消这个设备锁。因为太过于麻烦。所以厂商的设计一般都是某种图形或者是4位或者6位数字。所以密码是弱安全。</p>
-<h1 id="误解四：关心安全的用户会设置复杂的密码"><a href="#误解四：关心安全的用户会设置复杂的密码" class="headerlink" title="误解四：关心安全的用户会设置复杂的密码"></a>误解四：关心安全的用户会设置复杂的密码</h1><p>大多数用户任然选择PIN码和简单的密码保护自己的设备。这样做是因为他们不知道密码的复杂度与设备加密强度的关系。他们自认为，我设置密码就可以赶跑那些坏人。如果坏人足够坏，你设置的密码是远远不够的。所以假设你的用户一般都只会使用简单PIN码和密码来保护设备。</p>
-<h1 id="误解五：强密码依然不能保证设备安全"><a href="#误解五：强密码依然不能保证设备安全" class="headerlink" title="误解五：强密码依然不能保证设备安全"></a>误解五：强密码依然不能保证设备安全</h1><p>我们所指出的强弱密码并不能完全保证你设备的安全，因为在强的东西也有破绽，只是击破它的复杂度上升了，并没有说完全安全性。在互联网方面，没有完全的安全。</p>
-<h1 id="数字取证击败加密"><a href="#数字取证击败加密" class="headerlink" title="数字取证击败加密"></a>数字取证击败加密</h1><p>可能你编写的代码是很安全的，你的应用软件是很安全的。按时操作系统会不断削减你的安全性。操作系统会不断缓存你所产生的操作（键盘操作）web缓存。文件操作等。操作系统都可以缓存到磁盘中。而且操作系统还可以恢复你删除掉的私密文件。私密文件的加密秘钥只要还存在，私密文件就可能被恢复。而且更加恐怖的是连私密文件的密钥都可以被恢复。</p>
-<h1 id="误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复"><a href="#误解六：-如果应用软件安全的实现了加密，数据就无法从设备中被恢复" class="headerlink" title="误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复"></a>误解六： 如果应用软件安全的实现了加密，数据就无法从设备中被恢复</h1><p>首先你错了。上面已经说过了操作系统会不断削弱你的安全性，会缓存你的操作和文件。就连你私密文件的密钥都能操作，你还认为应用软件安全吗？</p>
 
           
         
