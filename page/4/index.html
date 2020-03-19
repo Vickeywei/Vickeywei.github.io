@@ -84,7 +84,7 @@
 <meta name="description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vicky的技术博客">
-<meta property="og:url" content="https://devvk.com/page/4/index.html">
+<meta property="og:url" content="https://www.devvk.com/page/4/index.html">
 <meta property="og:site_name" content="Vicky的技术博客">
 <meta property="og:description" content="15年毕业于榆林学院,现就职于杭州东导数据科技有限公司.两年多的iOS开发,使我熟练掌握和使用Objective-C和Swift">
 <meta property="og:locale" content="zh-CN">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="https://devvk.com/page/4/"/>
+  <link rel="canonical" href="https://www.devvk.com/page/4/"/>
 
 
 
@@ -187,7 +187,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Accueil
           </a>
         </li>
       
@@ -234,485 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/runtime（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/runtime（一）/" itemprop="url">runtime(一)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/runtime/" itemprop="url" rel="index">
-                    <span itemprop="name">runtime</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="iOS-runtime是如何通过selector找到对应的IMP地址？"><a href="#iOS-runtime是如何通过selector找到对应的IMP地址？" class="headerlink" title="iOS runtime是如何通过selector找到对应的IMP地址？"></a>iOS runtime是如何通过selector找到对应的IMP地址？</h1><p>举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+GetImp.h&quot;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line">@implementation NSString (GetImp)</span><br><span class="line">+ (void)load &#123;</span><br><span class="line">  IMP imp = class_getMethodImplementation([NSString class], @selector(substringFromIndex:));</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">struct objc_class &#123;</span><br><span class="line">    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line">#if !__OBJC2__</span><br><span class="line">    Class _Nullable super_class                              OBJC2_UNAVAILABLE;</span><br><span class="line">    const char * _Nonnull name                               OBJC2_UNAVAILABLE;</span><br><span class="line">    long version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    long info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    long instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_ivar_list * _Nullable ivars                  OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_method_list * _Nullable * _Nullable methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_cache * _Nonnull cache                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_protocol_list * _Nullable protocols          OBJC2_UNAVAILABLE;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
-<h1 id="分析类对象的定义"><a href="#分析类对象的定义" class="headerlink" title="分析类对象的定义"></a>分析类对象的定义</h1><p>objc_class的结构体有以下几个成员<br>isa指针指向元类，所有的类方法全部在元类的方法列表中<br>name：类名<br>varsion：版本号<br>info：类信息<br>instance_size：实例的大小<br>objc_ivar_list：成员变量list<br>objc_method_list：实例方法列表<br>objc_cache：缓存<br>objc_protocol_list：协议列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct objc_method &#123;</span><br><span class="line">    SEL _Nonnull method_name                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    char * _Nullable method_types                            OBJC2_UNAVAILABLE;</span><br><span class="line">    IMP _Nonnull method_imp                                  OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实例方法列表中保存的都是objc_method</p>
-<h1 id="分析实例方法"><a href="#分析实例方法" class="headerlink" title="分析实例方法"></a>分析实例方法</h1><p>method_name：方法名称<br>method_types：方法的参数和返回值类型<br>method_imp：方法实现。<br>到目前我们已经看到我们需要的IMP</p>
-<p>那么runtime到底是如何工作的啦。</p>
-<p>1.根据class_getMethodImplementation的第一个参数确定对象类。<br>2.然后根据第二个参数开始进行查找类方法列表和实例方法列表（方法类型）<br>3.遍历实例方法列表寻找与传入的method_name相等的方法，如果找到就返回该方法的实现<br>4.如果没找到就查找父类的方法列表和元类的方法列表，知道查找到根类和根元类的方法列表。如果还没有找到就抛出异常，否则返回。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/优化内存泄漏的几点分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/优化内存泄漏的几点分析/" itemprop="url">内存优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="内存优化的几点分析"><a href="#内存优化的几点分析" class="headerlink" title="内存优化的几点分析:"></a>内存优化的几点分析:</h1><ul>
-<li>CoreFoundation的内存管理</li>
-<li>block的循环引用</li>
-<li>在for循环大量数据,不断创建局部变量的几点思考</li>
-<li>mrc的基础问题</li>
-<li>第三方框架中的内存问题</li>
-</ul>
-<h2 id="CoreFoundation的内存管理"><a href="#CoreFoundation的内存管理" class="headerlink" title="CoreFoundation的内存管理"></a>CoreFoundation的内存管理</h2><p>在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似，</p>
-<ul>
-<li>需要引用时，引用计数+1，不需要引用时，引用计数-1</li>
-<li>谁创建，谁release</li>
-<li>谁retain，谁release</li>
-<li>只要调用了alloc,必须要有realease(autorelease)<br>example:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CFUUIDRef uuid = CFUUIDCreate(NULL);</span><br><span class="line">appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</span><br><span class="line">CFRelease(uuid);</span><br><span class="line">CFRelease(appUID);</span><br></pre></td></tr></table></figure>
-<h2 id="block的循环引用问题"><a href="#block的循环引用问题" class="headerlink" title="block的循环引用问题"></a>block的循环引用问题</h2><p>循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。<br>解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。<br>for example<br>实例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)case1 &#123;</span><br><span class="line">NSLog(@&quot;case 1 Click&quot;);</span><br><span class="line">  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">      self.name = @&quot;case 1&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block<br>在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。<br>实例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)case2 &#123;</span><br><span class="line">  NSLog(@&quot;case 2 Click&quot;);</span><br><span class="line">  __weaktypeof(self) weakSelf = self;</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">      strongSelf.name = @&quot;case 2&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。<br>实例3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case4 &#123;</span><br><span class="line">  NSLog(@&quot;case 4 Click&quot;);</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 4&quot;;</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a>就是在block执行结束后，将block置nil。<br>实例4：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case5 &#123;</span><br><span class="line">  NSLog(@&quot;case 5 Click&quot;);</span><br><span class="line">  Teacher *t = [[Teacher alloc] init];</span><br><span class="line">  [t requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 5&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。</p>
-<p>实例5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)case6 &#123;</span><br><span class="line">  NSLog(@&quot;case 6 Click&quot;);</span><br><span class="line">  [self.teacher callCase6BlackEvent];</span><br><span class="line">  self.teacher.case6Block = ^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 6&quot;;</span><br><span class="line">  //下面两句代码任选其一</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  //  self.teacher.case6Block = nil;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在block执行结束后置nil操作，解决内存泄漏问题</p>
-<h2 id="for循环大量数据时，不断创建局部变量的思考"><a href="#for循环大量数据时，不断创建局部变量的思考" class="headerlink" title="for循环大量数据时，不断创建局部变量的思考"></a>for循环大量数据时，不断创建局部变量的思考</h2><p>在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。<br>conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。</p>
-<h2 id="mrc的基础"><a href="#mrc的基础" class="headerlink" title="mrc的基础"></a>mrc的基础</h2><p>虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则：</p>
-<ul>
-<li>需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release）</li>
-<li>谁创建，谁release (alloc-&gt;release）</li>
-<li>谁retain，谁release (retain-&gt;release)</li>
-<li>只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease))</li>
-</ul>
-<h2 id="关于第三方出现的循环引用问题"><a href="#关于第三方出现的循环引用问题" class="headerlink" title="关于第三方出现的循环引用问题"></a>关于第三方出现的循环引用问题</h2><p>我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br></pre></td></tr></table></figure></p>
-<p>解决办法：采用单例的方式创建。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/多线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vicky">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vicky的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/多线程/" itemprop="url">多线程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><p>1.你理解的多线程：<br>2.多线程的多种实现方式：<br>3.你更倾向使用哪种？</p>
-<h1 id="pthread-（C）"><a href="#pthread-（C）" class="headerlink" title="pthread （C）"></a>pthread （C）</h1><p>pthread是一套基于c语言的多线程解决方案。使用与多个平台，linux，unix，windows。是一套跨平台的多线程解决方案。但是由于使用难度，在开发过程中很少使用到。</p>
-<h1 id="NSThread-OC"><a href="#NSThread-OC" class="headerlink" title="NSThread (OC)"></a>NSThread (OC)</h1><p>NSThread是苹果开发的一种多线程解决方案，基于面向对象的思想，使用OC语言开发。使用难度小。但唯一的不足就是程序员必须管理线程的生命周期。</p>
-<h1 id="GCD-C"><a href="#GCD-C" class="headerlink" title="GCD (C)"></a>GCD (C)</h1><p>GCD旨在减少程序员管理内存问题。有点事API清晰简单，使用起来简单顺手。而且线程由线程池管理。使得程序员只需要关注提交到线程中的任务。</p>
-<h1 id="NSOperation-OC"><a href="#NSOperation-OC" class="headerlink" title="NSOperation (OC)"></a>NSOperation (OC)</h1><p>NSOperation是基于GCD封装的一套API。使用面向对象的设计原则，比GCD多了一些简单使用的功能，暂停，取消等，使用起来更加方便.生命周期也是系统管理。</p>
-<h1 id="多线程原理"><a href="#多线程原理" class="headerlink" title="多线程原理"></a>多线程原理</h1><p>在单核处理器时代，我们所说的多线程技术就是CPU在线程之间来回切换。<br>1.提交多个任务，为每个任务开辟线程和获取资源。<br>2.CPU首先执行任务a，执行一段时间后，记录任务a，然后去执行任务b，执行一段时间后，又去执行任务c。最后又去执行任务a。在多个任务键来回切换。<br>3。如果CPU的切换足够快，我们就会看到多线程并发的假象。</p>
-<p>总结：开辟的线程越多，CPU的工作量就越大，耗费的系统资源就越多，每个任务被执行的时间效率降低。</p>
-<p>多线程的优点：<br>1.能够充分利用系统资源的使用效率。<br>2.提高程序的执行效率</p>
-<h1 id="请说出你最优的选择"><a href="#请说出你最优的选择" class="headerlink" title="请说出你最优的选择"></a>请说出你最优的选择</h1><p>首先我们应该排除Pthread和NSthread，使用难度和线程生命周期管理的原因。（他们只能作为备胎，而不能作为首选）</p>
-<p>GCD 它的使用更加轻量，API简单，但是功能没有NSOperation完备。程序员只关注向block中提交任务。但是想暂停和取消任务就比较难。而且设置线程依赖也要写非常多的代码。所以对于功能简单和任务明确的小项目适合使用GCD。</p>
-<p>NSOperation 是对GCD的一套抽象封装。增加了不少的功能。而且开发者还可以继承NSOperation完成自己特质的需求。通过NSOperationQueue可以快捷方便的设置线程依赖关系。支持取消，暂停等功能。还可以设置线程的优先级。适合复杂功能和项目的开发。</p>
-<h1 id="同步与异步-串行与并发"><a href="#同步与异步-串行与并发" class="headerlink" title="同步与异步,串行与并发"></a>同步与异步,串行与并发</h1><p>同步和异步:决定是否开辟新的线程</p>
-<p>串行和并发:决定是否同时执行任务</p>
-<p>同步:不会开辟新的线程,异步会开辟新的线程</p>
-<p>并发:会同时执行多个任务</p>
-<p>串行:每次执行一个任务,先进先出</p>
-<h1 id="优秀博文篇"><a href="#优秀博文篇" class="headerlink" title="优秀博文篇"></a>优秀博文篇</h1><p><a href="https://www.jianshu.com/p/4a798bacfff8" target="_blank" rel="noopener">多线程基础</a></p>
-<p><a href="https://objccn.io/issue-2-1/#challenges" target="_blank" rel="noopener">并发编程：API及挑战</a></p>
-<p><a href="https://objccn.io/issues/" target="_blank" rel="noopener">并发编程</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>当前开发中多线程的使用和理解非常重要。但是在并发编程中会遇到各种问题，例如优先级翻转、死锁、线程竞争资源等。所以我们应该在并发编程中考虑周全，并需要完成大量的测试。保证系统资源的正常使用。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/三个ImageView实现无限轮播和三个Label实现公告/">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/三个ImageView实现无限轮播和三个Label实现公告/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -741,7 +263,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
                 2018-10-12
@@ -902,7 +424,326 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/内存分配和内存区块/">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/runtime（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/runtime（一）/" itemprop="url">runtime(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/runtime/" itemprop="url" rel="index">
+                    <span itemprop="name">runtime</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="iOS-runtime是如何通过selector找到对应的IMP地址？"><a href="#iOS-runtime是如何通过selector找到对应的IMP地址？" class="headerlink" title="iOS runtime是如何通过selector找到对应的IMP地址？"></a>iOS runtime是如何通过selector找到对应的IMP地址？</h1><p>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NSString+GetImp.h&quot;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line">@implementation NSString (GetImp)</span><br><span class="line">+ (void)load &#123;</span><br><span class="line">  IMP imp = class_getMethodImplementation([NSString class], @selector(substringFromIndex:));</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">struct objc_class &#123;</span><br><span class="line">    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line">#if !__OBJC2__</span><br><span class="line">    Class _Nullable super_class                              OBJC2_UNAVAILABLE;</span><br><span class="line">    const char * _Nonnull name                               OBJC2_UNAVAILABLE;</span><br><span class="line">    long version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">    long info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">    long instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_ivar_list * _Nullable ivars                  OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_method_list * _Nullable * _Nullable methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_cache * _Nonnull cache                       OBJC2_UNAVAILABLE;</span><br><span class="line">    struct objc_protocol_list * _Nullable protocols          OBJC2_UNAVAILABLE;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br></pre></td></tr></table></figure>
+<h1 id="分析类对象的定义"><a href="#分析类对象的定义" class="headerlink" title="分析类对象的定义"></a>分析类对象的定义</h1><p>objc_class的结构体有以下几个成员<br>isa指针指向元类，所有的类方法全部在元类的方法列表中<br>name：类名<br>varsion：版本号<br>info：类信息<br>instance_size：实例的大小<br>objc_ivar_list：成员变量list<br>objc_method_list：实例方法列表<br>objc_cache：缓存<br>objc_protocol_list：协议列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct objc_method &#123;</span><br><span class="line">    SEL _Nonnull method_name                                 OBJC2_UNAVAILABLE;</span><br><span class="line">    char * _Nullable method_types                            OBJC2_UNAVAILABLE;</span><br><span class="line">    IMP _Nonnull method_imp                                  OBJC2_UNAVAILABLE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例方法列表中保存的都是objc_method</p>
+<h1 id="分析实例方法"><a href="#分析实例方法" class="headerlink" title="分析实例方法"></a>分析实例方法</h1><p>method_name：方法名称<br>method_types：方法的参数和返回值类型<br>method_imp：方法实现。<br>到目前我们已经看到我们需要的IMP</p>
+<p>那么runtime到底是如何工作的啦。</p>
+<p>1.根据class_getMethodImplementation的第一个参数确定对象类。<br>2.然后根据第二个参数开始进行查找类方法列表和实例方法列表（方法类型）<br>3.遍历实例方法列表寻找与传入的method_name相等的方法，如果找到就返回该方法的实现<br>4.如果没找到就查找父类的方法列表和元类的方法列表，知道查找到根类和根元类的方法列表。如果还没有找到就抛出异常，否则返回。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/优化内存泄漏的几点分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/优化内存泄漏的几点分析/" itemprop="url">内存优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="内存优化的几点分析"><a href="#内存优化的几点分析" class="headerlink" title="内存优化的几点分析:"></a>内存优化的几点分析:</h1><ul>
+<li>CoreFoundation的内存管理</li>
+<li>block的循环引用</li>
+<li>在for循环大量数据,不断创建局部变量的几点思考</li>
+<li>mrc的基础问题</li>
+<li>第三方框架中的内存问题</li>
+</ul>
+<h2 id="CoreFoundation的内存管理"><a href="#CoreFoundation的内存管理" class="headerlink" title="CoreFoundation的内存管理"></a>CoreFoundation的内存管理</h2><p>在编程过程中我们会多次使用CoreFoundation的API,例如CFStringRef,CFArray,CFUUIDRef等。当遇到这些某些关键字的时候我们要时刻注意内存管理方面的问题了。例如alloc,create,copy,mutableCopy,CFRetain等关键字。当遇到这些关键字时，我们就要手动去管理内存了。释放内存的原则还是与手动引用计数相似，</p>
+<ul>
+<li>需要引用时，引用计数+1，不需要引用时，引用计数-1</li>
+<li>谁创建，谁release</li>
+<li>谁retain，谁release</li>
+<li>只要调用了alloc,必须要有realease(autorelease)<br>example:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CFUUIDRef uuid = CFUUIDCreate(NULL);</span><br><span class="line">appUID = (NSString *)CFUUIDCreateString(NULL,uuid);</span><br><span class="line">CFRelease(uuid);</span><br><span class="line">CFRelease(appUID);</span><br></pre></td></tr></table></figure>
+<h2 id="block的循环引用问题"><a href="#block的循环引用问题" class="headerlink" title="block的循环引用问题"></a>block的循环引用问题</h2><p>循环引用问题的现象就是在内存管理方面形成了闭环，互相强引用了对方，导致在内存释放时，都无法得到释放，所以导致了该现象的发生。<br>解决办法：就是打破闭环，在某一端的引用问题上实现弱引用，这也就是我们在代码中常见的strongSelf和weakSelf的使用。<br>for example<br>实例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)case1 &#123;</span><br><span class="line">NSLog(@&quot;case 1 Click&quot;);</span><br><span class="line">  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">      self.name = @&quot;case 1&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种情况是不会造成内存泄漏原因就是：在block中内部引用了slef，但是self并没有引用block<br>在系统API的block中不会出现循环引用的问题，这样的API还有UIView的动画block，GCD等。<br>实例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)case2 &#123;</span><br><span class="line">  NSLog(@&quot;case 2 Click&quot;);</span><br><span class="line">  __weaktypeof(self) weakSelf = self;</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      typeof(weakSelf) strongSelf = weakSelf;</span><br><span class="line">      strongSelf.name = @&quot;case 2&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种就是我们常见的循环引用问题self持有了requestData这个block，在block中又引用了self，形成了一个闭环，使用weakself来打破闭环，解除循环引用。但是为了避免在block执行过程中self过早释放的问题，在block中又将weakself进行了强制引用。当self释放时，block还能够继续执行，当block执行结束后会对强引用的self进行释放。<br>实例3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case4 &#123;</span><br><span class="line">  NSLog(@&quot;case 4 Click&quot;);</span><br><span class="line">  [self.teacher requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 4&quot;;</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不存在循环引用，因为在block执行结束后，block主动释放了持有者，在很多框架设计的时候都有这种设计。还有一种设计思想来自猿题库的网络框架设计<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a>就是在block执行结束后，将block置nil。<br>实例4：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)case5 &#123;</span><br><span class="line">  NSLog(@&quot;case 5 Click&quot;);</span><br><span class="line">  Teacher *t = [[Teacher alloc] init];</span><br><span class="line">  [t requestData:^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 5&quot;;</span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不存在循环引用，因为局部变量持有的block，在这个case5方法内部有效，出了大括号局部变量就会释放。</p>
+<p>实例5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)case6 &#123;</span><br><span class="line">  NSLog(@&quot;case 6 Click&quot;);</span><br><span class="line">  [self.teacher callCase6BlackEvent];</span><br><span class="line">  self.teacher.case6Block = ^(NSData *data) &#123;</span><br><span class="line">      self.name = @&quot;case 6&quot;;</span><br><span class="line">  //下面两句代码任选其一</span><br><span class="line">      self.teacher = nil;</span><br><span class="line">  //  self.teacher.case6Block = nil;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在block执行结束后置nil操作，解决内存泄漏问题</p>
+<h2 id="for循环大量数据时，不断创建局部变量的思考"><a href="#for循环大量数据时，不断创建局部变量的思考" class="headerlink" title="for循环大量数据时，不断创建局部变量的思考"></a>for循环大量数据时，不断创建局部变量的思考</h2><p>在使用for循环大量数据并创建大量局部变量时内存会飙升，有兴趣的同学可以试试，从10000次-到10万次看一下内存的增长速度。<br>conclusion：在for循环大量数据并不断创建局部变量时，不适用@autorelasepool，临时变量的内存增长可能是爆发式的。但是当使用@autoreleasepool后，在每个@autoreleasepool结束时，局部变量都会被回收，内存使用更加合理。</p>
+<h2 id="mrc的基础"><a href="#mrc的基础" class="headerlink" title="mrc的基础"></a>mrc的基础</h2><p>虽然现在已经有arc帮助我们管理内存，但是做为一个开发者，理解内存管理是基础。所以在iOS开发中我们要牢记mrc的基本原则：</p>
+<ul>
+<li>需要引用时，引用计数+1，不需要引用时，引用计数-1 （reatin-&gt;release）</li>
+<li>谁创建，谁release (alloc-&gt;release）</li>
+<li>谁retain，谁release (retain-&gt;release)</li>
+<li>只要调用了alloc,必须要有realease(autorelease) (alloc-&gt;release(autorelease))</li>
+</ul>
+<h2 id="关于第三方出现的循环引用问题"><a href="#关于第三方出现的循环引用问题" class="headerlink" title="关于第三方出现的循环引用问题"></a>关于第三方出现的循环引用问题</h2><p>我们项目中网络请求库用的AFN，但是由于在实例化AFHTTPSessionManager中，当并行多个请求时会创建多个manager，当使用leaks查看内存问题时看到AFN代码中这行代码中的init方法会出现内存泄漏。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br></pre></td></tr></table></figure></p>
+<p>解决办法：采用单例的方式创建。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/内存分配和内存区块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -931,7 +772,7 @@ UIView.animate(withDuration: animationInterval, animations: {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
                 2018-10-12
@@ -1064,7 +905,7 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/instrument的使用/">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/多线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -1083,7 +924,7 @@ UIView.animate(withDuration: animationInterval, animations: {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/instrument的使用/" itemprop="url">instrument使用</a></h1>
+                <a class="post-title-link" href="/2018/10/12/多线程/" itemprop="url">多线程</a></h1>
         
 
         <div class="post-meta">
@@ -1093,7 +934,7 @@ UIView.animate(withDuration: animationInterval, animations: {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
                 2018-10-12
@@ -1118,8 +959,8 @@ UIView.animate(withDuration: animationInterval, animations: {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1155,7 +996,27 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            
+            <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><p>1.你理解的多线程：<br>2.多线程的多种实现方式：<br>3.你更倾向使用哪种？</p>
+<h1 id="pthread-（C）"><a href="#pthread-（C）" class="headerlink" title="pthread （C）"></a>pthread （C）</h1><p>pthread是一套基于c语言的多线程解决方案。使用与多个平台，linux，unix，windows。是一套跨平台的多线程解决方案。但是由于使用难度，在开发过程中很少使用到。</p>
+<h1 id="NSThread-OC"><a href="#NSThread-OC" class="headerlink" title="NSThread (OC)"></a>NSThread (OC)</h1><p>NSThread是苹果开发的一种多线程解决方案，基于面向对象的思想，使用OC语言开发。使用难度小。但唯一的不足就是程序员必须管理线程的生命周期。</p>
+<h1 id="GCD-C"><a href="#GCD-C" class="headerlink" title="GCD (C)"></a>GCD (C)</h1><p>GCD旨在减少程序员管理内存问题。有点事API清晰简单，使用起来简单顺手。而且线程由线程池管理。使得程序员只需要关注提交到线程中的任务。</p>
+<h1 id="NSOperation-OC"><a href="#NSOperation-OC" class="headerlink" title="NSOperation (OC)"></a>NSOperation (OC)</h1><p>NSOperation是基于GCD封装的一套API。使用面向对象的设计原则，比GCD多了一些简单使用的功能，暂停，取消等，使用起来更加方便.生命周期也是系统管理。</p>
+<h1 id="多线程原理"><a href="#多线程原理" class="headerlink" title="多线程原理"></a>多线程原理</h1><p>在单核处理器时代，我们所说的多线程技术就是CPU在线程之间来回切换。<br>1.提交多个任务，为每个任务开辟线程和获取资源。<br>2.CPU首先执行任务a，执行一段时间后，记录任务a，然后去执行任务b，执行一段时间后，又去执行任务c。最后又去执行任务a。在多个任务键来回切换。<br>3。如果CPU的切换足够快，我们就会看到多线程并发的假象。</p>
+<p>总结：开辟的线程越多，CPU的工作量就越大，耗费的系统资源就越多，每个任务被执行的时间效率降低。</p>
+<p>多线程的优点：<br>1.能够充分利用系统资源的使用效率。<br>2.提高程序的执行效率</p>
+<h1 id="请说出你最优的选择"><a href="#请说出你最优的选择" class="headerlink" title="请说出你最优的选择"></a>请说出你最优的选择</h1><p>首先我们应该排除Pthread和NSthread，使用难度和线程生命周期管理的原因。（他们只能作为备胎，而不能作为首选）</p>
+<p>GCD 它的使用更加轻量，API简单，但是功能没有NSOperation完备。程序员只关注向block中提交任务。但是想暂停和取消任务就比较难。而且设置线程依赖也要写非常多的代码。所以对于功能简单和任务明确的小项目适合使用GCD。</p>
+<p>NSOperation 是对GCD的一套抽象封装。增加了不少的功能。而且开发者还可以继承NSOperation完成自己特质的需求。通过NSOperationQueue可以快捷方便的设置线程依赖关系。支持取消，暂停等功能。还可以设置线程的优先级。适合复杂功能和项目的开发。</p>
+<h1 id="同步与异步-串行与并发"><a href="#同步与异步-串行与并发" class="headerlink" title="同步与异步,串行与并发"></a>同步与异步,串行与并发</h1><p>同步和异步:决定是否开辟新的线程</p>
+<p>串行和并发:决定是否同时执行任务</p>
+<p>同步:不会开辟新的线程,异步会开辟新的线程</p>
+<p>并发:会同时执行多个任务</p>
+<p>串行:每次执行一个任务,先进先出</p>
+<h1 id="优秀博文篇"><a href="#优秀博文篇" class="headerlink" title="优秀博文篇"></a>优秀博文篇</h1><p><a href="https://www.jianshu.com/p/4a798bacfff8" target="_blank" rel="noopener">多线程基础</a></p>
+<p><a href="https://objccn.io/issue-2-1/#challenges" target="_blank" rel="noopener">并发编程：API及挑战</a></p>
+<p><a href="https://objccn.io/issues/" target="_blank" rel="noopener">并发编程</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>当前开发中多线程的使用和理解非常重要。但是在并发编程中会遇到各种问题，例如优先级翻转、死锁、线程竞争资源等。所以我们应该在并发编程中考虑周全，并需要完成大量的测试。保证系统资源的正常使用。</p>
+
           
         
       
@@ -1203,7 +1064,148 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/面试总结/">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/红海行动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vicky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vicky的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/红海行动/" itemprop="url">红海行动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>作为一名开发者，我喜欢红海行动中的一段话。<br>我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。</p>
+<p>作为一名观众，我喜欢红海行动。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/面试总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -1232,7 +1234,7 @@ UIView.animate(withDuration: animationInterval, animations: {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
                 2018-10-12
@@ -1347,7 +1349,7 @@ UIView.animate(withDuration: animationInterval, animations: {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://devvk.com/2018/10/12/红海行动/">
+    <link itemprop="mainEntityOfPage" href="https://www.devvk.com/2018/10/12/Xcode之Architectures设置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicky">
@@ -1366,7 +1368,7 @@ UIView.animate(withDuration: animationInterval, animations: {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/12/红海行动/" itemprop="url">红海行动</a></h1>
+                <a class="post-title-link" href="/2018/10/12/Xcode之Architectures设置/" itemprop="url">Architectures</a></h1>
         
 
         <div class="post-meta">
@@ -1376,7 +1378,7 @@ UIView.animate(withDuration: animationInterval, animations: {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-12T10:22:10+08:00">
                 2018-10-12
@@ -1401,8 +1403,8 @@ UIView.animate(withDuration: animationInterval, animations: {
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日志/" itemprop="url" rel="index">
-                    <span itemprop="name">日志</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1438,8 +1440,15 @@ UIView.animate(withDuration: animationInterval, animations: {
       
         
           
-            <p>作为一名开发者，我喜欢红海行动中的一段话。<br>我经历了无数次的训练和演习，从来没有像这样害怕过。喜欢这句的原因在于，没有实战的特种兵也不是像他们口号意向“强者无敌”。在开发的过程中我们可能做过无数的练习和实践，但是真正的实战并不是这样的。因为在特定的环境下，一切的训练都会显得不够。在战争面前，训练只是增强了自救的能力，但是畏惧和信心还是需要经过实战来锻炼的。</p>
-<p>作为一名观众，我喜欢红海行动。</p>
+            <h1 id="Xcode设置项之Architectures和Valid-Architectures"><a href="#Xcode设置项之Architectures和Valid-Architectures" class="headerlink" title="Xcode设置项之Architectures和Valid Architectures"></a>Xcode设置项之Architectures和Valid Architectures</h1><p>为什么会聊到这个话题,我今天早上刚到公司,说我们App晚上要发版,但是我周六对电脑的Xcode中的缓存文件进行了大规模的清理.然后打开项目跑代码的时候,发现怎么运行不起来了,一直报错library not found for -lafnetworking<br>然后我开始不断的尝试各种方法,最终还是没有解决,大约在14年左右吧,这个项目当时还是使用cocoapods的,最后经过岁月的摧残,当我拿到项目的时候,交接的人说cocoapods不能用,我当时心里就感觉到,这他妈要凉啊.那我导入第三方还要手动拖进去,这也太尴尬了吧.最后我实在忍不住了,就执行了pod install,然后应用程序就有问题了,找到问题-&gt;修改问题-&gt;测试-&gt;成功-&gt;倍儿爽!.但是这次我不知道为什么前几天还好好的工程,为什么在我删除Xcode的一些过大文件后就报错了啦.原因目前可能是将某个配置文件删除了,重新编译的过程中,使用了一个有问题的编译配置.知道是配置的问题,那就开始找问题,我找到以前的代码对比配置,尤其是pod的配置,因为错误很明显afnetworking.我发现在Build Active Architecture only这里以前Debug和Release都是No,但是现在却是Yes,当我改成No之后编译就成功了,虽然可能会在调试的时候编译会慢,但是问题还得慢慢找,先解决发版在说.虽然很懵逼,但是很开心.终于可以赶上发版了.要是出问题了,就又得加班了,关键是这个周末我没有休息,来公司做其他项目了.眼睛也不知道为什么会肿.所以看到问题就很难受.言归正传</p>
+<p>介绍上面的两个名词</p>
+<h1 id="Valid-Architectures"><a href="#Valid-Architectures" class="headerlink" title="Valid Architectures"></a>Valid Architectures</h1><p>您的App需要支持的指令集,最终生成的二进制文件所支持的指令集</p>
+<p>如果你设置Valid Architectures支出armv7/armv7s/arm64,<br>Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。<br>到底armv7什么含义可以自己去看一下,简单的理解就是arm处理器的指令集,也就是你支持设备版本.</p>
+<h1 id="Build-Active-Architecture-Only"><a href="#Build-Active-Architecture-Only" class="headerlink" title="Build Active Architecture Only"></a>Build Active Architecture Only</h1><p>该编译项用于设置是否只编译当前使用的设备对应的arm指令集。<br>就是你用什么设备调试,就是用对应的指令集去进行编译.<br>当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包.<br>当选择NO,那就是你设置了几种,它就会编译几种,最终产生的二进制文件较大,而且编译过程会慢.</p>
+<h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ul>
+<li>指令集都是可以向下兼容的</li>
+</ul>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>如果你想较小包的大小,就可以设置这个来减少编译不同指令的包.</p>
 
           
         
@@ -1526,7 +1535,7 @@ UIView.animate(withDuration: animationInterval, animations: {
                 <a href="/archives/">
               
                   <span class="site-state-item-count">38</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">articles</span>
                 </a>
               </div>
             
